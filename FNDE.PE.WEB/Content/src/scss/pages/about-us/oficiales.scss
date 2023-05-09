@@ -1,0 +1,77 @@
+﻿@import "../../abstracts/variables";
+@import "../../abstracts/mixins";
+@import "../../layout/variables";
+
+$f--oficiales-body-margin: 50px;
+
+.f-section-oficiales {
+
+    .collapsible {
+        background-color: $f--secondary-color;
+        color: white;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 1.42rem;
+
+        &--child {
+            background-color: $f--primary-color;
+            font-size: 1rem;
+        }
+    }
+
+    .content {
+        padding: 0 50px 0 50px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        background-color: whitesmoke;
+
+        &--child {
+            padding: 0 18px;
+        }
+    }
+
+    ul {
+        padding-left: 15px;
+    }
+
+    margin: {
+        top: $f--oficiales-body-margin;
+        bottom: $f--oficiales-body-margin;
+    }
+
+    @include flexbox();
+    @include flexbox-direction(column);
+    @include flexbox-justify-content(space-between);
+
+    @include desktop {
+        @include flexbox-direction(column);
+    }
+
+    &__information {
+        width: 100%;
+
+        @include desktop {
+            width: 35%;
+        }
+
+        ul {
+            padding-left: 15px;
+        }
+
+        &-title-primanry {
+            text-align: center;
+            color: $f--primary-color;
+            font-weight: bold;
+        }
+
+        &-title-secondary {
+            text-align: center;
+            font-weight: bold;
+        }
+    }
+}

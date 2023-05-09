@@ -1,0 +1,100 @@
+//
+//  DISCIPLINE FILE
+//
+
+.cover-image(@filename) {
+  background: url("@{images}/@{filename}");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.b1 {
+  .cover-image("main.jpg");
+}
+.b2 {
+  .cover-image("main2.jpg");
+}
+.b3 {
+  .cover-image("main2.jpg");
+}
+.b4 {
+  .cover-image("main3.jpg");
+}
+.center {
+  position: absolute;
+}
+.tip {
+  color: #ffffff;
+  position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background: rgba(0,0,0,0.5);
+  > h1 {
+    text-transform: uppercase;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    width: 100%;
+    height: 100%;
+  }
+}
+.gallery {
+  width: 60%;
+  box-sizing: border-box;
+  padding-top: 14vh;
+  margin-left: 30vw;
+  position: absolute;
+  left: 0;
+  .slide {
+    height: 80vh;
+    width: 38vw;
+    box-sizing: border-box;
+  }
+}
+
+#label1:hover > #tip1, 
+#label2:hover > #tip2,
+#label3:hover > #tip3,
+#label4:hover > #tip4 {
+   display:table;
+}
+
+.container {
+  width: 30vw;
+  height: 100vh;
+  position: absolute;
+}
+
+.left-panel {
+  height: 100vh;
+  width: 30vw;
+  box-sizing: border-box;
+  .section-header {
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-left: 10vh;
+    margin-top: 26vh;
+    position: absolute;
+  }
+
+  #info {
+    margin-top: 56vh;
+    h2 {
+      text-transform: uppercase;
+    }
+  }
+}
+
+.static-margin-40 {
+  margin-top: 38%;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}

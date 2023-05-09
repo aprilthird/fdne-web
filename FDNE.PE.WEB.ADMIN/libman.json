@@ -1,0 +1,194 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "defaultDestination": "Content",
+  "libraries": [
+    {
+      "provider": "cdnjs",
+      "library": "Ladda@1.0.6",
+      "destination": "Content/vendors/ladda/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "limonte-sweetalert2@7.33.1",
+      "destination": "Content/vendors/sweetalert2/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "jquery.blockUI@2.70",
+      "destination": "Content/vendors/jquery.blockUI/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "datatables@1.10.19",
+      "destination": "Content/vendors/datatables/",
+      "files": [
+        "js/jquery.dataTables.min.js",
+        "js/jquery.dataTables.js",
+        "js/dataTables.dataTables.min.js",
+        "js/dataTables.dataTables.js",
+        "js/dataTables.bootstrap4.min.js",
+        "js/dataTables.bootstrap4.js",
+        "images/sort_desc_disabled.png",
+        "images/sort_desc.png",
+        "images/sort_both.png",
+        "images/sort_asc_disabled.png",
+        "images/sort_asc.png",
+        "css/jquery.dataTables_themeroller.css",
+        "css/jquery.dataTables.min.css",
+        "css/jquery.dataTables.css",
+        "css/dataTables.bootstrap4.min.css",
+        "css/dataTables.bootstrap4.css"
+      ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "jquery-validate@1.19.0",
+      "destination": "Content/vendors/jquery-validate/",
+      "files": [
+        "jquery.validate.min.js",
+        "jquery.validate.js",
+        "additional-methods.min.js",
+        "additional-methods.js",
+        "localization/messages_es_PE.min.js",
+        "localization/messages_es_PE.js",
+        "localization/messages_es.min.js",
+        "localization/messages_es.js"
+      ]
+    },
+    {
+      "provider": "unpkg",
+      "library": "pug@2.0.3",
+      "destination": "Content/vendors/pug/",
+      "files": [
+        "lib/index.js"
+      ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "require.js@2.3.6",
+      "destination": "Content/vendors/require.js/"
+    },
+    {
+      "provider": "unpkg",
+      "library": "page@1.11.4",
+      "destination": "Content/vendors/page/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "summernote@0.8.11",
+      "destination": "Content/vendors/summernote/",
+      "files": [
+        "summernote-bs4.css",
+        "summernote-bs4.js",
+        "summernote-bs4.js.map",
+        "summernote-bs4.min.js",
+        "summernote-lite.css",
+        "summernote-lite.js",
+        "summernote-lite.js.map",
+        "summernote-lite.min.js",
+        "summernote-lite.min.js.map",
+        "summernote.css",
+        "summernote.js",
+        "summernote.js.map",
+        "summernote.min.js",
+        "font/summernote.eot",
+        "font/summernote.ttf",
+        "font/summernote.woff",
+        "plugin/databasic/summernote-ext-databasic.css",
+        "plugin/databasic/summernote-ext-databasic.js",
+        "plugin/databasic/summernote-ext-databasic.min.css",
+        "plugin/databasic/summernote-ext-databasic.min.css.map",
+        "plugin/databasic/summernote-ext-databasic.min.js",
+        "plugin/databasic/summernote-ext-databasic.min.js.map",
+        "plugin/hello/summernote-ext-hello.js",
+        "plugin/hello/summernote-ext-hello.min.js",
+        "plugin/hello/summernote-ext-hello.min.js.map",
+        "plugin/specialchars/summernote-ext-specialchars.js",
+        "plugin/specialchars/summernote-ext-specialchars.min.js",
+        "plugin/specialchars/summernote-ext-specialchars.min.js.map",
+        "lang/summernote-es-ES.js",
+        "lang/summernote-es-ES.min.js"
+      ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "select2@4.0.7",
+      "destination": "Content/vendors/select2/",
+      "files": [
+        "js/select2.min.js",
+        "css/select2.css",
+        "css/select2.min.css",
+        "js/select2.js",
+        "js/select2.full.min.js",
+        "js/select2.full.js",
+        "js/i18n/es.js"
+      ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "bootstrap-datepicker@1.8.0",
+      "destination": "Content/vendors/bootstrap-datepicker/",
+      "files": [
+        "js/bootstrap-datepicker.min.js",
+        "css/bootstrap-datepicker.min.css",
+        "css/bootstrap-datepicker.css.map",
+        "css/bootstrap-datepicker.standalone.css",
+        "css/bootstrap-datepicker.standalone.css.map",
+        "css/bootstrap-datepicker.standalone.min.css",
+        "css/bootstrap-datepicker.css",
+        "js/bootstrap-datepicker.js",
+        "locales/bootstrap-datepicker.es.min.js",
+        "css/bootstrap-datepicker3.css",
+        "css/bootstrap-datepicker3.css.map",
+        "css/bootstrap-datepicker3.min.css",
+        "css/bootstrap-datepicker3.standalone.css",
+        "css/bootstrap-datepicker3.standalone.css.map",
+        "css/bootstrap-datepicker3.standalone.min.css"
+      ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "toastr.js@2.1.4",
+      "destination": "Content/vendors/toastr.js/",
+      "files": [
+        "toastr.min.js",
+        "toastr.css",
+        "toastr.js.map",
+        "toastr.min.css"
+      ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "jquery-easing@1.4.1",
+      "destination": "Content/vendors/jquery-easing/"
+    },
+    {
+      "library": "particles.js@2.0.0",
+      "destination": "Content/vendors/particles.js/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "fullcalendar@3.10.0",
+      "destination": "Content/vendors/fullcalendar/",
+      "files": [
+        "fullcalendar.min.js",
+        "fullcalendar.js",
+        "fullcalendar.css",
+        "fullcalendar.min.css",
+        "fullcalendar.print.css",
+        "fullcalendar.print.min.css",
+        "gcal.js",
+        "gcal.min.js",
+        "locale-all.js",
+        "locale/es.js"
+      ]
+    }
+  ,
+{
+  "provider": "cdnjs",
+  "library": "moment.js@2.24.0",
+  "destination": "Content/vendors/moment.js/"
+}
+]
+}

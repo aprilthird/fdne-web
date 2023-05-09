@@ -1,0 +1,43 @@
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check section inhetirance */
+@media (min-width: 1025px) {
+  .sectionsInver {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: flex;
+    -ms-flex-direction: row-reverse;
+    -moz-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    -webkit-flex-direction: row-reverse; } }
+
+@media (min-width: 1025px) {
+  .f-section-events__Fcarousel {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: flex;
+    -ms-flex-direction: column;
+    -moz-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    padding: 50px 50px 0 50px; }
+    .f-section-events__Fcarousel .f-section-events__Fcarousel-cell {
+      margin-bottom: 20px; } }
+
+@media (max-width: 768px) {
+  body {
+    background: linear-gradient(90deg, #131313 50%, #131313 60%); } }

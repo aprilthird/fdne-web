@@ -1,0 +1,23 @@
+﻿@model FNDE.PE.WEB.PORTAL.ViewModels.AboutUsViewModels.GuideLinesViewModel
+@{
+    ViewBag.Title = "PautasTemporada";
+    Layout = "~/Views/Shared/_LayoutBackground.cshtml";
+}
+
+@section Styles {
+    <link href="~/Content/dist/css/pages/about-us/pautas.css" rel="stylesheet" />
+}
+<main>
+    <section class="f-section f-section__content f-section-background f-section--dark">
+        <div class="f-section-background__image rellax" data-rellax-speed="-7">
+            <img src="@Model.ImageUrl"/>
+        </div>
+        <div class="f-section-background__title f-container">
+            <h1>PAUTAS</h1>
+        </div>
+    </section>
+    <section class="f-section f-container f-section-pautas">
+ @Html.Raw(Model.Body)
+    </section>
+</main>
+

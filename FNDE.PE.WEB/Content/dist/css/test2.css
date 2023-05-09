@@ -1,0 +1,7 @@
+.menu {
+  font-size: 2rem; }
+  .menu-nav {
+    display: flex; }
+  .menu-logo {
+    width: 50%;
+    height: auto; }

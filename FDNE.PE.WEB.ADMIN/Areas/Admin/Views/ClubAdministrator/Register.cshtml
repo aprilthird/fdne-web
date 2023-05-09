@@ -1,0 +1,49 @@
+﻿@model FDNE.PE.WEB.ADMIN.Dtos.ClubAdministratorDto
+
+@{
+    ViewBag.Title = "Administrador de Club";
+    ViewBag.SubTitle = "Ficha de Afiliación como Administrador de Club";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<div id="particles-js" class="particles-background"></div>
+<div class="container">
+    <div class="animated fadeIn">
+        <div class="alert alert-success" role="alert" style="display:none;">
+            <h4 class="alert-heading">Bienvenido!</h4>
+            <p>Tus datos han sido guardados correctamente.</p>
+            <hr>
+            <p class="mb-0">Ahora solo queda esperar a que el administrador apruebe tu cuenta y podr&aacute;s ingresar.</p>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <i class="icon-pencil icons font-2xl"></i> @ViewBag.SubTitle
+            </div>
+            <form id="add_form" class="form-horizontal" method="post">
+                <div class="card-body">
+                    <div id="error_alert" class="alert alert-danger alert-dismissible fade d-none" role="alert">
+                        <span id="error_alert_text"></span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    @Html.Partial("_Fields")
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <a class="btn btn-secondary" href="@Url.Action("Login", "Account", new { area = "" })">
+                        <i class="fa fa-arrow-left"></i>&emsp;Regresar
+                    </a>
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fa fa-save"></i>&emsp;Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="@Url.Content("~/Content/js/areas/admin/club-administrator/register.js")"></script>
+
+}

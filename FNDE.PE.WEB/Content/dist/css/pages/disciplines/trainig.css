@@ -1,0 +1,230 @@
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check section inhetirance */
+.f-training__body-content {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  -ms-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  background-color: white; }
+  @media (min-width: 1025px) {
+    .f-training__body-content {
+      -ms-flex-direction: row-reverse;
+      -moz-flex-direction: row-reverse;
+      flex-direction: row-reverse;
+      -webkit-flex-direction: row-reverse;
+      max-width: 1180px;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      -webkit-justify-content: space-between;
+      -moz-justify-content: space-between;
+      -ms-justify-content: space-between;
+      justify-content: space-between; } }
+
+.f-training__cards-content {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  -ms-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-direction: column; }
+  @media (min-width: 1025px) {
+    .f-training__cards-content {
+      -ms-flex-direction: row;
+      -moz-flex-direction: row;
+      flex-direction: row;
+      -webkit-flex-direction: row; } }
+
+.f-training .card-content {
+  position: relative;
+  margin-top: 25px;
+  transition: all 0.5s ease; }
+  @media (min-width: 1025px) {
+    .f-training .card-content {
+      margin-right: 20px;
+      margin-top: 35px; } }
+  .f-training .card-content:hover {
+    box-shadow: 0 0 0 3px #e0311e !important; }
+  .f-training .card-content img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    max-height: 329px; }
+    @media (min-width: 1025px) {
+      .f-training .card-content img {
+        max-height: 315px;
+        max-width: 280px; } }
+
+.f-training .multimedia {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: hidden; }
+
+.f-training .container {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-size: 0.75em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: white;
+  padding: 15px 0; }
+
+.f-training .tab {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  -ms-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  justify-content: flex-start; }
+  @media (min-width: 1025px) {
+    .f-training .tab {
+      margin: 50px 50px 0 50px; } }
+  .f-training .tab button {
+    margin-bottom: 15px;
+    font-size: 13px; }
+    @media (min-width: 1025px) {
+      .f-training .tab button {
+        font-size: 23px; } }
+
+.f-training .sub-tab {
+  display: none;
+  margin-bottom: 15px;
+  margin-right: 35px;
+  margin-left: 35px; }
+  @media (min-width: 1025px) {
+    .f-training .sub-tab {
+      display: -webkit-box;
+      /* OLD - iOS 6-, Safari 3.1-6 */
+      display: -moz-box;
+      /* OLD - Firefox 19- (buggy but mostly works) */
+      display: -ms-flexbox;
+      /* TWEENER - IE 10 */
+      display: -webkit-flex;
+      /* NEW - Chrome */
+      display: flex;
+      -ms-flex-direction: row;
+      -moz-flex-direction: row;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      -webkit-justify-content: space-around;
+      -moz-justify-content: space-around;
+      -ms-justify-content: space-around;
+      justify-content: space-around; } }
+
+@media (min-width: 1025px) {
+  .f-training .sub-tab-mobile {
+    display: none; } }
+
+.f-training .sub-tab-mobile .tablinks {
+  margin-left: 10px;
+  font-weight: bold;
+  color: #131313; }
+
+.f-training .sub-tab-mobile .active {
+  color: #e0311e; }
+
+.f-training .f-section-new-detail {
+  -webkit-box-ordinal-group: 1;
+  -moz-box-ordinal-group: 1;
+  -ms-flex-order: 1;
+  -webkit-order: 1;
+  order: 1; }
+  @media (min-width: 1025px) {
+    .f-training .f-section-new-detail {
+      -webkit-box-ordinal-group: 2;
+      -moz-box-ordinal-group: 2;
+      -ms-flex-order: 2;
+      -webkit-order: 2;
+      order: 2; } }
+
+.f-training .tabs-mobile {
+  margin-top: -25px;
+  -webkit-box-ordinal-group: 2;
+  -moz-box-ordinal-group: 2;
+  -ms-flex-order: 2;
+  -webkit-order: 2;
+  order: 2; }
+  @media (min-width: 1025px) {
+    .f-training .tabs-mobile {
+      -webkit-box-ordinal-group: 1;
+      -moz-box-ordinal-group: 1;
+      -ms-flex-order: 1;
+      -webkit-order: 1;
+      order: 1; } }
+
+.f-list {
+  margin-left: 20px; }
+  .f-list h2 {
+    margin-bottom: 10px; }
+    @media (min-width: 1025px) {
+      .f-list h2 {
+        margin-left: -20px; } }
+  .f-list a {
+    text-decoration: none;
+    color: #131313; }
+    .f-list a:hover {
+      color: #e0311e; }
+
+@media (min-width: 1025px) {
+  .f-section-p {
+    font-size: 20px; } }
+
+@media (min-width: 1025px) {
+  f-section-static-20 {
+    width: 20% !important; } }
+
+f-section-static-80 {
+  width: 100%; }
+  @media (min-width: 1025px) {
+    f-section-static-80 {
+      width: 80% !important;
+      height: 400px; } }
+
+.grid.effect-4 {
+  perspective: 1300px; }
+
+.grid.effect-4 li {
+  transform-style: preserve-3d; }
+
+.grid.effect-4 li.animate {
+  transform: translateZ(400px) translateY(300px) rotateX(-90deg);
+  animation: fallPerspective .8s ease-in-out forwards; }
+
+@keyframes fallPerspective {
+  100% {
+    transform: translateZ(0px) translateY(0px) rotateX(0deg);
+    opacity: 1; } }

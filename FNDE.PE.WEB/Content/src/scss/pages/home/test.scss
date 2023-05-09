@@ -1,0 +1,16 @@
+﻿
+$color1: #b6ff00;
+$color3: #00ff90;
+
+.test-section {
+    height: 100vh;
+    width: 100vw;
+
+    $root: &;
+
+    &--title {
+        #{$root}--icon {
+            color: $color3;
+        }
+    }
+}

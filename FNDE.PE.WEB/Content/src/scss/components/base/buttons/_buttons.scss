@@ -1,0 +1,159 @@
+﻿@import "../../../abstracts/variables";
+@import "../../../abstracts/mixins";
+@import "../../../abstracts/functions";
+
+$f-pill-radius: 60px;
+$f-btn--padding-y: .84rem;
+$f-btn--padding-x: 2.14rem;
+$f-btn--line-height: 1.25; 
+
+$f-btn--padding: (
+    xs: (
+        y: .125rem,
+        x: .25rem
+    ),
+    sm: (
+        y: .25rem,
+        x: .5rem
+    ),
+    md: (
+        y: .367rem,
+        x: .75rem
+    ),
+    lg: (
+        y: .5rem,
+        x: 1rem  
+    ),
+    xl: (
+        y: .625rem,
+        x: 1.25rem
+    )
+);
+
+// Base Button
+.f-btn {
+    box-shadow: none !important;
+    border: 1px transparent;
+    padding: array-get($f-btn--padding, md, y) array-get($f-btn--padding, md, x);
+    line-height: $f-btn--line-height;
+    display: inline-block;
+    outline: none !important;
+    -webkit-appearance: button;
+    -webkit-font-smoothing: antialiased;
+    white-space: nowrap;
+    vertical-align: middle;
+    @include border-radius(0.25rem);
+    @include transition(color 0.15s ease-in-out background-color 0.15s ease-in-out background 0.15s ease-in-out border-color 0.15s ease-in-out box-shadow 0.15s ease-in-out);
+    $root: &;
+
+    @each $label, $map in $f-btn--padding {
+        &--#{$label} {
+            padding: map-get($map, y) map-get($map, x);
+        }
+    }
+
+    &--responsive {
+        padding: array-get($f-btn--padding, sm, y) array-get($f-btn--padding, sm, x);
+
+        @include tablet {
+            padding: array-get($f-btn--padding, md, y) array-get($f-btn--padding, md, x);
+        }
+
+        @include desktop {
+            padding: array-get($f-btn--padding, lg, y) array-get($f-btn--padding, lg, x);
+        }
+    }
+    // Color Buttons
+    @each $name, $color in $f--state-colors {
+        &.f-btn--label-#{$name} {
+            color: array-get($color, base);
+        }
+
+        &--#{$name} {
+            background-color: array-get($color, base);
+            color: array-get($color, inverse);
+
+            &:not(:disabled):not(.disabled):hover {
+                background-color: darken(array-get($color, base), 10%);
+            }
+        }
+    }
+
+    &--block {
+        width: 100%;
+    }
+    // Outline Buttons
+    &--outline {
+        @each $name, $color in $f--state-colors {
+            #{$root}--#{$name} {
+                border-color: array-get($color, base);
+                background-color: transparent;
+                color: array-get($color, base);
+
+                &:not(:disabled):not(.disabled):hover {
+                    border-color: transparent;
+                    background-color: array-get($color, base);
+                    color: array-get($color, inverse);
+                }
+            }
+        }
+    }
+    // pill style
+    &--pill {
+        @include border-radius($f-pill-radius);
+    }
+    // square style
+    &--square {
+        @include border-radius(0, "!important");
+    }
+    // icon
+    > i {
+        line-height: 0;
+        vertical-align: middle;
+    }
+    // remove button default focus shadow
+    &:hover,
+    &.active,
+    &:focus {
+        box-shadow: none;
+    }
+    // force cursor: pointer for button tags
+    @if ($f--btn-force-hover-pointer == true) {
+        cursor: pointer;
+    }
+    // secondary button air style
+    &.f-btn--air.btn-secondary {
+        border-color: #ffffff !important;
+
+        &:hover {
+            border-color: #ffffff !important;
+        }
+    }
+    // custom buttons font styles
+    &.f-btn--uppercase {
+        text-transform: uppercase;
+    }
+    // button font helpers
+    &.f-btn--regular {
+        font-weight: get-font-weight(regular);
+    }
+
+    &.f-btn--bold {
+        font-weight: get-font-weight(bold);
+    }
+
+    &.f-btn--bolder {
+        font-weight: get-font-weight(bolder);
+    }
+
+    &.f-btn--boldest {
+        font-weight: get-font-weight(boldest);
+    }
+    // Button outline fix
+    button {
+        &:active,
+        &:focus {
+            outline: none !important;
+        }
+    }
+}

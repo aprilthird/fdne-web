@@ -1,0 +1,51 @@
+﻿@model FNDE.PE.WEB.PORTAL.ViewModels.ContestViewModels.FederationFEIViewModel
+
+@{
+    ViewBag.Title = "FEI";
+    Layout = "~/Views/Shared/_LayoutBackground.cshtml";
+}
+
+@section Styles {
+    <link href="~/Content/dist/css/pages/contests/fei.css" rel="stylesheet" />
+}
+
+<main>
+    <section class="f-section f-section__content f-section-background f-section--dark">
+        <div class="f-section-background__image">
+            <img src="@Model.ImageUrl" />
+        </div>
+        <div class="f-section-background__title f-container">
+            <h1>FEI CHALLENGE</h1>
+        </div>
+    </section>
+    <section class="f-section f-section-fei f-container">
+        <div class="f-section-fei__header f-section--center">
+            <div>
+                <h2 class="f-section-fei__header-title">@Model.Title</h2>
+            </div>
+            <div>
+                @Model.SubTitle
+            </div>
+            @if (!string.IsNullOrEmpty(Model.FileUrl))
+            {
+                <button onclick="window.open('@Model.FileUrl')" class="f-btn f-btn--primary f-btn--xl">REGLAMENTO FEI</button>
+            }
+        </div>
+        <div class="f-section-fei__body">
+            @Html.Raw(Model.Body)
+        </div>
+        <div class="f-section-fei__downloads">
+            <p class="f-section-fei__downloads-title">Descargables:</p>
+            <div class="f-section-fei__downloads-links">
+                @foreach (var archivo in Model.FeiFiles)
+                {
+                    if (!string.IsNullOrEmpty(archivo.UrlFile))
+                    {
+                        <button onclick="window.open('@archivo.UrlFile')" class="f-btn f-btn--primary f-btn--xl">@archivo.Name</button>
+                    }
+                }
+            </div>
+        </div>
+    </section>
+</main>
+

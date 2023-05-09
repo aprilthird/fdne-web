@@ -1,0 +1,37 @@
+﻿@model FNDE.PE.WEB.PORTAL.ViewModels.NewsViewModels.NewsDetailViewModel
+
+@{
+    ViewBag.Title = "Detalle";
+    Layout = "~/Views/Shared/_LayoutBackground.cshtml";
+}
+
+@section Styles {
+    <link href="~/Content/dist/css/pages/news/details.css" rel="stylesheet" />
+}
+
+<main>
+    <section class="f-section f-section__content f-section-background f-section--dark">
+        <div class="f-section-background__image rellax" data-rellax-speed="-7">
+            <img src="@Model.ImageUrl" />
+        </div>
+        <div class="f-section-background__title f-container">
+            <h1>NOTICIAS</h1>
+            <a href="@Url.Action("Listado", "Noticias")" class="f-section__regresar">< REGRESAR</a>
+        </div>
+    </section>
+    <section class="f-section f-container f-section-news-detail">
+        <div class="f-section-news-detail__title">
+            <h2><b>@Model.Title</b></h2>
+        </div>
+        <div class="f-section-news-detail__date">
+            <h4 class="f-text--primary">@Model.Day <span style="text-transform: uppercase;">@Model.Month</span> de @Model.Year</h4>
+        </div>
+        <div class="f-section-news-detail__image">
+            <img src="@Model.ImageUrl" />
+        </div>
+        <div class="f-section-news__body">
+            @Html.Raw(Model.Body)
+        </div>
+    </section>
+</main>
+

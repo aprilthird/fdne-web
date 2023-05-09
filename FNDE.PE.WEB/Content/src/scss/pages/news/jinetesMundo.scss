@@ -1,0 +1,60 @@
+﻿@import "../../abstracts/variables";
+@import "../../abstracts/mixins";
+@import "../../layout/variables";
+
+@import "../../vendors/flickity/extend/slider.scss";
+
+.f-jinetes {
+
+    &__carousel {
+
+        &-cell {
+            /* TODO: box sizing mixin */
+            height: 100%;
+            box-sizing: border-box;
+            width: 100%;
+            padding-left: 55px;
+            padding-right: 55px;
+            @include flexbox();
+            @include flexbox-align-items(center);
+
+            @include desktop {
+                width: 50%;
+            }
+
+            .f-section__card {
+                height: 100%;
+                box-sizing: border-box;
+                padding-top: $f--section-separation;
+                @include flexbox-flex(0 0 100%);
+
+                h5 {
+                    margin-bottom: 20px;
+                    text-align: left;
+                    padding: 0 60px;
+                    font-weight: bold;
+                }
+
+                h2 {
+                    text-align: left;
+                    padding: 0 60px;
+                    font-weight: bold
+                }
+
+                button {
+                    display: block;
+                    margin-left: 60px;
+                }
+            }
+        }
+    }
+
+    a {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-decoration: none;
+        border: none;
+        outline: none;
+    }
+}

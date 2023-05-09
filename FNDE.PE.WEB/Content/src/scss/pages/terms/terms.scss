@@ -1,0 +1,149 @@
+﻿@import "../../abstracts/variables";
+@import "../../abstracts/mixins";
+@import "../../layout/variables";
+
+@import "../../vendors/flickity/extend/slider.scss";
+
+
+h1 {
+    @include mobile {
+        font-size: 20.3px !important;
+    }
+}
+.f-terms {
+
+    @include desktop {
+        @include flexbox();
+        @include flexbox-direction(row);
+
+        padding: {
+            top: 5rem;
+            bottom: 5rem;
+        }
+    }
+
+    &__carousel {
+        background-color: $f--secondary-color;
+
+        @include desktop {
+            @include flexbox-order(2);
+        }
+
+        &:after {
+            content: 'flickity';
+            display: none;
+
+            @include desktop {
+                content: '';
+                display: block;
+            }
+        }
+
+        .flickity-prev-next-button {
+            background-color: transparent !important;
+            color: white !important;
+            opacity: 1 !important;
+            border-radius: 0 !important;
+            width: 55px !important;
+            margin: 0 !important;
+        }
+
+        &-cell {
+            box-sizing: border-box;
+            width: 100%;
+            padding-left: 55px;
+            padding-right: 55px;
+            @include flexbox();
+            @include flexbox-align-items(center);
+
+            @include desktop {
+                padding-left: 0px;
+                padding-right: 0px;
+
+                margin: {
+                    left: 50px;
+                    right: 20px;
+                }
+            }
+
+            .f-section__card {
+                height: 100%;
+                box-sizing: border-box;
+                padding-top: $f--section-separation;
+                padding-bottom: $f--section-separation;
+                background: $f--secondary-color;
+                @include flexbox-flex(0 0 100%);
+
+                @include desktop {
+                    padding-top: 1rem;
+                    padding-bottom: 1rem;
+                    box-sizing: unset;
+                }
+
+                .f-link {
+                    color: $f--primary-color;
+
+                    @include desktop {
+                        color: $f--white-color;
+
+                        margin: {
+                            top: 7px;
+                            bottom: 7px;
+                        }
+
+                        &:active {
+                            color: $f--primary-color !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__body {
+        padding: {
+            top: 2rem;
+            bottom: 2rem;
+        }
+
+        @include desktop {
+            @include flexbox-order(1);
+        }
+
+
+        &-text {
+            overflow-y: scroll;
+            height: 400px;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+            text-align: left;
+            text-justify: inter-word;
+
+            @include desktop {
+                height: 800px;
+                padding-right: 50px;
+            }
+
+            h3 {
+                color: $f--white-color;
+            }
+
+            p {
+                color: $f--white-color;
+            }
+        }
+    }
+
+    a {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-decoration: none;
+        border: none;
+        outline: none;
+    }
+}

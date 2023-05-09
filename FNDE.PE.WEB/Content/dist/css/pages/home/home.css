@@ -1,0 +1,422 @@
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check section inhetirance */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check section inhetirance */
+.main-carousel {
+  width: 100%; }
+
+.flickity-slider {
+  height: 350px !important; }
+
+.flickity-page-dots {
+  display: none; }
+
+.flickity-prev-next-button {
+  background-color: #e0311e !important;
+  color: white !important;
+  opacity: 1 !important;
+  height: 100% !important;
+  border-radius: 0 !important;
+  width: 55px !important;
+  margin: 0 !important; }
+
+.flickity-prev-next-button.previous {
+  left: 0 !important; }
+
+.flickity-prev-next-button.next {
+  right: 0 !important; }
+
+@media (max-width: 768px) {
+  .flickity-button-icon {
+    height: 15px !important;
+    top: 45% !important; } }
+
+.f-ranking-positions {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  height: 100%;
+  width: auto; }
+  .f-ranking-positions:after {
+    content: 'flickity';
+    display: none; }
+    @media (min-width: 1025px) {
+      .f-ranking-positions:after {
+        content: '';
+        display: block; } }
+  @media (min-width: 1025px) {
+    .f-ranking-positions {
+      -ms-flex-direction: row;
+      -moz-flex-direction: row;
+      flex-direction: row;
+      -webkit-flex-direction: row; } }
+  .f-ranking-positions .flickity-prev-next-button {
+    background-color: transparent !important;
+    color: white !important;
+    opacity: 1 !important;
+    border-radius: 0 !important;
+    width: 55px !important;
+    margin: 0 !important;
+    display: none; }
+    @media (min-width: 1025px) {
+      .f-ranking-positions .flickity-prev-next-button {
+        display: block; } }
+  .f-ranking-positions__item {
+    height: 100%;
+    box-sizing: border-box;
+    width: 100%;
+    padding-left: 55px;
+    padding-right: 55px;
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: flex;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    background-color: transparent; }
+    .f-ranking-positions__item .f-section__card {
+      height: 100%;
+      box-sizing: border-box;
+      /* previous syntax */
+      -webkit-box-flex: 0 0 100%;
+      -moz-box-flex: 0 0 100%;
+      -ms-box-flex: 0 0 100%;
+      box-flex: 0 0 100%;
+      /* current syntax */
+      -webkit-flex: 0 0 100%;
+      -moz-flex: 0 0 100%;
+      -ms-flex: 0 0 100%;
+      flex: 0 0 100%; }
+      @media (min-width: 1025px) {
+        .f-ranking-positions__item .f-section__card {
+          height: auto;
+          /* previous syntax */
+          -webkit-box-flex: 0 0 auto;
+          -moz-box-flex: 0 0 auto;
+          -ms-box-flex: 0 0 auto;
+          box-flex: 0 0 auto;
+          /* current syntax */
+          -webkit-flex: 0 0 auto;
+          -moz-flex: 0 0 auto;
+          -ms-flex: 0 0 auto;
+          flex: 0 0 auto; } }
+    @media (min-width: 1025px) {
+      .f-ranking-positions__item:nth-child(1) {
+        -webkit-align-self: flex-start;
+        -moz-align-self: flex-start;
+        -ms-align-self: flex-start;
+        align-self: flex-start; }
+      .f-ranking-positions__item:nth-child(2) {
+        -webkit-align-self: center;
+        -moz-align-self: center;
+        -ms-align-self: center;
+        align-self: center;
+        margin-top: 20px; }
+      .f-ranking-positions__item:nth-child(3) {
+        -webkit-align-self: flex-end;
+        -moz-align-self: flex-end;
+        -ms-align-self: flex-end;
+        align-self: flex-end;
+        margin-top: 60px; } }
+    .f-ranking-positions__item:hover .f-ranking-positions__item-title h5 {
+      color: #e0311e !important; }
+    .f-ranking-positions__item:hover .f-ranking-positions__item-card {
+      box-shadow: 0 0 0 3px #e0311e !important; }
+    .f-ranking-positions__item-title {
+      transition: all 0.5s ease;
+      color: white; }
+    .f-ranking-positions__item-card {
+      position: relative;
+      box-sizing: border-box;
+      transition: all 0.5s ease; }
+      .f-ranking-positions__item-card > img {
+        box-sizing: inherit;
+        width: 100%;
+        height: 100%; }
+      .f-ranking-positions__item-card > div {
+        background-color: rgba(19, 19, 19, 0.7);
+        position: absolute;
+        left: 0;
+        height: 40%;
+        width: 100%;
+        bottom: 0;
+        font-size: 0.75em; }
+
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check section inhetirance */
+.f-slide__content {
+  /*black overlay*/ }
+  .f-slide__content video {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    background-color: #111111;
+    /* in case the video doesn't fit the whole page*/
+    background-position: center center;
+    background-size: contain;
+    object-fit: cover;
+    /*cover video background */
+    z-index: 3;
+    /* Hiding video controls
+	        * See: https://css-tricks.com/custom-controls-in-html5-video-full-screen/
+	        * --------------------------------------- */
+    /*&::-webkit-media-controls {
+                display: none !important;
+            }*/ }
+  .f-slide__content .overlay {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    background-color: rgba(17, 17, 17, 0.6);
+    z-index: 4; }
+
+.f-slide__header {
+  left: 0;
+  right: 0;
+  position: absolute;
+  z-index: 4;
+  /*
+		* Preventing flicker on some browsers
+		* See http://stackoverflow.com/a/36671466/1081396  or issue #183
+		*/
+  -webkit-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0) translateY(-40%); }
+  .f-slide__header-title {
+    /* TODO: font size*/
+    font-size: 3.5rem; }
+    @media (min-width: 1025px) {
+      .f-slide__header-title {
+        width: 70%; } }
+  @media (min-width: 1025px) {
+    .f-slide__header {
+      transform: translate3d(0, 0, 0) translateY(0); } }
+
+.f-main-section {
+  overflow: hidden; }
+  .f-main-section__footer {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: flex;
+    /* previous syntax */
+    -webkit-box-wrap: wrap;
+    -moz-box-wrap: wrap;
+    -ms-box-wrap: wrap;
+    box-wrap: wrap;
+    /* current syntax */
+    -webkit-wrap: wrap;
+    -moz-wrap: wrap;
+    -ms-wrap: wrap;
+    wrap: wrap;
+    flex-wrap: wrap;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    margin-top: auto;
+    margin-bottom: 3rem; }
+    @media (min-width: 1025px) {
+      .f-main-section__footer {
+        -webkit-justify-content: space-between;
+        -moz-justify-content: space-between;
+        -ms-justify-content: space-between;
+        justify-content: space-between;
+        -webkit-align-items: baseline;
+        -moz-align-items: baseline;
+        -ms-align-items: baseline;
+        align-items: baseline; } }
+    .f-main-section__footer-button {
+      /* previous syntax */
+      -webkit-box-flex: 0 0 100%;
+      -moz-box-flex: 0 0 100%;
+      -ms-box-flex: 0 0 100%;
+      box-flex: 0 0 100%;
+      /* current syntax */
+      -webkit-flex: 0 0 100%;
+      -moz-flex: 0 0 100%;
+      -ms-flex: 0 0 100%;
+      flex: 0 0 100%; }
+      @media (min-width: 1025px) {
+        .f-main-section__footer-button {
+          /* previous syntax */
+          -webkit-box-flex: 0 0 auto;
+          -moz-box-flex: 0 0 auto;
+          -ms-box-flex: 0 0 auto;
+          box-flex: 0 0 auto;
+          /* current syntax */
+          -webkit-flex: 0 0 auto;
+          -moz-flex: 0 0 auto;
+          -ms-flex: 0 0 auto;
+          flex: 0 0 auto; } }
+    .f-main-section__footer-text {
+      /* previous syntax */
+      -webkit-box-flex: 0 0 100%;
+      -moz-box-flex: 0 0 100%;
+      -ms-box-flex: 0 0 100%;
+      box-flex: 0 0 100%;
+      /* current syntax */
+      -webkit-flex: 0 0 100%;
+      -moz-flex: 0 0 100%;
+      -ms-flex: 0 0 100%;
+      flex: 0 0 100%;
+      margin-bottom: 25px; }
+      @media (min-width: 1025px) {
+        .f-main-section__footer-text {
+          /* previous syntax */
+          -webkit-box-flex: 0 0 auto;
+          -moz-box-flex: 0 0 auto;
+          -ms-box-flex: 0 0 auto;
+          box-flex: 0 0 auto;
+          /* current syntax */
+          -webkit-flex: 0 0 auto;
+          -moz-flex: 0 0 auto;
+          -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+          -webkit-box-ordinal-group: 2;
+          -moz-box-ordinal-group: 2;
+          -ms-flex-order: 2;
+          -webkit-order: 2;
+          order: 2;
+          margin-bottom: 0; } }
+
+.f-disciplines-section {
+  background: #e0311e;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(110deg, #131313 40%, #e0311e 40%);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(110deg, #131313 40%, #e0311e 40%);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(110deg, #131313 40%, #e0311e 40%);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(110deg, #131313 40%, #e0311e 40%);
+  /* Standard syntax */ }
+  @media (min-width: 1025px) {
+    .f-disciplines-section {
+      background: #e0311e;
+      /* For browsers that do not support gradients */
+      background: -webkit-linear-gradient(90deg, #131313 50%, #e0311e 50%);
+      /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient(90deg, #131313 50%, #e0311e 50%);
+      /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient(90deg, #131313 50%, #e0311e 50%);
+      /* For Firefox 3.6 to 15 */
+      background: linear-gradient(90deg, #131313 50%, #e0311e 50%);
+      /* Standard syntax */ } }
+  .f-disciplines-section__container {
+    display: -ms-grid;
+    display: grid;
+    grid-gap: 0;
+    grid-template-areas: "slider" "title" "detail";
+    -ms-grid-rows: 50% auto 40%;
+    grid-template-rows: 50% auto 40%;
+    height: 100%;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin-left: 5px;
+    margin-right: 5px; }
+    @media (min-width: 1025px) {
+      .f-disciplines-section__container {
+        -ms-grid-columns: 30% 1fr;
+        grid-template-columns: 30% 1fr;
+        /* TODO: check size */
+        grid-gap: 10px;
+        grid-template-areas: "title slider" ". slider" "detail slider"; } }
+    .f-disciplines-section__container .f-section__title {
+      grid-area: title;
+      margin: auto 0; }
+    .f-disciplines-section__container .f-disciplines-section__slider {
+      grid-area: slider;
+      margin: auto 0; }
+      .f-disciplines-section__container .f-disciplines-section__slider-header {
+        display: none;
+        visibility: hidden; }
+    .f-disciplines-section__container .f-disciplines-section__detail {
+      grid-area: detail; }
+      .f-disciplines-section__container .f-disciplines-section__detail .f-disciplines-section__discipline {
+        height: 100%; }
+        .f-disciplines-section__container .f-disciplines-section__detail .f-disciplines-section__discipline-info {
+          margin-top: 1rem; }
+        .f-disciplines-section__container .f-disciplines-section__detail .f-disciplines-section__discipline-link {
+          margin-top: 1rem; }
+
+.f-ranking-section {
+  background-color: #131313; }
+  .f-ranking-section__container {
+    display: -ms-grid;
+    display: grid;
+    /*@include grid-gap(2rem);*/
+    grid-gap: 0;
+    grid-template-areas: "title" "links" "cards";
+    -ms-grid-rows: 10% 1fr 350px;
+    grid-template-rows: 10% 1fr 350px; }
+    .f-ranking-section__container .f-section__title {
+      grid-area: title; }
+    .f-ranking-section__container .f-ranking-section__filters {
+      grid-area: links;
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1rem; }
+    .f-ranking-section__container .f-ranking-section__content {
+      grid-area: cards; }
+    @media (min-width: 1025px) {
+      .f-ranking-section__container {
+        grid-template-areas: "title cards" "links cards";
+        -ms-grid-columns: 30% 1fr;
+        grid-template-columns: 30% 1fr; } }
+
+.f-events-section {
+  background-color: #ffffff; }

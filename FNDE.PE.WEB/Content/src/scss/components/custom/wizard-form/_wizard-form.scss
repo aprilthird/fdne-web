@@ -1,0 +1,53 @@
+﻿@import "../../../abstracts/variables";
+@import "../../../abstracts/mixins";
+@import "../../../layout/variables";
+
+.f-wizard-form {
+    &__steps {
+        $root: &;
+        font-size: map-get($f--font-sizes, sm);
+
+        &-list {
+            list-style: none;
+            @include flexbox();
+            background-color: darken($f--white-color, 5%);
+
+            #{$root}-item {
+                @include flexbox-flex(1);
+                text-align: center;
+                padding: $f--section-separation/2 0;
+
+                &:not(:last-child) {
+                    border-right: 1px solid darken($f--white-color, 20%);
+                }
+
+                &--active {
+                    background-color: $f--primary-color;
+
+                    .f-link {
+                        color: $f--white-color !important;
+                    }
+                }
+
+                .f-link {
+                    color: $f--black-color;
+                }
+            }
+        }
+    }
+
+    &__form {
+        margin: $f--section-separation 0;
+
+        &--two-columns {
+            fieldset {
+               @include grid();
+               @include grid-template-columns(1fr);
+
+                @include desktop {
+                  @include grid-template-columns(2fr);
+                }
+            }
+        }
+    }
+}

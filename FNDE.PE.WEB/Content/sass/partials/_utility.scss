@@ -1,0 +1,11 @@
+@mixin reset() {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin box-sizing($box-sizing) {
+  -webkit-box-sizing: $box-sizing;
+  -moz-box-sizing: $box-sizing;
+  box-sizing: $box-sizing;
+}
+

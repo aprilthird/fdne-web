@@ -1,0 +1,24 @@
+﻿@model FDNE.PE.WEB.ADMIN.Dtos.FeiFilesDto
+
+@Html.HiddenFor(m => m.Id)
+<fieldset class="form-group">
+    @Html.LabelFor(m => m.Name, new { @class = "label" })
+    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Nombre", required = "required", autocomplete = "off" })
+</fieldset>
+<fieldset class="form-group">
+    @Html.LabelFor(m => m.Base64File, new { @class = "label" })
+    @Html.TextBoxFor(m => m.Base64File, new { @class = "form-control", type = "file", required = "required" })
+    <span class="pull-right font-italic font-xs">Tama&ntilde;o m&aacute;ximo: 5MB.</span>
+</fieldset>
+<fieldset class="form-group">
+    @Html.LabelFor(m => m.Extension, new { @class = "label" })
+    @{
+        var selectExtensionFile = new List<SelectListItem>
+{
+new SelectListItem { Value = "docx", Text = "Word"}
+};
+    }
+    @Html.DropDownListFor(m => m.Extension, selectExtensionFile, new { @class = "form-control select2-single", required = "required" })
+
+</fieldset>
+

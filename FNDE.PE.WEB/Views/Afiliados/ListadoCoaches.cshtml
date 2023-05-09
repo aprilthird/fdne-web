@@ -1,0 +1,214 @@
+﻿@model FNDE.PE.WEB.PORTAL.ViewModels.AfiliadosViewModels.CoachingViewModel
+
+@{
+    ViewBag.Title = "ListadoCoaches";
+    Layout = "~/Views/Shared/_LayoutBackground.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <link href="~/Content/dist/css/pages/events/list.css" rel="stylesheet" />
+    <link href="~/Content/dist/css/pages/affiliates/listadoCoaches.css" rel="stylesheet" />
+}
+
+<style>
+    body {
+        background: linear-gradient(90deg, white 50%, #131313 60%);
+    }
+</style>
+<main class="f-training">
+    <section class="f-section f-section__content f-section-background f-section--dark">
+        <div class="f-section-background__image rellax" data-rellax-speed="-7">
+            <img src="~/Content/src/img/slide4-1024.png" />
+        </div>
+        <div class="f-section-background__title f-header f-container">
+            <h1>Coaching System</h1>
+        </div>
+    </section>
+    <section class="f-training__body-content sectionsInver">
+        <section class="f-section f-section--center f-section-events f-section-events__adiestramiento">
+            <div class="f-section-events__Fcarousel" id="menu_slider">
+                <div class="f-section-events__Fcarousel-cell">
+                    <div class="f-section__cardF">
+                        <a class=" f-link" id="first-tab" href="#objective-section" onclick="changeSection(event, 'objective-section')">
+                            @Model.firstTab
+                        </a>
+                    </div>
+                </div>
+                <div class="f-section-events__Fcarousel-cell">
+                    <div class="f-section__cardF">
+                        <a class="f-link" id="second-tab" href="#principles-section" onclick="changeSection(event, 'principles-section')">
+                            @Model.secondTab
+                        </a>
+                    </div>
+                </div>
+                <div class="f-section-events__Fcarousel-cell">
+                    <div class="f-section__cardF">
+                        <a class="f-link" id="third-tab" href="#benefits-section" onclick="changeSection(event, 'benefits-section')">
+                            @Model.thirdTab
+                        </a>
+                    </div>
+                </div>
+                <div class="f-section-events__Fcarousel-cell">
+                    <div class="f-section__cardF">
+                        <a class="f-link" id="quarter-tab" href="#fei-id" onclick="changeSection(event, 'fei-id')">
+                            @Model.quarterTab
+                        </a>
+                    </div>
+                </div>
+                <div class="f-section-events__Fcarousel-cell">
+                    <div class="f-section__cardF">
+                        <a class="f-link" id="fifth-tab" href="#protocolo-section" onclick="changeSection(event, 'protocolo-section')">
+                            @Model.fifthTab
+                        </a>
+                    </div>
+                </div>
+                <div class="f-section-events__Fcarousel-cell">
+                    <div class="f-section__cardF">
+                        <a class="f-link" id="sixth-tab" href="#maintenance-section" onclick="changeSection(event, 'maintenance-section')">
+                            @Model.sixthTab                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        @* f-section-static-80*@
+        <section class="f-section f-section__title f-section__flex  f-section-new-detail" style="width:80%">
+
+            @*objective*@
+            <div class="f-section__column f-section__title--gray f-new-body f-visible" id="objective-section" style="display: block">
+                <h2>@Model.firstTab</h2>
+
+                <p class="f-section-p" style="margin: 20px 20px; margin-left: auto">
+
+                    @Html.Raw(@Model.firstBody)
+                </p>
+            </div>
+
+            @*principles-section*@
+            <div class="f-section__column f-section__title--gray f-new-body f-visible" id="principles-section" style="display:none">
+                <h2>@Model.secondTab</h2>
+
+                <p cl-ass="f-section-p" style="margin: 20px 20px; margin-left: auto">
+                    @Html.Raw(@Model.secondBody)
+                </p>
+
+            </div>
+            @*benefits-section*@
+            <div class="f-section__column f-section__title--gray f-new-body f-visible" id="benefits-section" style="display: none">
+                <h2>@Model.thirdTab</h2>
+
+                <p cl-ass="f-section-p" style="margin: 20px 20px; margin-left: auto">
+                    @Html.Raw(@Model.thirdBody)
+                </p>
+
+</div>
+            @*find-your-coach-section*@
+            <div class="f-section__column f-section__title--gray f-new-body f-visible" id="fei-id" style="display: none">
+                <h2>@Model.quarterTab</h2>
+
+                <p class="f-section-p" style="margin: 20px 20px; margin-left: auto">
+                    @Html.Raw(Model.quarterBody)
+                </p>
+
+            </div>
+            @*certificate-section*@
+            <div class="f-section__column f-section__title--gray f-new-body f-visible " id="protocolo-section" style="display: none">
+                <h2>@Model.fifthTab </h2>
+
+                <p class="f-section-p" style="margin: 20px 20px; margin-left: auto">
+                   @Html.Raw(@Model.fifthBody)
+                </p>
+
+                
+
+                
+            </div>
+            @*usercerman-section*@
+            <div class="f-section__column f-section__title--gray f-new-body f-visible" id="maintenance-section" style="display: none">
+                <h2>@Model.sixthTab</h2>
+                <br />
+                    @Html.Raw(Model.sixthBody)
+            </div>
+        </section>
+    </section>
+
+</main>
+
+@section Scripts {
+    <script>
+        var firstElem = $1("#menu_slider");
+        var flkty = new Flickity(firstElem, {
+            cellAlign: 'left',
+            //contain: true,
+            //autoPlay: 1500,
+            pauseAutoPlayOnHover: false,
+            adaptiveHeight: true,
+            watchCSS: true
+        });
+
+        var princileDiv = document.getElementById("principles-section");
+        var ObjectiveDiv = document.getElementById("objective-section");
+
+        flkty.on('change', function (index) {
+            //console.log(index);
+            let link = $("#menu_slider .f-link")[index];
+            let section = $1(link.getAttribute("href"));
+            let sections = $(".f-section__column");
+            console.log(sections);
+            sections.forEach(e => e.style.display = "none");
+            section.style.display = "block";
+        });
+
+        //version movil
+        function changeSection(evt, sectionId) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            var sectionsVisible = document.getElementsByClassName("f-visible");
+            //console.log(sectionsVisible);
+            for (let i = 0; i < sectionsVisible.length; i++) {
+                sectionsVisible[i].style.display = "none";
+            }
+
+            document.getElementById(sectionId).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        const InitPage = () => {
+            fetch(`/afiliados/listadocoaching`, {
+                method: 'get'
+            }).then(response => {
+                return response.json();
+            }).then(data => {
+                fieldDataPage(data);
+            }).catch(err => { });
+        }
+        InitPage();
+
+        function fieldDataPage(data) {
+            //Tab
+            document.getElementById("first-tab").innerHTML = data.firstTab;
+            document.getElementById("second-tab").innerHTML = data.secondTab;
+            document.getElementById("third-tab").innerHTML = data.thirdTab;
+            document.getElementById("quarter-tab").innerHTML = data.quarterTab;
+            document.getElementById("fifth-tab").innerHTML = data.fifthTab;
+            document.getElementById("sixth-tab").innerHTML = data.sixthTab;
+            //Body
+            document.getElementById("objective-section").innerHTML = data.firstBody;
+            document.getElementById("principles-section").innerHTML = data.secondBody;
+            document.getElementById("benefits-section").innerHTML = data.thirdBody;
+            document.getElementById("fei-id").innerHTML = data.quarterBody;
+            document.getElementById("protocolo-section").innerHTML = data.fifthBody;
+            document.getElementById("maintenance-section").innerHTML = data.sixthBody;
+        }
+    </script>
+}

@@ -1,0 +1,82 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "defaultDestination": "Content/lib/",
+  "libraries": [
+    {
+      "provider": "cdnjs",
+      "library": "fullPage.js@3.0.4",
+      "destination": "Content/src/vendors/fullPage.js"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "cookieconsent2@3.1.0",
+      "destination": "Content/src/vendors/cookieconsent"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "flickity@2.2.0",
+      "destination": "Content/src/vendors/flickity"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "tingle@0.14.0",
+      "destination": "Content/src/vendors/tingle.js"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "Swiper@4.4.6",
+      "destination": "Content/lib/Swiper/"
+    },
+    {
+      "provider": "unpkg",
+      "library": "bootstrap@4.2.1",
+      "destination": "Content/lib/bootstrap/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "jquery@3.3.1",
+      "destination": "Content/lib/jquery/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "popper.js@1.14.6",
+      "destination": "Content/lib/popper.js/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "aos@2.3.4",
+      "destination": "Content/lib/aos/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "jquery-validate@1.19.0",
+      "destination": "Content/lib/jquery-validate/",
+      "files": [
+        "jquery.validate.min.js",
+        "jquery.validate.js",
+        "additional-methods.min.js",
+        "additional-methods.js",
+        "localization/messages_es_PE.js"
+      ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "modernizr@2.8.3",
+      "destination": "Content/lib/modernizr/"
+    },
+    {
+      "library": "scrollify@1.0.19",
+      "destination": "Content/lib/scrollify/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "pace@1.0.2",
+      "destination": "Content/lib/pace"
+    },
+    {
+      "library": "rellax@1.10.0",
+      "destination": "Content/lib/rellax/"
+    }
+  ]
+}

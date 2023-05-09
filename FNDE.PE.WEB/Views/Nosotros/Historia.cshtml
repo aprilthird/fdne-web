@@ -1,0 +1,74 @@
+﻿@model FNDE.PE.WEB.PORTAL.ViewModels.AboutUsViewModels.HistoryViewModel
+
+@{
+    ViewBag.Title = "Historia";
+    Layout = "~/Views/Shared/_LayoutBackground.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/Content/dist/css/pages/about-us/history.css" />
+}
+
+<main>
+    <section class="f-section f-section__content f-section-background f-section--dark">
+        <div class="f-section-background__image rellax" data-rellax-speed="-7">
+            <img src="@Model.ImageUrl" />
+        </div>
+        <div class="f-section-background__title f-header f-container">
+            <h1>HISTORIA</h1>
+        </div>
+    </section>
+    <section class=" f-section--center f-bg--secondary">
+        <div class="f-container">
+            <div class="f-history ">
+                <div class="f-history__year">
+                    <div class="f-history__year-text"><h3 id="main_label">@(Model.InformationPerYear?[0]?.Year)</h3></div>
+                </div>
+                <div class="f-history__nav-year">
+                    @for (var i = 0; i < Model.InformationPerYear.Count(); ++i)
+                    {
+                        <div class="f-history__nav-year-text">
+                            <a data-id="#year_container_@i" class="f-link f-text--white @(i == 0 ? "f-link--active" : string.Empty)">
+                                <h4><strong class="label">@Model.InformationPerYear[i].Year</strong></h4>
+                            </a>
+                        </div>
+                    }
+                </div>
+                <div class="f-history__information-year">
+                    @for (var i = 0; i < Model.InformationPerYear.Count(); ++i)
+                    {
+                        <div id="year_container_@i" class="f-history__information-year-text" @(i == 0 ? "style=display:block;" : string.Empty)>
+                            <p>@Html.Raw(Model.InformationPerYear[i].Body)</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+    </section>
+</main>
+
+@section Scripts {
+    <script>
+        (async function () {
+            var links = $(".f-link");
+            links.forEach(link => {
+                link.addEventListener("click", () => {
+                    let container = $1(link.dataset.id);
+                    let containers = $(".f-history__information-year-text");
+                    containers.forEach(c => {
+                        c.style.display = "none";
+                    });
+                    links.forEach(l => {
+                        l.classList.remove("f-link--active");
+                    });
+                    container.style.display = "block";
+                    link.classList.add("f-link--active");
+                    let label = $1(".label", link);
+                    let mainLink = $1("#main_label");
+                    mainLink.innerHTML = label.innerHTML;
+                });
+            });
+        })();
+    </script>
+}

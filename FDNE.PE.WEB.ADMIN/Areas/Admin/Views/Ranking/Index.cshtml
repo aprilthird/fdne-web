@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "Rankings";
+    ViewBag.SubTitle = "Listado de Rankings";
+    ViewBag.Breadcrumbs = new[] {
+        new BreadcrumbViewData { Name = ViewBag.Title }
+    };
+}
+
+<div>
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="card-header">
+                <i class="fa fa-list"></i> @ViewBag.SubTitle
+                <div class="card-header-actions">
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#add_modal">
+                        <i class="fa fa-plus"></i>
+                        Nuevo
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row mb-4">
+                    <div class="col-md-2">
+                        <label class="label">Temporada</label>
+                        <select id="season_filter" class="select2 select2-seasons"></select>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="label">Disciplina</label>
+                        <select id="discipline_filter" class="select2 select2-disciplines">
+                            <option>Todas</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="label">Categor&iacute;a</label>
+                        <select id="category_filter" class="select2 select2-categories">
+                            <option>Todas</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="label">Nivel</label>
+                        <select id="level_filter" class="select2 select2-levels">
+                            <option>Todos</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="dataTables_wrapper dt-bootstrap4 no-footer">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="table table-hover table-striped table-bordered datatable dataTable no-footer" id="ranking_datatable" role="grid"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_EditModal")
+@Html.Partial("_BinomialsModal")
+@Html.Partial("_CreateModal")
+
+@section Scripts {
+    <script src="@Url.Content("~/Content/js/areas/admin/ranking/index.js")"></script>
+}

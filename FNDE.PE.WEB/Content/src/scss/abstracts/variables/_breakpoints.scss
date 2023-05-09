@@ -1,0 +1,35 @@
+﻿//== Old Breakpoints
+// sm: 544px,
+// md: 768px,
+// lg: 992px,
+// xl: 1200px
+//== New Breakpoints
+// sm: 576px,
+// md: 768px,
+// lg: 1024px,
+// xl: 1200px,
+// xxl: 1400px,
+// xxxl: 1600px
+
+//== Layout Breakpoints
+// Define the minimum and maximum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+$f--layout-breakpoints: (
+  	// Small screen / phone
+    sm: 576px,
+  	
+  	// Medium screen / tablet
+  	md: 768px,
+  	
+  	// Large screen / desktop
+  	lg: 1024px,
+  	
+  	// Extra large screen / wide desktop
+  	xl: 1200px,
+
+    // Extra large screen / wide desktop
+    xxl: 1400px,
+
+    // Super Extra large screen / wide desktop
+    xxxl: 1600px
+)!default;

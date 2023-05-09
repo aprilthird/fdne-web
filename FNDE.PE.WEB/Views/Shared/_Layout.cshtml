@@ -1,0 +1,301 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web Ecuestre</title>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/css/lib/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/css/lib/cookieconsent/cookieconsent.min.css" />
+    <link rel="stylesheet" href="~/Content/css/lib/hamburgers/hamburgers.min.css" />
+    <link rel="stylesheet" href="~/Content/css/lib/swiper/swiper.min.css">
+    <link rel="stylesheet" href="~/Content/css/index.css" />
+    <link rel="stylesheet" href="~/Content/css/heading.css" />
+    <link rel="stylesheet" href="~/Content/css/menu-mobile.css" />
+    <link rel="stylesheet" href="~/Content/"> 
+
+    @RenderSection("Styles", false)
+</head>
+<body class="fixedTypography">
+    <nav id="main-menu" class="navbar fixed-top navbar-dark">
+        <div class="main-logo">
+            <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                <img src="~/Content/img/logo.png" />
+            </a>
+        </div>
+        <button class="navbar-toggler" style="border: 0px;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="hamburger hamburger--elastic" tabindex="0" aria-label="Menu" role="button" aria-controls="navigation">
+                <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                </div>
+            </div>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <table class="table-menu headingTypography">
+                <thead>
+                    <tr>
+                        <th>
+                            <a class="active" href="@Url.Action("Index", "Home")">HOME</a>
+                        </th>
+                        <th>
+                            <a href="@Url.Action("MisionVision", "Nosotros")">NOSOTROS</a>
+                        </th>
+                        <th>
+                            <a href="#">DISCIPLINAS</a>
+                        </th>
+                        <th>
+                            <a href="#">CONCURSOS</a>
+                        </th>
+                        <th>
+                            <a href="#">EVENTOS</a>
+                        </th>
+                        <th>
+                            <a href="#">GALER&Iacute;A</a>
+                        </th>
+                        <th>
+                            <a href="#">AFILIADOS</a>
+                        </th>
+                        <th>
+                            <a href="@Url.Action("Listado", "Noticias")">NOTICIAS</a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <a href="@Url.Action("Historia", "Nosotros")">HISTORIA</a>
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Salto", "Discipliinas")">SALTO</a>
+                        </td>
+                        <td>
+                            <a href="#">RESULTADOS</a>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <a href="#">CLUBES</a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <a href="#">ORGANIZACI&Oacute;N</a>
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Adiestramiento", "Discipliinas")">ADIESTRAMIENTO</a>
+                        </td>
+                        <td>
+                            <a href="#">RANKING</a>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <a href="#">JINETES</a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <a href="@Url.Action("Enduro", "Discipliinas")">ENDURO</a>
+                        </td>
+                        <td>
+                            <a href="#">FEI</a>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <a href="#">COACHES</a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <a href="@Url.Action("PruebaCompleta", "Discipliinas")">PRUEBA COMPLETA</a>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0 mobile-menu">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    @RenderBody()
+
+    <footer>
+        <div class="row">
+            <div class="logo col-md-2">
+                <img src="~/Content/img/logo.png" width="100px" height="100px" />
+            </div>
+            <div class="col-md-8">
+                <table class="table-menu headingTypography">
+                    <thead>
+                        <tr>
+                            <th>
+                                <a class="active" href="#">HOME</a>
+                            </th>
+                            <th>
+                                <a href="#">NOSOTROS</a>
+                            </th>
+                            <th>
+                                <a href="#">DISCIPLINAS</a>
+                            </th>
+                            <th>
+                                <a href="#">CONCURSOS</a>
+                            </th>
+                            <th>
+                                <a href="#">EVENTOS</a>
+                            </th>
+                            <th>
+                                <a href="#">GALER&Iacute;A</a>
+                            </th>
+                            <th>
+                                <a href="#">AFILIADOS</a>
+                            </th>
+                            <th>
+                                <a href="@Url.Action("Listado", "Noticias")">NOTICIAS</a>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <a href="#">VISI&Oacute;N</a>
+                            </td>
+                            <td>
+                                <a href="#">SALTO</a>
+                            </td>
+                            <td>
+                                <a href="#">RESULTADOS</a>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <a href="#">CLUBES</a>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <a href="#">MISI&Oacute;N</a>
+                            </td>
+                            <td>
+                                <a href="#">ADIESTRAMIENTO</a>
+                            </td>
+                            <td>
+                                <a href="#">RANKING</a>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <a href="#">JINETES</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <a href="#">HISTORIA</a>
+                            </td>
+                            <td>
+                                <a href="#">ENDURO</a>
+                            </td>
+                            <td>
+                                <a href="#">FEI</a>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <a href="#">COACHES</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <a href="#">ORGANIZACI&Oacute;N</a>
+                            </td>
+                            <td>
+                                <a href="#">PRUEBA COMPLETA</a>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-2 col-12">
+                <div class="row">
+                    <div class="outer-links col-md-12 col-6">
+                        <p><a href="#">Cont&aacute;ctanos</a></p>
+                        <p><a href="#">T&eacute;rminos y Condiciones</a></p>
+                        <p><a href="#">Cookies</a></p>
+                    </div>
+                    <div class="social col-md-12 col-6">
+                        <div class="social-follow">S&iacute;guenos en</div>
+                        <div class="social-networks">
+                            <a href="#">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+<script src="~/Content/js/lib/jquery/jquery.min.js"></script>
+<script src="~/Content/js/lib/popper/popper.min.js"></script>
+<script src="~/Content/js/lib/bootstrap/bootstrap.min.js"></script>
+<script src="~/Content/js/lib/cookieconsent/cookieconsent.js"></script>
+
+<script src="~/Content/js/standout.js"></script>
+<script>
+    
+    var hamburgers = document.querySelectorAll(".hamburger");
+    if (hamburgers.length > 0) {
+        forEach(hamburgers, function (hamburger) {
+            hamburger.addEventListener("click", function () {
+                this.classList.toggle("is-active");
+            }, false);
+        });
+    }
+</script>
+@RenderSection("Scripts", required: false)
+</html>

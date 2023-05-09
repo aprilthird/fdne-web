@@ -1,0 +1,98 @@
+﻿
+<nav id="main-menu" class="nav nav--display-links">
+    <ul class="menu">
+        <li class="menu_item">
+            <a href="@Url.Action("Index", "Home")" class="link">HOME</a>
+            <ul class="submenu"></ul>
+        </li>
+        <li class="menu_item" id="menu_about_us">
+            <a href="#menu_about_us" class="link">QUI&Eacute;NES SOMOS</a>
+            <ul class="submenu">
+                <li class="menu_item">
+                    <a href="@Url.Action("Historia", "Nosotros")" class="link">HISTORIA</a>
+                </li>
+                <li class="menu_item">
+                    <a href="@Url.Action("Oficiales", "Nosotros")" class="link">OFICIALES</a>
+                </li>
+                <li class="menu_item">
+                    <a href="@Url.Action("Organizacion", "Nosotros")" class="link">ORGANIZACI&Oacute;N</a>
+                </li>
+                <li class="menu_item">
+                    <a href="@Url.Action("MisionVision", "Nosotros")" class="link">NOSOTROS</a>
+                </li>
+                <li class="menu_item">
+                    <a href="@Url.Action("PautasTemporada", "Nosotros")" class="link">PAUTAS</a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu_item" id="menu_disciplines">
+            <a href="#menu_disciplines" class="link">DISCIPLINAS</a>
+            <ul class="submenu">
+                <li class="menu_item">
+                    <a href="@Url.Action("Discipline", "Disciplinas", new { name = "Adiestramiento" })" class="link">ADIESTRAMIENTO</a>
+                </li>
+                <li class="menu_item">
+                    <a href="@Url.Action("Discipline", "Disciplinas", new { name = "Enduro" })" class="link">ENDURO</a>
+                </li>
+                <li class="menu_item">
+                    <a href="@Url.Action("Discipline", "Disciplinas", new { name = "ConcursoCompletoDeEquitación" })" class="link">CONCURSO COMPLETO <br />DE EQUITACI&Oacute;N</a>
+                </li>
+                <li class="menu_item">
+                    <a href="@Url.Action("Discipline", "Disciplinas", new { name = "Salto" })" class="link">SALTO</a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu_item" id="menu_contests">
+            <a href="#menu_contests" class="link">CONCURSOS</a>
+            <ul class="submenu">
+                <li class="menu_item">
+                    <a href="@Url.Action("FEI", "Concursos")" class="link">FEI</a>
+                </li>
+                <li class="menu_item">
+                    <a href="@Url.Action("Rankings", "Concursos")" class="link">RANKING</a>
+                </li>
+                <li class="menu_item">
+                    <a href="@Url.Action("Resultados", "Concursos")" class="link">RESULTADOS</a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu_item">
+            <a href="@Url.Action("Listado", "Eventos")" class="link">EVENTOS</a>
+            <ul class="submenu">
+                <li class="menu_item">
+                </li>
+            </ul>
+        </li>
+        <li class="menu_item">
+            <a href="@Url.Action("Listado", "Galeria")" class="link">GALER&Iacute;A</a><ul class="submenu"></ul>
+        </li>
+        <li class="menu_item" id="menu_afiliates">
+            <a href="#menu_afiliates" class="link">AFILIADOS</a>
+            <ul class="submenu">
+
+                <li class="menu_item">
+                    <a href="@Url.Action("ListadoCaballos", "Afiliados")" class="link">CABALLOS</a>
+                </li>
+                <li class="menu_item">
+                    <a href="@Url.Action("ListadoClubes", "Afiliados")" class="link">CLUBES</a>
+                </li>
+                <li class="menu_item">
+                    <a href="@Url.Action("ListadoCoaches", "Afiliados")" class="link">COACHING SYSTEM</a>
+                </li>
+                <li class="menu_item">
+                    <a href="@Url.Action("ListadoJinetes", "Afiliados")" class="link">JINETES</a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu_item" id="menu_news">
+            <a href="#menu_news" class="link">NOVEDADES</a>
+            <ul class="submenu">
+                <li class="menu_item">
+                    <a href="@Url.Action("Listado", "Noticias")" class="link">NOTICIAS</a>
+                </li>
+            </ul>
+        </li>
+        <hr class="menu_underline" />
+        <hr class="menu_line" />
+    </ul>
+</nav>

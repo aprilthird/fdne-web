@@ -1,0 +1,110 @@
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check section inhetirance */
+.f-afiliate .f-btn {
+  padding: 10px 10px; }
+
+.f-afiliate .f-switch #slider2 {
+  background-color: white; }
+
+@media (min-width: 1025px) {
+  .f-afiliate .f-section__flex {
+    -ms-flex-direction: row;
+    -moz-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-direction: row; } }
+
+@media (min-width: 1025px) {
+  .f-afiliate .f-tam {
+    width: 50%;
+    margin-top: 50px; } }
+
+.f-afiliate .f-container__contact {
+  text-align: center; }
+
+.f-afiliate .f-botones {
+  margin-top: 50px !important; }
+
+.f-afiliate .pro {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  -ms-flex-direction: row;
+  -moz-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  margin-top: 20px;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between; }
+
+.f-afiliate .f-botones .f-input {
+  width: 100%;
+  background-color: #131313;
+  border-color: #e0311e; }
+
+.f-afiliate .f-boxes .f-input {
+  width: 90%; }
+  @media (min-width: 1025px) {
+    .f-afiliate .f-boxes .f-input {
+      width: 80%; } }
+
+@media (min-width: 1025px) {
+  .f-afiliate .f-boxes {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: flex;
+    -ms-flex-direction: row;
+    -moz-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    -webkit-justify-content: space-around;
+    -moz-justify-content: space-around;
+    -ms-justify-content: space-around;
+    justify-content: space-around; } }
+
+@media (min-width: 1025px) {
+  .f-afiliate #first_box {
+    padding-left: 0px;
+    padding-right: 50px; } }
+
+.f-afiliate select {
+  width: 90% !important;
+  margin-bottom: 9px;
+  color: dimgrey !important;
+  background: url("../../../../src/img/icon-arrow-down-dark.svg") no-repeat right !important;
+  background-size: 25px !important; }
+  @media (min-width: 1025px) {
+    .f-afiliate select {
+      width: 80% !important;
+      height: 21% !important; } }
+
+.f-afiliate .btn-crear {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  -webkit-justify-content: flex-end;
+  -moz-justify-content: flex-end;
+  -ms-justify-content: flex-end;
+  justify-content: flex-end; }

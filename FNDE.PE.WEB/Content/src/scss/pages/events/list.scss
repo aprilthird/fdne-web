@@ -1,0 +1,169 @@
+﻿@import "../../abstracts/variables";
+@import "../../abstracts/mixins";
+@import "../../layout/variables";
+
+@import "../../vendors/flickity/extend/slider";
+@import "../../components/custom/modal/modal";
+@import "../../components/custom/modal/event-modal";
+
+#modal-event-template {
+    display: none;
+}
+
+.f-section-events {
+    &__message {
+        min-height: 40vh;
+        @include flexbox();
+        @include flexbox-direction(column);
+        @include flexbox-justify-content(center);
+        @include flexbox-align-items(center);
+
+        &--hide {
+            display: none;
+        }
+    }
+
+    &__adiestramiento {
+        background-color: $f--secondary-color;
+    }
+
+    &__Fcarousel {
+        background-color: $f--secondary-color;
+
+        @include desktop {
+            @include flexbox();
+            @include flexbox-wrap(wrap);
+            @include flexbox-justify-content(center);
+            padding-bottom: $f--section-separation;
+            padding-top: $f--section-separation;
+        }
+
+        &:after {
+            content: 'flickity';
+            display: none;
+
+            @include desktop {
+                content: '';
+                display: block;
+            }
+        }
+
+        .flickity-prev-next-button {
+            background-color: transparent !important;
+            color: white !important;
+            opacity: 1 !important;
+            border-radius: 0 !important;
+            width: 55px !important;
+            margin: 0 !important;
+        }
+
+        .flickity-button-icon {
+            @include mobile {
+                height: 17px;
+                top: 40%;
+            }
+        }
+
+        &-cell {
+            /* TODO: box sizing mixin */
+            box-sizing: border-box;
+            width: 100%;
+            padding-left: 55px;
+            padding-right: 55px;
+            @include flexbox();
+            @include flexbox-align-items(center);
+
+            @include desktop {
+                padding: 0;
+                width: auto;
+                @include flexbox-flex(0 0 15%);
+            }
+
+            .f-section__cardF {
+                height: 100%;
+                box-sizing: border-box;
+                padding-top: $f--section-separation;
+                padding-bottom: $f--section-separation;
+                background: $f--secondary-color;
+                @include flexbox-flex(0 0 100%);
+
+                @include desktop {
+                    padding: 0;
+                    height: auto;
+                }
+
+                .f-link {
+                    color: $f--primary-color;
+
+                    @include desktop {
+                        color: $f--white-color;
+
+                        margin: {
+                            top: 7px;
+                            bottom: 7px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__Scarousel {
+
+        .flickity-button-icon {
+            @include mobile {
+                height: 20px;
+                top: 45%;
+            }
+        }
+
+        &-cell {
+            /* TODO: box sizing mixin */
+            height: 100%;
+            box-sizing: border-box;
+            width: 100%;
+            padding-left: 55px;
+            padding-right: 55px;
+            @include flexbox();
+            @include flexbox-align-items(center);
+
+            @include desktop {
+                width: 50%;
+            }
+
+            .f-section__cardS {
+                height: 100%;
+                box-sizing: border-box;
+                padding-top: $f--section-separation;
+                @include flexbox-flex(0 0 100%);
+
+                h5 {
+                    margin-bottom: 20px;
+                    text-align: left;
+                    padding: 0 60px;
+                    font-weight: bold;
+                }
+
+                h2 {
+                    text-align: left;
+                    padding: 0 60px;
+                    font-weight: bold
+                }
+
+                button {
+                    display: block;
+                    margin-left: 60px;
+                }
+            }
+        }
+    }
+
+    a {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-decoration: none;
+        border: none;
+        outline: none;
+    }
+}

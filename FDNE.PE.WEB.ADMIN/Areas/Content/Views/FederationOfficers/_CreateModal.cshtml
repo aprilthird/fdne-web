@@ -1,0 +1,27 @@
+﻿
+<div class="modal fade show" id="add_modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg modal-primary" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Nuevo Oficial</h4>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form id="add_form" class="form form-horizontal" role="form" enctype="multipart/form-data">
+                <div class="modal-body">
+                    @Html.Partial("_Fields")
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+                    <button class="btn btn-primary ladda-button" data-style="expand-right" type="submit">
+                        <span class="ladda-label">
+                            <i class="fa fa-save"></i>&nbsp;Guardar
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,28 @@
+﻿@import "../../abstracts/variables";
+@import "../../abstracts/mixins";
+@import "../../layout/variables";
+
+.sectionsInver{
+    @include desktop{
+        @include flexbox;
+        @include flexbox-direction(row-reverse);
+
+    }
+}
+.f-section-events__Fcarousel {
+    @include desktop {
+        @include flexbox;
+        @include flexbox-direction(column);
+        padding: 50px 50px 0 50px;
+        .f-section-events__Fcarousel-cell {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@include mobile {
+    body {
+        background: linear-gradient(90deg, #131313 50%, #131313 60%);
+    }
+}
+

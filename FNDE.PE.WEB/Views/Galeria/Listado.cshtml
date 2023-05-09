@@ -1,0 +1,430 @@
+﻿@model IEnumerable<FNDE.PE.WEB.PORTAL.ViewModels.GalleryViewModels.PictureViewModel>
+
+@{
+    ViewBag.Title = "Listado";
+    Layout = "~/Views/Shared/_LayoutBackground.cshtml";
+    ViewBag.ImgName = "gallery";
+}
+
+@section Styles {
+
+    <link href="~/Content/dist/css/pages/gallery/list.css" rel="stylesheet" />
+
+}
+
+<main class="f-training f-galery">
+    <section class="f-section f-section__content f-section-background f-section--dark f-no-display">
+        <div class="f-section-background__image">
+            <img src="~/Content/src/img/slide2-1024.png" />
+        </div>
+        <div class="f-section-background__title f-container">
+            <h1>GALERÍA</h1>
+            <div class="tab f-section f-section__flex-center f-section--dark f-section--back-dark">
+                <div class="">
+                    <button class="tablinks" onclick="changeSection(event, 'about-section')">ENDURO</button>
+                    <button class="tablinks" onclick="changeSection(event, 'bonomions-section')">ADIESTRAMIENTO</button>
+                </div>
+                <div>
+                    <button class="tablinks" onclick="changeSection(event, 'lessons-section')">SALTO</button>
+                    <button class="tablinks" onclick="changeSection(event, 'reglament-section')">PRUEBA COMPLETA</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="">
+        <div class="grid">
+            <button class="card-content grid-item f-btn-modal">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank1-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </button>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank2-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank3-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank1-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank2-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <section class="f-section f-section--dark card-content grid-item f-section-desktop">
+                <div class="f-section-background__title f-container">
+                    <h1>GALERÍA</h1>
+                    <div class="tab f-section f-section__flex-center f-section--dark f-section--back-dark">
+                        <div class="">
+                            <button class="tablinks" onclick="changeSection(event, 'about-section')">ENDURO</button>
+                            <button class="tablinks" onclick="changeSection(event, 'bonomions-section')">ADIESTRAMIENTO</button>
+                        </div>
+                        <div>
+                            <button class="tablinks" onclick="changeSection(event, 'lessons-section')">SALTO</button>
+                            <button class="tablinks" onclick="changeSection(event, 'reglament-section')">PRUEBA COMPLETA</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank3-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank1-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank2-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank3-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank1-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank2-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank3-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank1-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank2-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank3-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank1-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank2-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank3-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank1-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank2-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank3-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank1-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank2-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank3-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank1-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank2-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank3-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank1-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank2-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank3-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank1-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank2-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank3-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank1-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank2-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+            <div class="card-content grid-item">
+                <div class="multimedia">
+                    <img class="multimedia_object" src="/Content/old/img/rank3-1024.png" alt="Avatar">
+                </div>
+                <div class="container">
+                    <h4>Prueba</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="modal-event-template" id="modal-event-template">
+        <div class="f-modal-event__map">
+            <img src="~/Content/src/img/slide1-1024.png" />
+        </div>
+        <div class="f-modal-event__info">
+            <div class="f-modal-event__info-date">
+                Salto
+            </div>
+            <div class="f-modal-event__info-location">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
+            </div>
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.js"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script src="~/Content/src/vendors/tingle.js/tingle.min.js"></script>
+    <script>
+        // external js: masonry.pkgd.js
+
+        var msnry = new Masonry('.grid', {
+            itemSelector: '.grid-item',
+            columnWidth: '.grid-item',
+            percentPosition: true,
+            // disable initial layout
+            initLayout: false
+        });
+        // add event listener for initial layout
+        msnry.on('layoutComplete', function (items) {
+            console.log(items.length);
+        });
+        // trigger initial layout
+        msnry.layout();
+
+
+        (function (close) {
+            tingle.modal.prototype.close = function (force) {
+                force = typeof force === 'boolean' ? force : undefined;
+                close.call(this, force);
+            };
+        }(tingle.modal.prototype.close));
+
+        // instanciate new modal
+        var modal = new tingle.modal({
+            footer: false,
+            stickyFooter: false,
+            closeMethods: ['overlay', 'button', 'escape'],
+            closeLabel: "Close",
+            cssClass: ['f-modal', 'f-modal--primary', 'f-modal--custom-close', 'f-modal-event'],
+            onOpen: function () {
+            },
+            onClose: function () {
+                let close = $1(".tingle-modal__close");
+                let modal = $1(".tingle-modal");
+                modal.appendChild(close);
+            },
+            beforeOpen: () => {
+                let close = $1(".tingle-modal__close");
+                var modalContent = $1(".tingle-modal-box__content");
+                modalContent.appendChild(close);
+            },
+            beforeClose: function () {
+                // here's goes some logic
+                // e.g. save content before closing the modal
+                return true; // close the modal
+                return false; // nothing happens
+            }
+        });
+
+        $(".f-btn-modal").forEach((btn) => {
+            btn.addEventListener("click",
+                () => {
+                    // set content
+                    let modalTemplate = $1("#modal-event-template");
+                    modal.setContent(modalTemplate.innerHTML);
+
+                    // open modal
+                    modal.open();
+
+                    // close modal
+                    modal.close();
+                });
+        });
+
+    </script>
+}

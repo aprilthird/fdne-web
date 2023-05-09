@@ -1,0 +1,21 @@
+﻿
+@mixin text-overflow($value) {
+    -ms-text-overflow: $value;
+    -o-text-overflow: $value;
+    text-overflow: $value;
+}
+
+@mixin text-decoration-style($value) {
+    -moz-text-decoration-style: $value;
+    text-decoration-style: $value;
+}
+
+@mixin text-decoration-color($value) {
+    -moz-text-decoration-color: $value;
+    text-decoration-color: $value;
+}
+
+@mixin text-decoration-line($value) {
+    -moz-text-decoration-line: $value;
+    text-decoration-line: $value;
+}

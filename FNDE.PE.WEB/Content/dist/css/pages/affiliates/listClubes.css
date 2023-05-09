@@ -1,0 +1,51 @@
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check section inhetirance */
+.f-listClubes .f-training__body-content {
+  background-color: #111111; }
+
+@media (min-width: 1025px) {
+  .f-listClubes .f-container {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: flex;
+    /* previous syntax */
+    -webkit-box-wrap: wrap;
+    -moz-box-wrap: wrap;
+    -ms-box-wrap: wrap;
+    box-wrap: wrap;
+    /* current syntax */
+    -webkit-wrap: wrap;
+    -moz-wrap: wrap;
+    -ms-wrap: wrap;
+    wrap: wrap;
+    flex-wrap: wrap;
+    margin: 50px 50px; } }
+
+@media (min-width: 1025px) {
+  .f-listClubes .f-container .multimedia img {
+    max-width: 275px; } }
+
+.f-salto .f-training__body-content {
+  background-color: white !important; }
+
+@media (min-width: 1025px) {
+  .f-salto .f-container .multimedia img {
+    max-width: 242px; }
+  .f-salto .tab {
+    -webkit-justify-content: initial;
+    -moz-justify-content: initial;
+    -ms-justify-content: initial;
+    justify-content: initial; }
+  .f-salto .card-content h4 {
+    font-size: 1.65rem; }
+  .f-salto .tablinks {
+    margin-bottom: 30px; } }

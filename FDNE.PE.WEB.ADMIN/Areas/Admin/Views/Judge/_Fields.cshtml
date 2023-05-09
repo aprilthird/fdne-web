@@ -1,0 +1,106 @@
+﻿@model FDNE.PE.WEB.ADMIN.Dtos.ApplicationUserDto
+
+@Html.HiddenFor(m => m.Id)
+<div class="row">
+    <div class="form-group col-md-6">
+        <div class="form-group">
+            @Html.LabelFor(m => m.UserName, new { @class = "label" })
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "Nombre de cuenta", required = "required", autocomplete = "off" })
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "label" })
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Contraseña", required = "required", autocomplete = "off" })
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-md-6">
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "label" })
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Correo", type = "email", required = "required", autocomplete = "off" })
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name, new { @class = "label" })
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Nombre del usuario", required = "required", autocomplete = "off" })
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-md-6">
+        <div class="form-group">
+            @Html.LabelFor(m => m.PaternalSurname, new { @class = "label" })
+            @Html.TextBoxFor(m => m.PaternalSurname, new { @class = "form-control", placeholder = "Apellido paterno", required = "required", autocomplete = "off" })
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <div class="form-group">
+            @Html.LabelFor(m => m.MaternalSurname, new { @class = "label" })
+            @Html.TextBoxFor(m => m.MaternalSurname, new { @class = "form-control", placeholder = "Apellido Materno", required = "required", autocomplete = "off" })
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.DocumentTypeId, new { @class = "label" })
+    @Html.DropDownListFor(m => m.DocumentTypeId, new List<SelectListItem>(), new { @class = "form-control select2-single select2-document-types", required = "required" })
+</div>
+<div class="row">
+    <div class="form-group col-md-6">
+        <div class="form-group">
+            @Html.LabelFor(m => m.Document, new { @class = "label" })
+            @Html.TextBoxFor(m => m.Document, new { @class = "form-control", placeholder = "Documento", required = "required", autocomplete = "off" })
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <div class="form-group">
+            @Html.LabelFor(m => m.PhoneNumber, new { @class = "label" })
+            @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", placeholder = "Celular/Telefono", type = "number", required = "required", autocomplete = "off" })
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-md-6">
+        <div class="form-group">
+
+            @Html.LabelFor(m => m.Sex, new { @class = "label" })
+            @{
+                var selectList = new List<SelectListItem>
+{
+new SelectListItem { Value = "0", Text = "Hombre"},
+new SelectListItem { Value = "1", Text = "Mujer"}
+};
+            }
+            @Html.DropDownListFor(m => m.Sex, selectList, new { @class = "form-control select2-single select2-sex", required = "required" })
+
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <div class="form-group">
+
+            @Html.LabelFor(m => m.BirthDate, new { @class = "label" })
+            <div class="input-group">
+                <span class="input-group-prepend">
+                    <span class="input-group-text">
+                        <i class="fa fa-calendar"></i>
+                    </span>
+                </span>
+                @Html.TextBoxFor(m => m.BirthDate, new { @class = "form-control datepicker", placeholder = "Fecha de nacimiento"})
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-md-6">
+        @Html.LabelFor(m => m.IsActive, new { @class = "label" })
+        @Html.CheckBoxFor(m => m.IsActive, new { @class = "form-control" })
+    </div>
+    <div class="form-group col-md-6">
+        @Html.LabelFor(m => m.Base64Image, new { @class = "label" })
+        @Html.TextBoxFor(m => m.Base64Image, new { @class = "form-control", type = "file" })
+        <span class="pull-right font-italic font-xs">Tama&ntilde;o m&aacute;ximo: 5MB.</span>
+    </div>
+</div>

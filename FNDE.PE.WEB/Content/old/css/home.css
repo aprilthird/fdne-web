@@ -1,0 +1,471 @@
+﻿/* General fix : this should teach you to never use bootstrap and its important rules to every single rulename */
+.text-mobile {
+    text-transform: uppercase;
+    font-weight: 700;
+    padding-top: 5vh;
+}
+.highlight {
+    width: 105px;
+    height: 45px;
+    position: absolute;
+    fill: #fff;
+}
+footer {
+    background: #1a1919 !important;
+}
+/* Main section fix rules */
+#main-section .main-text {
+    text-align: right;
+}
+/* Discipline slide fix rules*/
+#disciplines-section {
+    background: linear-gradient(90deg, #1a1919 50%, #b73827 50%);
+    position: relative;
+    overflow: hidden;
+}
+
+    #disciplines-section .highlight {
+        fill: #87868a;
+        fill-opacity: 0.2;
+        position:absolute;
+        bottom: 0;
+        right: -30px;
+    }
+#slider > label {
+    /*max-width: 525px;*/
+}
+#info .highlight {
+    top: 5vh;
+    left: 0;
+    fill: #87868a;
+    fill-opacity: 0.15;
+}
+#info {
+    margin-left: 0 !important;
+    padding-left: 5vw !important;
+}
+#info {
+    position: relative;
+}
+    #info .c-tooltip__title {
+        white-space: nowrap;
+    }
+    .disciplineButton {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        left: 5vw;
+        bottom: 5vh;
+    }
+.disciplineButton_graphic {
+    fill: #fff;
+}
+/* Ranking section fix rules*/
+#ranking-section {
+    position: relative;
+    overflow: hidden;
+}
+    #ranking-section .highlight {
+        width: 105px;
+        height: 45px;
+        position: absolute;
+        top: 23.5vh;
+        left: 0;
+        fill: #87868a;
+        fill-opacity: 0.15;
+    }
+    #ranking-section .highlight-page {
+        fill: #87868a;
+        fill-opacity: 0.2;
+        position: absolute;
+        top: auto;
+        left: auto;
+        bottom: 0;
+        right: -30px;
+    }
+
+    .nav-pills .nav-link.active {
+        background: #1a1919 !important;
+    }
+    .nav-pills .nav-link:focus, .nav-pills .nav-link.active:focus {
+        outline: none;
+    }
+#ranking-section {
+    background: #1a1919;
+}
+#ranking-section .nav-link {
+    padding: .5rem 0;
+}
+#ranking-section .row, #ranking-section .tab-content, #ranking-section .tab-pane {
+    height: 100%;
+}
+#ranking-section .card-content {
+    height: 55%;
+}
+#ranking-section .card {
+    margin-right: 5%;
+}
+.section-header {
+    font-size: inherit !important;
+}
+#ranking-section .card-content {
+    white-space: nowrap;
+}
+#ranking-section h6 {
+    margin: 7px 0 !important;
+}
+#ranking-section .nav {
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+/* Event section fix rules*/
+#events-section {
+    position: relative;
+}
+.events {
+    position: relative;
+}
+.events .highlight {
+    width: 105px;
+    height: 45px;
+    position: absolute;
+    top: 0;
+    padding-top: 5vh;
+    margin-top: 10%;
+    left: 0;
+    fill: #1a1919;
+    fill-opacity: 0.15;
+    z-index: 1;
+}
+#events-section .swiper-slide {
+    min-width: 280px;
+}
+
+.card.second {
+    margin-top: 0 !important;
+    padding-top: 5%;
+}
+.card.third {
+    margin-top: 0 !important;
+    padding-top: 10%;
+}
+
+.card.second .card-content {
+    height: 60% !important;
+}
+.card.third .card-content {
+    height: 65% !important;
+}
+.event-card {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+/* Media fix*/
+@media only screen and (max-width: 1000px) {
+    /* general fix*/
+    #ranking-section .text-mobile,
+    #events-section .text-mobile {
+        padding-top: 12vh;
+    }
+    /* media fix to main section*/
+    #main-section .main-footer {
+        display: grid;
+        grid-template: "text" "button";
+    }
+    #main-section .main-button {
+        grid-area: button;
+    }
+    #main-section .main-text {
+        grid-area: text;
+        text-align: left !important;
+        margin-bottom: 15px;
+    }
+    /* media fix to discipline section*/
+    #info .highlight {
+        top: 1.2vh;
+    }
+    #disciplines-section {
+        background: linear-gradient(110deg, #1a1919 40%, #b73827 40%)
+    }
+    #disciplines-section .slider-panel.col-md-8.order-1 {
+        padding-top: 12vh;
+    }
+    #disciplines-section .text-mobile {
+        padding-top: 2vh;
+    }
+    #info {
+        padding-right: 20vw;
+    }
+    .disciplineButton {
+        left: auto;
+        right: 7vw;
+        bottom: 25vh;
+    }
+    /* media fix to rankings section*/
+    #ranking-section .highlight {
+        top: 16vh;
+    }
+    #ranking-section .highlight-page {
+        display: none;
+    }
+    #ranking-section .nav {
+        -ms-flex-direction: row;
+        flex-direction: row;
+    }
+    #ranking-section .nav-link {
+        flex: 1 1 50%;
+    }
+    .card.second {
+        padding-top: 0 ;
+    }
+
+    .card.third {
+        padding-top: 0;
+    }
+
+    .card.first.card-content,
+    .card.second .card-content, 
+    .card.third .card-content {
+        height: 55% !important;
+    }
+    .mobile-ranking {
+        height: 100%;
+    }
+    .mobile-ranking h6{
+        font-size: 0.8em;
+    }
+        .mobile-ranking h5 {
+            font-size: 1.0em;
+        }
+    /*media fix to event section*/
+    .events .highlight {
+        top: 0;
+        padding-top: 11.5vh;
+        margin-top: 10%;
+        left: 0;
+        fill: #1a1919;
+        fill-opacity: 0.15;
+        z-index: 1;
+    }
+
+    .c-tooltip__tip .mobile {
+        display: none;
+    }
+
+    .c-tooltip__tip .desktop {
+        display: block;
+    }
+}
+
+/** TYPOGRAPHY*/
+@media only screen and (min-width: 1920px) {
+    .caption h1 {
+        font-size: 90pt;
+    }
+
+    .main-button button {
+        font-size: 25pt !important;
+    }
+
+    .footer-text h1 {
+        font-size: 30pt;
+    }
+
+    #info h2 {
+        font-size: 63pt;
+    }
+
+    #info h3 {
+        font-size: 50pt;
+    }
+
+    #info p {
+        font-size: 20pt;
+    }
+
+    #ranking-section h2 {
+        font-size: 63pt;
+    }
+
+    #ranking-section a {
+        font-size: 22pt;
+    }
+
+    #ranking-section .card-title {
+        font-size: 22pt !important;
+    }
+
+    #events-section h2 {
+        font-size: 63pt;
+    }
+
+    .event-date h6, .event-place h6{
+        font-size: 22pt !important;
+    }
+
+    .event-place h5{
+        font-size: 37pt !important;
+    }
+
+    #main-menu .table-menu a {
+        font-size: 15pt;
+    }
+
+    .cc-message {
+        font-size: 22pt;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .caption h1 {
+        font-size: 40pt;
+    }
+
+    .main-button button {
+        font-size: 8pt !important;
+    }
+
+    .footer-text h1 {
+        font-size: 16pt;
+    }
+
+    #info h2 {
+        font-size: 33pt;
+    }
+
+    #info h3 {
+        font-size: 20pt;
+    }
+
+    #info p {
+        font-size: 9pt;
+    }
+
+    #ranking-section h2 {
+        font-size: 33pt;
+    }
+
+    #ranking-section a {
+        font-size: 12pt;
+    }
+
+    #ranking-section .card-title {
+        font-size: 12pt !important;
+    }
+
+    #events-section h2 {
+        font-size: 33pt;
+    }
+
+    .event-date h6, .event-place h6{
+        font-size: 12pt !important;
+    }
+
+    .event-place h5 {
+        font-size: 20pt !important;
+    }
+
+    #main-menu .table-menu a {
+        font-size: 8pt !important;
+    }
+
+    .cc-message {
+        font-size: 12pt !important;
+    }
+}
+
+@media only screen and (min-width: 360px) {
+    .caption h1 {
+        font-size: 33pt;
+    }
+
+    .main-button button {
+        font-size: 8pt !important;
+    }
+
+    .footer-text h1 {
+        font-size: 12pt;
+    }
+
+    #info h2 {
+        font-size: 33pt;
+    }
+
+    #info h3 {
+        font-size: 13pt;
+    }
+
+    #info p {
+        font-size: 12pt;
+    }
+
+    #ranking-section h2 {
+        font-size: 33pt;
+    }
+
+    #ranking-section a {
+        font-size: 13pt;
+    }
+
+    #ranking-section .card-title {
+        font-size: 13pt !important;
+    }
+
+    #events-section h2 {
+        font-size: 33pt;
+    }
+
+    .event-date h6, .event-place h6 {
+        font-size: 11pt !important;
+    }
+
+    .event-place h5 {
+        font-size: 15pt !important;
+    }
+
+    #main-menu .table-menu a {
+        font-size: 8pt !important /*16pt?*/;
+    }
+    #main-menu table-menu tbody a {
+        font-size: 14pt;
+    
+    }
+    .cc-message {
+        font-size: 9pt !important;
+    }
+    .c-tooltip__tip .desktop {
+        display: none;
+    }
+    .c-tooltip__tip .desktop {
+        display: block;
+    }
+    .cc-btn + .cc-btn {
+        margin-left: 0;
+    }
+    .ranking-menu a {
+        font-size: 10pt !important;
+    }
+}
+
+@media screen and (orientation: landscape) {
+    .multimedia-object {
+        width: 100vw;
+        height: auto;
+    }
+
+
+}
+
+@media screen and (max-width: 1045px) {
+    .multimedia-object {
+        width: auto;
+        height: 100vh;
+        object-fit: cover;
+        object-position: center;
+    }
+}

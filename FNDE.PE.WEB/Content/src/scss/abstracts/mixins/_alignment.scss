@@ -1,0 +1,33 @@
+﻿@import "flexbox";
+@import "animations";
+
+//== Vertical and Horizontal center
+@mixin vertical-horizontal-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+}
+
+//== Vertical center
+@mixin vertical-center {
+    position: absolute;
+    top: 50%;
+    @include transform(translate(-50%));
+}
+
+//== Vertical bottom
+@mixin vertical-bottom {
+    position: absolute;
+    top: 100%;
+    @include transform(translate(-100%));
+}
+
+//== Vertical and Horizontal center using flexbox
+@mixin vertical-horizontal-center-flexbox {
+    @include flexbox();
+    @include flexbox-justify-content(center);
+    @include flexbox-align-items(center);
+    text-align: center;
+    vertical-align: middle;
+}

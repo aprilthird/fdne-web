@@ -1,0 +1,80 @@
+﻿@using System.Web.UI.WebControls
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <base>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="Federación Deportiva Nacional Ecuestre Módulo Administrativo">
+    <meta name="author" content="FDNE">
+    <meta name="keyword" content="fdne,fep,admin,gestion,iniciar,sesion">
+    <title>@ViewBag.Title - FDNE ADMIN</title>
+
+    <link href="@Url.Content("~/Content/assets/icons/css/coreui-icons.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/assets/vendors/flag-icon-css/css/flag-icon.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/assets/vendors/font-awesome/css/font-awesome.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/assets/vendors/simple-line-icons/css/simple-line-icons.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/vendors/ladda/ladda-themeless.min.css")" rel="stylesheet" />
+
+    <link href="@Url.Content("~/Content/assets/css/custom-style.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/assets/vendors/pace-progress/css/pace.min.css")" rel="stylesheet" />
+
+    <link href="@Url.Content("~/Content/vendors/select2/css/select2.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/vendors/bootstrap-datepicker/css/bootstrap-datepicker.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/vendors/toastr.js/toastr.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/css/pages/login.css")" rel="stylesheet" />
+
+    @RenderSection("Styles", required: false)
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '../../www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-118965717-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</head>
+<body class="app flex-row align-items-center">
+    <div id="particles-js" class="particles-background"></div>
+    @RenderBody()
+
+    <script src="@Url.Content("~/Content/assets/vendors/jquery/js/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/vendors/popper.js/js/popper.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/vendors/bootstrap/js/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/vendors/pace-progress/js/pace.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/vendors/perfect-scrollbar/js/perfect-scrollbar.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/ladda/spin.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/ladda/ladda.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/jquery-validate/jquery.validate.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/jquery-validate/additional-methods.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/jquery-easing/jquery.easing.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/js/coreui.min.js")"></script>
+
+    <script src="@Url.Content("~/Content/vendors/select2/js/select2.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/select2/js/i18n/es.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/bootstrap-datepicker/js/bootstrap-datepicker.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/toastr.js/toastr.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/particles.js/particles.min.js")"></script>
+
+    <script src="@Url.Content("~/Content/js/login-custom.js")"></script>
+
+    <script>
+        _app.constants.url.root = '@Url.Content("~")';
+        $('#ui-view').ajaxLoad();
+        $(document).ajaxComplete(function () {
+            Pace.restart()
+        });
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

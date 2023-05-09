@@ -1,0 +1,39 @@
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check section inhetirance */
+.f-section-fei {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  -ms-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  margin-top: 3rem;
+  margin-bottom: 3rem; }
+  .f-section-fei__header-title {
+    font-weight: bold; }
+  .f-section-fei__body {
+    margin-top: 50px; }
+    .f-section-fei__body-title {
+      font-weight: bold;
+      margin-bottom: 30px; }
+  .f-section-fei__downloads {
+    margin-top: 50px; }
+    .f-section-fei__downloads-title {
+      font-weight: bold; }
+    @media (min-width: 1025px) {
+      .f-section-fei__downloads-links {
+        text-align: center; } }
+    .f-section-fei__downloads-links button {
+      margin-top: 20px; }
+    .f-section-fei__downloads-links button:not(:last-child) {
+      margin-right: 40px; }

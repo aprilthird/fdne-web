@@ -1,0 +1,202 @@
+﻿
+@import "../../../abstracts/variables";
+@import "../../../abstracts/mixins";
+@import "../../../layout/variables";
+
+$f--logo-width: 65px;
+$f--menu-btn-width: 50px;
+$f--menu-background-color: $f--secondary-color;
+$f--header-margin-top: (
+    lg: 30px,
+    sm: 25px
+);
+$f--logo-btn-width: (
+    lg: 75px,
+    sm: 50px
+);
+
+/* TODO: mobile first */
+.f-menu {
+    @include flexbox();
+    @include flexbox-justify-content(space-between);
+    @include flexbox-shrink(0);
+    @include flexbox-grow(1);
+    @include flexbox-wrap(wrap);
+    padding-left: $f--horizontal-margin;
+    padding-right: $f--horizontal-margin;
+    margin-top: map-get($f--header-margin-top, sm);
+    $root: &;
+
+    @include wide-desktop {
+        max-width: $f--layout-max-width;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @include desktop {
+        @include flexbox-wrap(no-wrap);
+        margin-top: map-get($f--header-margin-top, lg);
+    }
+
+    &--active {
+        .hamburger-inner {
+            background-color: $f--white-color !important;
+
+            &::after, &::before {
+                background-color: $f--white-color !important;
+            }
+        }
+
+        #{$root}-logo {
+            //background: url("/Content/src/img/logo-light1.svg") !important;
+            background: url("/Content/src/img/logo-fep.png") !important;
+            background: {
+                size: contain !important;
+                repeat: no-repeat !important;
+                position: center center !important;
+            }
+        }
+    }
+
+    &__logo-container {
+        z-index: 999;
+
+        #{$root}-logo {
+            width: map-get($f--logo-btn-width, sm);
+            height: map-get($f--logo-btn-width, sm);
+            //background: url("/Content/src/img/logo-dark1.svg");
+            background: url("/Content/src/img/logo-fep.png");
+            background: {
+                size: contain;
+                repeat: no-repeat;
+                position: center center;
+            }
+
+            @include desktop {
+                width: map-get($f--logo-btn-width, lg);
+                height: map-get($f--logo-btn-width, lg);
+            }
+
+            &--light {
+                //background: url("/Content/src/img/logo-light1.svg");
+                background: url("/Content/src/img/logo-fep.png");
+                background: {
+                    size: contain;
+                    repeat: no-repeat;
+                    position: center center;
+                }
+            }
+        }
+    }
+
+    &__navbar {
+        @include flexbox-order(2);
+        @include flexbox-flex(0 0 100%);
+        @include transition(all 0.3s ease);
+        @include flexbox-justify-content(space-around);
+        visibility: hidden;
+        height: 0;
+        opacity: 0;
+        /*padding: {
+            left: 60px;
+            right: 60px;
+        }*/
+        @include desktop {
+            @include flexbox-shrink(1);
+            @include flexbox-grow(2);
+            @include flexbox-order(0);
+            @include flexbox-flex(auto);
+        }
+
+        &::before {
+            content: "";
+            background-color: $f--menu-background-color;
+            position: absolute; // fixed related to viewport (not nearest positioned)
+            height: 0;
+            width: 100vw;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 0;
+            margin: 0;
+            z-index: 300;
+            @include transition(height 0.5s ease);
+        }
+
+        // Active menu
+        &--active {
+            @include transition(all 0.3s ease);
+            visibility: visible;
+            height: auto;
+            opacity: 1;
+
+            &::before {
+                @include transition(height 0.5s ease);
+                @include box-shadow(0px 8px 5px -5px rgba($f--black-color, 0.75));
+                height: 100vh;
+
+                @include desktop {
+                    height: 40vh;
+                }
+            }
+
+            .f-navbar {
+                z-index: 1000;
+            }
+        }
+
+        .f-navbar {
+            width: 100%;
+        }
+    }
+
+    &__btn {
+        z-index: 999;
+        @include flexbox();
+        @include flexbox-justify-content(flex-end);
+        height: map-get($f--logo-btn-width, sm);
+        /*TODO: check this fucking size */
+        width: auto;
+
+        @include desktop {
+            height: map-get($f--logo-btn-width, lg);
+        }
+        /*TODO: Hacky hamburgers.css solution*/
+        .hamburger {
+            -webkit-appearance: button;
+            background-color: transparent;
+            border: 0;
+            padding: 0;
+        }
+
+        &--light {
+            .hamburger-inner {
+                background-color: $f--white-color !important;
+
+                &::after, &::before {
+                    background-color: $f--white-color !important;
+                }
+            }
+        }
+
+        .hamburger-inner {
+            background-color: $f--black-color;
+
+            &::after, &::before {
+                background-color: $f--black-color;
+            }
+
+            &--light {
+                background-color: $f--white-color !important;
+
+                &::after, &::before {
+                    background-color: $f--white-color !important;
+                }
+            }
+        }
+
+        .hamburger:focus {
+            outline: 0;
+        }
+    }
+}

@@ -1,0 +1,66 @@
+﻿@import "../../abstracts/variables";
+@import "../../abstracts/mixins";
+@import "../../layout/variables";
+
+.tab {
+    @include flexbox();
+    @include flexbox-direction(column);
+
+    @include desktop {
+        margin: 20px auto;
+    }
+    @include desktop {
+        @include flexbox-direction(row);
+    }
+}
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    color: $f--white-color;
+    padding: 0 60px;
+}
+
+.tab button:hover {
+    color: $f--primary-color;
+    text-decoration: none;
+}
+
+.tab button.active {
+    background-color: $f--black-color;
+    color: $f--primary-color;
+    text-decoration: none;
+}
+.tablinks {
+    text-decoration: none;
+    color: white;
+
+    @include desktop {
+        margin: 0 8px 10px !important;
+    }
+}
+
+.tablinks:hover {
+    text-decoration: none;
+    color: $f--primary-color;
+}
+
+.sub-tab a.active {
+    text-decoration: none;
+    color: white;
+}
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+}
+
+#general {
+    display: block;
+}

@@ -1,0 +1,22 @@
+﻿
+@import "../abstracts/mixins";
+@import "variables";
+
+.f-container {
+    padding-left: $f--horizontal-margin !important;
+    padding-right: $f--horizontal-margin !important;
+
+    @include wide-desktop {
+        max-width: $f--layout-max-width;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+.f-secondary-header {
+    display: flex;
+    background-image: url("../../img/slide1-1024.png");
+    &--title {
+
+    }
+}

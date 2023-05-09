@@ -1,0 +1,12 @@
+﻿@model FDNE.PE.WEB.ADMIN.Dtos.HistoryPerYearDto
+
+@Html.HiddenFor(m => m.Id)
+
+<fieldset class="form-group">
+    @Html.LabelFor(m => m.Year, new { @class = "label" })
+    @Html.TextBoxFor(m => m.Year, new { @class = "form-control", placeholder = "Año", type = "number", required = "required" })
+</fieldset>
+<fieldset class="form-group">
+    @Html.LabelFor(m => m.Body, new { @class = "col-md-2 col-form-label" })
+    @Html.TextAreaFor(m => m.Body, new { @class = "form-control summernote", placeholder = "Descripción", required = "required", rows = "6" })
+</fieldset>

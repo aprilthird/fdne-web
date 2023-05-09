@@ -1,0 +1,167 @@
+﻿@import "../variables";
+
+//== Icon Sizing
+// sass list:  (lineawesome: 1.1rem, fontawesome: 1.2rem, metronic: 1.1rem)
+@mixin icons-size($config) {
+    // lineawesome
+    [class^="la-"],
+    [class*=" la-"] {
+        font-size: array-get($config, lineawesome);
+    }
+    // fontaweseom icons
+    [class^="fa-"],
+    [class*=" fa-"] {
+        font-size: array-get($config, fontawesome);
+    }
+    // metronic icons
+    [class^="flaticon-"],
+    [class*=" flaticon-"] {
+        font-size: array-get($config, metronic);
+    }
+}
+
+//== Icon attr
+// sass list:  (lineawesome: 1.1rem, fontawesome: 1.2rem, metronic: 1.1rem)
+@mixin icons-attr($attr, $config) {
+    // lineawesome
+    [class^="la-"],
+    [class*=" la-"] {
+        #{$attr}: array-get($config, lineawesome);
+    }
+    // fontaweseom icons
+    [class^="fa-"],
+    [class*=" fa-"] {
+        #{$attr}: array-get($config, fontawesome);
+    }
+    // metronic icons
+    [class^="flaticon-"],
+    [class*=" flaticon-"] {
+        #{$attr}: array-get($config, metronic);
+    }
+}
+
+@mixin icons-style {
+    // lineawesome
+    [class^="la-"],
+    [class*=" la-"],
+    // fontaweseom icons
+    [class^="fa-"],
+    [class*=" fa-"],
+    // metronic icons
+    [class^="flaticon-"],
+    [class*=" flaticon-"] {
+        @content;
+    }
+}
+
+//== Metronic icon
+@mixin icon($default-state) {
+    &:before {
+        display: inline-block;
+        font-family: "Metronic";
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        line-height: 0px;
+        text-decoration: inherit;
+        text-rendering: optimizeLegibility;
+        text-transform: none;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased;
+        content: "#{$default-state}";
+    }
+}
+
+//== Iconify an element
+@mixin icon-self($default-state) {
+    display: inline-block;
+    font-family: "Metronic";
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    line-height: 0px;
+    text-decoration: inherit;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    content: "#{$default-state}";
+}
+
+//== Lineawesome icon
+@mixin la-icon($icon) {
+    font-family: "LineAwesome";
+    text-decoration: inherit;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+
+    &:before {
+        content: "#{$icon}";
+    }
+}
+
+//== Lineawesome icon
+@mixin la-icon-self($icon) {
+    font-family: "LineAwesome";
+    text-decoration: inherit;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    content: "#{$icon}";
+}
+
+//== Close icon
+@mixin m-generate-close-icon($self: null) {
+    @if $self == true {
+        @include la-icon-self( array-get($f--icon-codes, close) );
+    }
+    @else {
+        @include la-icon( array-get($f--icon-codes, close) );
+    }
+}
+
+//== Arrow down icon
+@mixin m-generate-arrow-icon($dir, $self: null) {
+    @if $dir == down {
+        @if $self == true {
+            @include la-icon-self( array-get($f--icon-codes, down) );
+        }
+        @else {
+            @include la-icon( array-get($f--icon-codes, down) );
+        }
+    }
+
+    @if $dir == up {
+        @if $self == true {
+            @include la-icon-self( array-get($f--icon-codes, up) );
+        }
+        @else {
+            @include la-icon( array-get($f--icon-codes, up) );
+        }
+    }
+
+    @if $dir == left {
+        @if $self == true {
+            @include la-icon-self( array-get($f--icon-codes, left) );
+        }
+        @else {
+            @include la-icon( array-get($f--icon-codes, left) );
+        }
+    }
+
+    @if $dir == right {
+        @if $self == true {
+            @include la-icon-self( array-get($f--icon-codes, right) );
+        }
+        @else {
+            @include la-icon( array-get($f--icon-codes, right) );
+        }
+    }
+}

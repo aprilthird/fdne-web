@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="Federación Deportiva Nacional Ecuestre Módulo Administrativo">
+    <meta name="author" content="FDNE">
+    <meta name="keyword" content="fdne,fep,admin,gestion,iniciar,sesion">
+    <link href="~/favicon.ico" rel="shortcut icon" />
+    <link href="@Url.Content("~/Content/img/logo-fep.png")" rel="apple-touch-icon" />
+    
+    <title>@ViewBag.Title - FDNE ADMIN</title>
+
+    <link href="@Url.Content("~/Content/assets/icons/css/coreui-icons.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/assets/vendors/flag-icon-css/css/flag-icon.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/assets/vendors/font-awesome/css/font-awesome.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/assets/vendors/simple-line-icons/css/simple-line-icons.css")" rel="stylesheet" />
+
+    <link href="@Url.Content("~/Content/vendors/datatables/css/dataTables.bootstrap4.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/vendors/datatables-buttons-1.5.6/css/buttons.bootstrap4.min.css")" rel="stylesheet" />
+
+    <link href="@Url.Content("~/Content/vendors/sweetalert2/sweetalert2.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/vendors/ladda/ladda-themeless.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/vendors/select2/css/select2.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/vendors/bootstrap-datepicker/css/bootstrap-datepicker.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/vendors/daterangepicker/css/daterangepicker.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/vendors/toastr.js/toastr.min.css")" rel="stylesheet" />
+
+    <link href="@Url.Content("~/Content/assets/css/custom-style.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/assets/vendors/pace-progress/css/pace.min.css")" rel="stylesheet" />
+
+    <link href="@Url.Content("~/Content/css/custom.css")" rel="stylesheet" />
+    <style>
+        #colored-button .btn {
+            color: #fff;
+        }
+
+        #colored-button a,
+        #colored-button a:hover {
+            background: #01BCFF;
+        }
+
+        #colored-button button,
+        #colored-button button:hover {
+            background: #1bb556;
+        }
+
+        #colored-button input,
+        #colored-button input:hover {
+            background: #ff4f0f;
+        }
+    </style>
+    @RenderSection("Styles", required: false)
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '../../www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-118965717-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</head>
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+    @Html.Partial("Partials/_TopBarHeader")
+    <div class="app-body">
+        @Html.Partial("Partials/_SideBarNavigation")
+        <main class="main">
+            @if (ViewBag.Breadcrumbs != null)
+            {
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index", "Home", new { area = "" })"><i class="icon-home"></i> Home</a>
+                    </li>
+                    @foreach (var item in (IEnumerable<BreadcrumbViewData>)ViewBag.Breadcrumbs)
+                    {
+                        if (item.Url != null)
+                        {
+                            <li class="breadcrumb-item">
+                                <a href="@item.Url">@item.Name</a>
+                            </li>
+                        }
+                        else
+                        {
+                            if (item.Controller != null)
+                            {
+                                <li class="breadcrumb-item">
+                                    <a href="@Url.Action(item.Action, item.Controller, new { area = item.Area })">@item.Name</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="breadcrumb-item active">
+                                    <a>@item.Name</a>
+                                </li>
+                            }
+                        }
+                    }
+                    @*
+                        <li class="breadcrumb-item active">Dashboard</li>*@
+                </ol>
+            }
+            <div class="container-fluid">
+                <div class="mb-4">
+                    <h1>@ViewBag.Title</h1>
+                </div>
+                <div id="ui-view">
+                    @RenderBody()
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer class="app-footer">
+        <div>
+            <a href="@Url.Action("Index", "Home", new { area = "" })">FDNE ADMIN</a>
+            <span>© 2019 Federaci&oacute;n Deportiva Nacional Ecuestre.</span>
+        </div>
+        <div class="ml-auto">
+            <span>Realizado por</span>
+            <a href="https://www.upc.edu.pe/">UPC</a>
+        </div>
+    </footer>
+
+    <script src="@Url.Content("~/Content/assets/vendors/jquery/js/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/vendors/popper.js/js/popper.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/vendors/bootstrap/js/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/vendors/pace-progress/js/pace.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/vendors/perfect-scrollbar/js/perfect-scrollbar.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/datatables/js/jquery.dataTables.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/datatables-buttons-1.5.6/js/dataTables.buttons.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/JSZip-2.5.0/jszip.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/pdfmake-0.1.36/pdfmake.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/pdfmake-0.1.36/vfs_fonts.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/datatables-buttons-1.5.6/js/buttons.html5.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/datatables-buttons-1.5.6/js/buttons.bootstrap4.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/datatables-buttons-1.5.6/js/buttons.print.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/datatables/js/dataTables.bootstrap4.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/sweetalert2/sweetalert2.all.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/jquery-validate/jquery.validate.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/jquery-validate/additional-methods.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/jquery-validate/localization/messages_es_PE.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/ladda/spin.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/ladda/ladda.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/select2/js/select2.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/select2/js/i18n/es.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/bootstrap-datepicker/js/bootstrap-datepicker.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/daterangepicker/js/daterangepicker.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/toastr.js/toastr.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/jquery-easing/jquery.easing.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/jquery.blockUI/jquery.blockUI.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/js/coreui.min.js")"></script>
+    <script src="@Url.Content("~/Content/js/custom.js")"></script>
+
+    @*<script src="@Url.Content("~/Content/vendors/page/page.js")"></script>*@
+    @*<script src="@Url.Content("~/Content/vendors/pug/lib/index.js")"></script>*@
+
+    <script>
+        //$('#ui-view').ajaxLoad();
+        _app.constants.url.root = '@Url.Content("~")';
+        $(document).ajaxComplete(function () {
+            Pace.restart();
+        });
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

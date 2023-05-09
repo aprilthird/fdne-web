@@ -1,0 +1,130 @@
+﻿@import "../../abstracts/variables";
+@import "../../../scss/components/base/cards/_ranking.scss";
+@import "../../layout/variables";
+
+@import "../../vendors/flickity/extend/slider.scss";
+
+.f-section-resultados {
+    padding-top: $f--section-separation;
+    padding-bottom: $f--section-separation;
+    background-color: $f--secondary-color;
+}
+
+.f-resultados__button-section {
+    @include flexbox();
+    @include flexbox-justify-content(center);
+    margin: 2rem;
+}
+
+.f-resultados__filters-section {
+    @include flexbox();
+    @include flexbox-justify-content(flex-start);
+    margin-bottom: 20px;
+
+    @include mobile {
+        // @include flexbox-justify-content(space-around);
+        @include flexbox-wrap(wrap);
+    }
+
+    &-box:not(:last-child) {
+        margin-right: 30px;
+
+        @include mobile {
+            margin-right: 10px;
+        }
+    }
+
+    &-box:first-child {
+        margin-left: 1.5rem;
+
+        @include mobile {
+            margin-left: 0rem;
+        }
+    }
+
+    &-box:last-child {
+        margin-left: auto;
+        margin-right: 3.3rem;
+
+        @include mobile {
+            margin: {
+                left: 0px;
+                top: 15px;
+            }
+        }
+    }
+}
+
+.f-ranking-message {
+    background-color: $f--secondary-color;
+    color: white;
+    min-height: 40vh;
+    @include flexbox();
+    @include flexbox-direction(column);
+    @include flexbox-justify-content(center);
+    @include flexbox-align-items(center);
+
+    &--hide {
+        display: none;
+    }
+
+    &--no-message {
+        h3 {
+            display: none;
+        }
+    }
+}
+
+.f-ranking-positions {
+    background-color: $f--secondary-color;
+    height: 350px;
+
+    @include desktop {
+        height: 100%;
+    }
+
+    &--hide {
+        display: none;
+    }
+}
+
+select {
+    color: white;
+    border: 2px solid RGB(225, 49, 29);
+}
+
+select option {
+    color: black;
+}
+
+h5 {
+    color: white;
+    transition: 0.3s;
+
+    margin: {
+        top: 1rem;
+        bottom: 1rem;
+        left: 1.5rem;
+    }
+
+    @include mobile {
+        margin: {
+            top: 0.5rem;
+            bottom: 0.5rem;
+        }
+    }
+}
+
+h5 > strong {
+    transition: 0.3s;
+}
+
+.f-select {
+    background: url("../../../../src/img/icon-arrow-down-light.svg") no-repeat right !important;
+    background-size: 25px !important;
+
+    @include mobile {
+        margin-bottom: 10px;
+        width: 145px !important;
+    }
+}

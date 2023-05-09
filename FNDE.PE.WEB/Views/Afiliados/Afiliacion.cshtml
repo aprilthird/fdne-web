@@ -1,0 +1,155 @@
+﻿
+@{
+    ViewBag.Title = "Afiliación";
+    Layout = "~/Views/Shared/_LayoutBackground.cshtml";
+}
+
+@section Styles {
+   
+    <link href="~/Content/dist/css/pages/affiliates/afiliados.css" rel="stylesheet" />
+    <style>
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+
+        }
+
+            .switch input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color:#131313;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+            .slider:before {
+                position: absolute;
+                content: "";
+                height: 26px;
+                width: 26px;
+                left: 4px;
+                bottom: 4px;
+                background-color: #e0311e;
+                -webkit-transition: .4s;
+                transition: .4s;
+                
+            }
+
+        input:checked + .slider {
+            background-color: #e0311e;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #e0311e;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+            border: 1px solid #e0311e;
+        }
+
+            .slider.round:before {
+                border-radius: 50%;
+            }
+
+    </style>
+}
+<style>
+    body {
+        background: linear-gradient(90deg, #131313 50%, white 50%);
+    }
+
+    .f-section--white {
+        background-color: white;
+    }
+</style>
+
+<main class="f-contac f-afiliate">
+    <section class="f-section f-section__content f-section-background f-section--dark">
+        <div class="f-section-background__image rellax" data-rellax-speed="-7">
+            <img src="~/Content/src/img/slide2-1024.png" />
+        </div>
+        <div class="f-section-background__title f-container">
+            <h1>AFILIACIÓN</h1>
+        </div>
+    </section>
+    <section class="f-container__contact f-section__flex f-section__flex--card f-section__column-mobile f-contac__container f-contacto ">
+
+        <div id="first_box" class="f-section__title-white f-section__card f-section__column f-bg--secondary f-tam" >
+            <h2>LOGIN</h2>
+
+            <p class="no-margin">
+                Ingrese al portal web con su usuario y contraseña.
+            </p>
+            
+            <div  class="f-botones">
+                <input id="user" class="f-input" placeholder="Usuario" />
+                <input id="password" class="f-input" placeholder="Contraseña" />
+
+            </div>
+            <div class="pro">
+
+                <div class="f-ranking__button-section">
+                    <button class="f-btn f-bg--primary">INGRESAR</button>
+                </div>
+                
+            </div>
+
+        </div>
+
+
+        <div id="second_box" class="f-section__title-white f-section--white f-section__card f-section__column f-tam">
+            <h2>REGISTRO</h2>
+            <p class="f-bold">¡Bienvenido a nuestro portal web! Por favor complete la siguiente información para registrarse.</p>
+            <div class="f-boxes">
+                <div>
+                    <input class="f-input" placeholder="Nombres*" />
+                    <input class="f-input" placeholder="Apellidos*" />
+                    <input class="f-input" placeholder="Fecha de Nacimiento*" style="color:dimgray" />
+                    <select class="f-input" style="width: 80%;">
+                        <option disabled selected>Género</option>
+                        <option value="0">Masculino</option>
+                        <option value="1">Femenino</option>
+                    </select>
+
+                </div>
+                <div>
+                    <input class="f-input" placeholder="Email*" />
+                    <input class="f-input" placeholder="Teléfono*" />
+                    <input class="f-input" placeholder="Contraseña*" />
+                    <input class="f-input" placeholder="Confirmar Contraseña*" />
+
+                </div>
+
+            </div>
+
+            <div class="pro">
+                <div class="btn-crear">
+                    <button class="f-btn f-bg--primary">CREAR CUENTA</button>
+                </div>
+
+            </div>
+            </div>
+        
+</section>
+</main>
+

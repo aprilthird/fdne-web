@@ -1,0 +1,16 @@
+﻿@model IEnumerable<FNDE.PE.WEB.PORTAL.ViewModels.EventViewModels.EventoViewModel>
+
+@foreach (var events in Model)
+{
+    <div class="f-section-events__Scarousel-cell">
+        <div class="f-section__cardS">
+            <h5 class="f-text--primary">
+                @events.Day <span style="text-transform: uppercase;">@events.Month</span> de @events.Year
+            </h5>
+            <h2>
+                @events.Acronym
+            </h2>
+            <button class="f-btn f-btn--primary f-btn-modal" data-eventid="@events.Id">DETALLES</button>
+        </div>
+    </div>
+}

@@ -1,0 +1,514 @@
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check section inhetirance */
+.main-carousel {
+  width: 100%; }
+
+.flickity-slider {
+  height: 350px !important; }
+
+.flickity-page-dots {
+  display: none; }
+
+.flickity-prev-next-button {
+  background-color: #e0311e !important;
+  color: white !important;
+  opacity: 1 !important;
+  height: 100% !important;
+  border-radius: 0 !important;
+  width: 55px !important;
+  margin: 0 !important; }
+
+.flickity-prev-next-button.previous {
+  left: 0 !important; }
+
+.flickity-prev-next-button.next {
+  right: 0 !important; }
+
+@media (max-width: 768px) {
+  .flickity-button-icon {
+    height: 15px !important;
+    top: 45% !important; } }
+
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* ----------------------------------------------------------- */
+/* == tingle v0.14.0 */
+/* ----------------------------------------------------------- */
+.tingle-modal * {
+  box-sizing: border-box; }
+
+.tingle-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: -ms-flexbox;
+  display: flex;
+  visibility: hidden;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  transition: transform .2s ease; }
+
+/* confirm and alerts
+-------------------------------------------------------------- */
+.tingle-modal--confirm .tingle-modal-box {
+  text-align: center; }
+
+/* modal
+-------------------------------------------------------------- */
+.tingle-modal--noOverlayClose {
+  cursor: default; }
+
+.tingle-modal--noClose .tingle-modal__close {
+  display: none; }
+
+.tingle-modal__close {
+  position: fixed;
+  top: 10px;
+  right: 28px;
+  z-index: 1000;
+  padding: 0;
+  width: 5rem;
+  height: 5rem;
+  border: none;
+  background-color: transparent;
+  color: #f0f0f0;
+  font-size: 6rem;
+  font-family: monospace;
+  line-height: 1;
+  cursor: pointer;
+  transition: color .3s ease; }
+
+.tingle-modal__closeLabel {
+  display: none; }
+
+.tingle-modal__close:hover {
+  color: #fff; }
+
+.tingle-modal-box {
+  position: relative;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 60%;
+  border-radius: 4px;
+  background: #fff;
+  opacity: 1;
+  cursor: auto;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -ms-transform: scale(0.8);
+  transform: scale(0.8); }
+
+.tingle-modal-box__content {
+  padding: 3rem 3rem; }
+
+.tingle-modal-box__footer {
+  padding: 1.5rem 2rem;
+  width: auto;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  background-color: #f5f5f5;
+  cursor: auto; }
+
+.tingle-modal-box__footer::after {
+  display: table;
+  clear: both;
+  content: ""; }
+
+.tingle-modal-box__footer--sticky {
+  position: fixed;
+  bottom: -200px;
+  /* TODO : find a better way */
+  z-index: 10001;
+  opacity: 1;
+  transition: bottom .3s ease-in-out .3s; }
+
+/* state
+-------------------------------------------------------------- */
+.tingle-enabled {
+  position: fixed;
+  right: 0;
+  left: 0;
+  overflow: hidden; }
+
+.tingle-modal--visible .tingle-modal-box__footer {
+  bottom: 0; }
+
+.tingle-enabled .tingle-content-wrapper {
+  filter: blur(8px); }
+
+.tingle-modal--visible {
+  visibility: visible;
+  opacity: 1; }
+
+.tingle-modal--visible .tingle-modal-box {
+  -ms-transform: scale(1);
+  transform: scale(1); }
+
+.tingle-modal--overflow {
+  overflow-y: scroll;
+  padding-top: 8vh; }
+
+/* btn
+-------------------------------------------------------------- */
+.tingle-btn {
+  display: inline-block;
+  margin: 0 .5rem;
+  padding: 1rem 2rem;
+  border: none;
+  background-color: grey;
+  box-shadow: none;
+  color: #fff;
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: normal;
+  cursor: pointer;
+  transition: background-color .4s ease; }
+
+.tingle-btn--primary {
+  background-color: #3498db; }
+
+.tingle-btn--danger {
+  background-color: #e74c3c; }
+
+.tingle-btn--default {
+  background-color: #34495e; }
+
+.tingle-btn--pull-left {
+  float: left; }
+
+.tingle-btn--pull-right {
+  float: right; }
+
+/* responsive
+-------------------------------------------------------------- */
+@media (max-width: 540px) {
+  .tingle-modal {
+    top: 0px;
+    display: block;
+    padding-top: 60px;
+    width: 100%; }
+  .tingle-modal-box {
+    width: auto;
+    border-radius: 0; }
+  .tingle-modal-box__content {
+    overflow-y: scroll; }
+  .tingle-modal--noClose {
+    top: 0; }
+  .tingle-modal--noOverlayClose {
+    padding-top: 0; }
+  .tingle-modal-box__footer .tingle-btn {
+    display: block;
+    float: none;
+    margin-bottom: 1rem;
+    width: 100%; }
+  .tingle-modal__close {
+    top: 0;
+    right: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 60px;
+    border: none;
+    background-color: #2c3e50;
+    box-shadow: none;
+    color: #fff;
+    line-height: 55px; }
+  .tingle-modal__closeLabel {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; }
+  .tingle-modal__closeIcon {
+    display: inline-block;
+    margin-right: .5rem;
+    vertical-align: middle;
+    font-size: 4rem; } }
+
+@supports (-webkit-backdrop-filter: blur(12px)) or (backdrop-filter: blur(12px)) {
+  .tingle-modal {
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px); }
+  @media (max-width: 540px) {
+    .tingle-modal {
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px); } }
+  .tingle-enabled .tingle-content-wrapper {
+    filter: none; } }
+
+.f-modal {
+  padding: 0;
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -moz-transition: visibility 0.2s ease, opacity 0.2s ease;
+  -o-transition: visibility 0.2s ease, opacity 0.2s ease;
+  -webkit-transition: visibility 0.2s ease, opacity 0.2s ease;
+  -ms-transition: visibility 0.2s ease, opacity 0.2s ease;
+  transition: visibility 0.2s ease, opacity 0.2s ease; }
+  .f-modal .tingle-modal-box {
+    width: 100%; }
+  .f-modal--custom-close .tingle-modal__close {
+    width: auto;
+    height: auto;
+    left: unset;
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: transparent;
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: flex;
+    -webkit-justify-content: flex-end;
+    -moz-justify-content: flex-end;
+    -ms-justify-content: flex-end;
+    justify-content: flex-end;
+    padding-top: .5rem;
+    padding-right: 25px;
+    line-height: 3rem; }
+    @media (min-width: 1025px) {
+      .f-modal--custom-close .tingle-modal__close {
+        padding-top: 1.5rem; } }
+    .f-modal--custom-close .tingle-modal__close:focus {
+      outline: 0; }
+    .f-modal--custom-close .tingle-modal__closeLabel {
+      display: none; }
+    .f-modal--custom-close .tingle-modal__closeIcon {
+      margin-right: 0; }
+  .f-modal--primary {
+    color: #ffffff; }
+    .f-modal--primary .tingle-modal-box {
+      background-color: #e0311e; }
+      .f-modal--primary .tingle-modal-box__footer {
+        background-color: #b32718; }
+  .f-modal--secondary {
+    color: #ffffff; }
+    .f-modal--secondary .tingle-modal-box {
+      background-color: #131313; }
+      .f-modal--secondary .tingle-modal-box__footer {
+        background-color: black; }
+
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check section inhetirance */
+@media (min-width: 1025px) {
+  .f-modal-event .tingle-modal-box {
+    max-width: 1180px; } }
+
+.f-modal-event .tingle-modal-box__content {
+  padding: 0; }
+  .f-modal-event .tingle-modal-box__content .f-modal-event__title {
+    margin-top: 1rem;
+    padding-left: 25px;
+    width: 75%; }
+    @media (min-width: 1025px) {
+      .f-modal-event .tingle-modal-box__content .f-modal-event__title {
+        margin-top: 3rem;
+        width: 40%; } }
+  .f-modal-event .tingle-modal-box__content .f-modal-event__info {
+    margin-top: .5rem;
+    padding: 0 25px;
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: flex; }
+    @media (min-width: 1025px) {
+      .f-modal-event .tingle-modal-box__content .f-modal-event__info {
+        margin-top: 1.5rem; } }
+    .f-modal-event .tingle-modal-box__content .f-modal-event__info-date {
+      flex-basis: 10%;
+      margin-right: 1.5rem; }
+    .f-modal-event .tingle-modal-box__content .f-modal-event__info-location {
+      flex-basis: 30%; }
+      @media (min-width: 1025px) {
+        .f-modal-event .tingle-modal-box__content .f-modal-event__info-location {
+          flex-basis: 15%; } }
+  .f-modal-event .tingle-modal-box__content .f-modal-event__map {
+    box-sizing: border-box;
+    margin-top: 1rem;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+    height: 200px;
+    overflow: hidden; }
+    @media (min-width: 1025px) {
+      .f-modal-event .tingle-modal-box__content .f-modal-event__map {
+        margin-top: 3rem; } }
+    .f-modal-event .tingle-modal-box__content .f-modal-event__map img {
+      width: 100%; }
+
+.f-galery .card-content {
+  margin-top: 20px;
+  padding: 0;
+  border: 0; }
+
+.f-galery .tab {
+  -ms-flex-direction: row;
+  -moz-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-direction: row; }
+  @media (min-width: 769px) {
+    .f-galery .tab {
+      margin-bottom: 70px; } }
+  .f-galery .tab button {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding: 0 1px; }
+    @media (min-width: 769px) {
+      .f-galery .tab button {
+        margin: 4px 9px;
+        font-size: 20px; } }
+
+.f-galery .f-section img {
+  display: none; }
+
+.f-galery .f-section .f-section-background__title {
+  margin: 0.5rem auto; }
+  @media (min-width: 769px) {
+    .f-galery .f-section .f-section-background__title {
+      position: relative;
+      text-align: center; } }
+
+.f-galery .f-section-background {
+  height: 40vh !important; }
+
+.f-galery btn {
+  padding: 0; }
+
+.f-section-desktop {
+  width: 46% !important;
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  -webkit-align-items: flex-end;
+  -moz-align-items: flex-end;
+  -ms-align-items: flex-end;
+  align-items: flex-end; }
+  @media (max-width: 768px) {
+    .f-section-desktop {
+      display: none; } }
+  .f-section-desktop .tab {
+    margin-top: 5px; }
+
+@media (min-width: 769px) {
+  .f-no-display {
+    display: none; } }
+
+.grid {
+  background: #131313; }
+
+/* clear fix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both; }
+
+/* ---- .grid-item ---- */
+.grid-sizer,
+.grid-item {
+  width: 44%;
+  height: 200px; }
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .grid-sizer,
+    .grid-item {
+      width: 22.5%;
+      height: 280px; } }
+  @media (min-width: 1025px) {
+    .grid-sizer,
+    .grid-item {
+      width: 23%;
+      height: 310px; } }
+
+.grid-item {
+  float: left;
+  margin: 10px; }
+
+.grid-item img {
+  display: block;
+  max-width: 100% !important; }
+
+/* Effect 4: fall perspective */
+.grid.effect-4 {
+  perspective: 1300px; }
+
+.grid.effect-4 li {
+  transform-style: preserve-3d; }
+
+.grid.effect-4 li.animate {
+  transform: translateZ(400px) translateY(300px) rotateX(-90deg);
+  animation: fallPerspective .8s ease-in-out forwards; }
+
+.f-modal-event .tingle-modal-box__content .f-modal-event__map {
+  margin-top: 4rem;
+  height: 100%; }
+  .f-modal-event .tingle-modal-box__content .f-modal-event__map img {
+    object-fit: contain;
+    max-height: 700px; }
+
+.f-modal-event .tingle-modal-box__content .f-modal-event__info-location {
+  flex-basis: 100%; }
+
+@media (min-width: 1025px) {
+  .f-modal-event .tingle-modal-box__content .f-modal-event__info {
+    margin-bottom: 30px; } }
+
+.f-modal--primary .tingle-modal-box {
+  background-color: rgba(0, 0, 0, 0);
+  opacity: 1; }
+
+.modal-event-template {
+  display: none; }

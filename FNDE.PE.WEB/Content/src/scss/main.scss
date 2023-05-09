@@ -1,0 +1,34 @@
+﻿
+//== Abstracts
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/functions";
+
+//== Base
+@import "base/include";
+
+//== Components
+@import "components/base/menu/menu";
+@import "components/base/navbar/navbar";
+@import "components/base/buttons/buttons";
+@import "components/base/inputs/inputs";
+@import "components/base/selects/selects";
+@import "components/base/tables/tables";
+@import "components/base/forms/forms";
+
+//== Layout
+@import "layout/variables";
+@import "layout/container";
+@import "layout/header";
+@import "layout/footer";
+@import "layout/section";
+@import "pages/news/list";
+@import "pages/contests/ranking";
+@import "pages/contac/contact";
+@import "pages/affiliates/jockey";
+@import "pages/disciplines/trainig";
+@import "pages/affiliates/detail";
+@import "pages/affiliates/listClubes.scss";
+
+//== Vendors
+@import "vendors/flickity/extend/slider";

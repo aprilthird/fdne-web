@@ -1,0 +1,22 @@
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check section inhetirance */
+.f-section-lidea {
+  margin-top: 5rem;
+  margin-bottom: 5rem; }
+  .f-section-lidea__body {
+    margin-top: 50px; }
+    .f-section-lidea__body-title {
+      font-weight: bold;
+      margin-bottom: 30px; }
+  .f-section-lidea__text {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    text-align: left;
+    text-justify: inter-word; }

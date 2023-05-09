@@ -1,0 +1,17 @@
+﻿@model FDNE.PE.WEB.ADMIN.Dtos.FederationOrganizationDto
+
+@Html.HiddenFor(m => m.Id)
+<div class="row">
+    <div class="form-group col-md-6">
+        <div class="form-group">
+            @Html.LabelFor(m => m.Title, new { @class = "label" })
+            @Html.TextBoxFor(m => m.Title, new { @class = "form-control", placeholder = "Cargo", required = "required", autocomplete = "off" })
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name, new { @class = "label" })
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Nombre", required = "required", autocomplete = "off" })
+        </div>
+    </div>
+</div>

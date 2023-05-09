@@ -1,0 +1,37 @@
+﻿@model IEnumerable<FNDE.PE.WEB.PORTAL.ViewModels.AboutUsViewModels.OrganizationViewModel>
+@{
+    ViewBag.Title = "Organizacion";
+    Layout = "~/Views/Shared/_LayoutBackground.cshtml";
+}
+
+@section Styles {
+    <link href="~/Content/dist/css/pages/about-us/organization.css" rel="stylesheet" />
+}
+
+<main>
+    <section class="f-section f-section__content f-section-background f-section--dark">
+        <div class="f-section-background__image rellax" data-rellax-speed="-7">
+            <img src="~/Content/src/img/slide4-1024.png" />
+        </div>
+        <div class="f-section-background__title f-container">
+            <h1>ORGANIZACIÓN</h1>
+        </div>
+    </section>
+    <section class="f-section f-section--dark f-section-organization">
+        <div class="f-section-organization__body f-container f-section__justify">
+            @foreach(var group in Model.OrderBy(x=>x.Title).GroupBy(x=>x.Title)) 
+            {
+            <div class="f-section-organization__body-item">
+                <h2 class="f-section-organization__body-title">@group.Key</h2>
+                @foreach(var item in group)
+                {   
+                    <h6> @item.Name </h6>
+                }
+
+            </div>
+            }
+        </div>
+    </section>
+</main>
+
+

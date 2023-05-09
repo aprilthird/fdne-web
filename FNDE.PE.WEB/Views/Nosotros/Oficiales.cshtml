@@ -1,0 +1,67 @@
+﻿@model FNDE.PE.WEB.PORTAL.ViewModels.AboutUsViewModels.OfficersViewModel
+
+@{
+    ViewBag.Title = "Oficiales";
+    Layout = "~/Views/Shared/_LayoutBackground.cshtml";
+}
+
+
+@section Styles {
+    <link href="~/Content/dist/css/pages/about-us/oficiales.css" rel="stylesheet" />
+}
+
+<main>
+    <section class="f-section f-section__content f-section-background f-section--dark">
+        <div class="f-section-background__image rellax" data-rellax-speed="-7">
+            <img src="@Model.ImageUrl" />
+        </div>
+        <div class="f-section-background__title f-container">
+            <h1>OFICIALES</h1>
+        </div>
+    </section>
+    <section class="f-section f-container f-section-oficiales">
+        @foreach (var of in Model.LstOfficers.OrderBy(x => x.DisciplineName).GroupBy(x => x.DisciplineName))
+        {
+            <button class="collapsible">@of.Key</button>
+            <div class="content">
+                <br />
+                @foreach (var catGroup in of.GroupBy(x => x.CategoryName))
+                {
+                    <button class="f-section-oficiales__information-title-secondary collapsible collapsible--child">@catGroup.Key</button>
+                    <div class="content content--child">
+                        <ul>
+                            @foreach (var item in catGroup)
+                            {
+                                <li><p>@item.Name</p></li>
+                            }
+                        </ul>
+                        <br />
+                    </div>
+                 }
+                       
+                    </div>
+            <br />
+
+
+        }
+    </section>
+</main>
+
+@section Scripts {
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = "3000" + "px";
+            }
+        });
+    }
+</script>
+}

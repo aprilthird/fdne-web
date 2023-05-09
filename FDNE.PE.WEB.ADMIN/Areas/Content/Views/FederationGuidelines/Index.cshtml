@@ -1,0 +1,57 @@
+﻿@model FDNE.PE.WEB.ADMIN.Dtos.FederationGuidelinesDto
+
+@{
+    ViewBag.Title = "Pautas de la Federación";
+    ViewBag.SubTitle = "Formulario de Edición";
+    ViewBag.Breadcrumbs = new[] {
+        new BreadcrumbViewData { Name = ViewBag.Title }
+    };
+}
+
+@section Styles {
+    <link href="@Url.Content("~/Content/vendors/summernote/summernote.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/vendors/summernote/summernote-bs4.min.js")" rel="stylesheet" />
+}
+<div>
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="card-header">
+                <i class="icon-pencil icons font-2xl"></i> @ViewBag.SubTitle
+            </div>
+            <form id="form" class="form-horizontal" method="post">
+                <div class="card-body">
+                    @Html.HiddenFor(m => m.Id)
+                    <div id="alert" class="alert alert-danger alert-dismissible fade d-none" role="alert">
+                        <span id="alert_text"></span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.Body, new { @class = "col-md-2 col-form-label" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(m => m.Body, new { @class = "form-control summernote", placeholder = "Descripción", required = "required", rows = "6" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.Base64Image, new { @class = "col-md-2 col-form-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Base64Image, new { @class = "form-control", type = "file" })
+                            <span class="pull-right font-italic font-xs">Tama&ntilde;o m&aacute;ximo: 5MB.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-right">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fa fa-save"></i>&emsp;Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="@Url.Content("~/Content/vendors/summernote/summernote.min.js")"></script>
+    <script src="@Url.Content("~/Content/js/areas/content/federation-guidelines/index.js")"></script>
+}

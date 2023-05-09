@@ -1,0 +1,9 @@
+﻿@{
+    ViewBag.Title = "Inicio";
+    ViewBag.Breadcrumbs = new BreadcrumbViewData[] {};
+}
+
+<div class="jumbotron bg-primary">
+    <h3>FDNE ADMIN</h3>
+    <p class="lead">Bienvenido, usuario <strong><a class="text-white" href="@Url.Action("Index", "Profile", new { area = "" })"><i class="fa fa-user"></i> @User.Identity.Name</a></strong></p>
+</div>

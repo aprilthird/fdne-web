@@ -1,0 +1,432 @@
+﻿
+@{
+    ViewBag.Title = "Rankings";
+    Layout = "~/Views/Shared/_LayoutBackground.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-balham.css">
+    <link href="~/Content/dist/css/pages/contests/ranking.css" rel="stylesheet" />
+}
+
+<main>
+    <section class="f-section f-section__content f-section-background f-section--dark">
+        <div class="f-section-background__image rellax" data-rellax-speed="-7">
+            <img src="~/Content/src/img/slide2-1024.png" />
+        </div>
+        <div class="f-section-background__title f-container">
+            <h1>Ranking</h1>
+        </div>
+    </section>
+    <section class="f-section f-container f-section-ranking">
+        <div class="f-section-ranking__filters">
+            <div class="f-section-ranking__filters-box" id="fith-container">
+                <label>Temporada</label>
+                <select id="season_filter" class="select-filter"></select>
+            </div>
+            <div class="f-section-ranking__filters-box" id="first-container">
+                <label>Disciplina</label>
+                <select id="discipline_filter" class="select-filter"></select>
+            </div>
+            <div class="f-section-ranking__filters-box" id="second-container">
+                <label>Nivel</label>
+                <select id="level_filter" class="select-filter"></select>
+            </div>
+            <div class="f-section-ranking__filters-box" id="third-container">
+                <label>Categor&iacute;a</label>
+                <select id="category_filter" class="select-filter"></select>
+            </div>
+            <div class="f-section-ranking__filters-box">
+                <label>&emsp;</label><br />
+                <input type="text" class="f-input" id="filter-text-box" placeholder="Buscar" oninput="FiltrarDatos()" />
+            </div>
+        </div>
+        <div id="container-grid"></div>
+        <div class="f-ranking__button-section">
+            <button id="btn_download" class="f-btn f-bg--primary">DESCARGAR EXCEL</button>
+        </div>
+    </section>
+    <div id="modal-ranking-template">
+        <div class="f-modal-ranking__title">
+            <h3 class="f-modal-ranking__title-text">
+                Detalle de Jinete en Ranking
+            </h3>
+        </div>
+        <div class="f-modal-ranking__table">
+            <div id="container-detail-grid"></div>
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+    <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+    <script src="@Url.Content("~/Content/src/vendors/tingle.js/tingle.min.js")"></script>
+    <script>
+        (async function () {
+            // instanciate new modal
+            var modal = new tingle.modal({
+                footer: false,
+                stickyFooter: false,
+                closeMethods: ['overlay', 'button', 'escape'],
+                closeLabel: "Close",
+                cssClass: ['f-modal', 'f-modal--primary', 'f-modal--custom-close', 'f-modal-ranking'],
+                onOpen: function () {
+                },
+                onClose: function () {
+                    let close = $1(".tingle-modal__close");
+                    let modal = $1(".tingle-modal");
+                    modal.appendChild(close);
+                },
+                beforeOpen: () => {
+                    let close = $1(".tingle-modal__close");
+                    var modalContent = $1(".tingle-modal-box__content");
+                    modalContent.appendChild(close);
+                },
+                beforeClose: function () {
+                    // here's goes some logic
+                    // e.g. save content before closing the modal
+                    return true; // close the modal
+                    return false; // nothing happens
+                }
+            });
+
+            const disciplineSelect = new SlimSelect({
+                select: "#discipline_filter",
+                placeholder: "Disciplina",
+                searchPlaceholder: "Buscar",
+                searchText: "Ningún resultado"
+            });
+            const seasonSelect = new SlimSelect({
+                select: "#season_filter",
+                placeholder: "Temporada",
+                searchPlaceholder: "Buscar",
+                searchText: "Ningún resultado"
+            });
+            const levelSelect = new SlimSelect({
+                select: "#level_filter",
+                allowDeselect: true,
+                placeholder: "Nivel",
+                searchPlaceholder: "Buscar",
+                searchText: "Ningún resultado"
+            });
+            const categorySelect = new SlimSelect({
+                select: "#category_filter",
+                placeholder: "Categoría",
+                searchPlaceholder: "Buscar",
+                allowDeselect: true,
+                searchText: "Ningún resultado"
+            });
+
+            var datosObtenidos = null;
+
+            const ObtenerDatos = (seasonId, disciplineId, categoryId, levelId) => {
+                fetch(_app.parseToUrl(`/concursos/listadorankingapi?seasonId=${seasonId}&disciplineId=${disciplineId}&categoryId=${categoryId}&levelId=${levelId}`), {
+                    method: 'get'
+                }).then(response => {
+                    return response.json();
+                }).then(data => {
+                    datosObtenidos = data;
+                    ConstruirGrid(data);
+                }).catch(err => { });
+            }
+
+            const ObtenerColumnas = () => {
+                var columnDefs = [
+                    { headerName: "JINETE", field: "rider", minWidth: 90 },
+                    { headerName: "CABALLO", field: "horse", minWidth: 90 },
+                    { headerName: "NIVEL", field: "level", minWidth: 90 },
+                    { headerName: "CATEGORIA", field: "category", minWidth: 90 },
+                    { headerName: "CLUB", field: "club", minWidth: 80 },
+                    { headerName: "PUNTAJE", field: "score", minWidth: 80, cellStyle: { "text-align": "right" } },
+                    {
+                        headerName: "OPCIONES",
+                        field: "rankingId",
+                        minWidth: 80,
+                        cellStyle: { "text-align": "right" },
+                        cellRenderer: (params) => {
+                            return `<button class="f-btn f-btn--primary f-btn--xs f-btn-detail" data-ranking-id="${params.data.rankingId}" data-club-id="${params.data.clubId}" data-rider-id="${params.data.riderId}" data-horse-id="${params.data.horseId}" data-club-name="${params.data.club}" data-rider-name="${params.data.rider}" data-horse-name="${params.data.horse}">Detalle</button>`;
+                            //return "<button class='f-btn f-btn--primary f-btn--xs f-btn-detail' onclick='showDetail(\"" + params.data.rankingId + "\")'>Detalle</button>";
+                            //return "<a class='f-link f-link--primary'>Detalle</a>";
+                        }
+                    }
+                ];
+                return columnDefs;
+            }
+
+            const ConstruirGrid = (datos) => {
+                const existDiv = document.getElementById("myGrid");
+                if (existDiv) {
+                    existDiv.remove();
+                }
+                //createElement
+                let divElement = document.createElement("div");
+                divElement.id = "myGrid";
+                divElement.className = "ag-theme-balham";
+                divElement.style.width = "100%";
+                divElement.style.height = "400px";
+                let divContainer = document.getElementById("container-grid");
+                divContainer.appendChild(divElement);
+                // let the grid know which columns and what data to use
+                const gridOptions = {
+                    columnDefs: ObtenerColumnas(),
+                    pagination: true,
+                    paginationAutoPageSize: true,
+                    localeText: {
+                        // for filter panel
+                        page: "Página",
+                        more: "más",
+                        to: "a",
+                        of: "de",
+                        loadingOoo: "Cargando...",
+                        noRowsToShow: "No se encontraron resultados"
+                    },
+                    rowData: datos,
+                    onGridReady: function (params) {
+                        params.api.sizeColumnsToFit();
+                        window.addEventListener("resize",
+                            function () {
+                                setTimeout(function () {
+                                    params.api.sizeColumnsToFit();
+                                });
+                            });
+                        $(".f-btn-detail").forEach(btn => {
+                            btn.addEventListener("click", () => {
+                                showDetailModal(btn.dataset.rankingId, btn.dataset.clubId,
+                                    btn.dataset.riderId, btn.dataset.horseId,
+                                    `Detalle del Binomio (Jinete: ${btn.dataset.riderName} - Caballo: ${btn.dataset.horseName} - Club: ${btn.dataset.clubName})`);
+                            });
+                        });
+                    }
+                };
+                // lookup the container we want the Grid to use
+                const eGridDiv = document.querySelector('#myGrid');
+                // create the grid passing in the div to use together with the columns & data we want to use
+                new agGrid.Grid(eGridDiv, gridOptions);
+            }
+
+            const FiltrarDatos = () => {
+                const word = document.getElementById("filter-text-box").value;
+                // Mientras que el texto filtrado no tenga un valor, se listará los valores por defecto
+                if (word == '' || word == undefined || word == null) {
+                    ConstruirGrid(datosObtenidos);
+                    return;
+                }
+                const regex = new RegExp(word, 'i');
+                //const datosExistentes = ObtenerDatos(seasonSelect.selected(), disciplineSelect.selected(), categorySelect.selected(), levelSelect.selected());
+                const datosFiltrados = datosObtenidos.filter(({ Jinete, Caballo }) => Jinete.match(regex) || Caballo.match(regex));
+                ConstruirGrid(datosFiltrados);
+            }
+
+            const showDetailModal = (rankingId, clubId, riderId, horseId, title) => {
+                let modalTitle = $1("#modal-ranking-template .f-modal-ranking__title-text");
+                modalTitle.innerText = title;
+                // set content
+                let modalTemplate = $1("#modal-ranking-template");
+                modal.setContent(modalTemplate.innerHTML);
+                // open modal
+                modal.open();
+                getDetailData(rankingId, clubId, riderId, horseId);
+
+                //modal.addEventListener("onOpen", () => {
+                //    alert("aaa");
+                //});
+            };
+
+            const getDetailData = (rankingId, clubId, riderId, horseId) => {
+                fetch(_app.parseToUrl(`/concursos/ranking/${rankingId}/club/${clubId}/jinete/${riderId}/caballo/${horseId}/detalle`), {
+                    method: 'get'
+                }).then(response => {
+                    return response.json();
+                }).then(data => {
+                    buildDetailGrid(data);
+                }).catch(err => { });
+            };
+
+            const buildDetailGrid = (data) => {
+                const existDiv = document.getElementById("detailGrid");
+                if (existDiv) {
+                    existDiv.remove();
+                }
+                //createElement
+                let divElement = document.createElement("div");
+                divElement.id = "detailGrid";
+                divElement.className = "ag-theme-balham";
+                divElement.style.width = "100%";
+                divElement.style.height = "400px";
+                let divContainer = document.getElementById("container-detail-grid");
+                divContainer.appendChild(divElement);
+                const gridOptions = {
+                    columnDefs: [
+                        { headerName: "EVENTO", field: "event", minWidth: 100 },
+                        { headerName: "FECHA", field: "date", minWidth: 90 },
+                        { headerName: "CLUB", field: "club", minWidth: 90 },
+                        { headerName: "PUNTAJE", field: "score", minWidth: 90, cellStyle: { "text-align": "right" } },
+                    ],
+                    pagination: true,
+                    paginationAutoPageSize: true,
+                    localeText: {
+                        page: "Página",
+                        more: "más",
+                        to: "a",
+                        of: "de",
+                        loadingOoo: "Cargando...",
+                        noRowsToShow: "No se encontraron resultados"
+                    },
+                    rowData: data,
+                    onGridReady: function (params) {
+                        params.api.sizeColumnsToFit();
+                        window.addEventListener("resize",
+                            function () {
+                                setTimeout(function () {
+                                    params.api.sizeColumnsToFit();
+                                });
+                            });
+                    }
+                };
+                // lookup the container we want the Grid to use
+                const eGridDiv = document.querySelector('#detailGrid');
+                // create the grid passing in the div to use together with the columns & data we want to use
+                new agGrid.Grid(eGridDiv, gridOptions);
+            };
+
+            var disciplineFilter = document.getElementById("discipline_filter");
+            var sessonFilter = document.getElementById("season_filter");
+            var nivelFilter = document.getElementById("level_filter");
+            var categoryFilter = document.getElementById("category_filter");
+
+            var changeSelect = async () => {
+                await GetLevel(disciplineFilter.value);
+                await GetCategory(disciplineFilter.value);
+                changeTable();
+            }
+
+            var changeTable = () => {
+                let seasonId = sessonFilter.value;
+                let disciplineId = disciplineFilter.value;
+                let categoryId = categoryFilter.value;
+                let levelId = nivelFilter.value;
+                ConstruirGrid(ObtenerDatos(seasonId, disciplineId, categoryId, levelId));
+            }
+
+            sessonFilter.addEventListener("change", changeTable);
+            disciplineFilter.addEventListener("change", () => changeSelect(), false);
+            nivelFilter.addEventListener("change", changeTable);
+            categoryFilter.addEventListener("change", changeTable);
+
+            const GetSesson = () =>
+                fetch(_app.parseToUrl("/concursos/listadotemporadasapi"), {
+                    method: "get"
+                }).then(response => {
+                    return response.json();
+                }).then(data => {
+                    data.sort((a, b) => (a.year > b.year) ? -1 : ((b.year > a.year) ? 1 : 0));
+                    for (var i in data) {
+                        var opt = document.createElement("option");
+                        opt.value = data[i].id;
+                        opt.text = data[i].name;
+                        sessonFilter.appendChild(opt);
+                    }
+                    var opt = document.createElement("option");
+                    opt.dataset.placeholder = "true";
+                    sessonFilter.appendChild(opt);
+                }).catch(err => { console.log(err); });
+            await GetSesson();
+
+            const GetDicipilnas = () => {
+                fetch(_app.parseToUrl("/concursos/listadodisciplinasapi"), {
+                    method: "get"
+                }).then(response => {
+                    return response.json();
+                }).then(data => {
+                    data.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+                    for (var i in data) {
+                        var opt = document.createElement("option");
+                        opt.value = data[i].id;
+                        opt.text = data[i].name;
+
+                        disciplineFilter.appendChild(opt);
+                    }
+                    var opt = document.createElement("option");
+                    opt.dataset.placeholder = "true";
+                    disciplineFilter.appendChild(opt);
+                    changeSelect();
+                }).catch(err => { });
+            };
+            GetDicipilnas();
+
+            const GetLevel = (disiplineId) =>
+                fetch(_app.parseToUrl(`/concursos/nivelesxdiciplinasapi/${disiplineId}`), {
+                    method: 'get'
+                }).then(response => {
+                    return response.json();
+                    }).then(data => {
+                        levelSelect.enable();
+                    data.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+                    if (nivelFilter.options.length > 1)
+                        clearCombo(nivelFilter)
+                    for (var i in data) {
+                        var opt = document.createElement("option");
+                        opt.value = data[i].id;
+                        opt.text = data[i].name;
+
+                        nivelFilter.appendChild(opt);
+                    }
+                    var opt = document.createElement("option");
+                    opt.dataset.placeholder = "true";
+                    nivelFilter.appendChild(opt);
+                    if (data.length > 0) {
+                        nivelFilter.options[0] = null;
+                    }
+                    else {
+                        levelSelect.disable();
+                    }
+                }).catch(err => { });
+
+            const GetCategory = (disiplineId) =>
+                fetch(_app.parseToUrl(`/concursos/categoriaxdiciplinasapi/${disiplineId}`), {
+                    method: 'get'
+                }).then(response => {
+                    return response.json();
+                }).then(data => {
+                    categorySelect.enable();
+                    data.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+                    if (categoryFilter.options.length > 1)
+                        clearCombo(categoryFilter)
+                    for (var i in data) {
+                        var opt = document.createElement("option");
+                        opt.value = data[i].id;
+                        opt.text = data[i].name;
+
+                        categoryFilter.appendChild(opt);
+                    }
+                    var opt = document.createElement("option");
+                    opt.dataset.placeholder = "true";
+                    categoryFilter.appendChild(opt);
+                    if (data.length > 0) {
+                        categoryFilter.options[0] = null;
+                    }
+                    else {
+                        categorySelect.disable();
+                    }
+                }).catch(err => { });
+
+            function clearCombo(cmb) {
+                cmb.innerHTML = "";
+
+                for (var i = 0; i < cmb.options.length; i++)
+                    cmb.options[i] = null;
+            }
+
+            let btn = $1("#btn_download");
+            btn.addEventListener("click", () => {
+                let seasonId = seasonSelect.selected();
+                let disciplineId = disciplineSelect.selected();
+                let categoryId = categorySelect.selected();
+                let levelId = levelSelect.selected();
+                let url = _app.parseToUrl(`/concursos/rankings/excel?seasonId=${seasonId}&disciplineId=${disciplineId}&categoryId=${categoryId}&levelId=${levelId}`);
+                window.open(url);
+            });
+        })();
+    </script>
+}

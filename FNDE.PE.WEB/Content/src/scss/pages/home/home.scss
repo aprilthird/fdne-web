@@ -1,0 +1,156 @@
+﻿
+@import "../../abstracts/variables";
+@import "../../abstracts/mixins";
+@import "../../abstracts/functions";
+@import "../../../scss/components/base/cards/_ranking";
+
+@import "../../vendors/fullpage/extend/slide";
+
+$f--footer-margin: $f--section-separation;
+$f--text-button-separation: 25px;
+$f--discipline-color-left: $f--secondary-color;
+$f--discipline-color-right: $f--primary-color;
+$f--ranking-color: $f--secondary-color;
+
+.f-main-section {
+    // solves problem with overflowing video in Mac with Chrome
+    overflow: hidden;
+
+    &__footer {
+        @include flexbox();
+        @include flexbox-wrap(wrap);
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 5;
+
+        margin: {
+            top: auto;
+            bottom: $f--footer-margin;
+        }
+
+        @include desktop {
+            @include flexbox-justify-content(space-between);
+            @include flexbox-align-items(baseline);
+        }
+
+        &-button {
+            @include flexbox-flex(0 0 100%);
+
+            @include desktop {
+                @include flexbox-flex(0 0 auto);
+            }
+        }
+
+        &-text {
+            @include flexbox-flex(0 0 100%);
+            margin-bottom: $f--text-button-separation;
+
+            @include desktop {
+                @include flexbox-flex(0 0 auto);
+                @include flexbox-order(2);
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.f-disciplines-section {
+    @include gradient-bg($f--discipline-color-right, 110deg, $f--discipline-color-left 40%, $f--discipline-color-right 40%);
+
+    @include desktop {
+        @include gradient-bg($f--discipline-color-right, 90deg, $f--discipline-color-left 50%, $f--discipline-color-right 50%);
+    }
+
+    $root: &;
+
+    &__container {
+        @include grid();
+        @include grid-gap(0);
+        @include grid-template-areas("slider" "title" "detail");
+        @include grid-template-rows(50% auto 40%);
+        height: 100%;
+        padding-top: $f--section-separation;
+        padding-bottom: $f--section-separation;
+
+        margin: {
+            left: 5px;
+            right: 5px;
+        }
+
+        @include desktop {
+            @include grid-template-columns(30% 1fr); /* TODO: check size */
+            @include grid-gap(10px);
+            @include grid-template-areas("title slider" ". slider" "detail slider");
+        }
+
+        .f-section__title {
+            @include grid-area(title);
+            margin: auto 0;
+        }
+
+        #{$root}__slider {
+            @include grid-area(slider);
+            margin: auto 0;
+            &-header {
+                display: none;
+                visibility: hidden;
+            }
+        }
+
+        #{$root}__detail {
+            @include grid-area(detail);
+
+            #{$root}__discipline {
+                height: 100%;
+
+                &-info {
+                    margin-top: 1rem;
+                }
+
+                &-link {
+                    margin-top: 1rem;
+                }
+            }
+        }
+    }
+}
+
+.f-ranking-section {
+    background-color: $f--ranking-color;
+    $root: &;
+
+    &__container {
+        @include grid();
+        /*@include grid-gap(2rem);*/
+        @include grid-gap(0);
+        @include grid-template-areas("title" "links" "cards");
+        @include grid-template-rows(10% 1fr 350px);
+
+        .f-section__title {
+            @include grid-area(title);
+        }
+
+        #{$root}__filters {
+            @include grid-area(links);
+            @include grid();
+            @include grid-template-columns(1fr 1fr);
+            @include grid-gap(1rem);
+        }
+
+        #{$root}__content {
+            @include grid-area(cards);
+        }
+
+        @include desktop {
+            @include grid-template-areas("title cards" "links cards");
+            @include grid-template-columns(30% 1fr);
+        }
+    }
+}
+
+.f-events-section {
+    background-color: $f--white-color;
+    $root: &;
+}

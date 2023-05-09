@@ -1,0 +1,98 @@
+﻿@import "../../abstracts/variables";
+@import "../../abstracts/mixins";
+@import "../../layout/variables";
+
+
+
+.f-afiliate {
+    .f-btn {
+        padding: 10px 10px;
+    }
+
+    .f-switch {
+        #slider2 {
+            background-color: white;
+        }
+    }
+
+    .f-section__flex {
+
+        @include desktop {
+            @include flexbox-direction(row);
+        }
+    }
+
+    .f-tam {
+        @include desktop {
+            width: 50%;
+            margin-top: 50px;
+        }
+    }
+
+    .f-container__contact {
+        text-align: center;
+    }
+
+    .f-botones {
+        margin-top: 50px !important;
+    }
+
+    .pro {
+        @include flexbox();
+        @include flexbox-direction(row);
+        margin-top: 20px;
+        @include flexbox-justify-content(space-between);
+    }
+
+    .f-botones {
+        .f-input {
+            width: 100%;
+            background-color: $f--secondary-color;
+            border-color: $f--primary-color;
+        }
+    }
+
+    .f-boxes {
+        .f-input {
+            width: 90%;
+
+            @include desktop {
+                width: 80%;
+            }
+        }
+
+        @include desktop {
+            @include flexbox();
+            @include flexbox-direction(row);
+            @include flexbox-justify-content(space-around);
+        }
+    }
+
+    #first_box {
+        @include desktop {
+            padding-left: 0px;
+            padding-right:50px;
+        }
+    }
+
+
+
+    select {
+
+        @include desktop {
+            width: 80% !important;
+            height: 21% !important;
+        }
+
+        width: 90% !important;
+        margin-bottom: 9px;
+        color: dimgrey !important;
+        background: url("../../../../src/img/icon-arrow-down-dark.svg") no-repeat right !important;
+        background-size: 25px !important;
+    }
+
+    .btn-crear {
+        @include flexbox();
+        @include flexbox-justify-content(flex-end);
+    }
+}

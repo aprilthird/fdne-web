@@ -1,0 +1,108 @@
+﻿@model FDNE.PE.WEB.ADMIN.Dtos.FederationFEIDto
+@{
+    ViewBag.Title = "FEI";
+    ViewBag.SubTitle = "Listado de archivos";
+    ViewBag.Breadcrumbs = new[] {
+        new BreadcrumbViewData { Name = ViewBag.Title }
+    };
+}
+
+@section Styles {
+    <link href="@Url.Content("~/Content/vendors/summernote/summernote.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/vendors/summernote/summernote-bs4.min.js")" rel="stylesheet" />
+}
+
+<div>
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="card-header">
+                <i class="icon-list icons font-2xl"></i> Control de FEI
+            </div>
+            <div class="card-body">
+                <form id="edit_form_fei" class="form form-horizontal" role="form" enctype="multipart/form-data" style="margin-left:1rem;margin-right:1rem;">
+                    @Html.HiddenFor(m => m.Id)
+                    <div class="row">
+                        <div class="col-5" style="margin-right:1rem;">
+                            <div class="row form-group">
+                                @Html.LabelFor(m => m.Title, new { @class = "label" })
+                                @Html.TextBoxFor(m => m.Title, new { @class = "form-control", placeholder = "Titulo", required = "required", autocomplete = "off" })
+                            </div>
+                            <div class="row form-group">
+                                @Html.LabelFor(m => m.SubTitle, new { @class = "label" })
+                                @Html.TextBoxFor(m => m.SubTitle, new { @class = "form-control", placeholder = "Titulo", required = "required", autocomplete = "off" })
+                            </div>
+                            <div class="row form-group">
+                                @Html.LabelFor(m => m.Base64Image, new { @class = "label" })
+                                @Html.TextBoxFor(m => m.Base64Image, new { @class = "form-control", type = "file", required = "required" })
+                                <span class="pull-right font-italic font-xs">Tama&ntilde;o m&aacute;ximo: 5MB.</span>
+                            </div>
+                            <div class="row form-group">
+                                @Html.LabelFor(m => m.Base64File, new { @class = "label" })
+                                @Html.TextBoxFor(m => m.Base64File, new { @class = "form-control", type = "file", required = "required" })
+                                <span class="pull-right font-italic font-xs">Tama&ntilde;o m&aacute;ximo: 5MB.</span>
+                            </div>
+                            <div class="row form-group">
+                                @Html.LabelFor(m => m.Extension, new { @class = "label" })
+                                @{
+                                    var selectExtensionFile = new List<SelectListItem>
+{
+new SelectListItem { Value = "docx", Text = "Word"}
+};
+                                }
+                                @Html.DropDownListFor(m => m.Extension, selectExtensionFile, new { @class = "form-control select2-single", required = "required" })
+
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row form-group">
+                                @Html.LabelFor(m => m.Body, new { @class = "col-md-2 col-form-label" })
+                                @Html.TextAreaFor(m => m.Body, new { @class = "form-control summernote", placeholder = "Descripción", required = "required", rows = "6" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <button class="btn btn-primary ladda-button" data-style="expand-right" type="submit">
+                            <span class="ladda-label">
+                                <i class="fa fa-save"></i>&nbsp;Guardar
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="card">
+            <div class="card-header">
+                <i class="icon-list icons font-2xl"></i> @ViewBag.SubTitle
+                <div class="card-header-actions">
+                    <div class="card-header-action">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#add_modal">
+                            <i class="fa fa-plus"></i>
+                            <span>Nuevo</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="dataTables_wrapper dt-bootstrap4 no-footer">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="table table-hover table-striped table-bordered datatable dataTable no-footer" id="fei_datatable" role="grid"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_CreateModal")
+@Html.Partial("_EditModal")
+
+@section Scripts {
+    <script src="@Url.Content("~/Content/vendors/summernote/summernote.min.js")"></script>
+    <script src="@Url.Content("~/Content/js/areas/content/fei/index.js")"></script>
+}
+

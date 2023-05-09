@@ -1,0 +1,74 @@
+.menu {
+  @include flexbox();
+  @include flex-direction(row);
+  @include reset();
+  list-style: none;
+  height: 100%;
+  width: 100%;
+  $this: &;
+  &__item {
+    @include flex(1);
+    display: block;
+  }
+  &__highlight {
+    display: block;
+    // this value is static unless 
+    // a media querie change parent font-size
+    padding: 1em 2em 1em;
+    &:hover {
+      color: $highlight-red;
+    }
+  }
+  &__link {
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  &__dropdown {
+    @include flexbox();
+    @include flex-direction(column);
+    @include reset();
+  }
+}
+// Fullscrenn flexmenu orientation
+@mixin flexmenu-horizontal-highlight() {
+  .menu {
+    $this: &;
+    &__highlight {
+      @include border-highlight(bottom, $highlight-basic);
+      &:hover {
+        @include border-highlight(bottom, $highlight-red);
+      }
+    }
+    &__dropdown {
+      #{$this}__highlight {
+        border-bottom: none;
+      }
+    }
+  }
+}
+// Mobile flexmenu orientation
+@mixin flexmenu-vertical-highlight() {
+  .menu {
+    $this: &;
+    @include flex-direction(column);
+    &__item {
+      @include flex(0);
+    }
+    &__highlight {
+      @include border-highlight(left, $highlight-basic);
+       &:hover {
+         @include border-highlight(left, $highlight-red);
+       }
+     }
+     &__dropdown {
+      @include hidden-submenu();
+      &--visible {
+        @include visible-submenu();
+        #{$this}__highlight {
+          padding-left: 3.5em;
+        }
+      }
+     }
+  }
+}

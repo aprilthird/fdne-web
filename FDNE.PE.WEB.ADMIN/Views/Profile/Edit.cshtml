@@ -1,0 +1,85 @@
+﻿@model FDNE.PE.WEB.ADMIN.Dtos.ProfileDto
+
+@{
+    ViewBag.Title = "Editar Perfil";
+    ViewBag.SubTitle = "Formulario de la edición";
+    ViewBag.Breadcrumbs = new[] {
+        new BreadcrumbViewData { Name = "Informacion de Perfil", Area = "", Controller = "Profile", Action = "Index" },
+        new BreadcrumbViewData { Name = ViewBag.Title }
+    };
+}
+
+<div>
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="card-header">
+                <i class="icon-pencil icons font-2xl"></i> @ViewBag.SubTitle
+            </div>
+            <form id="form" class="form-horizontal" method="post">
+                <div class="card-body">
+                    <div id="alert" class="alert alert-danger alert-dismissible fade d-none" role="alert">
+                        <span id="alert_text"></span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.Name, new { @class = "col-md-2 col-form-label font-weight-bold" })
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Su nombre", required = "required" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.PaternalSurname, new { @class = "col-md-2 col-form-label font-weight-bold" })
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(m => m.PaternalSurname, new { @class = "form-control", placeholder = "Su Apellido Paterno", required = "required" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.MaternalSurname, new { @class = "col-md-2 col-form-label font-weight-bold" })
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(m => m.MaternalSurname, new { @class = "form-control", placeholder = "Su Apellido Materno", required = "required" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 col-form-label font-weight-bold" })
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Su Correo", required = "required" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.DocumentTypeId, new { @class = "col-md-2 col-form-label font-weight-bold" })
+                        <div class="col-md-4">
+                            @Html.DropDownListFor(m => m.DocumentTypeId, new List<SelectListItem>(), new { @class = "form-control select2-document-types", placeholder = "Tipo de Documento", required = "required" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.Document, new { @class = "col-md-2 col-form-label font-weight-bold" })
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(m => m.Document, new { @class = "form-control", placeholder = "Su DNI", required = "required" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.Base64Image, new { @class = "col-md-2 col-form-label font-weight-bold" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Base64Image, new { @class = "form-control", type = "file" })
+                            <span class="pull-right font-italic font-xs">Tama&ntilde;o m&aacute;ximo: 5MB.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <a class="btn btn-secondary" href="@Url.Action("Index", "Profile", new { area = "" })">
+                        <i class="fa fa-arrow-left"></i>&emsp;Regresar
+                    </a>
+                    <button class="btn btn-primary " type="submit">
+                        <i class="fa fa-save"></i>&emsp;Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="@Url.Content("~/Content/js/index.js")"></script>
+}

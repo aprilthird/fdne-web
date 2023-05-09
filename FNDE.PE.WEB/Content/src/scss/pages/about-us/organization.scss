@@ -1,0 +1,33 @@
+﻿@import "../../abstracts/variables";
+@import "../../abstracts/mixins";
+@import "../../layout/variables";
+
+.f-section-organization {
+    @include flexbox();
+    background-color: $f--black-color;
+
+    &__body {
+        @include grid();
+        margin: {
+            top: $f--section-separation;
+            bottom: $f--section-separation;
+        }
+        width: 100%;
+        $root: &;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-auto-flow: column;
+
+        @include desktop {
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            grid-auto-flow: row;
+        }
+
+        &-item {
+            #{$root}-title {
+                color: $f--primary-color;
+            }
+        }
+    }
+}

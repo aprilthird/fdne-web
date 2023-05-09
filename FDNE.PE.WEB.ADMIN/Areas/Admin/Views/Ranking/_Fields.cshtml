@@ -1,0 +1,25 @@
+﻿@model FDNE.PE.WEB.ADMIN.Dtos.RankingDto
+
+@Html.HiddenFor(m => m.Id)
+<fieldset class="form-group">
+    @Html.LabelFor(m => m.Name, new { @class = "label" })
+    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Nombre", required = "required", autocomplete = "off" })
+</fieldset>
+<fieldset class="form-group">
+    @Html.LabelFor(m => m.SeasonId, new { @class = "label" })
+    @Html.DropDownListFor(m => m.SeasonId, new List<SelectListItem>(), new { @class = "form-control select2-single select2-seasons", placeholder = "Disciplina", required = "required" })
+</fieldset>
+<fieldset class="form-group">
+    @Html.LabelFor(m => m.DisciplineId, new { @class = "label" })
+    @Html.DropDownListFor(m => m.DisciplineId, new List<SelectListItem>(), new { @class = "form-control select2-single select2-disciplines", placeholder = "Disciplina", required = "required" })
+</fieldset>
+<div class="row">
+    <fieldset class="form-group col-md-6">
+        @Html.LabelFor(m => m.CategoryId, new { @class = "label" })
+        @Html.DropDownListFor(m => m.CategoryId, new List<SelectListItem>(), new { @class = "form-control select2-single select2-categories", placeholder = "Disciplina" })
+    </fieldset>
+    <fieldset class="form-group col-md-6">
+        @Html.LabelFor(m => m.LevelId, new { @class = "label" })
+        @Html.DropDownListFor(m => m.LevelId, new List<SelectListItem>(), new { @class = "form-control select2-single select2-levels", placeholder = "Disciplina" })
+    </fieldset>
+</div>

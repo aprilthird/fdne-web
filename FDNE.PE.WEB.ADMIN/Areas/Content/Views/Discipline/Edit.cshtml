@@ -1,0 +1,124 @@
+﻿@model FDNE.PE.WEB.ADMIN.Dtos.DisciplinePortalDto
+
+@{
+    ViewBag.Title = "Editar Disciplina";
+    ViewBag.Breadcrumbs = new[] {
+        new BreadcrumbViewData { Name = "Disciplinas", Area = "Content", Controller = "Discipline", Action = "Index" },
+        new BreadcrumbViewData { Name = ViewBag.Title }
+    };
+}
+
+@section Styles {
+    <link href="@Url.Content("~/Content/vendors/summernote/summernote.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/vendors/summernote/summernote-bs4.min.js")" rel="stylesheet" />
+}
+
+<div>
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="card-header">
+                <strong>Editar Portal</strong>
+            </div>
+            <form id="form" class="form-horizontal" method="post">
+                <div class="card-body">
+                    <div id="alert" class="alert alert-danger alert-dismissible fade d-none" role="alert">
+                        <span id="alert_text"></span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    @Html.HiddenFor(m => m.Id)
+                    @Html.HiddenFor(m => m.DisciplineId)
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.FirstTab, new { @class = "col-md-2 col-form-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.FirstTab, new { @class = "form-control", placeholder = "Titulo", type = "text", required = "required" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.FirstBody, new { @class = "col-md-2 col-form-label" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(m => m.FirstBody, new { @class = "form-control summernote firstBody", placeholder = "Descripción", required = "required", rows = "6" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.SecondTab, new { @class = "col-md-2 col-form-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.SecondTab, new { @class = "form-control", placeholder = "Titulo", type = "text", required = "required" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.SecondBody, new { @class = "col-md-2 col-form-label" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(m => m.SecondBody, new { @class = "form-control summernote secondBody", placeholder = "Descripción", required = "required", rows = "6" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.ThirdTab, new { @class = "col-md-2 col-form-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.ThirdTab, new { @class = "form-control", placeholder = "Titulo", type = "text", required = "required" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.ThirdBody, new { @class = "col-md-2 col-form-label" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(m => m.ThirdBody, new { @class = "form-control summernote thirdBody", placeholder = "Descripción", required = "required", rows = "6" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.QuarterTab, new { @class = "col-md-2 col-form-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.QuarterTab, new { @class = "form-control", placeholder = "Titulo", type = "text", required = "required" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.QuarterBody, new { @class = "col-md-2 col-form-label" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(m => m.QuarterBody, new { @class = "form-control summernote quarterBody", placeholder = "Descripción", required = "required", rows = "6" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.FifthTab, new { @class = "col-md-2 col-form-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.FifthTab, new { @class = "form-control", placeholder = "Titulo", type = "text", required = "required" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.FifthBody, new { @class = "col-md-2 col-form-label" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(m => m.FifthBody, new { @class = "form-control summernote fifthBody", placeholder = "Descripción", required = "required", rows = "6" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.SixthTab, new { @class = "col-md-2 col-form-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.SixthTab, new { @class = "form-control", placeholder = "Titulo", type = "text", required = "required" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.SixthBody, new { @class = "col-md-2 col-form-label" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(m => m.SixthBody, new { @class = "form-control summernote sixthBody", placeholder = "Descripción", required = "required", rows = "6" })
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-right">
+                    <a class="btn btn-secondary" href="@Url.Action("Index", "Discipline", new { Area = "Content" })">Regresar</a>
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fa fa-save"></i>&emsp;Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="@Url.Content("~/Content/vendors/summernote/summernote.min.js")"></script>
+    <script src="@Url.Content("~/Content/js/areas/content/discipline/edit.js")"></script>
+}

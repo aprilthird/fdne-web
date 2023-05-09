@@ -1,0 +1,20 @@
+﻿
+.select-filter .ss-single-selected {
+    background-color: black;
+    border-color: #e1311d;
+    border-width: 2px;
+    color: white;
+}
+
+.select-filter:first-child {
+    margin-top: 40px;
+}
+
+.select-filter:not(:first-child) {
+    margin-top: 25px;
+}
+
+.select-filter .arrow-down {
+    border: solid white !important;
+    border-width: 0 2px 2px 0 !important;
+}

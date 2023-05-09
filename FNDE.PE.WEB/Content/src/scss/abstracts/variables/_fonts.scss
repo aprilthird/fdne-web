@@ -1,0 +1,107 @@
+﻿
+//== The body element font settings
+$f--root-font: ( 
+    size: ( 
+      desktop: 16px, 
+        tablet: 13px, 
+        mobile: 13px 
+    ), 
+    weight: 300, 
+    color: ( 
+        light: #333333, 
+        dark: #efefef 
+    )
+)!default;
+
+$f--display--sizes: (
+    xl: 6rem,
+    lg: 5.5rem,
+    md: 4.5rem,
+    sm: 3.5rem
+)!default;
+
+$f--header-sizes: (
+//h1: 2.5rem,
+//h2: 2rem,
+//h3: 1.75rem,
+//h4: 1.5rem,
+//h5: 1.25rem,
+//h6: 1rem
+h1: 2.8rem, // 50px
+h2: 1.42rem, // 37px
+h3: 1.42rem, // 37px
+h4: 1rem, // 25px
+h5: 1rem, // 25px
+h6: 1rem // 13px
+)!default;
+
+$f--font-sizes: (
+    xl: 2.8rem, // 50px
+    lg: 1.42rem, // 37px
+    md: 1rem, // 25px
+    sm: .8rem // 13px
+) !default;
+
+//== Font families
+$f--font-families: ( 
+    regular: (myriad pro, sans-serif), 
+    heading: (K2D, sans-serif),
+)!default;
+
+//== General link font settings
+$f--link-font: ( 
+    default: ( 
+        color: ( 
+            light: get-brand-color(), 
+            dark: get-brand-color() 
+        ) 
+    ), 
+    hover: ( 
+        color: ( 
+            light: get-brand-color('+'), 
+            dark: get-brand-color('+') 
+        ) 
+    ) 
+)!default;
+
+//== General Font sizes
+$f--font-sizes: (
+    // text font sizes
+    regular: ( 
+        down5: 0.7rem, // access to this font size value calling get-font-size function as get-font-size(regular, -----) in SASS code
+        down4: 0.75rem, // access to this font size value calling get-font-size function as get-font-size(regular, ----) in SASS code
+        down3: 0.78rem, // access to this font size value calling get-font-size function as get-font-size(regular, ---) in SASS code
+        down2: 0.8rem, // access to this font size value calling get-font-size function as get-font-size(regular, --) in SASS code
+        down1: 0.85rem, // access to this font size value calling get-font-size function as get-font-size(regular, -) in SASS code
+        base: 1rem, // access to this font size value calling get-font-size function as get-font-size(regular) in SASS code
+        up1: 1.1rem, // access to this font size value calling get-font-size function as get-font-size(regular, +) in SASS code
+        up2: 1.2rem, // access to this font size value calling get-font-size function as get-font-size(regular, ++) in SASS code
+        up3: 1.3rem, // access to this font size value calling get-font-size function as get-font-size(regular, +++) in SASS code
+        up4: 1.5rem, // access to this font size value calling get-font-size function as get-font-size(regular, ++++) in SASS code
+        up5: 1.6rem // access to this font size value calling get-font-size function as get-font-size(regular, +++++) in SASS code
+    ),
+    // icon font sizes
+    icon: ( 
+        down5: 0.8rem, // access to this shadow value calling get-font-size function as get-font-size(icon, -----) in SASS code
+        down4: 0.9rem, // access to this shadow value calling get-font-size function as get-font-size(icon, ----) in SASS code
+        down3: 1rem, // access to this shadow value calling get-font-size function as get-font-size(icon, ---) in SASS code
+        down2: 1.1rem, // access to this shadow value calling get-font-size function as get-font-size(icon, --) in SASS code
+        down1: 1.2rem, // access to this shadow value calling get-font-size function as get-font-size(icon, -) in SASS code
+        base: 1.3rem, // access to this shadow value calling get-font-size function as get-font-size(icon) in SASS code
+        up1: 1.4rem, // access to this shadow value calling get-font-size function as get-font-size(icon, +++++) in SASS code
+        up2: 1.6rem, // access to this shadow value calling get-font-size function as get-font-size(icon, ++++) in SASS code
+        up3: 1.8rem, // access to this shadow value calling get-font-size function as get-font-size(icon, +++) in SASS code
+        up4: 2.0rem, // access to this shadow value calling get-font-size function as get-font-size(icon, ++) in SASS code
+        up5: 2.1rem // access to this shadow value calling get-font-size function as get-font-size(icon, +) in SASS code
+    ) 
+)!default;
+
+//== General Font Weights
+$f--font-weights: ( 
+    thin: 200, // access to this font weight value calling get-font-weight function as get-font-weight(thin) in SASS code
+    normal: 300, // access to this font weight value calling get-font-weight function as get-font-weight(normal) in SASS code
+    bold: 400, // access to this font weight value calling get-font-weight function as get-font-weight(bold) in SASS code
+    bolder: 500, // access to this font weight value calling get-font-weight function as get-font-weight(bolder) in SASS code
+    boldest: 600, // access to this font weight value calling get-font-weight function as get-font-weight(boldest) in SASS code
+    boldest2: 700 // access to this font weight value calling get-font-weight function as get-font-weight(boldest2) in SASS code
+)!default;

@@ -1,0 +1,127 @@
+.navbar {
+  position: fixed;
+  max-height: 100%;
+  width: 100vw;
+  max-width: 100%;
+  top: 0;
+  $this: &;
+  &__collapsible-container {
+    overflow: hidden;
+    padding: 0% 21% 4% 17%;
+    top: 0;
+    left: 0;
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0%;
+  }
+  &__input {
+    display: none;
+  }
+  &__brand {
+    @include menu-image(90px, true);
+    top: 8vh;
+    left: 7vw;
+  }
+  &__icon {
+    background-color: $theme-white;
+    -webkit-mask: url("#{$menu-icon}") no-repeat right center;
+    mask: url("#{$menu-icon}") no-repeat right center;
+    mask-size: cover;
+    @include menu-image(60px, true);
+    display: block;
+    cursor: pointer;
+    top: 10vh;
+    right: 8vw;
+  }
+}
+.collapse-in {
+    animation: 1s ease 0s 1 normal forwards running collapse-in;
+    box-shadow: 0 20px 10px $menu-shadow-50,
+    0 25px 10px $menu-shadow-20;
+}
+.collapse-out {
+    animation: 1s ease 0s 1 normal forwards running collapse-out;
+    box-shadow: 0 20px 10px $menu-shadow-50,
+    0 25px 10px $menu-shadow-20;
+}
+
+// Mobile horizontal collpase
+@mixin navbar-collapse-horizontal() {
+  .navbar {
+    font-size: 0.8em;
+    $this: &;
+    &__collapsible-container {
+      width: 77vw;
+      bottom: 0;
+      height: 100vh;
+      max-height: 100%;
+      opacity: 0;
+      padding: 35% 10% 10% 15%;
+      max-width: 0;
+    }
+    &__brand {
+      @include menu-image(70px, true);
+    }
+    &__icon {
+      @include menu-image(40px, true);
+    }
+}
+.collapse-in {
+    animation: 1s ease 0s 1 normal forwards running collapse-in;
+    box-shadow: 0 20px 10px $menu-shadow-50,
+    0 25px 10px $menu-shadow-20;
+}
+.collapse-out {
+  }
+  @keyframes collapse-in {
+    from {
+      padding: 35% 0% 10% 0%;
+      max-width: 0;
+      opacity: 0;
+    }
+    to {
+      padding: 35% 10% 10% 15%;
+      max-width: 100%;
+      opacity: 1;
+    }
+  }
+  @keyframes collapse-out {
+    from {
+      padding: 35% 10% 10% 15%;
+      max-width: 100%;
+      opacity: 1;
+    }
+    to {
+      padding: 35% 0% 10% 0%;
+      max-width: 0;
+      opacity: 0;
+    }
+  }
+}
+// Full screen collapse effect
+@mixin navbar-collapse-vertical() {
+  @keyframes collapse-in {
+    from {
+      max-height: 0;
+      opacity: 0;
+      padding-top: 0%;
+    }
+    to {
+      max-height: 100%;
+      opacity: 1;
+      padding-top: 4%;
+    }
+  }
+  @keyframes collapse-out {
+    from {
+      max-height: 100%;
+      opacity: 1;
+      padding-top: 4%;
+    }
+    to {
+      max-height: 0;
+      opacity: 0;
+      padding-top: 0%;
+    }
+  }
+}

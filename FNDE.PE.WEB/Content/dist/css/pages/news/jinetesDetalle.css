@@ -1,0 +1,29 @@
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check section inhetirance */
+.f-section-jineteDetalle-detail {
+  margin-top: 3rem; }
+
+.f-section__regresar {
+  color: lightgray;
+  text-decoration: none;
+  font-style: italic; }
+
+.jineteDetalle-body p:not(:last-child) {
+  margin-bottom: 10px; }
+  @media (min-width: 1025px) {
+    .jineteDetalle-body p:not(:last-child) {
+      margin-bottom: 20px; } }
+
+.f-jineteDetalle-body {
+  width: 100%; }
+  @media (min-width: 1025px) {
+    .f-jineteDetalle-body {
+      width: 70%; } }
+
+.f-section__image img {
+  position: absolute;
+  right: 0;
+  width: 280px; }

@@ -1,0 +1,117 @@
+﻿@import "../../abstracts/_mixins.scss";
+@import "../../abstracts/_variables.scss";
+
+
+.f-galery {
+    .card-content {
+        margin-top: 20px;
+    }
+
+    .tab {
+        @include flexbox-direction(row);
+
+        @include desktop {
+            margin-bottom: 70px;
+        }
+
+
+
+        button {
+            margin-top: 2px;
+            margin-bottom: 2px;
+            padding: 0 1px;
+
+
+            @include desktop {
+                margin: 4px 9px;
+                font-size: 25px;
+            }
+        }
+    }
+
+    .f-section {
+        img {
+            display: none;
+        }
+
+        .f-section-background__title {
+            margin: -1rem auto;
+
+            @include desktop {
+                position: relative;
+                text-align: center;
+            }
+        }
+    }
+
+    .f-section-background {
+        height: 40vh !important;
+    }
+}
+
+.f-section-desktop {
+    @include mobile {
+        display: none;
+    }
+    width: 48% !important;
+    @include flexbox;
+    @include flexbox-align-items(flex-end);
+
+    .tab {
+        margin-top: 5px;
+    }
+}
+
+.f-no-display {
+    @include desktop {
+        display: none;
+    }
+}
+
+.grid {
+    background: $f--secondary-color;
+}
+
+/* clear fix */
+.grid:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* ---- .grid-item ---- */
+
+.grid-sizer,
+.grid-item {
+    width: 44%;
+    height: 200px;
+
+    @include desktop {
+        width: 23%;
+        height: 280px;
+    }
+}
+
+.grid-item {
+    float: left;
+    margin: 10px;
+}
+
+.grid-item img {
+    display: block;
+    max-width: 100% !important;
+}
+
+/* Effect 4: fall perspective */
+.grid.effect-4 {
+    perspective: 1300px;
+}
+
+.grid.effect-4 li {
+    transform-style: preserve-3d;
+}
+
+.grid.effect-4 li.animate {
+    transform: translateZ(400px) translateY(300px) rotateX(-90deg);
+    animation: fallPerspective .8s ease-in-out forwards;
+}

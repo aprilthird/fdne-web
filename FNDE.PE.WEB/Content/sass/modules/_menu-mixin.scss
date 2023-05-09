@@ -1,0 +1,47 @@
+// --------------------------------------------------
+// Flexmenu SASS mixins
+// 
+// --------------------------------------------------
+
+@mixin hidden-submenu() {
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+}
+
+@mixin visible-submenu() {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+@mixin hoverable-border($parent) {
+  > #{$parent}__highlight {
+    @extend %border-hover;
+  }
+}
+
+@mixin menu-image($lateral, $absolute: false) {
+  height: $lateral;
+  width: $lateral;
+  @if $absolute {
+    position: absolute;
+    z-index: 10;
+  }
+}
+
+
+// Highlight flexmenu item focus <div>
+// - requires variables with prefix flexmenu-highlight
+// - requires variables -width, -style
+// $direction: top   | right | left | bottom
+// $focus    : true  | false (to change border color)
+@mixin border-highlight($direction, $color) {
+  border-#{$direction}-width: $highlight-width;
+  border-#{$direction}-style: $highlight-style;
+  border-#{$direction}-color: $color;
+}
+
+@mixin clean-highlight($direction) {
+  border-#{$direction}: none;
+}

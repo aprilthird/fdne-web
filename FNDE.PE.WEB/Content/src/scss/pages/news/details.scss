@@ -1,0 +1,70 @@
+﻿@import "../../abstracts/variables";
+@import "../../abstracts/mixins";
+@import "../../layout/variables";
+
+.f-section-news-detail {
+    padding-top: $f--section-separation;
+    padding-bottom: $f--section-separation;
+    @include flexbox();
+    @include flexbox-direction(column);
+    box-sizing: border-box;
+    position: relative;
+
+    @include desktop {
+        padding-right: 30% !important;
+    }
+
+    &__title {
+        margin-bottom: 1rem;
+    }
+
+    &__date {
+        margin-bottom: 1rem;
+    }
+
+    &__image {
+        margin-bottom: 1rem;
+
+        img {
+            width: 100%;
+        }
+
+        @include desktop {
+            width: 30%;
+            position: absolute;
+            margin-bottom: 0;
+            @include flexbox();
+            @include flexbox-justify-content(flex-end);
+            overflow: hidden;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            object-position: 50% 50%;
+            object-fit: cover;
+        }
+
+        img {
+            @include desktop {
+                display: block;
+                height: 100%;
+            }
+        }
+    }
+}
+
+.f-section__regresar {
+    color: lightgray;
+    text-decoration: none;
+    font-style: italic;
+}
+
+.new-body p:not(:last-child) {
+    margin-bottom: 10px;
+    @include desktop {
+        margin-bottom: 20px;
+    }
+}
+
+.f-section__image {
+    
+}

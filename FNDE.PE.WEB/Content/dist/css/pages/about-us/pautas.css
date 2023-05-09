@@ -1,0 +1,14 @@
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check section inhetirance */
+.f-section-pautas {
+  margin-top: 50px;
+  margin-bottom: 50px; }
+  .f-section-pautas ol {
+    padding-left: 15px; }
+  .f-section-pautas ul {
+    padding-left: 20px; }
+  .f-section-pautas strong {
+    font-weight: bold; }

@@ -1,0 +1,16 @@
+﻿@model FDNE.PE.WEB.ADMIN.Dtos.NewsDto
+
+@Html.HiddenFor(m => m.Id)
+<fieldset class="form-group">
+    @Html.LabelFor(m => m.Title, new { @class = "label" })
+    @Html.TextBoxFor(m => m.Title, new { @class = "form-control", placeholder = "Nombre", required = "required", autocomplete = "off" })
+</fieldset>
+<fieldset class="form-group">
+    @Html.LabelFor(m => m.Body, new { @class = "label" })
+    @Html.TextAreaFor(m => m.Body, new { @class = "form-control summernote", placeholder = "Descripción" })
+</fieldset>
+<fieldset class="form-group">
+    @Html.LabelFor(m => m.Base64Image, new { @class = "label" })
+    @Html.TextBoxFor(m => m.Base64Image, new { @class = "form-control", type = "file" })
+    <span class="pull-right font-italic font-xs">Tama&ntilde;o m&aacute;ximo: 5MB.</span>
+</fieldset>

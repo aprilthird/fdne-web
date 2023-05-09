@@ -1,0 +1,182 @@
+﻿
+@import "../../../abstracts/variables";
+@import "../../../abstracts/mixins";
+
+$f--link-hover-color: $f--primary-color;
+$f--menu-line-color: $f--white-color;
+$f--menu-underline-color: $f--primary-color;
+
+.f-navbar {
+    list-style-type: none;
+    width: intrinsic;
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
+    position: relative;
+    @include flexbox();
+    @include flexbox-shrink(0);
+    @include flexbox-grow(1);
+    $root: &;
+
+    &__line, &__underline {
+        display: none;
+
+        @include desktop {
+            display: block;
+        }
+    }
+
+    &--light {
+        color: $f--white-color;
+    }
+
+    &--display-links {
+        #{$root}__list {
+            justify-content: center;
+        }
+
+        #{$root}__list > li > a {
+            border-bottom: 1px solid $f--white-color;
+        }
+
+        #{$root}__item-dropdown {
+            position: relative;
+        }
+
+        #{$root}__line {
+            width: 0%;
+            display: block;
+        }
+
+        #{$root}__underline {
+            display: block;
+        }
+
+        #{$root}__item {
+
+            &-dropdown {
+                & > #{$root}__item {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &__list {
+        @include flexbox();
+        @include flexbox-direction(column);
+
+        @include desktop {
+            @include flexbox-justify-content(space-around);
+            @include flexbox-shrink(0);
+            @include flexbox-grow(1);
+            @include flexbox-direction(row);
+        }
+    }
+
+    &-link {
+        display: block;
+        cursor: pointer;
+        text-decoration: none;
+        color: inherit;
+        transition: color .3s;
+
+        &:hover {
+            color: $f--link-hover-color;
+        }
+    }
+
+    &__item {
+        display: inline-block;
+        $item-root: &;
+
+        & > #{$root}-link {
+            padding: 0.8rem;
+
+            &:before {
+                content: "> ";
+
+                @include desktop {
+                    content: "";
+                }
+            }
+        }
+
+        &:target {
+            #{$root}-link:before {
+                content: "v ";
+
+                @include desktop {
+                    content: "";
+                }
+            }
+
+            #{$item-root}-dropdown {
+                display: block;
+                height: auto;
+                transition: all ease 0.5s;
+
+                & > #{$item-root} {
+                    opacity: 1 !important;
+                }
+            }
+        }
+
+        &-dropdown {
+            padding: 0 0 0 .8em;
+            position: relative;
+            height: 0;
+            transition: all ease 0.5s;
+            display: none;
+            list-style-type: none;
+
+            & > #{$root}__item > #{$root}-link:before {
+                content: "";
+            }
+
+            @include desktop {
+                padding: 1em 0 0 0;
+                position: absolute;
+                opacity: 1;
+                height: auto;
+                display: block;
+            }
+
+            & > #{$root}__item {
+                opacity: 0;
+                display: list-item;
+                transition: opacity .3s;
+
+                & > #{$root}-link {
+                    padding: .5em 0 .5em 1em;
+                }
+            }
+        }
+    }
+
+    &__line {
+        margin: 0;
+        width: 0%;
+        height: 1px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background: $f--menu-line-color;
+        pointer-events: none;
+        border: none;
+        transition: width .3s;
+    }
+
+    &__underline {
+        margin: 0;
+        height: 3px;
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        background: $f--menu-underline-color;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0;
+        border: none;
+        transition: opacity .3s, width .3s, left .3s;
+    }
+}

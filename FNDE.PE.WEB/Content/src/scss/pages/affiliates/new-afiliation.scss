@@ -1,0 +1,127 @@
+﻿@import "../../abstracts/variables";
+@import "../../abstracts/mixins";
+@import "../../layout/variables";
+
+@import "../../components/custom/wizard-form/wizard-form";
+
+.f-section-new-afiliation {
+    a {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-decoration: none;
+        border: none;
+        outline: none;
+    }
+
+    &__Fcarousel {
+        background-color: $f--secondary-color;
+
+        @include desktop {
+            @include flexbox();
+            @include flexbox-wrap(wrap);
+            @include flexbox-justify-content(center);
+            padding-bottom: $f--section-separation;
+            padding-top: $f--section-separation;
+        }
+
+        &:after {
+            content: 'flickity';
+            display: none;
+
+            @include desktop {
+                content: '';
+                display: block;
+            }
+        }
+
+        .flickity-prev-next-button {
+            background-color: transparent !important;
+            color: white !important;
+            opacity: 1 !important;
+            border-radius: 0 !important;
+            width: 55px !important;
+            margin: 0 !important;
+        }
+
+        &-cell {
+            /* TODO: box sizing mixin */
+            box-sizing: border-box;
+            width: 100%;
+            padding-left: 55px;
+            padding-right: 55px;
+            @include flexbox();
+            @include flexbox-align-items(center);
+
+            @include desktop {
+                padding: 0;
+                width: auto;
+                @include flexbox-flex(0 0 15%);
+            }
+
+            .f-section__cardF {
+                height: 100%;
+                box-sizing: border-box;
+                padding-top: $f--section-separation;
+                padding-bottom: $f--section-separation;
+                background: $f--secondary-color;
+                text-align: center;
+                @include flexbox-flex(0 0 100%);
+
+                @include desktop {
+                    padding: 0;
+                    height: auto;
+                }
+
+                .f-link {
+                    color: $f--primary-color;
+
+                    @include desktop {
+                        color: $f--white-color;
+
+                        margin: {
+                            top: 7px;
+                            bottom: 7px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__content {
+        &-body {
+            .f-wizard-form {
+            }
+        }
+    }
+
+    &__boxes {
+        @include flexbox();
+        @include flexbox-direction(column);
+        @include flexbox-justify-content(space-between);
+
+        @include desktop {
+            @include flexbox-direction(row);
+        }
+
+        &-box {
+            width: 100%;
+
+            margin: {
+                top: 0.5rem;
+                bottom: 0.5rem;
+            }
+
+            @include desktop {
+                width: 45%;
+            }
+        }
+    }
+}
+.f-btn {
+    padding: 10px 10px;
+}
+.f-select {
+    width: 100% !important;
+}

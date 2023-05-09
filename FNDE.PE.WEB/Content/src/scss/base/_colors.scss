@@ -1,0 +1,45 @@
+﻿
+@import "../abstracts/variables";
+
+//== CSS Variables
+:root {
+    @each $name, $color in $f--state-colors {
+        --f--#{$name}-color: map-get($color, base);
+    }
+}
+
+//== Background Colors
+@each $name, $color in $f--state-colors {
+    .f-bg--#{$name} {
+        background-color: map-get($color, base);
+        color: map-get($color, inverse);
+    }
+}
+
+//== Text Colors
+@each $name, $color in $f--state-colors {
+    .f-text--#{$name} {
+        color: map-get($color, base);
+    }
+}
+
+//== Border Colors
+@each $name, $color in $f--state-colors {
+    .f-border--#{$name} {
+        border-color: map-get($color, base);
+    }
+}
+
+//== Fill SVG Colors
+@each $name, $color in $f--state-colors {
+    .f-fill--#{$name} {
+        border-color: map-get($color, base);
+    }
+}
+
+//== Strokes SVG Colors
+@each $name, $color in $f--state-colors {
+    .f-stroke--#{$name} {
+        stroke: map-get($color, base);
+    }
+}

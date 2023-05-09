@@ -1,0 +1,47 @@
+﻿@model FDNE.PE.WEB.ADMIN.Dtos.EventDto
+
+@Html.HiddenFor(m => m.Id)
+<fieldset class="form-group">
+    @Html.LabelFor(m => m.Name, new { @class = "label" })
+    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Nombre", required = "required", autocomplete = "off" })
+</fieldset>
+<fieldset class="form-group">
+    @Html.LabelFor(m => m.Acronym, new { @class = "label" })
+    @Html.TextBoxFor(m => m.Acronym, new { @class = "form-control", placeholder = "Acrónimo", required = "required", autocomplete = "off" })
+</fieldset>
+<fieldset class="form-group">
+    @Html.LabelFor(m => m.SeasonId, new { @class = "label" })
+    @Html.DropDownListFor(m => m.SeasonId, new List<SelectListItem>(), new { @class = "form-control select2-single select2-seasons", placeholder = "Disciplina", required = "required" })
+</fieldset>
+<fieldset class="form-group">
+    @Html.LabelFor(m => m.DisciplineId, new { @class = "label" })
+    @Html.DropDownListFor(m => m.DisciplineId, new List<SelectListItem>(), new { @class = "form-control select2-single select2-disciplines", placeholder = "Disciplina", required = "required" })
+</fieldset>
+<fieldset class="form-group">
+    @Html.LabelFor(m => m.ClubId, new { @class = "label" })
+    @Html.DropDownListFor(m => m.ClubId, new List<SelectListItem>(), new { @class = "form-control select2-single select2-clubes", placeholder = "Disciplina", required = "required" })
+</fieldset>
+<div class="row">
+    <div class="form-group col-md-6">
+        @Html.LabelFor(m => m.StartTime, new { @class = "label" })
+        <div class="input-group">
+            <span class="input-group-prepend">
+                <span class="input-group-text">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </span>
+            @Html.TextBoxFor(m => m.StartTime, new { @class = "form-control datepicker", placeholder = "Inicio", required = "required", autocomplete = "off" })
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        @Html.LabelFor(m => m.EndTime, new { @class = "label" })
+        <div class="input-group">
+            <span class="input-group-prepend">
+                <span class="input-group-text">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </span>
+            @Html.TextBoxFor(m => m.EndTime, new { @class = "form-control datepicker", placeholder = "Fin", required = "required", autocomplete = "off" })
+        </div>
+    </div>
+</div>

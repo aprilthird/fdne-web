@@ -1,0 +1,144 @@
+﻿
+@import "../variables";
+
+//== Clearfix
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: " "; // 1
+        display: table; // 2
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+//== Clear Whitespace
+@mixin no-whitespace() {
+    white-space: -moz-pre-wrap; /* Firefox */
+    white-space: -o-pre-wrap; /* Opera */
+    white-space: pre-wrap; /* Chrome */
+    word-wrap: break-word; /* IE */
+}
+
+//== Full height element
+@mixin make-full-height() {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+//== Box Sizing
+@mixin box-sizing($value) {
+    -moz-box-sizing: $value;
+    -webkit-box-sizing: $value;
+    box-sizing: $value;
+}
+
+//== Object Fit
+@mixin object-fit($value) {
+    -o-object-fit: $value;
+    object-fit: $value;
+}
+
+//== Object Position
+@mixin object-position($value) {
+    -o-object-position: $value;
+    object-position: $value;
+}
+
+//== Opacity
+@mixin opacity($value, $important: '') {
+    opacity: $value #{$important};
+    filter: alpha(opacity=#{$value * 100}) #{$important};
+}
+
+//== Set Placeholder Text Color
+@mixin input-placeholder($color: $input-color-placeholder) {
+    &::-moz-placeholder {
+        color: $color;
+        opacity: 1;
+    }
+    // See https://github.com/twbs/bootstrap/pull/11526
+    &:-ms-input-placeholder {
+        color: $color;
+    }
+    // Internet Explorer 10+
+    &::-webkit-input-placeholder {
+        color: $color;
+    }
+    // Safari and Chrome
+}
+
+@mixin input-autofill($color) {
+    &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px $color inset !important;
+
+        &:hover,
+        &:focus {
+            -webkit-box-shadow: 0 0 0px 1000px $color inset !important;
+        }
+    }
+}
+
+//== Reset input
+@mixin reset-input() {
+    border: 0;
+    background: none;
+    outline: none !important;
+    @include shadow(none);
+}
+
+
+//== Fixed positioned element smooth
+@mixin fix-fixed-position-lags() {
+    // webkit hack for smooth font view on fixed positioned elements
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+//== Fixed positioned element smooth
+@mixin fix-animation-lags() {
+    @include transform(translateZ(0));
+    -webkit-transform-style: preserve-3d;
+}
+
+@mixin fix-webkit-animation-font() {
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: translateZ(0px);
+    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-backface-visibility: hidden;
+}
+
+//== Box Shadow
+@mixin box-shadow($shadow, $important: '') {
+    -webkit-box-shadow: #{$shadow} #{$important}; // iOS <4.3 & Android <4.1
+    -moz-box-shadow: #{$shadow} #{$important};
+    box-shadow: #{$shadow} #{$important};
+}
+
+//== Attribute
+@mixin attr($attr, $value, $important: '') {
+    @if $value != null {
+        #{$attr}: #{$value} #{$important};
+    }
+}
+
+//== Rounded mode
+@mixin rounded {
+    @if $f--rounded == true {
+        @content;
+    }
+}
+
+//== Rounded mode
+@mixin not-rounded {
+    @if $f--rounded == false {
+        @content;
+    }
+}

@@ -1,0 +1,32 @@
+﻿@import "../../../abstracts/variables";
+@import "../../../abstracts/mixins";
+@import "../../../layout/variables";
+
+.f-form {
+    &__control {
+        width: 100%;
+
+        &:not(:last-child) {
+            margin-bottom: $f--section-separation / 2;
+        }
+    }
+
+    &__actions {
+        margin-top: $f--section-separation / 2;
+        @include flexbox();
+        @include flexbox-justify-content(flex-end);
+
+        button:not(:last-child) {
+            margin-right: 1rem;
+        }
+    }
+
+    &--two-columns {
+        @include grid();
+        @include grid-template-rows(1fr);
+
+        @include desktop {
+            @include grid-template-rows(2fr);
+        }
+    }
+}

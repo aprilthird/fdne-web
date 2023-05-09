@@ -1,0 +1,233 @@
+@using System.Threading;
+@using System.Globalization
+@using FDNE.PE.CORE.Helpers
+
+@{
+    Thread.CurrentThread.CurrentCulture = new CultureInfo("es-ES");
+    string[] monthNames =
+        System.Globalization.CultureInfo.CurrentCulture
+            .DateTimeFormat.MonthGenitiveNames;
+    var currentMonth = DateTime.UtcNow.ToDefaultTimeZone().Month;
+}
+@model IEnumerable<FNDE.PE.WEB.PORTAL.ViewModels.EventViewModels.EventoViewModel>
+
+@{
+    ViewBag.Title = "Listado";
+    Layout = "~/Views/Shared/_LayoutBackground.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link href="~/Content/dist/css/pages/events/list.css" rel="stylesheet" />
+}
+<main>
+    <section class="f-section f-section__content f-section-background f-section--dark">
+        <div class="f-section-background__image rellax" data-rellax-speed="-7">
+            <img src="~/Content/src/img/slide4-1024.png" />
+        </div>
+        <div class="f-section-background__title f-header f-container">
+            <h1>EVENTOS</h1>
+        </div>
+    </section>
+    <section class="f-section f-section--center f-section-events">
+        <div class="f-section-events__Fcarousel" id="month_filter">
+            @for (var i = 0; i < monthNames.Count(); ++i)
+            {
+                <div class="f-section-events__Fcarousel-cell">
+                    <div class="f-section__cardF">
+                        <a class="f-link f-link--uppercase @(currentMonth - 1 == i ? "f-link--active" : string.Empty)" id="month_filter_@(i + 1)">
+                            @monthNames[i].Normalize()
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+    <section class="f-section f-section--center f-section-events">
+        <div class="f-section-events__message" id="slider_message">
+            <h3>No se encontraron eventos para este mes.</h3>
+        </div>
+        <div class="f-section-events__Scarousel" id="slider_content">
+
+        </div>
+    </section>
+    <div id="modal-event-template">
+        <div class="f-modal-event__title">
+            <h3 id="modal_title">
+                Concurso Interclubes Oficial de Salto 111 / Federaci&oacute;n Ecuestre Internacional B
+            </h3>
+        </div>
+        <div class="f-modal-event__info">
+            <div class="f-modal-event__info-date" id="modal_date">
+                08 y 09 Setiembre
+            </div>
+            <div class="f-modal-event__info-location" id="modal_club">
+                Club Ecuestre Huachipa
+            </div>
+        </div>
+        <div class="f-modal-event__map">
+            <div id="map-container" style="display:block; width: 100%; height: 300px;"></div>
+        </div>
+    </div>
+</main>
+@section Scripts {
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANDaglIu4riXQQqVSEnLVF8qOJqLQNIm0&callback=mapComponent.init"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script src="~/Content/src/vendors/tingle.js/tingle.min.js"></script>
+    <script>
+        var marker = null;
+        var map = null;
+        var mapComponent = {
+            init: function () {
+                var lima = { lat: -12.0262674, lng: -77.1282085 };
+                map = new google.maps.Map($1("#map-container"), { zoom: 12, center: lima });
+            },
+            setMarkerTo: function (lat, lng) {
+                marker = new google.maps.Marker({
+                    position: { lat: lat, lng: lng },
+                    map: map,
+                    title: "Ubicación del Club"
+                });
+            }
+        };
+
+        var eventSlider = null;
+        var firstElem = $1('.f-section-events__Fcarousel');
+        var menuSlider = new Flickity(firstElem,
+            {
+                cellAlign: 'left',
+                //contain: true,
+                //autoPlay: 1500,
+                pauseAutoPlayOnHover: false,
+                adaptiveHeight: true,
+                watchCSS: true
+            });
+
+        (function (close) {
+            tingle.modal.prototype.close = function (force) {
+                force = typeof force === 'boolean' ? force : undefined;
+                close.call(this, force);
+            };
+        }(tingle.modal.prototype.close));
+
+        // instanciate new modal
+        var modal = new tingle.modal({
+            footer: false,
+            stickyFooter: false,
+            closeMethods: ['overlay', 'button', 'escape'],
+            closeLabel: "Close",
+            cssClass: ['f-modal', 'f-modal--primary', 'f-modal--custom-close', 'f-modal-event'],
+            onOpen: function () {
+            },
+            onClose: function () {
+                let close = $1(".tingle-modal__close");
+                let modal = $1(".tingle-modal");
+                modal.appendChild(close);
+            },
+            beforeOpen: () => {
+                let close = $1(".tingle-modal__close");
+                var modalContent = $1(".tingle-modal-box__content");
+                modalContent.appendChild(close);
+            },
+            beforeClose: function () {
+                // here's goes some logic
+                // e.g. save content before closing the modal
+                return true; // close the modal
+                return false; // nothing happens
+            }
+        });
+
+        const GetEvents = () => {
+            let activeLink = $1(".f-link--active");
+            let currentMonth = activeLink.id.match(/month_filter_(.*)/)[1];
+            fetch(_app.parseToUrl(`/Eventos/_PartialEvents?month=${currentMonth}`), {
+                method: 'get',
+                mode: 'no-cors'
+            }).then(response => {
+                console.log(response.type);
+                return response.text();
+            }).then(data => {
+                let content = $1("#slider_content");
+                let sliders = eventSlider.getCellElements();
+                if (sliders.length > 0) {
+                    eventSlider.remove(sliders);
+                }
+                let message = $1("#slider_message");
+                if (data) {
+                    var parser = new DOMParser();
+                    var htmlDoc = parser.parseFromString(data, "text/html");
+                    message.classList.add("f-section-events__message--hide");
+                    //content.innerHTML = data;
+                    content.style.display = "block";
+                    let newSliders = htmlDoc.querySelectorAll(".f-section-events__Scarousel-cell");
+                    eventSlider.append(newSliders);
+                    eventSlider.resize();
+                    eventSlider.reloadCells();
+                    eventSlider.destroy();
+                    InitEventSlider();
+                }
+                else {
+                    message.classList.remove("f-section-events__message--hide");
+                    content.style.display = "none";
+                }
+            }).catch(err => { console.log(err); });
+        };
+        GetEvents();
+
+        const InitButtonModalEvent = () => {
+            $(".f-btn-modal").forEach((btn) => {
+                btn.addEventListener("click",
+                    () => {
+                        var id = btn.dataset.eventid;
+                        fetch(_app.parseToUrl(`/Eventos/GetEvent?eventId=${id}`), {
+                            method: 'get'
+                        }).then(response => {
+                            return response.json();
+                        }).then(data => {
+                            $1("#modal_title").innerText = "";
+                            $1("#modal_title").innerText = data.name;
+                            $1("#modal_club").innerText = data.clubName;
+                            $1("#modal_date").innerText = data.date;
+                            mapComponent.setMarkerTo(data.clubLat, data.clubLng);
+                            // set content
+                            let modalTemplate = $1("#modal-event-template");
+                            modal.setContent(modalTemplate.innerHTML);
+                            // open modal
+                            modal.open();
+                            // close modal
+                            modal.close();
+                        });
+                    });
+            });
+        };
+
+        const InitEventSlider = () => {
+            var secondElem = $1("#slider_content");
+            if (eventSlider) {
+                eventSlider.destroy();
+                eventSlider = null;
+            }
+            eventSlider = new Flickity(secondElem,
+                {
+                    cellAlign: 'left',
+                    contain: true,
+                    autoPlay: 1500,
+                    pauseAutoPlayOnHover: false,
+                    adaptiveHeight: true
+                });
+            InitButtonModalEvent();
+        };
+        InitEventSlider();
+
+        $("#month_filter .f-link").forEach((link) => {
+            link.addEventListener("click",
+                () => {
+                    $("#month_filter .f-link").forEach((subLink) => {
+                        subLink.classList.remove("f-link--active");
+                    });
+                    link.classList.add("f-link--active");
+                    GetEvents();
+                });
+        });
+    </script>
+}

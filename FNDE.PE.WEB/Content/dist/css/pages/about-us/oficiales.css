@@ -1,0 +1,68 @@
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check section inhetirance */
+.f-section-oficiales {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  -ms-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between; }
+  .f-section-oficiales .collapsible {
+    background-color: #131313;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1.42rem; }
+    .f-section-oficiales .collapsible--child {
+      background-color: #e0311e;
+      font-size: 1rem; }
+  .f-section-oficiales .content {
+    padding: 0 50px 0 50px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: whitesmoke; }
+    .f-section-oficiales .content--child {
+      padding: 0 18px; }
+  .f-section-oficiales ul {
+    padding-left: 15px; }
+  @media (min-width: 1025px) {
+    .f-section-oficiales {
+      -ms-flex-direction: column;
+      -moz-flex-direction: column;
+      flex-direction: column;
+      -webkit-flex-direction: column; } }
+  .f-section-oficiales__information {
+    width: 100%; }
+    @media (min-width: 1025px) {
+      .f-section-oficiales__information {
+        width: 35%; } }
+    .f-section-oficiales__information ul {
+      padding-left: 15px; }
+    .f-section-oficiales__information-title-primanry {
+      text-align: center;
+      color: #e0311e;
+      font-weight: bold; }
+    .f-section-oficiales__information-title-secondary {
+      text-align: center;
+      font-weight: bold; }

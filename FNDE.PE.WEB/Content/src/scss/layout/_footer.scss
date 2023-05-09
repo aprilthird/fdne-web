@@ -1,0 +1,197 @@
+﻿@import "../abstracts/variables";
+@import "../abstracts/mixins";
+@import "variables";
+
+$f--logo-width: 65px;
+$f--social-icon-size: 1.25rem;
+$f--footer-height: (
+    sm: 30vh,
+    lg: 40vh,
+    xl: 30vh
+);
+$f--footer-margin-bottom: ( 
+    lg: 30px, 
+    sm: 25px 
+);
+$f--logo-btn-width: ( 
+    lg: 70px, 
+    sm: 50px 
+);
+
+.f-footer {
+    @include flexbox();
+    background-color: $f--secondary-color;
+    color: $f--white-color;
+    min-height: array-get($f--footer-height, sm);
+    overflow: auto;
+    font-size: map-get($f--font-sizes, sm);
+    $root: &;
+
+    @include desktop {
+        min-height: array-get($f--footer-height, lg);
+    }
+
+    @include wide-desktop {
+        min-height: array-get($f--footer-height, xl);
+    }
+
+    &__container {
+        @include flexbox();
+        @include flexbox-align-items(stretch);
+        @include flexbox-justify-content(space-between);
+        @include flexbox-wrap(wrap);
+        @include flexbox-shrink(1);
+        @include flexbox-grow(1);
+
+        margin: {
+            top: map-get($f--footer-margin-bottom, sm);
+            bottom: map-get($f--footer-margin-bottom, sm);
+            left: $f--horizontal-margin;
+            right: $f--horizontal-margin;
+        }
+
+        @include desktop {
+            margin: {
+                top: map-get($f--footer-margin-bottom, lg);
+                bottom: map-get($f--footer-margin-bottom, lg);
+            }
+        }
+
+        @include wide-desktop {
+            @include flexbox-shrink(0);
+            max-width: $f--layout-max-width;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    &__logo-container {
+        z-index: 999;
+        display: none;
+
+        @include desktop {
+            display: block;
+        }
+
+        #{$root}-logo {
+            width: map-get($f--logo-btn-width, sm);
+            height: map-get($f--logo-btn-width, sm);
+            //background: url("/Content/src/img/logo-dark1.svg");
+            background: url("/Content/src/img/logo-fep.png");
+            background: {
+                size: contain;
+                repeat: no-repeat;
+                position: center center;
+            }
+
+            @include desktop {
+                width: map-get($f--logo-btn-width, lg);
+                height: map-get($f--logo-btn-width, lg);
+            }
+
+            &--light {
+                //background: url("/Content/src/img/logo-light1.svg");
+                background: url("/Content/src/img/logo-fep.png");
+                background: {
+                    size: contain;
+                    repeat: no-repeat;
+                    position: center center;
+                }
+            }
+        }
+    }
+
+    &__navbar {
+        @include flexbox-shrink(1);
+        @include flexbox-justify-content(space-between);
+        @include flexbox-align-items(stretch);
+        display: none;
+        /*padding: {
+            left: 60px;
+            right: 60px;
+        }*/
+        .f-navbar {
+            width: 100%;
+            @include flexbox-justify-content(space-between);
+        }
+
+        @include desktop {
+            display: block;
+            @include flexbox-shrink(1);
+            @include flexbox-grow(2);
+            @include flexbox-flex(auto);
+        }
+    }
+
+    &__links {
+        @include flexbox();
+        @include flexbox-justify-content(space-between);
+        @include flexbox-flex(1 0 auto);
+
+        @include desktop {
+            @include flexbox-direction(column);
+            @include flexbox-wrap(wrap);
+            @include flexbox-justify-content(flex-start);
+            @include flexbox-grow(0);
+        }
+
+        &-extras {
+            .f-navbar__list {
+                @include flexbox-direction(column);
+            }
+
+            .f-link {
+                margin-bottom: 10px;
+
+                @include desktop {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        &-social {
+            .f-social-text {
+                padding: 1em;
+            }
+
+            .f-social-icon {
+                width: $f--social-icon-size;
+                height: $f--social-icon-size;
+            }
+
+            .f-navbar__list {
+                /* TODO: find solution */
+                max-width: 80px;
+                @include flexbox-wrap(wrap);
+                @include flexbox-direction(row);
+                @include flexbox-justify-content(flex-end);
+
+                @include desktop {
+                    max-width: 160px;
+                }
+            }
+
+            .f-navbar__item {
+                @include flexbox-flex(0 0 50%);
+                max-width: 40px;
+
+                @include desktop {
+                    @include flexbox-flex(0 0 auto);
+                }
+            }
+        }
+    }
+
+    &__copyright {
+        @include flexbox-flex(0 0 100%);
+        margin-top: auto;
+        margin-bottom: 0;
+        padding-top: 10px;
+        text-align: center;
+        border-top: 1px solid $f--white-color;
+
+        @include desktop {
+            margin-top: auto;
+        }
+    }
+}

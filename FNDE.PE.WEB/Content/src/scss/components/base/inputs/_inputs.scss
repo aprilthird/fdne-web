@@ -1,0 +1,16 @@
+﻿@import "../../../abstracts/variables";
+@import "../../../abstracts/mixins";
+
+$f--select-radius: .25rem;
+
+.f-input {
+    @include border-radius($f--select-radius);
+    @include box-sizing(border-box);
+    padding: .85rem 1.15rem;
+    border: 1px solid  $f--gray-color;
+
+    &:focus {
+        border-color: $f--primary-color;
+        outline: 0;
+    }
+}

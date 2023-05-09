@@ -1,0 +1,79 @@
+﻿
+//== Margins
+$f--horizontal-margin: 25px;
+
+//== Global arrow style
+$f--arrow-style: 'smooth' !default; // supported options: smooth, classic
+
+//== Default skin
+$f--default-skin: 'light' !default; // supported option: light. the dark option will be added in the future when a new demo with dark skin is released.
+
+//== Global rounded border mode
+$f--rounded: true !default;   // access to this value calling rounded() in SASS code
+
+//== Force cursor with pointer for button tags globally
+$f--btn-force-hover-pointer: true !default;
+
+//== Border Radius
+$f--border-radius: (
+    general: 4px,
+    dropdown: 4px,
+    scrollbar: 2px
+) !default;
+
+//== Core icon codes(lineawesome icons: https://icons8.com/line-awesome)
+$f--icon-codes: (
+    close: '\f191',
+    down: '\f110',
+    up: '\f113',
+    left: '\f111',  
+    right: '\f112',
+    plus: '\f2c2',
+    minus: '\f28e'
+) !default;
+
+//== Modal Z-index
+$f--modal-zindex: 1050 !default;
+
+//== General dropdown Z-index
+$f--dropdown-zindex: 101 !default;
+
+//== Transition
+$f--transition: (
+    general: all 0.3s,
+    link: (
+        hover: color .4s ease
+    )
+)!default;
+
+//== General box shadows
+$f--box-shadow-base-color: darken(#c5c2cc, 50%) !default; // purple shadow: #716ac  grey shadow: #c5c2cc
+
+$f--box-shadows: (
+    light: (
+        lighten5: 0px 1px 15px 1px rgba($f--box-shadow-base-color, 0.02), // access to this shadow value calling get-shadow function as get-shadow(light, regular, -----) in SASS code
+        lighten4: 0px 1px 15px 1px rgba($f--box-shadow-base-color, 0.04), // access to this shadow value calling get-shadow function as get-shadow(light, regular, ----) in SASS code
+        lighten3: 0px 1px 15px 1px rgba($f--box-shadow-base-color, 0.06), // access to this shadow value calling get-shadow function as get-shadow(light, regular, ---) in SASS code
+        lighten2: 0px 1px 15px 1px rgba($f--box-shadow-base-color, 0.08), // access to this shadow value calling get-shadow function as get-shadow(light, regular, --) in SASS code
+        lighten1: 0px 1px 15px 1px rgba($f--box-shadow-base-color, 0.1),  // access to this shadow value calling get-shadow function as get-shadow(light, regular, -) in SASS code
+        base: 0px 0px 15px 1px rgba($f--box-shadow-base-color, 0.2),      // access to this shadow value calling get-shadow function as get-shadow(light, regular) in SASS code
+        darken1:  0px 1px 15px 1px rgba($f--box-shadow-base-color, 0.25), // access to this shadow value calling get-shadow function as get-shadow(light, regular, +++++) in SASS code
+        darken2:  0px 1px 15px 1px rgba($f--box-shadow-base-color, 0.3),  // access to this shadow value calling get-shadow function as get-shadow(light, regular, ++++) in SASS code
+        darken3:  0px 1px 15px 1px rgba($f--box-shadow-base-color, 0.35), // access to this shadow value calling get-shadow function as get-shadow(light, regular, +++) in SASS code
+        darken4:  0px 1px 15px 1px rgba($f--box-shadow-base-color, 0.4),  // access to this shadow value calling get-shadow function as get-shadow(light, regular, ++) in SASS code
+        darken5:  0px 1px 15px 1px rgba($f--box-shadow-base-color, 0.7),  // access to this shadow value calling get-shadow function as get-shadow(light, regular, +) in SASS code
+    ),
+    dark: (
+        lighten5: 0px 1px 15px 1px rgba($f--box-shadow-base-color, 0.1),  // access to this shadow value calling get-shadow function as get-shadow(dark, regular, +++++) in SASS code
+        lighten4: 0px 1px 15px 1px rgba($f--box-shadow-base-color, 0.15), // access to this shadow value calling get-shadow function as get-shadow(dark, regular, ++++) in SASS code
+        lighten3: 0px 1px 15px 1px rgba($f--box-shadow-base-color, 0.2),  // access to this shadow value calling get-shadow function as get-shadow(dark, regular, +++) in SASS code
+        lighten2: 0px 1px 15px 1px rgba($f--box-shadow-base-color, 0.25), // access to this shadow value calling get-shadow function as get-shadow(dark, regular, ++) in SASS code
+        lighten1: 0px 1px 15px 1px rgba($f--box-shadow-base-color, 0.3),  // access to this shadow value calling get-shadow function as get-shadow(dark, regular, +) in SASS code
+        base: 0px 0px 15px 1px rgba($f--box-shadow-base-color, 0.4),      // access to this shadow value calling get-shadow function as get-shadow(dark, regular) in SASS code
+        darken1:  0px 1px 15px 1px rgba($f--box-shadow-base-color, 0.5),  // access to this shadow value calling get-shadow function as get-shadow(dark, regular, -----) in SASS code
+        darken2:  0px 1px 15px 1px rgba($f--box-shadow-base-color, 0.55), // access to this shadow value calling get-shadow function as get-shadow(dark, regular, ----) in SASS code
+        darken3:  0px 1px 15px 1px rgba($f--box-shadow-base-color, 0.6),  // access to this shadow value calling get-shadow function as get-shadow(dark, regular, ---) in SASS code
+        darken4:  0px 1px 15px 1px rgba($f--box-shadow-base-color, 0.65), // access to this shadow value calling get-shadow function as get-shadow(dark, regular, --) in SASS code
+        darken5:  0px 1px 15px 1px rgba($f--box-shadow-base-color, 0.85), // access to this shadow value calling get-shadow function as get-shadow(dark, regular, -) in SASS code
+    )
+)!default;  

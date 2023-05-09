@@ -1,0 +1,12 @@
+// Media for large screens
+@media screen and (min-width: $media-mobile-width) {
+  @include flexmenu-horizontal-highlight();
+  @include navbar-collapse-vertical();
+}
+// Media querie for small screens
+@media screen and (max-width: $media-mobile-width) {
+  @include flexmenu-vertical-highlight();
+  @include navbar-collapse-horizontal();
+}
+
+

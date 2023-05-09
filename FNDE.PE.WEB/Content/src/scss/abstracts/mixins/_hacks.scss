@@ -1,0 +1,14 @@
+﻿
+//== IE8-11 versions hack
+@mixin hack-ie8-11 {
+    @media screen\0 {
+        @content;
+    }
+}
+
+//== Edge All versions hack
+@mixin hack-edge-all {
+    @supports (-ms-ime-align:auto) {
+        @content;
+    }
+}

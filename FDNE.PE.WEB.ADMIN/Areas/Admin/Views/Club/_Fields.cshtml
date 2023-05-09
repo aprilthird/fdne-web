@@ -1,0 +1,48 @@
+﻿@model FDNE.PE.WEB.ADMIN.Dtos.ClubDto
+
+@Html.HiddenFor(m => m.Id)
+<fieldset class="form-group">
+    @Html.LabelFor(m => m.Name, new { @class = "label" })
+    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Nombre", required = "required", autocomplete = "off" })
+</fieldset>
+<div class="row">
+    <fieldset class="form-group col-md-4">
+        @Html.LabelFor(m => m.Acronym, new { @class = "label" })
+        @Html.TextBoxFor(m => m.Acronym, new { @class = "form-control", placeholder = "Acronimo", required = "required", autocomplete = "off" })
+    </fieldset>
+    <fieldset class="form-group col-md-4">
+        @Html.LabelFor(m => m.Email, new { @class = "label" })
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Correo Electrónico", type = "email", required = "required", autocomplete = "off" })
+    </fieldset>
+    <fieldset class="form-group col-md-4">
+        @Html.LabelFor(m => m.PhoneNumber, new { @class = "label" })
+        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", placeholder = "Teléfono", required = "required", autocomplete = "off", maxlength = "9" })
+    </fieldset>
+</div>
+<fieldset class="form-group">
+    @Html.LabelFor(m => m.Address, new { @class = "label" })
+    @Html.TextAreaFor(m => m.Address, new { @class = "form-control", placeholder = "Dirección", required = "required", autocomplete = "off", @readonly = "readonly" })
+</fieldset>
+<div class="row">
+    <fieldset class="form-group col-md-6">
+        @Html.LabelFor(m => m.Longitude, new { @class = "label" })
+        @Html.TextBoxFor(m => m.Longitude, new { @class = "form-control", placeholder = "Longitud", required = "required", autocomplete = "off", @readonly = "readonly" })
+    </fieldset>
+    <fieldset class="form-group col-md-6">
+        @Html.LabelFor(m => m.Latitude, new { @class = "label" })
+        @Html.TextBoxFor(m => m.Latitude, new { @class = "form-control", placeholder = "Latitud", required = "required", autocomplete = "off", @readonly = "readonly" })
+    </fieldset>
+    <fieldset class="form-group col-md-6">
+        @Html.LabelFor(m => m.Base64Image, new { @class = "label" })
+        @Html.TextBoxFor(m => m.Base64Image, new { @class = "form-control", type="file" })
+    </fieldset>
+</div>
+<div class="alert alert-info alert-dismissible" role="alert">
+    <span id="add_alert_text"><strong><i class="fa fa-info-circle"></i> Informaci&oacute;n: </strong>  Mueve el centro del mapa para posicionar el marcador.</span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<fieldset class="form-group">
+    <div class="map-container" style="display:block; width: 100%; height: 300px;"></div>
+</fieldset>

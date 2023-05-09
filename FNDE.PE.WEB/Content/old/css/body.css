@@ -1,0 +1,10 @@
+﻿.body {
+    background: #1a1919 !important;
+    color: #fff !important;
+    font-family: MyriadProRegular, "PT sans";
+    font-size: 12px !important;
+    line-height: 1.2;
+    letter-spacing: 2px;
+    font-weight: 300;
+    overflow-x: hidden;
+}

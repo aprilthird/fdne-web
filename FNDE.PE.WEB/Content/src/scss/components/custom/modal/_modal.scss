@@ -1,0 +1,71 @@
+﻿
+@import "../../../abstracts/variables";
+@import "../../../abstracts/mixins";
+@import "../../../../vendors/tingle.js/tingle";
+
+.f-modal {
+    padding: 0;
+    @include flexbox();
+    @include flexbox-align-items(center);
+    @include transition(visibility .2s ease, opacity .2s ease);
+
+    .tingle-modal-box {
+        width: 100%;
+    }
+
+    &--custom-close {
+        .tingle-modal__close {
+            width: auto;
+            height: auto;
+            left: unset;
+            margin-top: auto;
+            margin-bottom: auto;
+            background-color: transparent;
+            @include flexbox();
+            @include flexbox-justify-content(flex-end);
+            padding-top: .5rem;
+            padding-right: 25px;
+            line-height: 3rem;
+
+            @include desktop {
+                padding-top: 1.5rem;
+            }
+
+            &:focus {
+                outline: 0;
+            }
+
+            &Label {
+                display: none;
+            }
+
+            &Icon {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &--primary {
+        color: $f--white-color;
+
+        .tingle-modal-box {
+            background-color: $f--primary-color;
+
+            &__footer {
+                background-color: darken($f--primary-color, 10%);
+            }
+        }
+    }
+
+    &--secondary {
+        color: $f--white-color;
+
+        .tingle-modal-box {
+            background-color: $f--secondary-color;
+
+            &__footer {
+                background-color: darken($f--secondary-color, 10%);
+            }
+        }
+    }
+}

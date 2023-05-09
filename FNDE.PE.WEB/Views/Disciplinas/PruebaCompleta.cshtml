@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = "Adiestramiento";
+    Layout = "~/Views/Shared/_LayoutBackground.cshtml";
+}
+
+@section Styles{
+    <link href="~/Content/dist/css/pages/disciplines/trainig.css" />
+    <style>
+        body {
+            background: linear-gradient(90deg, white 70%, #111111 30%);
+        }
+    </style>
+}
+
+<main class="f-training">
+    <section class="f-section f-section__content f-section-background f-section--dark">
+        <div class="f-section-background__image rellax" data-rellax-speed="-7">
+            <img src="~/Content/src/img/slide2-1024.png" />
+        </div>
+        <div class="f-section-background__title f-container">
+            <h1>PRUEBA COMPLETA</h1>
+        </div>
+    </section>
+
+    <div class="f-training__body-content">
+        <section class="f-section f-section__flex-center f-section--dark f-section--back-dark">
+            <div class="tab">
+                <button class="tablinks active" onclick="changeSection(event, 'about-section')">¿De qué se trata?</button>
+                <button class="tablinks" onclick="changeSection(event, 'riders-section')">Binomios</button>
+                <div class="sub-tab">
+                    <a class="tablinks" href="@Url.Action("Resultados", "Concursos")">Resultados</a>
+                    <a class="tablinks" href="@Url.Action("Rankings", "Concursos")">Ranking</a>
+
+                </div>
+            </div>
+        </section>
+        @* f-section-static-80*@
+        <section class="f-section f-section__title f-section__flex  f-section-new-detail" style="width:80%">
+
+            @*de que trata*@
+            <div class="f-section__column f-section__title--gray f-new-body f-visible" id="about-section" style="display: block">
+                <h2>¿DE QUÉ SE TRATA?</h2>
+
+                <p class="f-section-p" style="margin: 20px 20px; margin-left: auto">
+
+                    Es una combinación de Cross Country, salto y adiestramiento. El evento es a menudo conocido como el triatlón del mundo ecuestre. Un deporte verdaderamente completo que pone a prueba tanto al caballo como al jinete, en todos los aspectos de la equitación y es una de las 3 disciplinas ecuestres olímpicas.
+               
+                </p>
+            </div>
+            @*jinetes*@
+            <div class="f-section__column f-section__title--gray f-new-body f-visible" id="riders-section" style="display:none">
+                <h2>BINOMIOS</h2>
+                <div class="f-training__cards-content">
+                    <div class="card-content">
+                        <div class="multimedia">
+                            <img class="multimedia_object" src="/Content/old/img/rank1-1024.png" alt="Avatar" style="width:100%">
+                        </div>
+                        <div class="container">
+                            <h4>Carlo</h4>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="multimedia">
+                            <img class="multimedia_object" src="/Content/old/img/rank2-1024.png" alt="Avatar" style="width:100%">
+                        </div>
+                        <div class="container">
+                            <h4>Sebastian</h4>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="multimedia">
+                            <img class="multimedia_object" src="/Content/old/img/rank3-1024.png" alt="Avatar" style="width:100%">
+                        </div>
+                        <div class="container">
+                            <h4>Pegazo</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+</main>
+
+<script>
+    function changeSection(evt, sectionId) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        var sectionsVisible = document.getElementsByClassName("f-visible");
+        console.log(sectionsVisible);
+        for (let i = 0; i < sectionsVisible.length; i++) {
+            sectionsVisible[i].style.display = "none";
+        }
+
+        document.getElementById(sectionId).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>

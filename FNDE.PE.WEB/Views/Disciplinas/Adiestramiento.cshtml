@@ -1,0 +1,225 @@
+﻿
+@{
+    ViewBag.Title = "Adiestramiento";
+    Layout = "~/Views/Shared/_LayoutBackground.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link href="~/Content/dist/css/pages/events/list.css" rel="stylesheet" />
+    <link href="~/Content/dist/css/pages/affiliates/listadoCoaches.css" rel="stylesheet" />
+    <link href="~/Content/dist/css/pages/disciplines/trainig.css" rel="stylesheet" />
+}
+
+    <style>
+        body {
+            background: linear-gradient(90deg, white 50%, #131313 60%);
+        }
+    </style>
+<main class="f-training">
+    <section class="f-section f-section__content f-section-background f-section--dark">
+        <div class="f-section-background__image rellax" data-rellax-speed="-7">
+            <img src="~/Content/src/img/slide2-1024.png" />
+        </div>
+        <div class="f-section-background__title f-container">
+            <h1>ADIESTRAMIENTO </h1>
+        </div>
+    </section>
+
+    <section class="f-training__body-content sectionsInver">
+        <section class="f-section f-section--center event-list event-list__adiestramiento">
+            <div class="event-list__Fcarousel">
+                <div class="event-list__Fcarousel-cell">
+                    <div class="f-section__cardF">
+                        <a class="f-link" href="#about-section" onclick="changeSection(event, 'about-section')">
+                            ¿De qué se trata?
+                        </a>
+                    </div>
+                </div>
+                <div class="event-list__Fcarousel-cell">
+                    <div class="f-section__cardF">
+                        <a class="f-link" href="#binomios-section" onclick="changeSection(event, 'binomios-section')">
+                            Binomios
+                        </a>
+                    </div>
+                </div>
+                <div class="event-list__Fcarousel-cell">
+                    <div class="f-section__cardF">
+                        <a class="f-link" href="#lesson-section" onclick="changeSection(event, 'lesson-section')">
+                            Lecciones
+                        </a>
+                    </div>
+                </div>
+                <div class="event-list__Fcarousel-cell">
+                    <div class="f-section__cardF">
+                        <a class="f-link" href="#rules-section" onclick="changeSection(event, 'rules-section')">
+                            Reglamento
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="sub-tab">
+                <a class="tablinks" href="@Url.Action("Resultados", "Concursos")">Resultados</a>
+                <a class="tablinks" href="@Url.Action("Rankings", "Concursos")">Ranking</a>
+            </div>
+        </section>
+        @* f-section-static-80*@
+        <section class="f-section f-section__title f-section__flex  f-section-new-detail">
+
+            @*de que se trata*@
+            <div class="f-section__column f-section__title--gray f-new-body f-visible" id="about-section" style="display: block">
+                <h2>¿DE QUÉ SE TRATA?</h2>
+
+                <p class="f-section-p" style="margin: 20px 20px; margin-left: auto">
+
+                    Con una popularidad que crece rápidamente cada año, el adiestramiento es la máxima expresión del entrenamiento y de 
+                    la elegancia del caballo. El jinete y el caballo deben de realizar una serie de movimientos, según cada lección dentro 
+                    de un rectángulo. Existe una conexión entre los atletas humanos y equinos. Es una de las 3 disciplinas olímpicas ecuestres.
+                </p>
+            </div>
+            @*binomios*@
+            <div class="f-section__column f-section__title--gray f-new-body f-visible" id="binomios-section" style="display:none">
+                <h2>BINOMIOS</h2>
+                <div class="f-training__cards-content">
+                    <div class="card-content">
+                        <div class="multimedia">
+                            <img class="multimedia_object" src="/Content/old/img/rank1-1024.png" alt="Avatar" style="width:100%">
+                        </div>
+                        <div class="container">
+                            <h4>Carlo y Papelito</h4>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="multimedia">
+                            <img class="multimedia_object" src="/Content/old/img/rank2-1024.png" alt="Avatar" style="width:100%">
+                        </div>
+                        <div class="container">
+                            <h4>Sebastian y Palomita</h4>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="multimedia">
+                            <img class="multimedia_object" src="/Content/old/img/rank3-1024.png" alt="Avatar" style="width:100%">
+                        </div>
+                        <div class="container">
+                            <h4>Marco y Pegazo</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*Lecciones*@
+
+            <div class="f-section__column f-section__title--gray f-new-body f-visible f-list" id="lesson-section" style="display: none">
+                <h2>LECCIONES</h2>
+                <h2>Lecciones 2019</h2>
+                <ul>
+                    <li><a href="#">Nivel Entrenamiento – Lección 1</a></li>
+                    <li><a href="#">Nivel Entrenamiento – Lección 2</a></li>
+                    <li><a href="#">Nivel Entrenamiento – Lección 3</a></li>
+                    <li><a href="#">Primer Nivel – Lección 1</a></li>
+                    <li><a href="#">Primer Nivel – Lección 2</a></li>
+                    <li><a href="#">Primer Nivel – Lección 3</a></li>
+                    <li><a href="#">Segundo  Nivel – Lección 1</a></li>
+                    <li><a href="#">Segundo Nivel – Lección 2</a></li>
+                    <li><a href="#">Segundo Nivel – Lección 3</a></li>
+                    <li><a href="#">Tercer Nivel – Lección 1</a></li>
+                    <li><a href="#">Tercer Nivel – Lección 2</a></li>
+                    <li><a href="#">Cuarto Nivel – Lección 1</a></li>
+                    <li><a href="#">Cuarto Nivel – Lección 2</a></li>
+                    <li><a href="#">Cuarto Nivel – Lección 3</a></li>
+                </ul>
+                <br />
+                <h2> Lecciones USDF</h2>
+                <ul>
+                    <li><a href="#">Nivel Introducción – Test A</a></li>
+                    <li><a href="#">Nivel Introducción – Test B</a></li>
+                    <li><a href="#">Nivel Introducción – Test C</a></li>
+                    <li><a href="#">Primer Nivel</a></li>
+                    <li><a href="#">Segundo Nivel</a></li>
+                    <li><a href="#">Tercer Nivel</a></li>
+                    <li><a href="#">Cuarto Nivel</a></li>
+                    <li><a href="#">San Jorge</a></li>
+                </ul>
+            </div>
+            @*Reglamento*@
+            <div class="f-section__column f-section__title--gray f-new-body f-visible f-list" id="rules-section" style="display: none">
+                <h2>REGLAMENTO</h2>
+                <ul>
+                    <li><a href="">Reglamento Nacional de Adiestramiento 2018</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="f-section f-section__title f-section__flex  f-section-new-detail tabs-mobile">
+            <div class="sub-tab-mobile">
+                <a class="tablinks active" href="@Url.Action("Resultados", "Concursos")">Resultados</a>
+                <a class="tablinks" href="@Url.Action("Rankings", "Concursos")">Ranking</a>
+            </div>
+
+        </section>
+       
+    </section>
+</main>
+
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<script>
+
+    var firstElem = document.querySelector('.event-list__Fcarousel');
+    var secondElem = document.querySelector('.event-list__Scarousel');
+    var Fflkty = new Flickity(firstElem, {
+        cellAlign: 'left',
+        //contain: true,
+        //autoPlay: 1500,
+        pauseAutoPlayOnHover: false,
+        adaptiveHeight: true,
+        watchCSS: true
+    });
+
+    var Sflkty = new Flickity(secondElem, {
+        cellAlign: 'left',
+        //contain: true,
+        //autoPlay: 1500,
+
+        pauseAutoPlayOnHover: false,
+        adaptiveHeight: true
+    });
+
+    var flkty = new Flickity('.event-list__Fcarousel', {
+        on: {
+            change: function (index) {
+                console.log(index);
+            }
+        }
+    });
+    flkty.on('change', function (index) {
+        console.log(index);
+        let link = $(".event-list__Fcarousel .f-link")[index];
+        let section = $1(link.getAttribute("href"));
+        let sections = $(".f-section__column");
+        console.log(sections);
+        sections.forEach(e => e.style.display = "none");
+        section.style.display = "block";
+    });
+
+    function changeSection(evt, sectionId) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        var sectionsVisible = document.getElementsByClassName("f-visible");
+        console.log(sectionsVisible);
+        for (let i = 0; i < sectionsVisible.length; i++) {
+            sectionsVisible[i].style.display = "none";
+        }
+
+        document.getElementById(sectionId).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>

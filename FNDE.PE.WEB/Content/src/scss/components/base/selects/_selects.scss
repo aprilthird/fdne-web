@@ -1,0 +1,38 @@
+﻿@import "../../../abstracts/variables";
+@import "../../../abstracts/mixins";
+
+$f--select-radius: .25rem;
+$f--select-icon-size: (
+    sm: 30px,
+    lg: 45px
+);
+/* TODO: check if it repeats with inputs */
+$f--select-vertical: .85rem;
+$f--select-horizontal: 1.15rem;
+
+.f-select {
+    cursor: pointer;
+    padding: $f--select-vertical $f--select-horizontal;
+    padding-right: $f--select-horizontal * 2;
+    @include border-radius($f--select-radius);
+    @include text-overflow(ellipsis);
+    background: url("/Content/src/img/icon-arrow-down-dark.svg") no-repeat right;
+    background-size: map-get($f--select-icon-size, sm);
+    -moz-appearance: none;
+    -webkit-appearance: none;
+
+    @include desktop {
+        background-size: map-get($f--select-icon-size, lg);
+    }
+
+    &:focus {
+        border-color: $f--primary-color;
+        //background: url("/Content/src/img/icon-arrow-up-dark.svg") no-repeat right;
+        //background-size: $f--select-icon-size;
+        outline: 0;
+    }
+
+    &::-ms-expand {
+        display: none;
+    }
+}

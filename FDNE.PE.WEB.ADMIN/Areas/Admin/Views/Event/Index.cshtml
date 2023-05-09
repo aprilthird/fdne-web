@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Eventos";
+    ViewBag.SubTitle = "Calendario de Eventos";
+    ViewBag.Breadcrumbs = new[] {
+        new BreadcrumbViewData { Name = ViewBag.Title }
+    };
+}
+
+@section Styles {
+    <link href="@Url.Content("~/Content/vendors/fullcalendar/fullcalendar2.min.css")" rel="stylesheet" />
+}
+
+<div>
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="card-header">
+                <i class="icon-calendar icons font-2xl"></i> @ViewBag.SubTitle
+                <div class="card-header-actions">
+                    <div class="card-header-action">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#add_modal">
+                            <i class="fa fa-plus"></i>
+                            <span>Nuevo</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info alert-dismissible" role="alert">
+                    <span id="add_alert_text"><strong><i class="fa fa-info-circle"></i> Informaci&oacute;n: </strong>  Click sobre el evento que desee ver su informaci&oacute;n o editar. Nota: Solo se podr&aacute;n editar eventos que no tengan calificaciones registradas.</span>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="calendar" class="fc fc-unthemed fc-ltr">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_CreateModal")
+@Html.Partial("_EditModal")
+
+@section Scripts {
+    <script src="@Url.Content("~/Content/vendors/moment.js/moment.min.js")"></script>
+    <script src="@Url.Content("~/Content/vendors/fullcalendar/fullcalendar.min.js")"></script>
+    <script src="@Url.Content("~/Content/js/areas/admin/event/index.js")"></script>
+}

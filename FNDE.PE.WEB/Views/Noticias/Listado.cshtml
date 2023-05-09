@@ -1,0 +1,99 @@
+﻿@model IEnumerable<FNDE.PE.WEB.PORTAL.ViewModels.NewsViewModels.NewsViewModel>
+
+@{
+    ViewBag.Title = "Listado";
+    Layout = "~/Views/Shared/_LayoutBackground.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <link href="~/Content/dist/css/pages/news/list.css" rel="stylesheet" />
+}
+
+<main>
+    <section class="f-section f-section__content f-section-background f-section--dark">
+        <div class="f-section-background__image rellax" data-rellax-speed="-7">
+            <img src="~/Content/src/img/slide4-1024.png" />
+        </div>
+        <div class="f-section-background__title f-header f-container">
+            <h1>NOTICIAS</h1>
+        </div>
+    </section>
+
+    <section class="f-section f-section--center f-news">
+        <div class="f-news__carousel">
+            @foreach (var news in Model)
+            {
+                <div class="f-news__carousel-cell">
+                    <div class="f-section__card">
+                        <h5 class="f-text--primary">
+                            @news.Day <span style="text-transform: uppercase;">@news.Month</span> de @news.Year
+                        </h5>
+                        <h2>
+                            @news.Title
+                        </h2>
+                        <button onclick="window.location.href = '@Url.Action("Detalle", "Noticias", new { id = news.Id })'" class="f-btn f-btn--primary">LEER MAS</button>
+                    </div>
+                </div>
+            }
+
+            @*<div class="f-news__carousel-cell">
+                    <div class="f-section__card">
+                        <h5 class="f-text--primary">
+                            7 DICIEMBRE, 2018
+                        </h5>
+                        <h2>
+                            Frank Hayes: el jinete que gano a pesar de estar muerto
+                        </h2>
+                        <button onclick="window.location.href = '/Noticias/Detalle'" class="f-btn f-btn--primary">LEER MAS</button>
+                    </div>
+                </div>
+                <div class="f-news__carousel-cell">
+                    <div class="f-section__card">
+                        <h5 class="f-text--primary">
+                            4 DICIEMBRE, 2018
+                        </h5>
+                        <h2>
+                            Saddlebread, elegancia ecuestre de Kentucky para el mundo
+                        </h2>
+                        <button onclick="window.location.href = '/Noticias/Detalle'" class="f-btn f-btn--primary">LEER MAS</button>
+                    </div>
+                </div>
+                <div class="f-news__carousel-cell">
+                    <div class="f-section__card">
+                        <h5 class="f-text--primary">
+                            1 DICIEMBRE, 2018
+                        </h5>
+                        <h2>
+                            Frank Hayes: el jinete que gano a pesar de estar muerto
+                        </h2>
+                        <button onclick="window.location.href = '/Noticias/Detalle'" class="f-btn f-btn--primary">LEER MAS</button>
+                    </div>
+                </div>
+                <div class="f-news__carousel-cell">
+                    <div class="f-section__card">
+                        <h5 class="f-text--primary">
+                            24 NOVIEMBRE, 2018
+                        </h5>
+                        <h2>
+                            Saddlebread, elegancia ecuestre de Kentucky para el mundo
+                        </h2>
+                        <button onclick="window.location.href = '/Noticias/Detalle'" class="f-btn f-btn--primary">LEER MAS</button>
+                    </div>
+                </div>*@
+        </div>
+    </section>
+</main>
+
+<script>
+    var elem = document.querySelector('.f-news__carousel');
+    var flkty = new Flickity(elem, {
+        cellAlign: 'left',
+        //contain: true,
+        autoPlay: 3000,
+        pauseAutoPlayOnHover: false,
+        adaptiveHeight: true
+    });
+
+</script>

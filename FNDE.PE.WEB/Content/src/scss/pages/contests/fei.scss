@@ -1,0 +1,53 @@
+﻿@import "../../abstracts/variables";
+@import "../../abstracts/mixins";
+@import "../../layout/variables";
+
+$f--fei-body-margin-top: 50px;
+$f--fei-title-margin-bottom: 30px;
+
+.f-section-fei {
+    @include flexbox();
+    @include flexbox-direction(column);
+
+    margin: {
+        top: $f--section-separation;
+        bottom: $f--section-separation;
+    }
+
+    &__header {
+        &-title {
+            font-weight: bold;
+        }
+    }
+
+    &__body {
+        margin-top: $f--fei-body-margin-top;
+
+        &-title {
+            font-weight: bold;
+            margin-bottom: $f--fei-title-margin-bottom;
+        }
+    }
+
+    &__downloads {
+        margin-top: $f--fei-body-margin-top;
+
+        &-title {
+            font-weight: bold;
+        }
+
+        &-links {
+            @include desktop {
+                text-align: center;
+            }
+
+            button {
+                margin-top: 20px;
+            }
+
+            button:not(:last-child) {
+                margin-right: 40px;
+            }
+        }
+    }
+}

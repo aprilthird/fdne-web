@@ -1,0 +1,59 @@
+﻿@import "../../abstracts/variables";
+@import "../../abstracts/mixins";
+@import "../../layout/variables";
+
+.f-listClubes {
+    .f-training__body-content {
+        background-color: #111111;
+    }
+
+    .f-container {
+
+        @include desktop {
+            @include flexbox();
+            @include flexbox-wrap(wrap);
+            margin: 50px 50px;
+        }
+
+
+        .multimedia {
+            img {
+
+                @include desktop {
+                    max-width: 275px;
+                }
+            }
+        }
+    }
+}
+
+
+
+.f-salto {
+    .f-training__body-content {
+        background-color: white !important;
+    }
+
+    @include desktop {
+        .f-container .multimedia img {
+            max-width: 242px;
+        }
+
+        .tab {
+            @include flexbox-justify-content(initial);
+        }
+
+        .card-content {
+
+            h4 {
+                font-size: 1.65rem;
+            }
+        }
+
+        .tablinks{
+
+            margin-bottom:30px;
+
+        }
+    }
+}

@@ -1,0 +1,96 @@
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check section inhetirance */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check section inhetirance */
+.main-carousel {
+  width: 100%; }
+
+.flickity-slider {
+  height: 350px !important; }
+
+.flickity-page-dots {
+  display: none; }
+
+.flickity-prev-next-button {
+  background-color: #e0311e !important;
+  color: white !important;
+  opacity: 1 !important;
+  height: 100% !important;
+  border-radius: 0 !important;
+  width: 55px !important;
+  margin: 0 !important; }
+
+.flickity-prev-next-button.previous {
+  left: 0 !important; }
+
+.flickity-prev-next-button.next {
+  right: 0 !important; }
+
+@media (max-width: 768px) {
+  .flickity-button-icon {
+    height: 15px !important;
+    top: 45% !important; } }
+
+.f-jinetes__carousel-cell {
+  /* TODO: box sizing mixin */
+  height: 100%;
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: 55px;
+  padding-right: 55px;
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center; }
+  @media (min-width: 1025px) {
+    .f-jinetes__carousel-cell {
+      width: 50%; } }
+  .f-jinetes__carousel-cell .f-section__card {
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: 3rem;
+    /* previous syntax */
+    -webkit-box-flex: 0 0 100%;
+    -moz-box-flex: 0 0 100%;
+    -ms-box-flex: 0 0 100%;
+    box-flex: 0 0 100%;
+    /* current syntax */
+    -webkit-flex: 0 0 100%;
+    -moz-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%; }
+    .f-jinetes__carousel-cell .f-section__card h5 {
+      margin-bottom: 20px;
+      text-align: left;
+      padding: 0 60px;
+      font-weight: bold; }
+    .f-jinetes__carousel-cell .f-section__card h2 {
+      text-align: left;
+      padding: 0 60px;
+      font-weight: bold; }
+    .f-jinetes__carousel-cell .f-section__card button {
+      display: block;
+      margin-left: 60px; }
+
+.f-jinetes a {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  border: none;
+  outline: none; }

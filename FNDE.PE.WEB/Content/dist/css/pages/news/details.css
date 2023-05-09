@@ -1,0 +1,73 @@
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check section inhetirance */
+.f-section-news-detail {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  -ms-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  box-sizing: border-box;
+  position: relative; }
+  @media (min-width: 1025px) {
+    .f-section-news-detail {
+      padding-right: 30% !important; } }
+  .f-section-news-detail__title {
+    margin-bottom: 1rem; }
+  .f-section-news-detail__date {
+    margin-bottom: 1rem; }
+  .f-section-news-detail__image {
+    margin-bottom: 1rem; }
+    .f-section-news-detail__image img {
+      width: 100%; }
+    @media (min-width: 1025px) {
+      .f-section-news-detail__image {
+        width: 30%;
+        position: absolute;
+        margin-bottom: 0;
+        display: -webkit-box;
+        /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;
+        /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;
+        /* TWEENER - IE 10 */
+        display: -webkit-flex;
+        /* NEW - Chrome */
+        display: flex;
+        -webkit-justify-content: flex-end;
+        -moz-justify-content: flex-end;
+        -ms-justify-content: flex-end;
+        justify-content: flex-end;
+        overflow: hidden;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        object-position: 50% 50%;
+        object-fit: cover; } }
+    @media (min-width: 1025px) {
+      .f-section-news-detail__image img {
+        display: block;
+        height: 100%; } }
+
+.f-section__regresar {
+  color: lightgray;
+  text-decoration: none;
+  font-style: italic; }
+
+.new-body p:not(:last-child) {
+  margin-bottom: 10px; }
+  @media (min-width: 1025px) {
+    .new-body p:not(:last-child) {
+      margin-bottom: 20px; } }

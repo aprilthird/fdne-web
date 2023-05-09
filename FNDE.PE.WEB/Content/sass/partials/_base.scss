@@ -1,0 +1,38 @@
+// Colors
+$theme-red      : #b73828;
+$theme-black    : #1a1919;
+$theme-white    : #ffffff;
+$theme-lightgray: #5d5d5d;
+$theme-darkgray : #87868a;
+
+// Menu Shadows
+$menu-shadow-20: rgba($theme-black,0.2);
+$menu-shadow-50: rgba($theme-black,0.5);
+
+// Menu highlight
+$highlight-width: 2px;
+$highlight-style: solid;
+$highlight-basic: $theme-lightgray;
+$highlight-red: $theme-red;
+
+// Menu brand and icos;
+$menu-icon: "../images/hamburguer-menu-icon.svg";
+
+// Typography
+@import url('https://fonts.googleapis.com/css?family=K2D:300,400,500,700');
+// Font variables
+$font-heading : 'K2D', 'Inconsolata';
+$font-default : 'Myriad Pro Regular', sans-serif;
+
+// Responsive full width screen
+$media-regular-width : 2000px;
+// Responsive mobile width screen
+$media-mobile-width : 1000px;
+
+@import 'utility';
+@import 'reset';
+@import 'typography';
+@import 'theme';
+@import 'menu';
+@import 'navbar';
+@import 'media-queries';

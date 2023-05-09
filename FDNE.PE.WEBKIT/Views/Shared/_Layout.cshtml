@@ -1,0 +1,100 @@
+﻿@using FDNE.PE.WEBKIT.Helpers;
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Inicio | EDteam Style Guides</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <meta name="description" content="Esta guia define el concepto visual, patrones de diseño y estructura para proyectos web en EDteam. Esta guia se encuentra en constante actualización.">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400i,700|Open+Sans:600">
+    <link rel="stylesheet" href="css/prism337f.html?201803301710">
+    <link rel="stylesheet" href="~/Content/css/styles.css">
+    <link rel="shortcut icon" href="img/favicon.png">
+    @RenderSection("Styles", required: false)
+</head>
+<body class="inicio">
+    <header class="main-header">
+        <div class="ed-grid s-grid-5 lg-grid-5">
+            <div class="s-cols-4 lg-cols-1 s-cross-center"><a href="index.html"><img class="main-logo" src="img/edteam-ux-logo.svg"></a></div>
+            <div class="s-grid-1 lg-cols-4 s-cross-center s-main-end header-links">
+                <nav class="main-menu s-cols-1 lg-cols-3" id="main-menu">
+                    <ul>
+                        <li class="ed-grid s-grid-1 lg-grid-5">
+                            <p class="lg-cols-2 s-cols-1 lg-cross-end">Visualizar para:</p>
+                            <select id="mode-select" class="lg-cols-3 s-cols-1">
+                                @foreach (var item in ConstantHelpers.MODE.VALUES)
+                                {
+                                    <option value="@item.Key" data-href="@ConstantHelpers.MODE.LINKS[item.Key]">@item.Value</option>
+                                }
+                            </select>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="main-menu-toggle to-l" id="main-menu-toggle"></div>
+            </div>
+        </div>
+    </header>
+    <div class="main-banner img-container">
+        <div class="ed-grid lg-grid-6">
+            <div class="lg-cols-4 lg-x-2">
+                <img class="main-banner__img" src="../images.pexels.com/photos/265614/pexels-photo-265614e21e.jpg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" />
+                <div class="main-banner__data s-center">
+                    <p class="s-mb-0 t2">EDteam Styleguides</p>
+                    <p>La presente guía de estilos define los componentes de diseño de EDteam y cómo implementarlos en nuestros productos.</p><a class="button" href="#">Modelo de botón</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main class="main-root">
+        <div class="l-block"></div>
+        <div class="ed-grid cols-l-4 main-section l-big-section">
+            <aside class="span-l-1 main-sidebar sidebar-first">
+                <div class="vertical-menu-toggle to-l" id="vertical-menu-toggle" data-content="Filtros"></div>
+                <nav class="vertical-menu" id="vertical-menu">
+                    <ul>
+                        <li><a href="colores.html">Colores</a></li>
+                        <li><a href="tipografia.html">Tipografia</a></li>
+                        <li><a href="botones.html">Botones</a></li>
+                        <li><a href="cards.html">Cards</a></li>
+                        <li><a href="banner.html">Banner</a></li>
+                        <li><a href="topbar.html">Top bar</a></li>
+                        <li><a href="tablas.html">Tablas</a></li>
+                        <li><a href="listas.html">Listas</a></li>
+                        <li><a href="formularios.html">Formularios</a></li>
+                        <li><a href="modal.html">Modal</a></li>
+                        <li><a href="tabs.html">Tabs</a></li>
+                        <li><a href="iconos.html">Iconos</a></li>
+                        <li><a href="playlist.html">Playlist</a></li>
+                        <li><a href="pricing-table.html">Tabla de precios</a></li>
+                        <li><a href="meatballs.html">Menú de tres puntos</a></li>
+                        <li><a href="scroll.html">Scroll</a></li>
+                        <!--li: a(href="/video-class.html") Video-->
+                        <!--li: a(href="/video-live.html") Live-->
+                        <!--li: a(href="/curso.html") Curso-->
+                    </ul>
+                </nav>
+            </aside>
+            <main class="span-l-3 main-main">
+                @RenderBody()
+            </main>
+        </div>
+    </main>
+    <footer class="main-footer">
+        <div class="ed-grid">
+            <p class="small s-mb-0">FDNE Style Guide por <a href="https://www.upc.edu.pe/" target="_blank">Equipo Ecuestre</a></p>
+        </div>
+    </footer>
+    <script src="js/prism337f.html?201803301710"></script>
+    <script src="~/Content/js/scripts.js"></script>
+    <script>
+        var selectMode = document.getElementById("mode-select");
+        selectMode.addEventListener("change", () => {
+            var selectedOption = selectMode.options[selectMode.selectedIndex];
+            var href = selectedOption.dataset.href;
+            window.location.href = `${window.location.protocol}//${window.location.host}?mode=${href}`;
+        });
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

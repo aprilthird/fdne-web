@@ -1,0 +1,201 @@
+﻿@using FDNE.PE.CORE.Helpers;
+
+<div class="sidebar">
+    <nav class="sidebar-nav">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Index", "Home", new { Area = "" })">
+                    <i class="nav-icon icon-home"></i> Inicio
+                    @*<span class="badge badge-info">NEW</span>*@
+                </a>
+            </li>
+            @if (User.IsInRole(ConstantHelpers.ROLE.ADMIN))
+            {
+                <li class="nav-title">Gesti&oacute;n</li>
+                @*<li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Index", "Discipline", new { Area = "Admin" })">
+                    <i class="nav-icon icon-drop"></i> Disciplinas
+                </a>
+            </li>*@
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Season", new { Area = "Admin" })">
+                        <i class="nav-icon icon-flag"></i> Temporadas
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Category", new { Area = "Admin" })">
+                        <i class="nav-icon icon-layers"></i> Categor&iacute;as
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Level", new { Area = "Admin" })">
+                        <i class="nav-icon icon-list"></i> Niveles
+                    </a>
+                </li>
+                @*<li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Index", "Horse", new { Area = "Admin" })">
+                    <i class="nav-icon icon-pencil"></i> Caballos
+                </a>
+            </li>*@
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Ranking", new { Area = "Admin" })">
+                        <i class="nav-icon icon-trophy"></i> Rankings
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Club", new { Area = "Admin" })">
+                        <i class="nav-icon icon-location-pin"></i> Clubes
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Rider", new { Area = "Admin" })">
+                        <i class="nav-icon icon-user"></i> Jinetes
+                    </a>
+                </li>
+                @*<li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Judge", new { Area = "Admin" })">
+                        <i class="nav-icon icon-pencil"></i> Jueces
+                    </a>
+                </li>*@
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Horse", new { Area = "Admin" })">
+                        <i class="nav-icon icon-magnet"></i> Caballos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Event", new { Area = "Admin" })">
+                        <i class="nav-icon fa fa-calendar"></i> Eventos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "ClubAdministrator", new { Area = "Admin" })">
+                        <i class="nav-icon icon-user-following"></i> Admin. del club
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Result", new { Area = "Admin" })">
+                        <i class="nav-icon icon-badge"></i> Calificar
+                    </a>
+                </li>
+                <li class="nav-divider"></li>
+                <li class="nav-title">Portal</li>
+                @*<li class="nav-item">
+                <a class="nav-link" href="typography.html">
+                    <i class="nav-icon icon-pencil"></i> Home
+                </a>
+            </li>*@
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link nav-dropdown-toggle" href="#">
+                        <i class="nav-icon icon-bulb"></i> ¿Qui&eacute;nes Somos?
+                    </a>
+                    <ul class="nav-dropdown-items">
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "FederationHistory", new { Area = "Content" })">
+                                <i class="nav-icon icon-pencil"></i> Historia
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "FederationInformation", new { Area = "Content" })">
+                                <i class="nav-icon icon-pencil"></i> Nosotros
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "FederationOrganization", new { Area = "Content" })">
+                                <i class="nav-icon icon-pencil"></i> Organizaci&oacute;n
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "FederationOfficers", new { Area = "Content" })">
+                                <i class="nav-icon icon-pencil"></i> Oficiales
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "FederationGuidelines", new { Area = "Content" })">
+                                <i class="nav-icon icon-pencil"></i> Pautas
+                            </a>
+                        </li>
+                        @*<li class="nav-item">
+                        <a class="nav-link" href="base/breadcrumb.html">
+                            <i class="nav-icon icon-puzzle"></i> Historia
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="base/cards.html">
+                            <i class="nav-icon icon-puzzle"></i> Organizaci&oacute;n
+                        </a>
+                    </li>*@
+                    </ul>
+                </li>
+                @*<li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#">
+                    <i class="nav-icon icon-cursor"></i> Afiliados
+                </a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="buttons/buttons.html">
+                            <i class="nav-icon icon-cursor"></i> Solicitudes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="buttons/brand-buttons.html">
+                            <i class="nav-icon icon-cursor"></i> Registrados
+                        </a>
+                    </li>
+                </ul>
+            </li>*@
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Discipline", new { Area = "Content" })">
+                        <i class="nav-icon icon-book-open"></i> Disciplinas
+                    </a>
+                </li>
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link nav-dropdown-toggle" href="#">
+                        <i class="nav-icon icon-speedometer"></i> Concursos
+                    </a>
+                    <ul class="nav-dropdown-items">
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Fei", new { Area = "Content" })">
+                                <i class="nav-icon icon-pencil"></i> FEI
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Gallery", new { Area = "Content" })">
+                        <i class="nav-icon icon-picture"></i> Galeria
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "News", new { Area = "Content" })">
+                        <i class="nav-icon icon-feed"></i> Noticias
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "CoachingSystem", new { Area = "Content" })">
+                        <i class="nav-icon icon-pencil"></i> Coaching System
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "FederationContact", new { Area = "Content" })">
+                        <i class="nav-icon icon-paper-plane"></i> Contacto
+                    </a>
+                </li>
+
+            }
+            else if (User.IsInRole(ConstantHelpers.ROLE.CLUB_ADMIN))
+            {
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Rider", new { Area = "Admin" })">
+                        <i class="nav-icon icon-drop"></i> Jinetes
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Horse", new { Area = "Admin" })">
+                        <i class="nav-icon icon-pencil"></i>Caballos
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+    <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+</div>

@@ -1,0 +1,32 @@
+//
+//  MAIN FILE
+//  
+//  configuration file that contains all imports required
+//  to run the project.
+//
+@bootstrap  : "../node_modules/bootstrap/dist/css";
+@cookie     : "../node_modules/cookieconsent/build";
+@hamburgers : "../node_modules/hamburgers/dist";
+@css        : "../css";
+
+//
+//  EXTERNAL STYLES
+//
+@import "@{bootstrap}/bootstrap.min.css";
+@import "@{cookie}/cookieconsent.min.css";
+@import "@{hamburgers}/hamburgers.min.css";
+@import (less) "@{css}/swiper.min.css";
+@import (less) "@{css}/index.css";
+@import (less) "@{css}/discipline.css";
+
+//
+//  VARIABLES
+//
+@import "variables";
+//
+//  MODULES 
+//
+@import "base";
+@import 'photo-gallery-slider';
+@import 'discipline';
+@import 'rankings';

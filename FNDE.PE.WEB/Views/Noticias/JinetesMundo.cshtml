@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "JinetesMundo";
+    Layout = "~/Views/Shared/_LayoutBackground.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <link href="~/Content/dist/css/pages/news/jinetesMundo.css" rel="stylesheet" />
+}
+
+<main>
+    <section class="f-section f-section__content f-section-background f-section--dark">
+        <div class="f-section-background__image rellax" data-rellax-speed="-7">
+            <img src="~/Content/src/img/slide4-1024.png" />
+        </div>
+        <div class="f-section-background__title f-header f-container">
+            <h1>JINETES EN EL MUNDO</h1>
+        </div>
+    </section>
+
+    <section class="f-section f-section--center f-jinetes">
+        <div class="f-jinetes__carousel">
+            <div class="f-jinetes__carousel-cell">
+                <div class="f-section__card">
+                    <h5 class="f-text--primary">
+                        <strong>7 DICIEMBRE, 2018</strong>
+                    </h5>
+                    <h2>
+                        <strong>Frank Hayes: el jinete que gano a pesar de estar muerto</strong>
+                    </h2>
+                    <button onclick="window.location.href='/Noticias/Detalle'" class="f-btn f-btn--primary">LEER MAS</button>
+                </div>
+            </div>
+            <div class="f-jinetes__carousel-cell">
+                <div class="f-section__card">
+                    <h5 class="f-text--primary">
+                        <strong>4 DICIEMBRE, 2018</strong>
+                    </h5>
+                    <h2>
+                        <strong>Saddlebread, elegancia ecuestre de Kentucky para el mundo</strong>
+                    </h2>
+                    <button onclick="window.location.href='/Noticias/Detalle'" class="f-btn f-btn--primary">LEER MAS</button>
+                </div>
+            </div>
+            <div class="f-jinetes__carousel-cell">
+                <div class="f-section__card">
+                    <h5 class="f-text--primary">
+                        <strong>1 DICIEMBRE, 2018</strong>
+                    </h5>
+                    <h2>
+                        <strong>Frank Hayes: el jinete que gano a pesar de estar muerto</strong>
+                    </h2>
+                    <button onclick="window.location.href='/Noticias/Detalle'" class="f-btn f-btn--primary">LEER MAS</button>
+                </div>
+            </div>
+            <div class="f-jinetes__carousel-cell">
+                <div class="f-section__card">
+                    <h5 class="f-text--primary">
+                        <strong>24 NOVIEMBRE, 2018</strong>
+                    </h5>
+                    <h2>
+                        <strong>Saddlebread, elegancia ecuestre de Kentucky para el mundo</strong>
+                    </h2>
+                    <button onclick="window.location.href='/Noticias/JineteDetalle'" class="f-btn f-btn--primary">LEER MAS</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<script>
+    var elem = document.querySelector('.f-jinetes__carousel');
+    var flkty = new Flickity(elem, {
+        cellAlign: 'left',
+        //contain: true,
+        //autoPlay: 1500,
+        pauseAutoPlayOnHover: false,
+        adaptiveHeight: true
+    });
+</script>
+

@@ -1,0 +1,100 @@
+﻿
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+@import "../abstracts/functions";
+
+//== Body Root Font
+html, body {
+    font: {
+        weight: array-get($f--root-font, weight);
+        family: array-get($f--font-families, heading);
+        size: array-get($f--root-font, size, mobile);
+    }
+
+    @include tablet {
+        font-size: array-get($f--root-font, size, tablet);
+    }
+
+    @include desktop {
+        font-size: array-get($f--root-font, size, desktop);
+    }
+}
+
+p {
+    font-size: map-get($f--font-sizes, md);
+    font-family: map-get($f--font-families, regular);
+}
+
+//== Headers
+@each $element, $size in $f--display--sizes {
+    /* TODO: delete this 🔫👮🔪💀 */
+    .f-display-#{$element} {
+        font: {
+            size: $size;
+            weight: array-get($f--root-font, weight);
+            family: array-get($f--font-families, heading);
+        }
+    }
+}
+
+@for $i from 1 through 6 {
+    /* TODO: delete this 🔫👮🔪💀 */
+    h#{$i} {
+        font: {
+            size: array-get($f--header-sizes, h#{$i});
+            weight: array-get($f--root-font, weight);
+            family: array-get($f--font-families, heading);
+        }
+    }
+}
+
+@each $name, $value in $f--font-sizes {
+    .f-header-#{$name}, .f-font-#{$name} {
+        font: {
+            size: $value !important;
+        }
+    }
+}
+
+//== Links
+.f-link {
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+
+    &:after {
+        display: block;
+        content: '';
+        position: absolute;
+        bottom: 0;
+        top: 1rem;
+        left: 0;
+        width: 0%;
+        @include transition(width 0.3s ease);
+    }
+
+    &:hover {
+        text-decoration: none !important;
+        color: $f--primary-color !important;
+        /* TODO: fix underline */
+        &:after {
+            width: 100%;
+        }
+    }
+
+    &--active {
+        color: $f--primary-color !important;
+        &:after {
+            width: 100%;
+        }
+    }
+
+    &--uppercase {
+        text-transform: uppercase;
+    }
+}
+
+.f-bold{
+    font-weight:bold !important;
+}

@@ -1,0 +1,120 @@
+﻿
+@import "../../abstracts/variables";
+@import "../../abstracts/mixins";
+@import "../../layout/variables";
+
+$f--history-margin: 20px;
+
+.f-history {
+    @include flexbox();
+    @include flexbox-direction(column);
+
+    @include desktop {
+        @include flexbox-direction(row);
+        @include flexbox-justify-content(flex-end);
+
+        padding: {
+            top: 2.5rem;
+            bottom: 2.5rem;
+        }
+    }
+
+    &__year {
+        @include flexbox();
+        @include flexbox-justify-content(center);
+        background: $f--primary-color;
+
+        padding: {
+            top: $f--history-margin;
+            bottom: $f--history-margin;
+        }
+
+        @include desktop {
+            @include flexbox-direction(column);
+            @include flexbox-order(3);
+
+            padding: {
+                top: 0px;
+                bottom: 0px;
+                right: $f--history-margin * 2.5;
+                left: $f--history-margin * 2.5;
+            }
+        }
+
+        &-text {
+            color: $f--white-color;
+
+            @include desktop {
+                transform: rotate(270deg);
+            }
+        }
+    }
+
+    &__nav-year {
+        @include flexbox();
+        @include flexbox-justify-content(space-around);
+        @include flexbox-direction(row);
+
+        @include desktop {
+            @include flexbox-direction(column);
+            @include flexbox-order(2);
+            width: 15%;
+        }
+
+        &-text {
+            box-sizing: border-box;
+            margin: 10px;
+            text-align: right !important;
+            @include flexbox();
+            @include flexbox-justify-content(center);
+
+            a {
+                @include desktop {
+                    transform: rotate(270deg);
+                }
+            }
+        }
+    }
+
+    &__information-year {
+        width: 100%;
+
+        @include desktop {
+            @include flexbox-order(1);
+            //width: 70%;
+            padding-right: 100px;
+        }
+
+        &-text {
+            overflow-y: scroll;
+            height: 400px;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+            text-align: left;
+            text-justify: inter-word;
+            padding-right: 50px;
+            display: none;
+        }
+    }
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #E0311E;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #2A2828;
+    border-radius: 10px;
+}

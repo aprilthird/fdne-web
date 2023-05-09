@@ -1,0 +1,405 @@
+﻿
+@{
+    ViewBag.Title = "Resultados";
+    Layout = "~/Views/Shared/_LayoutBackground.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <link href="~/Content/dist/css/pages/contests/resultados.css" rel="stylesheet" />
+}
+
+@* Ayuda de sofia *@
+<main>
+    <section class="f-section f-section__content f-section-background f-section--dark">
+        <div class="f-section-background__image">
+            <img src="~/Content/src/img/slide2-1024.png" />
+        </div>
+        <div class="f-section-background__title f-container">
+            <h1>RESULTADOS</h1>
+        </div>
+    </section>
+    <section>
+        <div class="f-section-resultados">
+            <div class="f-container">
+                <div class="f-resultados__filters-section">
+                    <div class="f-resultados__filters-section-box" id="fifth-container">
+                        <label class="f-text--white">Temporada</label>
+                        <select id="season_filter" class="slim-select slim-select--dark">
+                        </select>
+                    </div>
+                    <div class="f-resultados__filters-section-box" id="first-container">
+                        <label class="f-text--white">Disciplina</label>
+                        <select id="discipline_filter" class="slim-select slim-select--dark">
+                        </select>
+                    </div>
+                    <div class="f-resultados__filters-section-box" id="second-container">
+                        <label class="f-text--white">Nivel</label>
+                        <select id="level_filter" class="slim-select slim-select--dark">
+                        </select>
+                    </div>
+                    <div class="f-resultados__filters-section-box" id="third-container">
+                        <label class="f-text--white">Categor&iacute;a</label>
+                        <select id="category_filter" class="slim-select slim-select--dark">
+                        </select>
+                    </div>
+                    <div class="f-resultados__filters-section-box" id="fourth-container">
+                        <label class="f-text--white">D&iacute;a (Evento)</label>
+                        <select id="event_filter" class="slim-select slim-select--dark">
+                        </select>
+                    </div>
+                    <div class="f-resultados__filters-section-box">
+                        <label>&emsp;</label>
+                        <button class="f-btn f-bg--primary" id="btn_find_top" style="padding:10px;">TODOS LOS RESULTADOS</button>
+                    </div>
+                </div>
+                <div class="f-ranking-message f-ranking-message--no-message" id="slider_message">
+                    <h3>No se encontraron resultados para este evento.</h3>
+                </div>
+                <div class="f-ranking-positions f-ranking-positions f-ranking-positions--hide" id="slider_ranking">
+                    <div class="f-ranking-positions__item" id="first_ranking">
+                        <div class="f-section__card">
+                            <div class="f-ranking-positions__item-title">
+                                <h5>PRIMER PUESTO</h5>
+                            </div>
+                            <div class="f-ranking-positions__item-card">
+                                <img class="multimedia_object" src="~/Content/old/img/rank1-1024.png" alt="Avatar" style="width:100%">
+                                <div>
+                                    <h5 id="first_rider"><strong>Primer Lugar</strong></h5>
+                                    <h5 id="first_horse">CABALLO:</h5>
+                                    <h5 id="first_club">CLUB:</h5>
+                                    <h5 id="first_score">PUNTOS:</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="f-ranking-positions__item" id="second_ranking">
+                        <div class="f-section__card">
+                            <div class="f-ranking-positions__item-title">
+                                <h5>SEGUNDO PUESTO</h5>
+                            </div>
+                            <div class="f-ranking-positions__item-card">
+                                <img class="multimedia_object" src="~/Content/old/img/rank2-1024.png" alt="Avatar" style="width:100%">
+                                <div>
+                                    <h5 id="second_rider"><strong>Segundo Lugar</strong></h5>
+                                    <h5 id="second_horse">CABALLO:</h5>
+                                    <h5 id="second_club">CLUB:</h5>
+                                    <h5 id="second_score">PUNTOS:</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="f-ranking-positions__item" id="third_ranking">
+                        <div class="f-section__card">
+                            <div class="f-ranking-positions__item-title">
+                                <h5>TERCER PUESTO</h5>
+                            </div>
+                            <div class="f-ranking-positions__item-card">
+                                <img class="multimedia_object" src="~/Content/old/img/rank3-1024.png" alt="Avatar" style="width:100%">
+                                <div>
+                                    <h5 id="third_rider"><strong>Tercer Lugar</strong></h5>
+                                    <h5 id="third_horse">CABALLO:</h5>
+                                    <h5 id="third_club">CLUB: </h5>
+                                    <h5 id="third_score">PUNTOS:</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+@section Scripts {
+    <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+    <script>
+        (async function () {
+            var elem = document.querySelector('.f-ranking-positions');
+            var flkty = new Flickity(elem, {
+                cellAlign: 'left',
+                //contain: true,
+                //autoPlay: 1500,
+                pauseAutoPlayOnHover: false,
+                adaptiveHeight: true,
+                watchCSS: true,
+                setGallerySize: false
+            });
+
+            const disciplineSelect = new SlimSelect({
+                select: "#discipline_filter",
+                placeholder: "Disciplina",
+                searchPlaceholder: "Buscar",
+                searchText: "Ningún resultado"
+            });
+            const seasonSelect = new SlimSelect({
+                select: "#season_filter",
+                placeholder: "Temporada",
+                searchPlaceholder: "Buscar",
+                searchText: "Ningún resultado"
+            });
+            const levelSelect = new SlimSelect({
+                select: "#level_filter",
+                allowDeselect: true,
+                placeholder: "Nivel",
+                searchPlaceholder: "Buscar",
+                searchText: "Ningún resultado"
+            });
+            const categorySelect = new SlimSelect({
+                select: "#category_filter",
+                placeholder: "Categoría",
+                searchPlaceholder: "Buscar",
+                allowDeselect: true,
+                searchText: "Ningún resultado"
+            });
+            const eventSelect = new SlimSelect({
+                select: "#event_filter",
+                placeholder: "Evento",
+                searchPlaceholder: "Buscar",
+                searchText: "Ningún resultado"
+            });
+
+            var disciplineFilter = document.getElementById("discipline_filter");
+            var seasonFilter = document.getElementById("season_filter");
+            var levelFilter = document.getElementById("level_filter");
+            var categoryFilter = document.getElementById("category_filter");
+            var eventFilter = document.getElementById("event_filter");
+
+            var btnTopTree = document.getElementById("btn_find_top");
+
+            var events = null;
+
+            disciplineFilter.addEventListener("change", () => changeSelectDiscipline(), false);
+
+            var changeSelectDiscipline = async () => {
+                await GetEvent(disciplineFilter.value, seasonFilter.value);
+                await GetLevel(disciplineFilter.value);
+                await GetCategory(disciplineFilter.value);
+                //if (disciplineFilter.value != 0 && sessonFilter.value != 0)
+            }
+
+            const GetSeason = () =>
+                fetch(_app.parseToUrl('/concursos/listadotemporadasapi'), {
+                    method: 'get'
+                }).then(response => {
+                    return response.json();
+                }).then(data => {
+                    data.sort((a, b) => (a.year > b.year) ? -1 : ((b.year > a.year) ? 1 : 0));
+                    for (var i in data) {
+                        var opt = document.createElement("option");
+                        opt.value = data[i].id;
+                        opt.text = data[i].name;
+                        seasonFilter.appendChild(opt);
+                    }
+                    var opt = document.createElement("option");
+                    opt.dataset.placeholder = "true";
+                    seasonFilter.appendChild(opt);
+                }).catch(err => { console.log(err); });
+            await GetSeason();
+
+            const GetDiscipline = () => {
+                fetch(_app.parseToUrl('/concursos/listadodisciplinasapi'), {
+                    method: 'get'
+                }).then(response => {
+                    return response.json();
+                }).then(data => {
+                    data.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+                    for (var i in data) {
+                        var opt = document.createElement("option");
+                        opt.value = data[i].id;
+                        opt.text = data[i].name;
+
+                        disciplineFilter.appendChild(opt);
+                    }
+                    var opt = document.createElement("option");
+                    opt.dataset.placeholder = "true";
+                    disciplineFilter.appendChild(opt);
+                    changeSelectDiscipline();
+                }).catch(err => { });
+            };
+            GetDiscipline();
+
+            const GetLevel = (disiplineId) =>
+                fetch(_app.parseToUrl(`/concursos/nivelesxdiciplinasapi/${disiplineId}`), {
+                    method: 'get'
+                }).then(response => {
+                    return response.json();
+                }).then(data => {
+                    levelSelect.enable();
+                    data.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+                    if (levelFilter.options.length > 1)
+                        clearCombo(levelFilter)
+                    for (var i in data) {
+                        var opt = document.createElement("option");
+                        opt.value = data[i].id;
+                        opt.text = data[i].name;
+                        levelFilter.appendChild(opt);
+                    }
+                    var opt = document.createElement("option");
+                    opt.dataset.placeholder = "true";
+                    levelFilter.appendChild(opt);
+                    if (data.length > 0) {
+                        levelFilter.options[0] = null;
+                    }
+                    else {
+                        levelSelect.disable();
+                    }
+                }).catch(err => { });
+
+            const GetCategory = (disiplineId) =>
+                fetch(_app.parseToUrl(`/concursos/categoriaxdiciplinasapi/${disiplineId}`), {
+                    method: 'get'
+                }).then(response => {
+                    return response.json();
+                }).then(data => {
+                    categorySelect.enable();
+                    data.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+                    if (categoryFilter.options.length > 1)
+                        clearCombo(categoryFilter)
+                    for (var i in data) {
+                        var opt = document.createElement("option");
+                        opt.value = data[i].id;
+                        opt.text = data[i].name;
+
+                        categoryFilter.appendChild(opt);
+                    }
+                    var opt = document.createElement("option");
+                    opt.dataset.placeholder = "true";
+                    categoryFilter.appendChild(opt);
+                    if (data.length > 0) {
+                        categoryFilter.options[0] = null;
+                    }
+                    else {
+                        categorySelect.disable();
+                    }
+                }).catch(err => { });
+
+
+            const FindTopTree = () =>
+                fetch(_app.parseToUrl(`/concursos/resultadotoptres?disciplineId=${disciplineSelect.selected()}&seasonId=${seasonSelect.selected()}&categoryId=${categorySelect.selected()}&levelId=${levelSelect.selected()}&day=${events[eventSelect.selected()].day}&eventId=${events[eventSelect.selected()].eventId}`), {
+                    method: "get"
+                }).then(response => {
+                    return response.json();
+                }).then(data => {
+                    let messageElement = $1("#slider_message");
+                    let sliderElement = $1("#slider_ranking");
+                    if (data.length !== 0) {
+                        messageElement.classList.remove("f-ranking-message--no-message");
+                        messageElement.classList.add("f-ranking-message--hide");
+                        sliderElement.classList.remove("f-ranking-positions--hide");
+                        //sliderElement.style.display = "block";
+                        let firstRanking = $1("#first_ranking");
+                        let secondRanking = $1("#second_ranking");
+                        let thirdRanking = $1("#third_ranking");
+                        if (data.length === 1) {
+                            firstRanking.style.display = "block";
+                            secondRanking.style.display = "none";
+                            thirdRanking.style.display = "none";
+                        }
+                        else if (data.length === 2) {
+                            firstRanking.style.display = "block";
+                            secondRanking.style.display = "block";
+                            thirdRanking.style.display = "none";
+                        }
+                        else {
+                            firstRanking.style.display = "block";
+                            secondRanking.style.display = "block";
+                            thirdRanking.style.display = "block";
+                        }
+                        fieldTop(data);
+                        flkty.resize();
+                    }
+                    else {
+                        clrearTop();
+                        messageElement.classList.remove("f-ranking-message--no-message");
+                        messageElement.classList.remove("f-ranking-message--hide");
+                        sliderElement.classList.add("f-ranking-positions--hide");
+                        //sliderElement.style.display = "none";
+                    }
+                }).catch(err => { });
+
+            const GetEvent = (disciplineId, seasonId) =>
+                fetch(_app.parseToUrl(`/concursos/listadoeventosapi?seasonId=${seasonId}&disciplineId=${disciplineId}`), {
+                    method: 'get'
+                }).then(response => {
+                    return response.json();
+                }).then(data => {
+                    events = data;
+                    eventSelect.enable();
+                    data.sort((a, b) => (a.date > b.date) ? -1 : ((b.date > a.date) ? 1 : 0));
+                    if (eventFilter.options.length > 1)
+                        clearCombo(eventFilter);
+                    for (var i in data) {
+                        var opt = document.createElement("option");
+                        opt.value = i;
+                        opt.text = data[i].text;
+                        eventFilter.appendChild(opt);
+                    }
+                    var opt = document.createElement("option");
+                    opt.dataset.placeholder = "true";
+                    eventFilter.appendChild(opt);
+                    if (data.length > 0) {
+                        eventFilter.options[0] = null;
+                    }
+                    else {
+                        eventSelect.disable();
+                    }
+                    
+                }).catch(err => { });
+
+            seasonFilter.addEventListener("change", () => GetEvent(disciplineFilter.value, seasonFilter.value));
+
+            function clearCombo(cmb) {
+                cmb.innerHTML = "";
+
+                for (var i = 0; i < cmb.options.length; i++) {
+                    cmb.options[i] = null;
+                }
+            };
+
+            //eventFilter.addEventListener("change", () => FindTopTree());
+            btnTopTree.addEventListener("click", FindTopTree);
+
+            function fieldTop(data) {
+                for (var i in data) {
+                    if (i == 0) {
+                        document.getElementById("first_rider").innerHTML = data[i].rider;
+                        document.getElementById("first_horse").innerHTML = "CABALLO: " + data[i].horse;
+                        document.getElementById("first_club").innerHTML = "CLUB: " + data[i].club;
+                        document.getElementById("first_score").innerHTML = "PUNTOS: " + data[i].score;
+                    } else if (i == 1) {
+                        document.getElementById("second_rider").innerHTML = data[i].rider;
+                        document.getElementById("second_horse").innerHTML = "CABALLO: " + data[i].horse;
+                        document.getElementById("second_club").innerHTML = "CLUB: " + data[i].club;
+                        document.getElementById("second_score").innerHTML = "PUNTOS: " + data[i].score;
+                    } else {
+                        document.getElementById("third_rider").innerHTML = data[i].rider;
+                        document.getElementById("third_horse").innerHTML = "CABALLO: " + data[i].horse;
+                        document.getElementById("third_club").innerHTML = "CLUB: " + data[i].club;
+                        document.getElementById("third_score").innerHTML = "PUNTOS: " + data[i].score;
+                    }
+                }
+            }
+
+            function clrearTop() {
+                document.getElementById("first_rider").innerHTML = "Primer lugar";
+                document.getElementById("first_horse").innerHTML = "CABALLO: ";
+                document.getElementById("first_club").innerHTML = "CLUB: ";
+                document.getElementById("first_score").innerHTML = "PUNTOS: ";
+
+                document.getElementById("second_rider").innerHTML = "Segundo Lugar";
+                document.getElementById("second_horse").innerHTML = "CABALLO: ";
+                document.getElementById("second_club").innerHTML = "CLUB: ";
+                document.getElementById("second_score").innerHTML = "PUNTOS: ";
+
+                document.getElementById("third_rider").innerHTML = "Tercer Lugar";
+                document.getElementById("third_horse").innerHTML = "CABALLO: ";
+                document.getElementById("third_club").innerHTML = "CLUB: ";
+                document.getElementById("third_score").innerHTML = "PNTOS: ";
+            }
+        })();
+    </script>
+}
+

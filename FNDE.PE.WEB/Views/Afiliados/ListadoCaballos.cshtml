@@ -1,0 +1,122 @@
+﻿@{
+    ViewBag.Title = "ListadoCaballos";
+    Layout = "~/Views/Shared/_LayoutBackground.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-balham.css">
+    <link href="~/Content/dist/css/pages/contests/ranking.css" rel="stylesheet" />
+}
+<main>
+    <section class="f-section f-section__content f-section-background f-section--dark">
+        <div class="f-section-background__image rellax" data-rellax-speed="-7">
+            <img src="~/Content/src/img/slide2-1024.png" />
+        </div>
+        <div class="f-section-background__title f-container">
+            <h1>CABALLOS AFILIADOS</h1>
+        </div>
+    </section>
+    <section class="f-section f-container f-section-ranking">
+        <div class="f-section-ranking__filters">
+            <div class="f-section-ranking__filters-box">
+               
+            </div>
+             <div class="f-section-ranking__filters-box">
+                <input style="width: 120px" type="text" class="f-input" id="filter-text-box" placeholder="Buscar..." oninput="FiltrarDatos()" />
+            </div>
+        </div>
+        <div id="container-grid" style="width:100%"></div>
+       
+    </section>
+</main>
+
+@section Scripts {
+    <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+    <script>
+        const ObtenerDatos = () => {
+            fetch(_app.parseToUrl('/afiliados/listadocaballosapi'), {
+                method: 'get'
+            }).then(response => {
+                return response.json();
+            }).then(data => {
+                ConstruirGrid(data)
+            }).catch(err => { });
+        }
+
+        const ObtenerColumnas = () => {
+            var columnDefs = [
+                { headerName: "CABALLO", field: "Caballo", width: 80 },
+                { headerName: "SEXO", field: "Sexo", width: 80 },
+                { headerName: "CLUB", field: "Club", width: 80 },
+            ];
+            return columnDefs;
+        }
+
+        const ConstruirGrid = (datos) => {
+            const existDiv = document.getElementById('myGrid');
+            if (existDiv) {
+                existDiv.remove();
+            }
+            //createElement
+            let divElement = document.createElement('div');
+            divElement.id = 'myGrid';
+            divElement.className = 'ag-theme-balham';
+            divElement.style.width = '100%';
+            divElement.style.height = '400px';
+            let divContainer = document.getElementById('container-grid');
+            divContainer.appendChild(divElement);
+            // let the grid know which columns and what data to use
+            const gridOptions = {
+                columnDefs: ObtenerColumnas(),
+                pagination: true,
+                paginationAutoPageSize: true,
+                rowData: datos,
+                onGridReady: function (params) {
+                    console.log(params);
+                    params.api.sizeColumnsToFit();
+                    window.addEventListener('resize',
+                        function () {
+                            setTimeout(function () {
+                                params.api.sizeColumnsToFit();
+                            });
+                        })
+                }
+            };
+            // lookup the container we want the Grid to use
+            const eGridDiv = document.querySelector('#myGrid');
+            // create the grid passing in the div to use together with the columns & data we want to use
+            new agGrid.Grid(eGridDiv, gridOptions);
+        }
+
+        const FiltrarDatos = () => {
+            const word = document.getElementById("filter-text-box").value;
+            // Mientras que el texto filtrado no tenga un valor, se listará los valores por defecto
+            if (word == '' || word == undefined || word == null) {
+                ConstruirGrid(ObtenerDatos());
+                return;
+            }
+            const regex = new RegExp(word, 'i');
+            const datosExistentes = ObtenerDatos();
+            const datosFiltrados = datosExistentes.filter(({ jinete }) => jinete.match(regex));
+            ConstruirGrid(datosFiltrados);
+        }
+
+       // var disciplineFilter = document.getElementById("discipline-filter");
+        var nivelFilter = document.getElementById("nivel-filter");
+        var categoryFilter = document.getElementById("category-filter");
+        var nivelContainer = document.getElementById("second-container");
+        var categoryContainer = document.getElementById("third-container");
+        var changeSelect = () => {
+            let maps = {
+                "Adiestramiento": "0",
+                "Enduro": "1",
+                "Prueba Completa": "2",
+                "Salto": "3"
+            }
+}
+       
+        ConstruirGrid(ObtenerDatos());
+        changeSelect();
+    </script>
+}

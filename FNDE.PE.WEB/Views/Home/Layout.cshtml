@@ -1,0 +1,582 @@
+﻿@model FNDE.PE.WEB.PORTAL.ViewModels.HomeViewModels.HomeViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+@section Styles {
+    <link href="~/Content/src/vendors/fullPage.js/fullpage.css" rel="stylesheet" />
+    <link href="~/Content/src/vendors/flickity/flickity.min.css" rel="stylesheet" />
+    <link href="~/Content/src/vendors/stackedCards/css/stackedCards.css" rel="stylesheet" />
+    <link href="~/Content/old/css/lib/waves/waves.min.css">
+    <link href="~/Content/dist/css/pages/home/home.css" rel="stylesheet" />
+
+    <style>
+        #colored-button .btn {
+            color: #fff;
+        }
+
+        #colored-button a,
+        #colored-button a:hover {
+            background: #01BCFF;
+        }
+
+        #colored-button button,
+        #colored-button button:hover {
+            background: #1bb556;
+        }
+
+        #colored-button input,
+        #colored-button input:hover {
+            background: #ff4f0f;
+        }
+    </style>
+}
+
+<main class="fullPage">
+    <section class="fp-section f-section f-section--dark f-main-section">
+        <div class="f-main-section__slider f-slide">
+            <div class="f-slide__content f-slide__content--dark">
+                <video loop muted data-autoplay>
+                    <source src="~/Content/src/video/loop/loop1440.webm" type="video/webm">
+                    <source src="~/Content/src/video/loop/loop1440.mp4" type="video/mp4">
+                </video>
+                <div class="overlay"></div>
+            </div>
+            <div class="f-slide__header f-container">
+                <h1 class="f-slide__header-title">FEDERACI&Oacute;N DEPORTIVA NACIONAL ECUESTRE</h1>
+            </div>
+        </div>
+        <div class="f-main-section__footer f-container">
+            <div class="f-main-section__footer-text">
+                <h6>Promoviendo el deporte Ecuestre</h6>
+            </div>
+            <div class="f-main-section__footer-button">
+                <button class="f-btn f-btn--white">CONT&Aacute;CTANOS</button>
+            </div>
+        </div>
+        @*<div class="fp-slide">
+
+            </div>
+            <div class="fp-slide">
+
+            </div>
+            <div class="fp-slide">
+
+            </div>*@
+    </section>
+    <section class="section f-section f-section--dark fp-section f-disciplines-section">
+        <div class="f-disciplines-section__container f-container">
+            <div class="f-section__title">
+                <h2>DISCIPLINAS</h2>
+            </div>
+            <div class="f-disciplines-section__detail">
+                <div class="f-disciplines-section__discipline" data-sliderfor="1">
+                    <div class="f-disciplines-section__discipline-name">
+                        <h3>Salto</h3>
+                    </div>
+                    <div class="f-disciplines-section__discipline-info">
+                        <p>
+                            La disciplina de salto consiste en un acontecimiento sincronizado juzgado en la capacidad del caballo y del jinete de saltar sobre una serie de obstáculos, en un orden dado.
+                        </p>
+                    </div>
+                    <div class="f-disciplines-section__discipline-link">
+                        <button class="f-btn f-btn--white">VER M&Aacute;S</button>
+                    </div>
+                </div>
+                <div class="f-disciplines-section__discipline" data-sliderfor="2">
+                    <div class="f-disciplines-section__discipline-name">
+                        <h3>Adiestramiento</h3>
+                    </div>
+                    <div class="f-disciplines-section__discipline-info">
+                        <p>
+                            Con una popularidad que crece rápidamente cada año, el adiestramiento es la máxima expresión del entrenamiento y la elegancia del caballo.
+                        </p>
+                    </div>
+                    <div class="f-disciplines-section__discipline-link">
+                        <button class="f-btn f-btn--white">VER M&Aacute;S</button>
+                    </div>
+                </div>
+                <div class="f-disciplines-section__discipline" data-sliderfor="3">
+                    <div class="f-disciplines-section__discipline-name">
+                        <h3>Enduro</h3>
+                    </div>
+                    <div class="f-disciplines-section__discipline-info">
+                        <p>
+                            El enduro ecuestre es una de las disciplinas del deporte ecuestre en el cual se pone a prueba la velocidad, la habilidad y la resistencia tanto del caballo como del jinete.
+                        </p>
+                    </div>
+                    <div class="f-disciplines-section__discipline-link">
+                        <button class="f-btn f-btn--white">VER M&Aacute;S</button>
+                    </div>
+                </div>
+                <div class="f-disciplines-section__discipline" data-sliderfor="4">
+                    <div class="f-disciplines-section__discipline-name">
+                        <h3>Prueba Completa</h3>
+                    </div>
+                    <div class="f-disciplines-section__discipline-info">
+                        <p>
+                            Es una combinación de Cross Country, salto y adiestramiento. El evento es a menudo conocido como el triatlón del mundo ecuestre.
+                        </p>
+                    </div>
+                    <div class="f-disciplines-section__discipline-link">
+                        <button class="f-btn f-btn--white">VER M&Aacute;S</button>
+                    </div>
+                </div>
+            </div>
+            <div class="f-disciplines-section__slider">
+                <ul class="stacked-cards stacked-cards-slide">
+                    <li>
+                        <div class="f-disciplines-section__slider-header">
+                            <h3>Salto</h3>
+                        </div>
+                        <div class="f-disciplines-section__slider-image">
+                            <img class="multimedia_object"
+                                 sizes="(max-width: 512px) 512px,
+                                1024px"
+                                 src="~/Content/old/img/slide1-1024.png" alt="slide 1" />
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-disciplines-section__slider-header">
+                            <h3>Adiestramiento</h3>
+                        </div>
+                        <div class="f-disciplines-section__slider-image">
+                            <img class="multimedia_object"
+                                 sizes="(max-width: 512px) 512px,
+                                1024px"
+                                 src="~/Content/old/img/slide2-1024.png" alt="slide 1" />
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-disciplines-section__slider-header">
+                            <h3>Enduro</h3>
+                        </div>
+                        <div class="f-disciplines-section__slider-image">
+                            <img class="multimedia_object"
+                                 sizes="(max-width: 512px) 512px,
+                                1024px"
+                                 src="~/Content/old/img/slide3-1024.png" alt="slide 1" />
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-disciplines-section__slider-header">
+                            <h3>Prueba Completa</h3>
+                        </div>
+                        <div class="f-disciplines-section__slider-image">
+                            <img class="multimedia_object"
+                                 sizes="(max-width: 512px) 512px,
+                                1024px"
+                                 src="~/Content/old/img/slide4-1024.png" alt="slide 1" />
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="section f-section f-section--dark fp-section f-ranking-section">
+        <div class="f-ranking-section__container fp-table f-container">
+            <div class="f-ranking-section__title f-section__title">
+                <h2>RANKING</h2>
+            </div>
+            <div class="f-ranking-section__filters">
+                <div class="f-ranking-section__filters-box">
+                    <label>Temporada</label>
+                    <select id="season_filter" class="f-slim-select f-slim-select--dark"></select>
+                </div>
+                <div class="f-ranking-section__filters-box">
+                    <label>Disciplina</label>
+                    <select id="discipline_filter" class="f-slim-select f-slim-select--dark"></select>
+                </div>
+                <div class="f-ranking-section__filters-box">
+                    <label>Nivel</label>
+                    <select id="level_filter" class="f-slim-select f-slim-select--dark"></select>
+                </div>
+                <div class="f-ranking-section__filters-box">
+                    <label>Categor&iacute;a</label>
+                    <select id="category_filter" class="f-slim-select f-slim-select--dark"></select>
+                </div>
+            </div>
+            <div class="f-ranking-section__content">
+                <div class="f-ranking-section__message" id="slider_message">
+                    <h3>No se encontraron resultados.</h3>
+                </div>
+                <div class=" f-ranking-positions" id="slider_ranking">
+                    <div class="f-ranking-positions__item" id="first_ranking">
+                        <div class="f-section__card">
+                            <div class="f-ranking-positions__item-title">
+                                <h5>PRIMER PUESTO</h5>
+                            </div>
+                            <div class="f-ranking-positions__item-card">
+                                <img class="multimedia_object" src="~/Content/old/img/rank1-1024.png" alt="Avatar" style="width:100%">
+                                <div>
+                                    <h5 id="first_rider"><strong>Primer Lugar</strong></h5>
+                                    <h5 id="first_horse">CABALLO:</h5>
+                                    <h5 id="first_club">CLUB:</h5>
+                                    <h5 id="first_score">PUNTOS:</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="f-ranking-positions__item" id="second_ranking">
+                        <div class="f-section__card">
+                            <div class="f-ranking-positions__item-title">
+                                <h5>SEGUNDO PUESTO</h5>
+                            </div>
+                            <div class="f-ranking-positions__item-card">
+                                <img class="multimedia_object" src="~/Content/old/img/rank2-1024.png" alt="Avatar" style="width:100%">
+                                <div>
+                                    <h5 id="second_rider"><strong>Segundo Lugar</strong></h5>
+                                    <h5 id="second_horse">CABALLO:</h5>
+                                    <h5 id="second_club">CLUB:</h5>
+                                    <h5 id="second_score">PUNTOS:</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="f-ranking-positions__item" id="third_ranking">
+                        <div class="f-section__card">
+                            <div class="f-ranking-positions__item-title">
+                                <h5>TERCER PUESTO</h5>
+                            </div>
+                            <div class="f-ranking-positions__item-card">
+                                <img class="multimedia_object" src="~/Content/old/img/rank3-1024.png" alt="Avatar" style="width:100%">
+                                <div>
+                                    <h5 id="third_rider"><strong>Tercer Lugar</strong></h5>
+                                    <h5 id="third_horse">CABALLO:</h5>
+                                    <h5 id="third_club">CLUB: </h5>
+                                    <h5 id="third_score">PUNTOS:</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section f-section f-section--light fp-section">
+        <div class="fp-table f--events-section active">
+            <div class="f-section__title">
+                <h1>EVENTOS</h1>
+            </div>
+        </div>
+        <footer></footer>
+    </section>
+</main>
+
+@section Scripts {
+    <script src="~/Content/src/vendors/fullPage.js/vendors/easings.js"></script>
+    <script src="~/Content/src/vendors/fullPage.js/fullpage.extensions.min.js"></script>
+    <script src="~/Content/src/vendors/swiper/js/swiper.js"></script>
+    <script src="~/Content/src/vendors/stackedCards/js/stackedCards3.js"></script>
+    <script src="~/Content/src/vendors/flickity/flickity.pkgd.js"></script>
+    <script src="~/Content/src/js/components/slider3djs.js"></script>
+    <script src="~/Content/old/js/lib/waves/waves.js"></script>
+    <script type="text/javascript">
+        Waves.attach('.flat-buttons', ['waves-button']);
+        Waves.attach('.float-buttons', ['waves-button', 'waves-float']);
+        Waves.attach('.float-button-light', ['waves-button', 'waves-float', 'waves-light']);
+        Waves.init();
+    </script>
+    <script>
+        (async function () {
+            new fullpage(".fullPage", {
+                // Navigation
+                menu: ".f-header",
+                navigationPosition: "center",
+                anchors: ['page1', 'page2', 'page3', 'page4'],
+                navigation: false,
+                navigationTooltips: ['fullPage', 'Open', 'Easy', 'Touch'],
+
+                // Scrolling
+                css3: true,
+                autoscrolling: true,
+                scrollingSpeed: 1000,
+                slidesNavigation: true,
+                easing: 'easeInOutCubic',
+                easingcss3: 'ease',
+
+                // Accesibility
+                keyboardScrolling: true,
+
+                // Design
+                controlArrows: false,
+                responsiveHeight: 330,
+
+                // Extensions
+                parallax: false,
+                parallaxOptions: { type: 'reveal', percentage: 62, property: 'translate' },
+                dragAndMove: true,
+                dragAndMoveKey: 'YWx2YXJvdHJpZ28uY29tX0EyMlpISmhaMEZ1WkUxdmRtVT0wWUc=',
+
+                lazyLoading: true,
+                licenseKey: "EEB503B3-9F6E403A-A0B4C2A4-A3F1EF4E",
+
+                // Events
+                afterRender: function () { },
+                afterResize: function (width, height) { },
+                afterResponsive: function (isResponsive) { },
+                afterSlideLoad: function (section, origin, destination, direction) { },
+                onSlideLeave: function (section, origin, destination, direction) { },
+                afterLoad: function (origin, destination, direction) {
+                    if (direction === "down") {
+                        let menu = $1(".f-menu-logo");
+                        if (destination.item.classList.contains("f-section--dark")) {
+                            menu.classList.add("f-menu-logo--light");
+                        }
+                        if (destination.item.classList.contains("f-section--light")) {
+                            menu.classList.remove("f-menu-logo--light");
+                        }
+                    }
+                },
+                onLeave: function (origin, destination, direction) {
+                    if (direction === "up") {
+                        let menu = $1(".f-menu-logo");
+                        if (destination.item.classList.contains("f-section--dark")) {
+                            menu.classList.add("f-menu-logo--light");
+                        }
+                        if (destination.item.classList.contains("f-section--light")) {
+                            menu.classList.remove("f-menu-logo--light");
+                        }
+                    }
+                }
+            });
+
+            var stackedCardSlide = new stackedCards({
+                selector: '.stacked-cards-slide',
+                layout: "slideOne",
+                transformOrigin: "center",
+                onClick: function (el, els) {
+                    var infos = document.querySelectorAll(".f-disciplines-section__discipline");
+                    els = els || document.querySelectorAll(".stacked-cards-slide li");
+                    for (var i = 0; i < els.length; ++i) {
+                        //infos[i].dataset.sliderfor === index
+                        if (els[i].classList.contains("active")) {
+                            infos[i].style.display = "block";
+                        }
+                        else {
+                            infos[i].style.display = "none";
+                        }
+                    }
+                }
+            });
+
+            stackedCardSlide.init();
+
+            var elem = document.querySelector('.f-ranking-positions');
+            var flkty = new Flickity(elem, {
+                cellAlign: 'left',
+                //contain: true,
+                //autoPlay: 1500,
+                pauseAutoPlayOnHover: false,
+                adaptiveHeight: true,
+                watchCSS: true
+            });
+
+        //window.cookieconsent.initialise({
+        //    container: document.getElementById("content"),
+        //    palette: {
+        //        popup: { background: "#fff" },
+        //        button: { background: "#aa0000" },
+        //    },
+        //    revokable: true,
+        //    onStatusChange: function (status) {
+        //        console.log(this.hasConsented() ?
+        //            'enable cookies' : 'disable cookies');
+        //    },
+        //    layouts: {
+        //        'basic': '{{messagelink}}{{allow}}&emsp;{{dismiss}}',
+        //        'basic-close': '{{messagelink}}{{compliance}}{{close}}',
+        //        'basic-header': '{{header}}{{message}}{{link}}{{compliance}}',
+        //    },
+        //    palette: {
+        //        popup: { background: '#000000', text: '#fff', link: '#fff' },
+        //        button: { background: 'transparent', border: '#f8e71c', text: '#f8e71c' },
+        //        highlight: { background: '#f8e71c', border: '#f8e71c', text: '#000000' },
+        //    },
+        //    law: {
+        //        regionalLaw: false,
+        //    },
+        //    location: true,
+        //    content: {
+        //        header: 'Cookies used on the website!',
+        //        message: '<b>Utilizamos cookies en este sitio para mejorar su experiencia de usuario</b><br/>Para obtener más información sobre nuestro uso de <i>cookies</i>, por favor vea nuestra <i>Política de privacidad</i><br/>Al hacer clic en cualquier enlace de esta página, está dando su consentimiento para que configuremos cookies',
+        //        dismiss: 'No Acepto',
+        //        allow: 'Acepto',
+        //        deny: 'Decline',
+        //        link: '',
+        //        href: 'http://cookiesandyou.com',
+        //        close: 'x',
+        //        policy: 'Cookie Policy',
+        //        target: '_blank',
+
+        //        elements: {
+        //            header: '<span class="cc-header">{{header}}</span>&nbsp;',
+        //            message: '<span id="cookieconsent:desc" class="cc-message">{{message}}</span>',
+        //            messagelink: '<span id="cookieconsent:desc" class="cc-message">{{message}} <a aria-label="learn more about cookies" tabindex="0" class="cc-link" href="{{href}}" target="_blank">{{link}}</a></span>',
+        //            dismiss: '<a aria-label="dismiss cookie message" tabindex="0" class="cc-btn cc-dismiss">{{dismiss}}</a>',
+        //            allow: '<a aria-label="allow cookies" tabindex="0" class="cc-btn cc-allow">{{allow}}</a>',
+        //            deny: '<a aria-label="deny cookies" tabindex="0" class="cc-btn cc-deny">{{deny}}</a>',
+        //            link: '<a aria-label="learn more about cookies" tabindex="0" class="cc-link" href="{{href}}" target="_blank">{{link}}</a>',
+        //            close: '<span class="btn btn-outline btn-white" aria-label="dismiss cookie message" tabindex="0">{{close}}</span>',
+        //        }
+        //    }
+        //});
+
+            const disciplineSelect = new SlimSelect({
+                select: "#discipline_filter",
+                placeholder: "Disciplina",
+                searchPlaceholder: "Buscar",
+                searchText: "Ningún resultado"
+            });
+            const seasonSelect = new SlimSelect({
+                select: "#season_filter",
+                placeholder: "Temporada",
+                searchPlaceholder: "Buscar",
+                searchText: "Ningún resultado"
+            });
+            const levelSelect = new SlimSelect({
+                select: "#level_filter",
+                allowDeselect: true,
+                placeholder: "Nivel",
+                searchPlaceholder: "Buscar",
+                searchText: "Ningún resultado"
+            });
+            const categorySelect = new SlimSelect({
+                select: "#category_filter",
+                placeholder: "Categoría",
+                searchPlaceholder: "Buscar",
+                allowDeselect: true,
+                searchText: "Ningún resultado"
+            });
+
+            var disciplineFilter = document.getElementById("discipline_filter");
+            var sessonFilter = document.getElementById("season_filter");
+            var nivelFilter = document.getElementById("level_filter");
+            var categoryFilter = document.getElementById("category_filter");
+
+            var changeSelect = async () => {
+                await GetLevel(disciplineFilter.value);
+                await GetCategory(disciplineFilter.value);
+                changeTable();
+            }
+
+            var changeRanking = () => {
+                let seasonId = sessonFilter.value;
+                let disciplineId = disciplineFilter.value;
+                let categoryId = categoryFilter.value;
+                let levelId = nivelFilter.value;
+
+            }
+
+            sessonFilter.addEventListener("change", changeRanking);
+            disciplineFilter.addEventListener("change", () => changeSelect(), false);
+            nivelFilter.addEventListener("change", changeRanking);
+            categoryFilter.addEventListener("change", changeRanking);
+
+            const GetSesson = () =>
+                fetch(_app.parseToUrl('/concursos/listadotemporadasapi'), {
+                    method: 'get'
+                }).then(response => {
+                    return response.json();
+                }).then(data => {
+                    data.sort((a, b) => (a.year > b.year) ? -1 : ((b.year > a.year) ? 1 : 0));
+                    for (var i in data) {
+                        var opt = document.createElement("option");
+                        opt.value = data[i].id;
+                        opt.text = data[i].name;
+                        sessonFilter.appendChild(opt);
+                    }
+                    var opt = document.createElement("option");
+                    opt.dataset.placeholder = "true";
+                    sessonFilter.appendChild(opt);
+                }).catch(err => { console.log(err); });
+            await GetSesson();
+
+            const GetDicipilnas = () => {
+                fetch(_app.parseToUrl('/concursos/listadodisciplinasapi'), {
+                    method: 'get'
+                }).then(response => {
+                    return response.json();
+                }).then(data => {
+                    data.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+                    for (var i in data) {
+                        var opt = document.createElement("option");
+                        opt.value = data[i].id;
+                        opt.text = data[i].name;
+
+                        disciplineFilter.appendChild(opt);
+                    }
+                    var opt = document.createElement("option");
+                    opt.dataset.placeholder = "true";
+                    disciplineFilter.appendChild(opt);
+                    changeSelect();
+                }).catch(err => { });
+            };
+            GetDicipilnas();
+
+            const GetLevel = (disiplineId) =>
+                fetch(_app.parseToUrl(`/concursos/nivelesxdiciplinasapi/${disiplineId}`), {
+                    method: 'get'
+                }).then(response => {
+                    return response.json();
+                }).then(data => {
+                    levelSelect.enable();
+                    data.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+                    if (nivelFilter.options.length > 1)
+                        clearCombo(nivelFilter)
+                    for (var i in data) {
+                        var opt = document.createElement("option");
+                        opt.value = data[i].id;
+                        opt.text = data[i].name;
+
+                        nivelFilter.appendChild(opt);
+                    }
+                    var opt = document.createElement("option");
+                    opt.dataset.placeholder = "true";
+                    nivelFilter.appendChild(opt);
+                    if (data.length > 0) {
+                        nivelFilter.options[0] = null;
+                    }
+                    else {
+                        levelSelect.disable();
+                    }
+                }).catch(err => { });
+
+            const GetCategory = (disiplineId) =>
+                fetch(_app.parseToUrl(`/concursos/categoriaxdiciplinasapi/${disiplineId}`), {
+                    method: 'get'
+                }).then(response => {
+                    return response.json();
+                }).then(data => {
+                    categorySelect.enable();
+                    data.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+                    if (categoryFilter.options.length > 1)
+                        clearCombo(categoryFilter)
+                    for (var i in data) {
+                        var opt = document.createElement("option");
+                        opt.value = data[i].id;
+                        opt.text = data[i].name;
+
+                        categoryFilter.appendChild(opt);
+                    }
+                    var opt = document.createElement("option");
+                    opt.dataset.placeholder = "true";
+                    categoryFilter.appendChild(opt);
+                    if (data.length > 0) {
+                        categoryFilter.options[0] = null;
+                    }
+                    else {
+                        categorySelect.disable();
+                    }
+                }).catch(err => { });
+
+            function clearCombo(cmb) {
+                cmb.innerHTML = "";
+
+                for (var i = 0; i < cmb.options.length; i++)
+                    cmb.options[i] = null;
+            }
+        })();
+    </script>
+}

@@ -1,0 +1,11 @@
+﻿@model FDNE.PE.WEB.ADMIN.Dtos.DisciplineDto
+
+@Html.HiddenFor(m => m.Id)
+<fieldset class="form-group">
+    @Html.LabelFor(m => m.Name, new { @class = "label" })
+    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Nombre", required = "required", autocomplete = "off" })
+</fieldset>
+<fieldset class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "label" })
+    @Html.TextAreaFor(m => m.Description, new { @class = "form-control", placeholder = "Descripción", required = "required", autocomplete = "off" })
+</fieldset>

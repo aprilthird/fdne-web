@@ -1,0 +1,70 @@
+﻿@model FDNE.PE.WEB.ADMIN.Dtos.FederationHistoryDto
+
+@{
+    ViewBag.Title = "Historia de la Federación";
+    ViewBag.SubTitle = "Formulario de Edición";
+    ViewBag.Breadcrumbs = new[] {
+        new BreadcrumbViewData { Name = ViewBag.Title }
+    };
+}
+
+@section Styles {
+    <link href="@Url.Content("~/Content/vendors/summernote/summernote.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/vendors/summernote/summernote-bs4.min.js")" rel="stylesheet" />
+}
+
+<div>
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="card-header">
+                <i class="icon-list icons font-2xl"></i> Imagen de Fondo
+            </div>
+            <div class="card-body">
+                <form id="edit_form_image" class="form form-horizontal" role="form" enctype="multipart/form-data" style="margin-left:1rem;margin-right:1rem;">
+                    @Html.HiddenFor(m => m.Id)
+                    <div class="row form-group">
+                        @Html.LabelFor(m => m.Base64Image, new { @class = "label" })
+                        @Html.TextBoxFor(m => m.Base64Image, new { @class = "form-control", type = "file", required = "required" })
+                        <span class="pull-right font-italic font-xs">Tama&ntilde;o m&aacute;ximo: 5MB.</span>
+                    </div>
+                    <div class="row form-group">
+                        <button class="btn btn-primary ladda-button" data-style="expand-right" type="submit">
+                            <span class="ladda-label">
+                                <i class="fa fa-save"></i>&nbsp;Guardar
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="card">
+            <div class="card-header">
+                <i class="icon-list icons font-2xl"></i> @ViewBag.SubTitle
+                <div class="card-header-actions">
+                    <div class="card-header-action">
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="dataTables_wrapper dt-bootstrap4 no-footer">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="table table-hover table-striped table-bordered datatable dataTable no-footer" id="history_datatable" role="grid"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_EditModal")
+
+@section Scripts {
+    <script src="@Url.Content("~/Content/vendors/summernote/summernote.min.js")"></script>
+    <script src="@Url.Content("~/Content/js/areas/content/federation-history/index.js")"></script>
+}
+

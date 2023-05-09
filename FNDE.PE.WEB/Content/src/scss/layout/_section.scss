@@ -1,0 +1,298 @@
+﻿@import "../abstracts/variables";
+@import "../abstracts/mixins";
+@import "../layout/variables";
+
+.f-section {
+
+    &__terms {
+        margin-bottom: 30px;
+    }
+
+    &--dark {
+        color: $f--white-color;
+    }
+
+    &--light {
+        color: $f--black-color;
+    }
+
+    &--fullscreen {
+        height: 100vh;
+        width: 100vw;
+    }
+
+    &--back-dark {
+        background-color: $f--black-color;
+    }
+
+    @for $i from 1 through 10 {
+        $height: $i * 10;
+
+        &--#{$height}vh {
+            height: #{$height}vh;
+        }
+    }
+
+    @for $i from 1 through 10 {
+        $width: $i * 10;
+
+        &--#{$width}vw {
+            width: #{$width}vw;
+        }
+    }
+    /* TODO: deprecated*/
+    &__column-reverse {
+        display: flex;
+        @include flexbox-direction(column-reverse);
+    }
+
+    &__content {
+        position: relative;
+        min-height: 540px;
+    }
+    /* TODO: deprecated*/
+    &__flex {
+        @include flexbox();
+        margin-top: 55px;
+        margin-bottom: 55px;
+
+        @include mobile {
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+    }
+
+    &__near-footer {
+        margin-bottom: 0 !important;
+    }
+
+    &__header {
+        @include tablet-and-mobile {
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+    }
+
+    &__column {
+        @include flexbox-direction(column);
+        padding-right: 100px;
+
+        @include mobile {
+            padding-right: 0px;
+        }
+    }
+
+    &__column-all {
+        @include flexbox-direction(column);
+    }
+
+    &__row {
+        @include flexbox-direction(row);
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1180px;
+    }
+
+    &__image {
+        @include mobile {
+            display: none;
+        }
+    }
+
+    &-background {
+        display: block;
+        /* TODO: check this */
+        height: 30vh;
+        min-height: 30vh;
+        overflow: hidden;
+
+        @include desktop {
+            height: 50vh;
+            min-height: 50vh;
+        }
+
+        &__image {
+            background: $f--secondary-color;
+            /* TODO: WHY */
+            width: inherit;
+            height: inherit;
+
+            img {
+                position: relative;
+                top: 0;
+                left: 0;
+                right: 0;
+                opacity: 0.5;
+                width: 100%;
+                height: inherit;
+                object-fit: cover;
+                object-position: center center;
+            }
+        }
+
+        &__title {
+            @include flexbox();
+            @include flexbox-direction(column);
+            @include flexbox-justify-content(flex-end);
+            margin: $f--background-title-margin;
+            position: absolute;
+            height: auto;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            z-index: 2;
+            text-transform: uppercase;
+        }
+    }
+
+    &__title {
+        &--white {
+            flex-grow: 1;
+
+            &::before {
+                //content: url("/Content/src/img/thin-texture-title-white.svg");
+                position: relative;
+                margin-left: -100px;
+                //top: 0;
+                //left: 0;
+                z-index: 1;
+                height: 10%;
+                object-fit: contain;
+            }
+
+            h1 {
+                position: relative;
+                z-index: 9;
+                margin-bottom: 25px;
+                margin-top: 10px;
+            }
+        }
+
+        &--gray {
+            &::before {
+                //content: url("/Content/src/img/thin-texture-title-gray.svg");
+                position: absolute;
+                margin-left: -100px;
+                z-index: 999;
+            }
+
+            h1 {
+                position: relative;
+                z-index: 9;
+                margin-bottom: 25px;
+                margin-top: 10px;
+            }
+        }
+
+        &--red {
+            &::before {
+                //content: url("/Content/src/img/thin-texture-title-red.svg");
+                position: absolute;
+                margin-left: -100px;
+                z-index: 1;
+            }
+
+            h1 {
+                position: relative;
+                z-index: 9;
+                margin-bottom: 25px;
+                margin-top: 10px;
+            }
+        }
+
+        &::before {
+            position: absolute;
+            z-index: 1;
+            /* HACK: wtf solution */
+            /* TODO: fix not working without f-container */
+            //content: url("/Content/src/img/thin-texture-title-black.svg");
+            @include wide-desktop {
+                margin-left: auto;
+                margin-right: auto;
+                max-width: $f--layout-max-width;
+            }
+            /* TODO: Mobile First!!! */
+            @include tablet-and-mobile {
+                left: 0;
+            }
+        }
+
+        h1 {
+            position: relative;
+            z-index: 9;
+        }
+    }
+
+    &__title-white {
+        &__black {
+            background-color: $f--secondary-color;
+        }
+
+        &__red {
+            background-color: $f--primary-color;
+        }
+
+        h1 {
+            position: relative;
+            z-index: 2000;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            color: $f--primary-color;
+        }
+    }
+    /* TODO: delete this plz */
+    &--margin {
+        margin-top: 60px;
+    }
+
+    &--black-light {
+        background-color: $f--secondary-color;
+    }
+
+    /* TODO: ??? */
+    &__column-mobile {
+        @include mobile {
+            @include flexbox-direction(column);
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+    }
+    /* TODO: find uses */
+    &--center {
+        @include flexbox-justify-content(center);
+        text-align: center;
+
+        h1 {
+            font-weight: bold;
+        }
+
+        button {
+            margin-top: 20px;
+        }
+    }
+
+    &--fei {
+        h2 {
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        button {
+            margin-right: 20px;
+            margin-bottom: 40px;
+            font-size: 1.5rem !important;
+        }
+    }
+
+    &__flex-center {
+        @include flexbox;
+        @include flexbox-justify-content(center);
+    }
+
+    &--error {
+        text-align: center;
+    }
+}

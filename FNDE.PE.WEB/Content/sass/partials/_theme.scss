@@ -1,0 +1,6 @@
+.t-menu {
+  background: $theme-black;
+  color: $theme-white;
+  font-family: $font-heading;
+  @include light();
+}

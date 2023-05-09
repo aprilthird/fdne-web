@@ -1,0 +1,25 @@
+﻿
+.card-header {
+    display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox; /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Chrome */
+    display: flex;
+    align-items: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+}
+
+.card-header .card-header-actions {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+#loader_spinner .sk-circle .sk-child:before {
+    background-color: var(--primary);
+}
+
+.blockOverlay {
+    z-index: 100000 !important;
+}

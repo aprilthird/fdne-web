@@ -1,0 +1,33 @@
+﻿@import "../../abstracts/variables";
+@import "../../abstracts/mixins";
+@import "../../layout/variables";
+
+$f--fei-body-margin-top: 50px;
+$f--fei-title-margin-bottom: 30px;
+
+.f-section-lidea {
+    margin: {
+        top: 5rem;
+        bottom: 5rem;
+    }
+
+    &__body {
+        margin-top: $f--fei-body-margin-top;
+
+        &-title {
+            font-weight: bold;
+            margin-bottom: $f--fei-title-margin-bottom;
+        }
+    }
+
+    &__text {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+        text-align: left;
+        text-justify: inter-word;
+    }
+}

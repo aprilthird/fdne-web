@@ -1,0 +1,1168 @@
+﻿@model FNDE.PE.WEB.PORTAL.ViewModels.HomeViewModels.HomeViewModel
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/Content/src/vendors/slim-select/css/slimselect.min.css" />
+    <link rel="stylesheet" href="~/Content/old/css/discipline.css" />
+    <link rel="stylesheet" href="~/Content/old/css/carousel.css" />
+    <link rel="stylesheet" href="~/Content/old/css/multimedia.css" />
+    <link rel="stylesheet" href="~/Content/old/css/home.css" />
+    <link rel="stylesheet" href="~/Content/old/css/responsive-theme.css" />
+    <link rel="stylesheet" href="~/Content/old/css/ranking-new.css" />
+
+    <style>
+        a:hover {
+            text-decoration: none;
+        }
+
+        #slider > label {
+            overflow: hidden;
+        }
+
+            #slider > label > img {
+                width: auto;
+                object-fit: cover;
+            }
+
+        .nav-link.active {
+            text-decoration: none !important;
+        }
+
+        .nav-link span {
+            transition: all 0.5s ease;
+        }
+
+        /*.nav-link.active span {
+            padding-bottom: 2px;
+            border-bottom: 3px solid #e0311e;
+        }*/
+        html, body {
+            font-size: 13px;
+        }
+
+        h1 {
+            font-size: 3.8rem !important;
+        }
+
+        h2 {
+            font-size: 2rem !important;
+        }
+
+        h3 {
+            font-size: 1.75rem !important;
+        }
+
+        h4 {
+            font-size: 1.5rem !important;
+        }
+
+        h5 {
+            font-size: 1.25rem !important;
+        }
+
+        h6 {
+            font-size: 1rem !important;
+        }
+
+        a.link {
+            font-size: 10px !important;
+        }
+
+        .cc-window {
+            width: 100vw;
+        }
+
+        .caption_wrapper {
+            width: 100%;
+            margin: 0;
+            padding-right: 0;
+            box-sizing: border-box;
+        }
+
+        .caption_wrapper-container {
+            padding: 0 15px;
+            box-sizing: border-box;
+            background-color: rgba(0, 0, 0, 0.7);
+            margin-left: -9999px;
+            margin-right: -9999px;
+        }
+
+            .caption_wrapper-container h1 {
+                margin-left: 9999px;
+                margin-right: 9999px;
+            }
+        /*.caption_wrapper-container:before {
+                content: "";
+                width: 100vw;
+                height: 200px;
+                position: absolute;
+                z-index: 1;
+                left: 50%;
+                right: 50%;
+                margin-left: -50vw;
+                margin-right: -50vw;
+                background-color: rgba(0, 0, 0, 0.7);
+            }*/
+    </style>
+}
+
+<section class="section" id="main-section">
+    <div class="carousel">
+        <div class="carousel_wrapper">
+            <div class="carousel_item first">
+                <div class="multimedia">
+                    <video autoplay loop muted class="multimedia-object">
+                        <!--1600px-->
+                        <source src="~/Content/old/videos/loop1600.webm" media="screen and (min-device-width: 1600px)" type='video/webm'>
+                        <source src="~/Content/old/videos/loop1600.ogg" media="screen and (min-device-width: 1600px)" type='video/ogg'>
+                        <!--1440px-->
+                        <source src="~/Content/old/videos/loop1440.webm" media="screen and (min-device-width: 1440px)" type='video/webm'>
+                        <source src="~/Content/old/videos/loop1440.mp4" media="screen and (min-width: 1400px)" type="video/mp4">
+                        <!--480px-->
+                        <source src="~/Content/old/videos/loop480.mp4" media="screen and (min-device-width: 480px)" type='video/mp4'>
+                        <!--?-->
+                        <source src="~/Content/old/videos/loop.ogv" media="screen and (min-device-width: 1024px)" type='video/ogg'>
+                        <source src="~/Content/old/videos/loop2.mp4" media="screen and (min-device-width: 1024px)" type='video/mp4'>
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                <div class="caption" data-aos="fade-right">
+                    <div class="caption_wrapper fixedw">
+                        <div class="caption_wrapper-container">
+                            <h1><span>federaci&oacute;n deportiva</span> nacional ecuestre</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*<div class="carousel_item second">
+                    <div class="multimedia multimedia-filter">
+                        <img class="multimedia_object"
+                             @*srcset="~/Content/old/img/header_512w.webp 512w,
+                                     ~/Content/old/img/header_512w.mp4 512w,
+                                     ~/Content/old/img/header_1024w.webp 1024w,
+                                     ~/Content/old/img/header_2480w.webp 2480w,
+                                     ~/Content/old/img/header_4480w.webp 4480w"
+                             srcset="/Content/old/img/header_2480w.png 2480w"
+                             sizes="(max-width: 512px) 512px,
+                                    (max-width: 1024px) 1024px,
+                                    (max-width: 2480px) 2480px,
+                                    4480px"
+                             src="~/Content/old/img/header_1024w.webp" alt="Header 1" />
+                    </div>
+                    <div class="caption">
+                        <div class="caption_wrapper">
+                            <h1><span>federaci&oacute;n deportiva</span> nacional ecuestre</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel_item third">
+                    <div class="multimedia multimedia-filter">
+                        <img class="multimedia_object"
+                             srcset="~/Content/old/img/header_512w.webp 512w,
+                                     ~/Content/old/img/header_1024w.webp 1024w,
+                                     ~/Content/old/img/header_2480w.webp 2480w,
+                                     ~/Content/old/img/header_4480w.webp 4480w"
+                             srcset="/Content/old/img/header1_2480.png 2480w"
+                             sizes="(max-width: 512px) 512px,
+                                    (max-width: 1024px) 1024px,
+                                    (max-width: 2480px) 2480px,
+                                    4480px"
+                             src="~/Content/old/img/header_4480w.webp" alt="Header 2" />
+                    </div>
+                    <div class="caption">
+                        <div class="caption_wrapper">
+                            <h1><span>federaci&oacute;n deportiva</span> nacional ecuestre</h1>
+                        </div>
+                    </div>
+                </div>*@
+        </div>
+        <span class="carousel_anchor prev"></span>
+        <span class="carousel_anchor next"></span>
+    </div>
+    <div class="main-footer row">
+        <div class="main-button col-md-2">
+            <button class="pl-4 pr-4 pt-2 pb-2 btn btn-white btn-contact" onclick="window.location.href='/Contacto/Contacto'"><strong>CONT&Aacute;CTANOS</strong></button>
+        </div>
+        <div class="main-text col-md-10 mb-4">
+            <div class="footer-text">
+                <h6>Promoviendo el deporte ecuestre</h6>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section" id="disciplines-section">
+    <div class="row fixedw">
+        <div class="info-panel col-md-4 order-2 order-md-12">
+            <div id="info" style="padding-left: 15px !important">
+                <h2 class="text-mobile" data-aos="fade-right">Disciplinas</h2>
+                <div class="highlight" data-aos="fade-right">
+                    <svg class="" viewBox="0 0 1516 690">
+                        <use class="line" xlink:href="#highlight"></use>
+                    </svg>
+                </div>
+                <label class="static-margin-40"></label>
+                @if (Model.Disciplines != null)
+                {
+                    for (var i = 0; i < Model.Disciplines.Count; ++i)
+                    {
+                        <div id="@("info" + (i + 1))" class="c-tooltip">
+                            <div class="c-tooltip__title" data-aos="fade-right">
+                                <h4 class="u-uppercase">@Model.Disciplines[i].Name.Normalize()</h4>
+                            </div>
+                            <br />
+                            <br />
+                            <br />
+                            <div class="c-tooltip__tip" data-aos="fade-right">
+                                <p class="desktop">
+                                    @Model.Disciplines[i].Description
+                                    @*La disciplina de salto consiste en un acontecimiento sincronizado juzgado en la capacidad del caballo y del jinete de saltar sobre una serie de obstáculos, en un orden dado.*@
+                                    @*El ganador es aquel binomio que cometa menos faltas en el menor tiempo posible. Es una de las disciplinas ecuestres más populares en todo el mundo y forma parte de las 3 disciplinas olímpicas ecuestres.*@
+                                </p>
+                            </div>
+                            <br />
+                            <div class="disciplineButton">
+                                <button class="btn btn-white" onclick="location.href = '@Url.Action("Discipline", "Disciplinas", new { name = Model.Disciplines[i].Name.TrimStart() })'"><strong>VER M&Aacute;S</strong></button>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+        <div class="slider-panel col-md-8 order-1 order-md-12">
+            <div id="slider" class="3d-slideshow">
+                <input type="radio" name="3d" id="s1" class="js-3d-init" onchange="show(this);    ">
+                <input type="radio" name="3d" id="s2" onchange="show(this);">
+                <input type="radio" name="3d" id="s3" onchange="show(this);">
+                <input type="radio" name="3d" id="s4" onchange="show(this);">
+                <label for="s1" id="slide1" data-aos="flip-up">
+                    <img class="multimedia_object"
+                         srcset="~/Content/old/img/slide4-512.png 512w,
+                                 ~/Content/old/img/slide4-1024.png 1024w"
+                         sizes="(max-width: 512px) 512px,
+                                1024px"
+                         src="~/Content/old/img/slide4-1024.png" alt="slide 1" />
+                    <div id="header1" class="c-align"><h3 class="u-uppercase"><strong>Concurso Completo de Equitaci&Oacute;n</strong></h3></div>
+                </label>
+                <label for="s2" id="slide2" data-aos="flip-up">
+                    <img class="multimedia_object"
+                         srcset="~/Content/old/img/slide1-512.png 512w,
+                                 ~/Content/old/img/slide1-1024.png 1024w"
+                         sizes="(max-width: 512px) 512px,
+                                1024px"
+                         src="~/Content/old/img/slide1-1024.png" alt="slide 2" />
+                    <div id="header2" class="c-align"><h3 class="u-uppercase"><strong>Salto</strong></h3></div>
+                </label>
+                <label for="s3" id="slide3" data-aos="flip-up">
+                    <img class="multimedia_object"
+                         srcset="~/Content/old/img/slide2-512.png 512w,
+                                 ~/Content/old/img/slide2-1024.png 1024w"
+                         sizes="(max-width: 512px) 512px,
+                                1024px"
+                         src="~/Content/old/img/slide2-1024.png" alt="slide 3" />
+                    <div id="header3" class="c-align"><h3 class="u-uppercase"><strong>Adiestramiento</strong></h3></div>
+                </label>
+                <label for="s4" id="slide4" data-aos="flip-up">
+                    <img class="multimedia_object"
+                         srcset="~/Content/old/img/slide3-512.png 512w,
+                                 ~/Content/old/img/slide3-1024.png 1024w"
+                         sizes="(max-width: 512px) 512px,
+                                1024px"
+                         src="~/Content/old/img/slide3-1024.png" alt="slide 3" />
+                    <div id="header4" class="c-align"><h3 class="u-uppercase"><strong>Enduro</strong></h3></div>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="highlight highlight-page">
+        <svg class="" viewBox="0 0 1516 690">
+            <use class="line" xlink:href="#highlight"></use>
+        </svg>
+    </div>
+</section>
+<section class="section" id="ranking-section">
+    <div class="highlight">
+        <svg class="" viewBox="0 0 1516 690">
+            <use class="line" xlink:href="#highlight"></use>
+        </svg>
+    </div>
+    <div class="highlight highlight-page">
+        <svg class="" viewBox="0 0 1516 690">
+            <use class="line" xlink:href="#highlight"></use>
+        </svg>
+    </div>
+    <div class="row fixedw">
+        <div class="col-xs-12 col-md-3" style="height: 1vh;">
+            <div class="section-header" data-aos="fade-right">
+                <h2 class="text-mobile">RANKING</h2>
+            </div>
+            <div class="nav nav-pills ranking-menu" data-aos="fade-right" id="v-pills-tab">
+                <div class="select-filter">
+                    <select id="discipline_filter" class="special-select"></select>
+                </div>
+                <div class="select-filter">
+                    <select id="category_filter" class="special-select"></select>
+                </div>
+                <div class="select-filter">
+                    <select id="level_filter" class="special-select"></select>
+                </div>
+            </div>
+        </div>
+        <div class="ranking-content col-xs-12 offset-md-1 col-md-8">
+            <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                    <div class="desktop-ranking row">
+                        <div class="card col-6 col-xs-10 col-md-3 first" data-aos="flip-up">
+                            <div class="card-title">
+                                <h6>PRIMER PUESTO</h6>
+                            </div>
+                            <div class="card-content">
+                                <div class="multimedia">
+                                    @*<picture class="multimedia_object" style="width: 100%">
+                                            <source src="~/Content/old/img/rank1-1024.webp" />
+                                            <source src="~/Content/old/img/firstplace.png" />
+                                        </picture>*@
+                                    <img class="multimedia_object" src="~/Content/old/img/rank1-1024.png" alt="Avatar" style="width:100%">
+                                </div>
+                                <div class="container">
+                                    <h6><strong>JOEL PEREZ</strong></h6>
+                                    <h6>CABALLO: SAMY</h6>
+                                    <h6>PUNTOS: 92.09</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card col-6 col-md-3 second" data-aos="flip-up">
+                            <div class="card-title"><h6>SEGUNDO PUESTO</h6></div>
+                            <div class="card-content">
+                                <div class="multimedia">
+                                    <img class="multimedia_object" src="~/Content/old/img/rank2-1024.png" alt="Avatar" style="width:100%">
+                                </div>
+                                <div class="container">
+                                    <h6><strong>SVENJA ECHLER</strong></h6>
+                                    <h6>CABALLO: PEPE</h6>
+                                    <h6>PUNTOS: 90.10</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card col-6 col-md-3 third" data-aos="flip-up">
+                            <div class="card-title"><h6>TERCER PUESTO</h6></div>
+                            <div class="card-content">
+                                <div class="">
+                                    <img class="multimedia_object" src="~/Content/old/img/rank3-1024.png" alt="Avatar" style="width:100%">
+                                </div>
+                                <div class="container">
+                                    <h6><strong>CARLOS UGARTE</strong></h6>
+                                    <h6>CABALLO: SUGAR</h6>
+                                    <h6>PUNTOS: 84.56</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-ranking">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide col-6 col-md-3">
+                                    <div class="card first" data-aos="flip-up">
+                                        <div class="card-title"><h6>PRIMER PUESTO</h6></div>
+                                        <div class="card-content">
+                                            <div class="">
+                                                <img class="multimedia_object" src="~/Content/old/img/rank1-1024.png" alt="Avatar" style="width:100%">
+                                            </div>
+                                            <div class="container">
+                                                <h6><strong>SVENJA ECHLER</strong></h6>
+                                                <h6>CABALLO: SAMY</h6>
+                                                <h6>PUNTOS: 92.09</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide col-6 col-md-3">
+                                    <div class="card second" data-aos="flip-up">
+                                        <div class="card-title"><h6>SEGUNDO PUESTO</h6></div>
+                                        <div class="card-content">
+                                            <div class="">
+                                                <img class="multimedia_object" src="~/Content/old/img/rank2-1024.png" alt="Avatar" style="width:100%">
+                                            </div>
+                                            <div class="container">
+                                                <h6><strong>SVENJA ECHLER</strong></h6>
+                                                <h6>CABALLO: PEPE</h6>
+                                                <h6>PUNTOS: 90.10</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide col-6 col-md-3">
+                                    <div class="card third" data-aos="flip-up">
+                                        <div class="card-title"><h6>SEGUNDO PUESTO</h6></div>
+                                        <div class="card-content">
+                                            <div class="">
+                                                <img class="multimedia_object" src="~/Content/old/img/rank3-1024.png" alt="Avatar" style="width:100%">
+                                            </div>
+                                            <div class="container">
+                                                <h6><strong>SVENJA ECHLER</strong></h6>
+                                                <h6>CABALLO: SUGAR</h6>
+                                                <h6>PUNTOS: 84.56</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    <div class="desktop-ranking row">
+                        <div class="card col-6 col-md-3 first">
+                            <div class="card-title"><h6>PRIMER PUESTO</h6></div>
+                            <div class="card-content">
+                                <div class="">
+                                    <img class="multimedia_object" src="~/Content/old/img/rank1-1024.png" alt="Avatar" style="width:100%">
+                                </div>
+                                <div class="container">
+                                    <h6><strong>SVENJA ECHLER</strong></h6>
+                                    <h6>CABALLO: SAMY</h6>
+                                    <h6>PUNTOS: 92.09</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card col-6 col-md-3 second">
+                            <div class="card-title"><h6>SEGUNDO PUESTO</h6></div>
+                            <div class="card-content">
+                                <div class="">
+                                    <img class="multimedia_object" src="~/Content/old/img/rank2-1024.png" alt="Avatar" style="width:100%">
+                                </div>
+                                <div class="container">
+                                    <h6><strong>SVENJA ECHLER</strong></h6>
+                                    <h6>CABALLO: PEPE</h6>
+                                    <h6>PUNTOS: 90.10</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-ranking">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide col-6 col-md-3">
+                                    <div class="card first">
+                                        <div class="card-title"><h6>PRIMER PUESTO</h6></div>
+                                        <div class="card-content">
+                                            <div class="">
+                                                <img class="multimedia_object" src="~/Content/old/img/rank1-1024.png" alt="Avatar" style="width:100%">
+                                            </div>
+                                            <div class="container">
+                                                <h6><strong>SVENJA ECHLER</strong></h6>
+                                                <h6>CABALLO: SAMY</h6>
+                                                <h6>PUNTOS: 92.09</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide col-6 col-md-3">
+                                    <div class="card second">
+                                        <div class="card-title"><h6>SEGUNDO PUESTO</h6></div>
+                                        <div class="card-content">
+                                            <div class="">
+                                                <img class="multimedia_object" src="~/Content/old/img/rank2-1024.png" alt="Avatar" style="width:100%">
+                                            </div>
+                                            <div class="container">
+                                                <h6><strong>SVENJA ECHLER</strong></h6>
+                                                <h6>CABALLO: PEPE</h6>
+                                                <h6>PUNTOS: 90.10</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                    <div class="desktop-ranking row">
+                        <div class="card col-6 col-md-3 first">
+                            <div class="card-title"><h6>PRIMER PUESTO</h6></div>
+                            <div class="card-content">
+                                <div class="">
+                                    <img class="multimedia_object" src="~/Content/old/img/rank1-1024.png" alt="Avatar" style="width:100%">
+                                </div>
+                                <div class="container">
+                                    <h6><strong>SVENJA ECHLER</strong></h6>
+                                    <h6>CABALLO: SAMY</h6>
+                                    <h6>PUNTOS: 92.09</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card col-md-3 second">
+                            <div class="card-title"><h6>SEGUNDO PUESTO</h6></div>
+                            <div class="card-content">
+                                <div class="">
+                                    <img class="multimedia_object" src="~/Content/old/img/rank2-1024.png" alt="Avatar" style="width:100%">
+                                </div>
+                                <div class="container">
+                                    <h6><strong>SVENJA ECHLER</strong></h6>
+                                    <h6>CABALLO: PEPE</h6>
+                                    <h6>PUNTOS: 90.10</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card col-md-3 third">
+                            <div class="card-title"><h6>SEGUNDO PUESTO</h6></div>
+                            <div class="card-content">
+                                <div class="">
+                                    <img class="multimedia_object" src="~/Content/old/img/rank3-1024.png" alt="Avatar" style="width:100%">
+                                </div>
+                                <div class="container">
+                                    <h6><strong>SVENJA ECHLER</strong></h6>
+                                    <h6>CABALLO: SUGAR</h6>
+                                    <h6>PUNTOS: 84.56</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-ranking">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide col-6 col-md-3">
+                                    <div class="card first">
+                                        <div class="card-title"><h6>PRIMER PUESTO</h6></div>
+                                        <div class="card-content">
+                                            <div class="">
+                                                <img class="multimedia_object" src="~/Content/old/img/rank1-1024.png" alt="Avatar" style="width:100%">
+                                            </div>
+                                            <div class="container">
+                                                <h6><strong>SVENJA ECHLER</strong></h6>
+                                                <h6>CABALLO: SAMY</h6>
+                                                <h6>PUNTOS: 92.09</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide col-6 col-md-3">
+                                    <div class="card second">
+                                        <div class="card-title"><h6>SEGUNDO PUESTO</h6></div>
+                                        <div class="card-content">
+                                            <div class="">
+                                                <img class="multimedia_object" src="~/Content/old/img/rank2-1024.png" alt="Avatar" style="width:100%">
+                                            </div>
+                                            <div class="container">
+                                                <h6><strong>SVENJA ECHLER</strong></h6>
+                                                <h6>CABALLO: PEPE</h6>
+                                                <h6>PUNTOS: 90.10</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide col-6 col-md-3">
+                                    <div class="card third">
+                                        <div class="card-title"><h6>SEGUNDO PUESTO</h6></div>
+                                        <div class="card-content">
+                                            <div class="">
+                                                <img class="multimedia_object" src="~/Content/old/img/rank3-1024.webp" alt="Avatar" style="width:100%">
+                                            </div>
+                                            <div class="container">
+                                                <h6><strong>SVENJA ECHLER</strong></h6>
+                                                <h6>CABALLO: SUGAR</h6>
+                                                <h6>PUNTOS: 84.56</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                    <div class="desktop-ranking row">
+                        <div class="card col-md-3 first">
+                            <div class="card-title"><h6>PRIMER PUESTO</h6></div>
+                            <div class="card-content">
+                                <div class="">
+                                    <img class="multimedia_object" src="~/Content/old/img/rank1-1024.png" alt="Avatar" style="width:100%">
+                                </div>
+                                <div class="container">
+                                    <h6><strong>SVENJA ECHLER</strong></h6>
+                                    <h6>CABALLO: SAMY</h6>
+                                    <h6>PUNTOS: 92.09</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-ranking">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide col-6 col-md-3">
+                                    <div class="card first">
+                                        <div class="card-title">PRIMER PUESTO</div>
+                                        <div class="card-content">
+                                            <div class="">
+                                                <img class="multimedia_object" src="~/Content/old/img/rank2-1024.png" alt="Avatar" style="width:100%">
+                                            </div>
+                                            <div class="container">
+                                                <h6><strong>SVENJA ECHLER</strong></h6>
+                                                <h6>CABALLO: SAMY</h6>
+                                                <h6>PUNTOS: 92.09</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@*<section class="section events" id="js-events">
+        <div class="highlight">
+            <svg class="" viewBox="0 0 1516 690">
+                <use class="line" xlink:href="#highlight"></use>
+            </svg>
+        </div>
+    </section>*@
+<section class="section events" id="events-section">
+    <div class="highlight">
+        <svg class="" viewBox="0 0 1516 690">
+            <use class="line" xlink:href="#highlight"></use>
+        </svg>
+    </div>
+    <div class="row fixedw">
+        <div class="col-md-4">
+            <div class="section-header">
+                <h2 class="text-mobile" data-aos="fade-right">EVENTOS</h2>
+            </div>
+        </div>
+        <div class="col-md-8 swiper">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    @if (Model.Events != null)
+                    {
+                        foreach (var ev in Model.Events)
+                        {
+                            <div class="swiper-slide col-6 col-md-3">
+                                <div class="event-card" data-aos="flip-up">
+                                    <div class="event-date">
+                                        <h6>@ev.Date</h6>
+                                    </div>
+                                    <div class="event-name">
+                                        <h5>@ev.Acronym</h5>
+                                    </div>
+                                    <div class="event-place">
+                                        <h6>@ev.Club</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="section footer" style="">
+    <div class="row fixedw">
+        <div class="logo col-md-1" data-aos="fade-up-right">
+            <a class="navbar-brand navIcon" href="@Url.Action("Index", "Home")">
+                @*<svg class="navIcon_logo" viewBox="0 0 512 512">
+                        <use class="ibody" xlink:href="#logo-body"></use>
+                        <use class="fd" xlink:href="#logo-fd"></use>
+                        <use class="ne" xlink:href="#logo-ne"></use>
+                    </svg>*@
+                <img class="navIcon_logo" width="60px" height="60px" src="/Content/src/img/logo-fep.png">
+            </a>
+        </div>
+        <div class="col-md-9">
+            <nav class="nav nav--display-links">
+                <ul class="menu">
+                    <li class="menu_item">
+                        <a href="@Url.Action("Index", "Home")" class="link">HOME</a>
+                        <ul class="submenu"></ul>
+                    </li>
+                    <li class="menu_item" id="menu_about_us">
+                        <a href="#menu_about_us" class="link">QUI&Eacute;NES SOMOS</a>
+                        <ul class="submenu">
+                            <li class="menu_item">
+                                <a href="@Url.Action("Historia", "Nosotros")" class="link">HISTORIA</a>
+                            </li>
+                            <li class="menu_item">
+                                <a href="@Url.Action("Oficiales", "Nosotros")" class="link">OFICIALES</a>
+                            </li>
+                            <li class="menu_item">
+                                <a href="@Url.Action("Organizacion", "Nosotros")" class="link">ORGANIZACI&Oacute;N</a>
+                            </li>
+                            <li class="menu_item">
+                                <a href="@Url.Action("MisionVision", "Nosotros")" class="link">NOSOTROS</a>
+                            </li>
+                            <li class="menu_item">
+                                <a href="@Url.Action("PautasTemporada", "Nosotros")" class="link">PAUTAS</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu_item" id="menu_disciplines">
+                        <a href="#menu_disciplines" class="link">DISCIPLINAS</a>
+                        <ul class="submenu">
+                            <li class="menu_item">
+                                <a href="@Url.Action("Discipline", "Disciplinas", new { name = "Adiestramiento" })" class="link">ADIESTRAMIENTO</a>
+                            </li>
+                            <li class="menu_item">
+                                <a href="@Url.Action("Discipline", "Disciplinas", new { name = "Enduro" })" class="link">ENDURO</a>
+                            </li>
+                            <li class="menu_item">
+                                <a href="@Url.Action("Discipline", "Disciplinas", new { name = "ConcursoCompletoDeEquitación" })" class="link">CONCURSO COMPLETO <br /> DE EQUITACI&Oacute;N</a>
+                            </li>
+                            <li class="menu_item">
+                                <a href="@Url.Action("Discipline", "Disciplinas", new { name = "Salto" })" class="link">SALTO</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu_item" id="menu_contests">
+                        <a href="#menu_contests" class="link">CONCURSOS</a>
+                        <ul class="submenu">
+                            <li class="menu_item">
+                                <a href="@Url.Action("FEI", "Concursos")" class="link">FEI</a>
+                            </li>
+                            <li class="menu_item">
+                                <a href="@Url.Action("Rankings", "Concursos")" class="link">RANKING</a>
+                            </li>
+                            <li class="menu_item">
+                                <a href="@Url.Action("Resultados", "Concursos")" class="link">RESULTADOS</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu_item">
+                        <a href="@Url.Action("Listado", "Eventos")" class="link">EVENTOS</a>
+                        <ul class="submenu">
+                            <li class="menu_item">
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu_item">
+                        <a href="@Url.Action("Listado", "Galeria")" class="link">GALER&Iacute;A</a><ul class="submenu"></ul>
+                    </li>
+                    <li class="menu_item" id="menu_afiliates">
+                        <a href="#menu_afiliates" class="link">AFILIADOS</a>
+                        <ul class="submenu">
+
+                            <li class="menu_item">
+                                <a href="@Url.Action("ListadoCaballos", "Afiliados")" class="link">CABALLOS</a>
+                            </li>
+                            <li class="menu_item">
+                                <a href="@Url.Action("ListadoClubes", "Afiliados")" class="link">CLUBES</a>
+                            </li>
+                            <li class="menu_item">
+                                <a href="@Url.Action("ListadoCoaches", "Afiliados")" class="link">COACHING SYSTEM</a>
+                            </li>
+                            <li class="menu_item">
+                                <a href="@Url.Action("ListadoJinetes", "Afiliados")" class="link">JINETES</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu_item" id="menu_news">
+                        <a href="#menu_news" class="link">NOVEDADES</a>
+                        <ul class="submenu">
+                            <li class="menu_item">
+                                <a href="@Url.Action("Listado", "Noticias")" class="link">NOTICIAS</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <hr class="menu_underline" />
+                    <hr class="menu_line" />
+                </ul>
+            </nav>
+        </div>
+        <div class="col-md-2 col-12">
+            <div class="row">
+                <div class="outer-links col-md-12 col-6">
+                    <p data-aos="fade-left"><a href="@Url.Action("Contacto", "Contacto")">Cont&aacute;ctanos</a></p>
+                    <p data-aos="fade-left"><a href="@Url.Action("Index", "TerminosCondiciones")">T&eacute;rminos y Condiciones</a></p>
+
+                </div>
+                <div class="social col-md-12 col-6">
+                    <div class="social-follow" data-aos="fade-left" style="font-size:13px;">S&iacute;guenos en</div>
+                    <div class="social-networks" style="margin-top: 10px;" data-aos="fade-up">
+                        <a href="https://twitter.com/PeruFep">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/fed_ecuestre_peru/">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UC33cLnDmVf0jxpofuw7HMIg">
+                            <i class="fa fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+@section Scripts {
+    <script src="~/Content/old/js/lib/swiper/swiper.min.js"></script>
+    <script src="~/Content/old/js/carousel.js"></script>
+    <script src="~/Content/src/vendors/slim-select/js/slimselect.min.js"></script>
+    <script>
+  function changeDisplayProperty(name, num)    {
+    const maxOffset = 5;
+    let id =  num;
+    console.log('Trigger by Component Id:' + id);
+  	if(id && id < maxOffset) {
+      id = name + num;
+  		document.getElementById(id).style.display = 'block';
+  	  console.log('property display changed to block: ' + id);
+  		for(let i = maxOffset - 1; i > 0 ; i--) {
+  			if(i !== num ) {
+  				id = name + i;
+  				document.getElementById(id).style.display = 'none';
+  				console.log('property display changed to none: ' + id);
+  				}
+  		}
+  	} else {
+  		console.log('greather than 5');
+  	}
+  };
+
+  function showInfo(html){
+	const maxOffset = 5;
+	let id = html.getAttribute('id');
+	id = id ? id[id.length -1] : null;
+	id = id ? parseInt(id, maxOffset) : null;
+	changeDisplayProperty('info', id);
+      let el = document.querySelector( ':focus' );
+        if( el ) el.blur();
+  };
+
+  var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+    freeMode: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
+
+
+  window.cookieconsent.initialise({
+    container: document.getElementById("content"),
+    palette: {
+      popup: { background: "#fff" },
+      button: { background: "#aa0000" },
+    },
+    revokable: true,
+    onStatusChange: function (status) {
+      console.log(this.hasConsented() ?
+        'enable cookies' : 'disable cookies');
+    },
+    layouts: {
+      'basic': '{{messagelink}}{{allow}}&emsp;{{dismiss}}',
+      'basic-close': '{{messagelink}}{{compliance}}{{close}}',
+      'basic-header': '{{header}}{{message}}{{link}}{{compliance}}',
+    },
+    palette: {
+      popup: { background: '#000000', text: '#fff', link: '#fff' },
+      button: { background: 'transparent', border: '#f8e71c', text: '#f8e71c' },
+      highlight: { background: '#f8e71c', border: '#f8e71c', text: '#000000' },
+    },
+    law: {
+      regionalLaw: false,
+    },
+    location: true,
+    content: {
+      header: 'Cookies used on the website!',
+      message: '<b>Utilizamos cookies en este sitio para mejorar su experiencia de usuario</b><br/>Para obtener más información sobre nuestro uso de <i>cookies</i>, por favor vea nuestra <i>Política de privacidad</i><br/>Al hacer clic en cualquier enlace de esta página, está dando su consentimiento para que configuremos cookies',
+      dismiss: 'No Acepto',
+      allow: 'Acepto',
+      deny: 'Decline',
+      link: '',
+      href: 'http://cookiesandyou.com',
+      close: 'x',
+      policy: 'Cookie Policy',
+      target: '_blank',
+
+      elements: {
+        header: '<span class="cc-header">{{header}}</span>&nbsp;',
+        message: '<span id="cookieconsent:desc" class="cc-message">{{message}}</span>',
+        messagelink: '<span id="cookieconsent:desc" class="cc-message">{{message}} <a aria-label="learn more about cookies" tabindex="0" class="cc-link" href="{{href}}" target="_blank">{{link}}</a></span>',
+        dismiss: '<a aria-label="dismiss cookie message" tabindex="0" class="cc-btn cc-dismiss">{{dismiss}}</a>',
+        allow: '<a aria-label="allow cookies" tabindex="0" class="cc-btn cc-allow">{{allow}}</a>',
+        deny: '<a aria-label="deny cookies" tabindex="0" class="cc-btn cc-deny">{{deny}}</a>',
+        link: '<a aria-label="learn more about cookies" tabindex="0" class="cc-link" href="{{href}}" target="_blank">{{link}}</a>',
+        close: '<span class="btn btn-outline btn-white" aria-label="dismiss cookie message" tabindex="0">{{close}}</span>',
+      }
+    }
+  });
+
+
+  @**
+   * forEach implementation for Objects/NodeLists/Arrays, automatic type loops and context options
+   *
+   * @private
+   * @author Todd Motto
+   * @link https://github.com/toddmotto/foreach
+   * @param {Array|Object|NodeList} collection - Collection of items to iterate, could be an Array, Object or NodeList
+   * @callback requestCallback      callback   - Callback function for each iteration.
+   * @param {Array|Object|NodeList} scope=null - Object/NodeList/Array that forEach is iterating over, to use as the this value when executing callback.
+   * @returns {}
+  *@
+
+        var forEach = function (t, o, r) { if ("[object Object]" === Object.prototype.toString.call(t)) for (var c in t) Object.prototype.hasOwnProperty.call(t, c) && o.call(r, t[c], c, t); else for (var e = 0, l = t.length; l > e; e++)o.call(r, t[e], e, t) };
+        $(function () {
+            $.scrollify({
+                section: ".section",
+                scrollbars: false,
+                interstitialSection: "#events-section,footer",
+                after: function (index, sections) {
+                    var logoB = $("#main-logo .navIcon_logo .ibody");
+                    var logoF = $("#main-logo .navIcon_logo .fd");
+                    var btn = $(".hamburger-inner");
+                    if (index === 3) {
+                        logoB.addClass("black");
+                        logoF.addClass("black");
+                        //logoB.css("fill", "rgb(26,25,25)");
+                        //logoF.css("fill", "rgb(255,255,255)");
+                        btn.removeClass("hamburger-inner--white");
+                        btn.addClass("hamburger-inner--black");
+                    } else {
+                        logoB.removeClass("black");
+                        logoF.removeClass("black");
+                        //logoB.css("fill", "");
+                        //logoF.css("fill", "");
+                        btn.removeClass("hamburger-inner--black");
+                        btn.addClass("hamburger-inner--white");
+                    }
+                    var current = $.scrollify.current();
+                    console.log(current);
+                    console.log(index);
+                    console.log(sections);
+                }
+            });
+            AOS.init();
+
+            //var fp = new fullpage(".fullpage", {
+            //    autoScrolling: true,
+            //    //Accessibility
+            //    keyboardScrolling: true,
+            //    licenseKey: "EEB503B3-9F6E403A-A0B4C2A4-A3F1EF4E"
+            //});
+        });
+
+        var disciplineSelect = new SlimSelect({
+            select: "#discipline_filter"
+        });
+        var categorySelect = new SlimSelect({
+            select: "#category_filter"
+        });
+        var levelSelect = new SlimSelect({
+            select: "#level_filter"
+        });
+
+        var disciplineFilter = document.getElementById("discipline_filter");
+        var nivelFilter = document.getElementById("level_filter");
+        var categoryFilter = document.getElementById("category_filter");
+
+        var changeSelect = () => {
+            GetLevel(disciplineFilter.value);
+            GetCategory(disciplineFilter.value);
+        }
+
+        var changeTable = () => {
+            let disciplineId = disciplineFilter.value;
+            let categoryId = categoryFilter.value;
+            let levelId = nivelFilter.value;
+            ConstruirGrid(ObtenerDatos(seasonId, disciplineId, categoryId, levelId));
+        }
+
+        disciplineFilter.addEventListener("change", changeSelect);
+        nivelFilter.addEventListener("change", changeTable);
+        categoryFilter.addEventListener("change", changeTable);
+
+        const GetDicipilnas = () => {
+            fetch(_app.parseToUrl('/concursos/listadodisciplinasapi'), {
+                method: 'get'
+            }).then(response => {
+                return response.json();
+            }).then(data => {
+                for (var i in data) {
+                    var opt = document.createElement("option");
+                    opt.value = data[i].id;
+                    opt.text = data[i].name;
+                    disciplineFilter.appendChild(opt);
+                }
+            }).catch(err => { });
+        };
+        GetDicipilnas();
+
+        const GetLevel = (disiplineId) => {
+            fetch(_app.parseToUrl(`/concursos/nivelesxdiciplinasapi/${disiplineId}`), {
+                method: 'get'
+            }).then(response => {
+                return response.json();
+            }).then(data => {
+                if (nivelFilter.options.length > 0)
+                    clearCombo(nivelFilter)
+                for (var i in data) {
+                    var opt = document.createElement("option");
+                    opt.value = data[i].id;
+                    opt.text = data[i].name;
+                    nivelFilter.appendChild(opt);
+                }
+                nivelFilter.options[0] = null;
+            }).catch(err => { });
+        };
+
+        const GetCategory = (disiplineId) => {
+            fetch(_app.parseToUrl(`/concursos/categoriaxdiciplinasapi/${disiplineId}`), {
+                method: 'get'
+            }).then(response => {
+                return response.json();
+            }).then(data => {
+                if (categoryFilter.options.length > 0)
+                    clearCombo(categoryFilter)
+                for (var i in data) {
+                    var opt = document.createElement("option");
+                    opt.value = data[i].id;
+                    opt.text = data[i].name;
+
+                    categoryFilter.appendChild(opt);
+                }
+                categoryFilter.options[0] = null;
+            }).catch(err => { });
+        };
+        //(function () {
+        //        // nav icons changes
+        //        let events = document.querySelector("#events-section"),
+        //            others = document.querySelectorAll('#main-section, #disciplines-section, #ranking-section'),
+        //            logoBody = document.querySelector(".navIcon_logo .ibody"),
+        //            logoFD = document.querySelector(".navIcon_logo .fd"),
+        //            menuIcon = document.querySelector("#ham .menu"),
+        //            menuWrapper = document.querySelector(".navHeader_icon.navbar-toggler"),
+        //            isLocked = false, wrapperActive = false;
+
+        //        function fillIcons() {
+        //            if (!isLocked && !logoBody.style.fill) {
+        //                logoBody.style.fill = "#1a1919";
+        //                logoFD.style.fill = "#fff";
+        //                menuIcon.style.fill = "#1a1919";
+        //            }
+        //            // clear if mouseover any other section
+        //             others.forEach(function (s) {
+        //                s.addEventListener('mouseover', clearIcons, { once: true });
+        //             });
+
+        //            // if menu active then no fill
+        //            if (!wrapperActive) {
+        //                menuWrapper.addEventListener('click', function () {
+        //                    clearIcons();
+        //                    isLocked = !isLocked;
+        //                    wrapperActive = !wrapperActive;
+        //                }, { once: true });
+        //                wrapperActive = !wrapperActive;
+        //            }
+
+        //        }
+
+        //        function clearIcons() {
+        //             if (logoBody.style.fill) {
+        //                logoBody.style.fill = "";
+        //                logoFD.style.fill = "";
+        //                menuIcon.style.fill = "";
+        //             }
+        //        }
+
+        //        events.addEventListener('mouseover', fillIcons, false);
+
+        //})();
+
+        //(function () {
+        //    'use strict';
+
+        //    let Pictures = (function loadPictures() {
+        //        function calculateAspectRatioFit( srcWidth,
+        //            srcHeight,
+        //            maxWidth,
+        //            maxHeight ) {
+        //            let ratio = Math.max(maxWidth / srcWidth, maxHeight / srcHeight );
+        //            return {
+        //                width: Math.floor(srcWidth*ratio),
+        //                height: Math.floor(srcHeight*ratio)
+        //            };
+        //        }
+
+        //        class loader {
+        //            constructor(userSettings) {
+        //                let _ = this;
+        //                _.def = {
+        //                    figures: document.querySelectorAll('.multimedia'),
+        //                    mediaClass: '.multimedia_object',
+        //                    force: true,
+        //                }
+
+        //            }
+        //            init() {
+        //                let _ = this;
+        //                let options = { once: true },
+        //                    active = false;
+
+        //                function resize(media, wrapper) {
+        //                    let ratio = calculateAspectRatioFit (
+        //                        media.offsetWidth,
+        //                        media.offsetHeight,
+        //                        wrapper.offsetWidth,
+        //                        wrapper.offsetHeight);
+        //                    if (ratio.width < wrapper.offsetWidth) {
+        //                        ration.width = wrapper.offsetWidth;
+        //                        ratio.height = 'auto';
+        //                    }
+        //                    wrapper.style.setProperty('--w', ratio.width + "px");
+        //                    wrapper.style.setProperty('--h', ratio.height !== 'auto' ? ratio.height + "px" : ratio.height);
+        //                }
+
+        //                function resizeAllMedias() {
+        //                    if(active) {
+        //                        window.removeEventListener('resize', resize);
+        //                        active = false;
+        //                    }
+        //                    _.def.figures.forEach(function(wrapper) {
+        //                        let media = wrapper.querySelector(_.def.mediaClass);
+
+        //                        if(media.complete) {
+        //                            resize(media, wrapper);
+
+        //                        } else {
+        //                            if (media.classList.contains("video")) {
+        //                                resize(media, wrapper);
+        //                            } else {
+        //                                media.addEventListener('load', function() {
+        //                                    resize(media, wrapper);
+        //                                    media.draggable = false;
+
+        //                                }, options);
+        //                            }
+        //                        }
+        //                    });
+        //                    window.addEventListener('resize', resizeAllMedias);
+        //                    active = true;
+        //                }
+        //                resizeAllMedias();
+        //                return _;
+        //            };
+        //        }
+
+        //        return loader;
+        //    })();
+
+        //     let resize = new Pictures().init();
+        //})();
+    </script>
+    <script type="text/javascript">
+        //Waves.init();
+        //Waves.attach(".drag-ripple", 'waves-block', true);
+        //Waves.attach('#bg-pattern',null,true);
+        //Waves.attach('.btn-white', ['waves-button', 'waves-float']);
+    </script>
+}

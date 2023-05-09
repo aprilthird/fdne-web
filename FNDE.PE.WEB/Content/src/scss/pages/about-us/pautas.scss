@@ -1,0 +1,24 @@
+﻿@import "../../abstracts/variables";
+@import "../../abstracts/mixins";
+@import "../../layout/variables";
+
+$f--pautas-body-margin: 50px;
+
+.f-section-pautas {
+    margin: {
+        top: $f--pautas-body-margin;
+        bottom: $f--pautas-body-margin;
+    }
+
+    ol {
+        padding-left: 15px;
+    }
+
+    ul {
+        padding-left: 20px;
+    }
+
+    strong {
+        font-weight: bold;
+    }
+}

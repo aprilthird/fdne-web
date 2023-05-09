@@ -1,0 +1,214 @@
+﻿.link {
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    transition: color .3s;
+}
+
+    .link:hover {
+        color: red;
+    }
+
+#main-menu {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+    display: flex;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+    #main-menu.active {
+        visibility: visible;
+        opacity: 1;
+        transition: all 0.3s ease;
+    }
+
+        #main-menu.active #btn-menu {
+            z-index: 80000;
+        }
+
+        #main-menu.active #main-logo {
+            z-index: 80000;
+        }
+
+        #main-menu.active > li {
+            z-index: 80000;
+        }
+
+        #main-menu.active .menu {
+            z-index: 8000;
+        }
+
+    #main-menu::before {
+        content: "";
+        background-color: black;
+        position: fixed;
+        /*related to viewport (not nearest positioned) height: 0;*/
+        width: 100vw;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 0;
+        margin: 0;
+        z-index: 300;
+        transition: height 0.5s ease;
+    }
+
+    #main-menu.active::before {
+        height: 35vh;
+        transition: height 0.5s ease;
+        /* TODO: use box-shadow mixin */
+        box-shadow: 0px 8px 5px -5px rgba(0,0,0,0.75);
+    }
+
+@media only screen and (max-width: 800px) {
+        #main-menu.active::before {
+            height: 100vh;
+            transition: height 0.5s ease;
+        }
+}
+
+    .menu {
+        list-style-type: none;
+        width: intrinsic;
+        width: -moz-fit-content;
+        width: -webkit-fit-content;
+        position: relative;
+        display: flex;
+        flex-grow: 1;
+        flex-shrink: 0;
+        justify-content: space-between;
+    }
+
+    @media screen and (max-width: 600px) {
+        .menu {
+            padding: 0 0 0 3em;
+            flex-direction: column;
+        }
+
+        .menu_line, .menu_underline {
+            display: none;
+        }
+    }
+
+    .menu_item {
+        display: inline-block;
+    }
+
+        .menu_item > .link {
+            padding: 0.5rem;
+        }
+
+    .menu_line, .menu_underline {
+        margin: 0;
+        width: 0%;
+        height: 1px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background: gray;
+        pointer-events: none;
+        border: none;
+        transition: width .3s;
+    }
+
+    .menu_underline {
+        margin: 0;
+        height: 3px;
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        background: red;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0;
+        border: none;
+        transition: opacity .3s, width .3s, left .3s;
+    }
+
+    .submenu {
+        list-style-type: none;
+        padding: 1em 0 0 0;
+        position: absolute;
+        opacity: 1;
+    }
+
+    @media screen and (max-width: 600px) {
+        .submenu {
+            padding: 0 0 0 1em;
+            position: relative;
+            height: 0;
+            display: none;
+        }
+    }
+
+    .submenu > .menu_item {
+        opacity: 0;
+        display: list-item;
+        transition: opacity .3s;
+    }
+
+        .submenu > .menu_item > .link {
+            padding: .5em 0 .5em 1em;
+        }
+
+    #nav {
+        box-sizing: border-box;
+    }
+
+.nav--display-links .menu {
+    justify-content: center;
+}
+.nav--display-links .menu > li > a {
+    border-bottom: 1px solid #ffffff;
+}
+.nav--display-links .submenu {
+    position: relative;
+}
+.nav--display-links .menu_line {
+    width: 0%;
+    display: block;
+}
+.nav--display-links .menu_underline {
+    display: block;
+}
+.nav--display-links .submenu > .menu_item {
+    opacity: 1;
+}
+.nav--display-links .menu_item > a {
+    padding-left: 0.95rem !important;
+    padding-right: 0.95rem !important;
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .submenu {
+        transition: all 0.5s ease;
+        width: 100%;
+    }
+
+    .nav--display-links .menu {
+        padding-top: 40px;
+        padding-left: 50px;
+    }
+
+    .nav--display-links .menu > li > a:before {
+        content: "> ";
+    }
+
+    .nav--display-links .menu > li:target > a:before {
+        content: "v ";
+    }
+
+    .nav--display-links .menu > li:target .submenu {
+        display: block;
+        height: auto;
+        transition: all 0.5s ease;
+    }
+
+    .nav--display-links .menu > li > a {
+        border-bottom: 0;
+    }
+}

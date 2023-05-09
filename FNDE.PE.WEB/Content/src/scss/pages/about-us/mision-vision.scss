@@ -1,0 +1,82 @@
+﻿@import "../../abstracts/variables";
+@import "../../abstracts/mixins";
+@import "../../layout/variables";
+
+.f-section-description {
+    margin-top: $f--section-separation;
+    margin-bottom: $f--section-separation;
+}
+
+/* TODO: try refactor */
+// Explanation:
+// bg-color is container level defined with gradient on desktop but div level defined on mobile individually
+// margin and padding of container is supressed on mobile and set div level
+// f-container behavior is restored for container on wide-desktop and padding is clear on mobile and partially clear on desktop
+// Because f-container set special padding and margin for wide-desktop view and just margin for desktop and less views,
+// clear that caused container's content stretch to borders, so we enable f-container behavior on wide-desktop and set some padding
+// on desktop to avoid stretch and set 4 direction padding on mobile
+.f-section-misionvision {
+    //@include gradient-bg($f--primary-color, 90deg, $f--secondary-color 50%, $f--primary-color 50%);
+    //background: linear-gradient(to bottom, $f--secondary-color 50%, $f--primary-color 50%);
+    @include desktop {
+        //This will set bg color only for desktop (mobile is div level defined)
+        background: linear-gradient(to right, $f--secondary-color 50%, $f--primary-color 50%);
+    }
+
+    &__container {
+        @include flexbox();
+        @include flexbox-direction(column);
+        @include flexbox-wrap(wrap);
+        padding: 0 !important; //clear f-container padding on mobile for bg
+        @include desktop {
+            @include flexbox-direction(row);
+            @include flexbox-justify-content(space-between);
+            padding: $f--section-separation 25px !important; //Seting with the intention of emulate f-container
+            //Set padding at container level (mobile is div level defined)
+        }
+
+        &-mision {
+            background-color: $f--secondary-color; //bg-color div level defined on mobile
+            @include desktop {
+                background-color: transparent; //Let container bg-color fill
+            }
+        }
+
+        &-vision {
+            background-color: $f--primary-color; //bg-color div level defined on mobile
+            @include desktop {
+                background-color: transparent; //Let container bg-color fill
+            }
+        }
+
+        & > div {
+            @include flexbox-basis(50%);
+            padding: $f--section-separation 25px; //Seting with the intention of replace f-container
+            @include desktop {
+                @include flexbox-basis(40%);
+                //Clear padding on div to let container define paddings
+                padding: 0;
+            }
+
+            @include wide-desktop {
+                padding: 0; //Dont bother f-container
+            }
+
+            & > .f-section__title {
+                margin-bottom: 10px;
+
+                @include desktop {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+
+    &__mision {
+        @include flexbox-flex(1);
+    }
+
+    &__vision {
+        @include flexbox-flex(1);
+    }
+}

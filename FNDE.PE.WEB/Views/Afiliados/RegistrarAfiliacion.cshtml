@@ -1,0 +1,337 @@
+﻿
+@{
+    ViewBag.Title = "Afiliación";
+    Layout = "~/Views/Shared/_LayoutBackground.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link href="~/Content/dist/css/pages/affiliates/new-afiliation.css" rel="stylesheet" />
+}
+
+<main>
+    <section class="f-section f-section__content f-section-background f-section--dark">
+        <div class="f-section-background__image rellax" data-rellax-speed="-7">
+            <img src="~/Content/src/img/slide3-1024.png"/>
+        </div>
+        <div class="f-section-background__title f-container">
+            <h1>AFILIACI&Oacute;N</h1>
+            <a href="@Url.Action("Afiliacion", "Afiliados")" class="f-section__regresar">< REGRESAR</a>
+        </div>
+    </section>
+    <section class="f-section f-section-new-afiliation">
+        @*<div class="f-section-new-afiliation__tabs">
+                <nav class="f-tabs">
+                    <ul class="f-tabs__list">
+                        <li class="f-tabs__list-item">
+                            <a href="#" class="f-link">Jinetes</a>
+                        </li>
+                        <li class="f-tabs__list-item">
+                            <a href="#" class="f-link">Caballoa</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>*@
+        <div class="f-section-new-afiliation__Fcarousel">
+            <div class="f-section-new-afiliation__Fcarousel-cell">
+                <div class="f-section__cardF">
+                    <a class="f-link" onclick="ShowJienetesForm()" href="#Jinetes">
+                        JINETES
+                    </a>
+                </div>
+            </div>
+            <div class="f-section-new-afiliation__Fcarousel-cell">
+                <div class="f-section__cardF">
+                    <a class="f-link" onclick="ShowCaballosForm()" href="#Caballos">
+                        CABALLOS
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="f-section-new-afiliation__content">
+            <div id="Jinetes" class="f-section-new-afiliation__content-body">
+                <div class="f-wizard-form">
+                    <nav class="f-wizard-form__steps">
+                        <ol class="f-wizard-form__steps-list">
+                            <li id="link-jinetes-temporada" class="f-wizard-form__steps-item f-wizard-form__steps-item--active">
+                                <a class="f-link" href="#" onclick="ShowJinetesTemporadaForm()">1. Datos de la Temporada</a>
+                            </li>
+                            <li id="link-jinetes-datos" class="f-wizard-form__steps-item">
+                                <a class="f-link" href="#" onclick="ShowJinetesDatosForm()">2. Datos del Jinete</a>
+                            </li>
+                            <li id="link-jinetes-ficha" class="f-wizard-form__steps-item">
+                                <a class="f-link" href="#" onclick="ShowJinetesFichaForm()">3. Ficha</a>
+                            </li>
+                        </ol>
+                    </nav>
+                    <form class="f-wizard-form__form f-form f-container" action="/" method="post">
+                        <div id="jinetes-temporada" class="f-section-new-afiliation__boxes" style="display:flex">
+                            <div class="f-section-new-afiliation__boxes-box">
+                                <input class="f-form__control f-input" placeholder="No. de registro FDNE*" type="number" name="name" />
+                                <select class="f-form__control f-select">
+                                    <option selected disabled>Temporada*</option>
+                                    <option>2019</option>
+                                    <option>2018</option>
+                                    <option>2017</option>
+                                </select>
+                            </div>
+                            <div class="f-section-new-afiliation__boxes-box">
+                                <select class="f-form__control f-select">
+                                    <option selected disabled>Disciplina*</option>
+                                    <option>Adiestramiento</option>
+                                    <option>Enduro</option>
+                                    <option>Prueba Completa</option>
+                                    <option>Salto</option>
+                                </select>
+                                <select class="f-form__control f-select">
+                                    <option selected disabled>Categor&iacute;a*</option>
+                                    <option>A1</option>
+                                    <option>A2</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="jinetes-datos" class="f-section-new-afiliation__boxes" style="display:none">
+                            <div class="f-section-new-afiliation__boxes-box">
+                                <input class="f-form__control f-input" placeholder="Nombres*" type="text" name="name" />
+                                <input class="f-form__control f-input" placeholder="Nro. de Registro FDNE*" type="number" name="name" />
+                                <select class="f-form__control f-select">
+                                    <option selected disabled>Nacionalidad*</option>
+                                    <option>Peru</option>
+                                    <option>Brasil</option>
+                                    <option>España</option>
+                                    <option>Alemania</option>
+                                </select>
+                                <input class="f-form__control f-input" placeholder="D.N.I/C.E. No.*" type="number" name="name" />
+                                <input class="f-form__control f-input" placeholder="Fecha de nacimiento*" type="date" name="name" />
+                            </div>
+                            <div class="f-section-new-afiliation__boxes-box">
+                                <input class="f-form__control f-input" placeholder="Apellidos*" type="text" name="name" />
+                                <input class="f-form__control f-input" placeholder="Telefono*" type="number" name="name" />
+                                <select class="f-form__control f-select">
+                                    <option selected disabled>Sexo *</option>
+                                    <option>Hombre</option>
+                                    <option>Mujer</option>
+                                </select>
+                                <input class="f-form__control f-input" placeholder="Domicilio*" type="text" name="name" />
+                                <select class="f-form__control f-select">
+                                    <option selected disabled>Club que representa*</option>
+                                    <option>Club 1</option>
+                                    <option>Club 2</option>
+                                    <option>Club 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="jinetes-ficha" class="f-section-new-afiliation__boxes" style="display:none">
+
+                        </div>
+                        <div class="f-form__actions">
+                            <button class="f-btn f-btn--tertiary" type="button">ANTERIOR</button>
+                            <button class="f-btn f-btn--primary" type="button">SIGUIENTE</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div id="Caballos" class="f-section-new-afiliation__content-body" style="display:none">
+                <div class="f-wizard-form">
+                    <nav class="f-wizard-form__steps">
+                        <ol class="f-wizard-form__steps-list">
+                            <li id="link-caballos-datos" class="f-wizard-form__steps-item f-wizard-form__steps-item--active">
+                                <a class="f-link" href="#" onclick="ShowCaballosDatosForm()">1. Datos del Caballos</a>
+                            </li>
+                            <li id="link-caballos-propietario" class="f-wizard-form__steps-item">
+                                <a class="f-link" href="#" onclick="ShowCaballosPropietarioForm()">2. Datos del Propietario</a>
+                            </li>
+                            <li id="link-caballos-ficha" class="f-wizard-form__steps-item">
+                                <a class="f-link" href="#" onclick="ShowCaballosFichaForm()">3. Ficha</a>
+                            </li>
+                        </ol>
+                    </nav>
+                    <form class="f-wizard-form__form f-form f-container" action="/" method="post">
+                        <div id="caballos-datos" class="f-section-new-afiliation__boxes" style="display:flex">
+                            <div class="f-section-new-afiliation__boxes-box">
+                                <input class="f-form__control f-input" placeholder="Nnombre*" type="text" name="name" />
+                                <input class="f-form__control f-input" placeholder="Procedencia*" type="text" name="name" />
+                                <input class="f-form__control f-input" placeholder="Raza*" type="text" name="name" />
+                                <input class="f-form__control f-input" placeholder="Hijo del padrillo*" type="text" name="name" />
+                                <textarea class="f-form__control f-input" rows="4" placeholder="Pelaje y señas"></textarea>
+                            </div>
+                            <div class="f-section-new-afiliation__boxes-box">
+                                <input class="f-form__control f-input" placeholder="Fecha de nacimiento*" type="date" name="name" />
+                                <select class="f-form__control f-select">
+                                    <option selected disabled>Sexo*</option>
+                                    <option>Macho</option>
+                                    <option>Hembra</option>
+                                </select>
+                                <input class="f-form__control f-input" placeholder="Alzada*" type="text" name="name" />
+                                <input class="f-form__control f-input" placeholder="Hijo de la yegua*" type="text" name="name" />
+                            </div>
+                        </div>
+
+                        <div id="caballos-propietario" class="f-section-new-afiliation__boxes" style="display:none">
+                            <div class="f-section-new-afiliation__boxes-box">
+                                <input class="f-form__control f-input" placeholder="Propietario *" type="text" name="name" />
+                            </div>
+                            <div class="f-section-new-afiliation__boxes-box">
+                                <input class="f-form__control f-input" placeholder="Domicilio *" type="text" name="name" />
+                            </div>
+                        </div>
+
+                        <div id="caballos-ficha" class="f-section-new-afiliation__boxes" style="display:none">
+                            
+                        </div>
+
+                        <div class="f-form__actions">
+                            <button class="f-btn f-btn--tertiary" type="button">ANTERIOR</button>
+                            <button class="f-btn f-btn--primary" type="button">SIGUIENTE</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+@section Scripts {
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script>
+        var horseContainer = document.getElementById("Caballos");
+        var horseriderContainer = document.getElementById("Jinetes");
+
+        var firstElem = document.querySelector('.f-section-new-afiliation__Fcarousel');
+        var Fflkty = new Flickity(firstElem,
+            {
+                cellAlign: 'left',
+                //contain: true,
+                //autoPlay: 1500,
+                pauseAutoPlayOnHover: false,
+                adaptiveHeight: true,
+                watchCSS: true
+            });
+        Fflkty.on('change', function (index) {
+            //console.log(index);
+            let link = $(".f-section-new-afiliation__Fcarousel .f-link")[index];
+            let section = $1(link.getAttribute("href"));          
+            let sections = $(".f-section-new-afiliation__content-body");
+            //console.log(section);
+            sections.forEach(e => e.style.display = "none");
+            section.style.display = "block";
+        });
+
+        function ShowJienetesForm() {
+            //console.log('Jinetes');
+            document.getElementById("Jinetes").style.display = "block";
+            document.getElementById("Caballos").style.display = "none";
+
+            document.getElementById("jinetes-temporada").style.display = "flex";
+            document.getElementById("jinetes-datos").style.display = "none";
+            document.getElementById("jinetes-ficha").style.display = "none";
+
+            var elemento = document.getElementsByTagName("li");
+            for (var i = 0; i < elemento.length; i++)
+                elemento[i].classList.remove("f-wizard-form__steps-item--active");
+
+            var link = document.getElementById("link-jinetes-temporada");
+            link.className += " f-wizard-form__steps-item--active";
+        }
+
+        function ShowCaballosForm() {
+            // console.log('caballos');
+            document.getElementById("Jinetes").style.display = "none";
+            document.getElementById("Caballos").style.display = "block";
+
+            document.getElementById("caballos-datos").style.display = "flex";
+            document.getElementById("caballos-propietario").style.display = "none";
+            document.getElementById("caballos-ficha").style.display = "none";
+
+            var elemento = document.getElementsByTagName("li");
+            for (var i = 0; i < elemento.length; i++)
+                elemento[i].classList.remove("f-wizard-form__steps-item--active");
+
+            var link = document.getElementById("link-caballos-datos");
+            link.className += " f-wizard-form__steps-item--active";
+        }
+
+        //Jinetes
+        function ShowJinetesTemporadaForm() {
+            // console.log('caballos');
+            document.getElementById("jinetes-temporada").style.display = "flex";
+            document.getElementById("jinetes-datos").style.display = "none";
+            document.getElementById("jinetes-ficha").style.display = "none";
+
+            var elemento = document.getElementsByTagName("li");
+            for (var i = 0; i < elemento.length; i++)
+                elemento[i].classList.remove("f-wizard-form__steps-item--active");
+
+            var link = document.getElementById("link-jinetes-temporada");
+            link.className += " f-wizard-form__steps-item--active";
+        }
+        function ShowJinetesDatosForm() {
+            // console.log('caballos');
+            document.getElementById("jinetes-temporada").style.display = "none";
+            document.getElementById("jinetes-datos").style.display = "flex";
+            document.getElementById("jinetes-ficha").style.display = "none";
+
+            var elemento = document.getElementsByTagName("li");
+            for (var i = 0; i < elemento.length; i++)
+                elemento[i].classList.remove("f-wizard-form__steps-item--active");
+
+            var link = document.getElementById("link-jinetes-datos");
+            link.className += " f-wizard-form__steps-item--active";
+        }
+        function ShowJinetesFichaForm() {
+            // console.log('caballos');
+            document.getElementById("jinetes-temporada").style.display = "none";
+            document.getElementById("jinetes-datos").style.display = "none";
+            document.getElementById("jinetes-ficha").style.display = "flex";
+
+            var elemento = document.getElementsByTagName("li");
+            for (var i = 0; i < elemento.length; i++)
+                elemento[i].classList.remove("f-wizard-form__steps-item--active");
+
+            var link = document.getElementById("link-jinetes-ficha");
+            link.className += " f-wizard-form__steps-item--active";
+        }
+        //Caballos
+        function ShowCaballosDatosForm() {
+            // console.log('caballos');
+            document.getElementById("caballos-datos").style.display = "flex";
+            document.getElementById("caballos-propietario").style.display = "none";
+            document.getElementById("caballos-ficha").style.display = "none";
+
+            var elemento = document.getElementsByTagName("li");
+            for (var i = 0; i < elemento.length; i++)
+                elemento[i].classList.remove("f-wizard-form__steps-item--active");
+
+            var link = document.getElementById("link-caballos-datos");
+            link.className += " f-wizard-form__steps-item--active";
+        }
+        function ShowCaballosPropietarioForm() {
+            // console.log('caballos');
+            document.getElementById("caballos-datos").style.display = "none";
+            document.getElementById("caballos-propietario").style.display = "flex";
+            document.getElementById("caballos-ficha").style.display = "none";
+
+            var elemento = document.getElementsByTagName("li");
+            for (var i = 0; i < elemento.length; i++)
+                elemento[i].classList.remove("f-wizard-form__steps-item--active");
+
+            var link = document.getElementById("link-caballos-propietario");
+            link.className += " f-wizard-form__steps-item--active";
+        }
+        function ShowCaballosFichaForm() {
+            // console.log('caballos');
+            document.getElementById("caballos-datos").style.display = "none";
+            document.getElementById("caballos-propietario").style.display = "none";
+            document.getElementById("caballos-ficha").style.display = "flex";
+
+            var elemento = document.getElementsByTagName("li");
+            for (var i = 0; i < elemento.length; i++)
+                elemento[i].classList.remove("f-wizard-form__steps-item--active");
+
+            var link = document.getElementById("link-caballos-ficha");
+            link.className += " f-wizard-form__steps-item--active";
+        }
+    </script>
+}

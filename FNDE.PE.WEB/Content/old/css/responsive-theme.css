@@ -1,0 +1,178 @@
+﻿
+.header {
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    z-index: 70;
+    margin-top: 40px;
+    position: fixed;
+    width: 100vw !important;
+}
+
+.menu {
+    padding-left: 0;
+}
+
+.menu-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+}
+
+#main-logo, #btn-menu, #main-menu {
+    position: relative;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#main-logo {
+}
+
+.carousel_item .caption {
+    left: 0;
+    right: 0;
+    text-align: left;
+    padding-left: 0 !important;
+    width: 100%;
+}
+
+.caption_wrapper {
+    padding-left: 0 !important;
+}
+
+.btn-container {
+    flex: 0 0 16.6666667%;
+    max-height: 16.6666667%;
+    display: flex;
+    order: 2;
+    justify-content: flex-end;
+}
+
+#btn-menu {
+    z-index: 10000;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: auto;
+    height: 60px;
+    -webkit-appearance: button;
+    background-color: transparent;
+    border: 0;
+}
+
+#main-menu {
+    flex-grow: 2;
+    margin: 0 !important;
+}
+
+@media only screen and (max-width: 1000px) {
+    .menu-container {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    #main-logo {
+        order: 1;
+    }
+    #btn-menu {
+        order: 2;
+    }
+    #main-menu {
+        order: 3;
+        flex: 0 0 100%;
+    }
+}
+
+.main-footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-left: 5px;
+    z-index: 4;
+    margin-top: auto;
+    margin-bottom: 80px;
+    height: auto;
+}
+
+.footer-institution {
+    border-top: 2px solid white
+}
+
+@media only screen and (min-width: 1300px) {
+    .header {
+        max-width: 1280px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .main-footer {
+        max-width: 1280px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .fixedw {
+        width: 1280px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .fixedw {
+        display: flex;
+    }
+
+    .header .fixedw {
+        position: fixed;
+    }
+
+    .caption.fixedw {
+        padding: 0 !important;
+    }
+
+    #disciplines-section > .row.fixedw {
+        height: 1280px !important;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    #disciplines-section #info {
+        margin-left: 0 !important;
+        padding-left: 0!important;
+    }
+
+    #disciplines-section .disciplineButton {
+        left: 0;
+        position: inherit;
+        bottom: 0;
+    } 
+
+    #disciplines-section .slider-panel {
+        margin-top: 3%;
+        height: 700px !important;
+    }
+
+    .card {
+        max-height: 600px;
+    }
+
+    #ranking-section {
+        margin-bottom: 5%;
+    }
+
+    .ranking-content {
+        height: 850px !important;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .fixedw {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+}

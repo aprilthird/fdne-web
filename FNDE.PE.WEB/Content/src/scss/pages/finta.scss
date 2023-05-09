@@ -1,0 +1,16 @@
+﻿@import "../base/_normalize.scss";
+@import "../base/_reset.scss";
+
+@import "../../scss/abstracts/variables";
+@import "../../scss/abstracts/mixins";
+
+main {
+    content: var(--mimg);
+    width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+
+    @include desktop {
+        content: var(--pcimg);
+    }
+}

@@ -1,0 +1,109 @@
+@mixin bold(){
+  font-weight: 700;
+}
+@mixin medium(){
+  font-weight: 500;
+}
+@mixin regular(){
+  font-weight: 400;
+}
+@mixin light(){
+  font-weight: 300;
+}
+
+.font-family--heading {
+  font-family: $font-heading;
+}
+
+.font-family--default {
+  font-family: $font-default;
+}
+// All font-size default are mean to 
+// 5333px width screens
+h1 {
+  // 177px;
+  font-size: 5em;
+  @extend .font-family--heading;
+  &.title {
+    text-transform: uppercase;
+    line-height: 3.5em;
+    @include bold();
+  }
+}
+h5 {
+  // 40px
+  font-size: 1.3em;
+  @extend .font-family--heading;
+  &.light {
+    @include light();
+  }
+  &.medium {
+    @include medium();
+  }
+}
+h2 {
+  // 122px
+  font-size: 4em;
+  @extend .font-family--heading;
+  &.title {
+    text-transform: uppercase;
+    @include bold();
+  }
+}
+h3 {
+  // 75px
+  font-size: 2.5em;
+  @extend .font-family--heading;
+  &.subtitle {
+    text-transform: uppercase;
+    @include medium();
+  }
+  &.headline {
+    text-transform: uppercase;
+    @include bold();
+  }
+}
+p {
+  font-size: 0.8em;
+  line-height: 1em;
+  @include light();
+  @extend .font-family--default;
+}
+
+h4 {
+  // 45 px 
+  font-size: 1.5em;
+  @extend .font-family--heading;
+  &.light {
+    @include light();
+  }
+  &.medium {
+    @include medium();
+  }
+}
+
+a {
+  @extend .font-family--heading;
+  &.link {
+    // 30px;
+    font-size: 1em;
+  }
+}
+$min-size: 16px;
+$max-size: 30px;
+$min-viewport: 320px;
+$max-viewport: 5333px;
+
+html {
+  font-size: 16px;
+}
+@media screen and (min-width: 1000px) {
+  html {
+    font-size: calc(16px + 14 * ((100vw - 1000px) / 4320));
+  }
+}
+@media screen and (min-width: 5320px) {
+  html {
+    font-size: 30px;
+  }
+}

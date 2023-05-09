@@ -1,0 +1,115 @@
+﻿@{
+    ViewBag.Title = "ListadoJinetes";
+    Layout = "~/Views/Shared/_LayoutBackground.cshtml";
+}
+
+<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
+<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-balham.css">
+
+
+<main>
+    <section class="f-section f-section__content f-section-background f-section--dark">
+        <div class="f-section-background__image rellax" data-rellax-speed="-7">
+            <img src="~/Content/src/img/slide2-1024.png" />
+        </div>
+        <div class="f-section-background__title f-container">
+            <h1>JINETES AFILIADOS</h1>
+        </div>
+    </section>
+   
+    <section id="general" class="f-section f-container f-section-ranking tabcontent">
+        <div class="f-section-ranking__filters">
+            <div class="f-section-ranking__filters-box">
+                <input style="width: 120px" type="text" class="f-input" id="filter-text-box" placeholder="Buscar..."/>
+            </div>
+        </div>
+        <div id="container-grid"></div>
+        <div class="f-ranking__button-section">
+            <button class="f-btn f-bg--primary">DESCARGAR EXCEL</button>
+        </div>
+    </section>
+   
+</main>
+
+
+@section Scripts {
+    <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+    <script>
+        const ObtenerDatos = () => {
+
+            fetch(_app.parseToUrl('/afiliados/listadojinetesapi'), {
+                method: 'get'
+            }).then(response => {
+                return response.json();
+                }).then(data => {
+                   ConstruirGrid(data)
+                }).catch(function (err) {
+                });
+
+        }
+
+        const ObtenerColumnas = () => {
+            var columnDefs = [
+                { headerName: "JINETE ", field: "Name" },
+                { headerName: "EDAD", field: "Edad", width: 80 },
+                { headerName: "CATEGORIA", field: "Categoria", width: 150 },
+                { headerName: "CLUB", field: "Club", width: 80 }
+            ];
+            return columnDefs;
+        }
+
+        const ConstruirGrid = (datos) => {
+            const existDiv = document.getElementById('myGrid');
+            if (existDiv) {
+                existDiv.remove();
+            }
+            //createElement
+            let divElement = document.createElement('div');
+            divElement.id = 'myGrid';
+            divElement.className = 'ag-theme-balham';
+            divElement.style.width = '100%';
+            divElement.style.height = '400px';
+            let divContainer = document.getElementById('container-grid');
+            divContainer.appendChild(divElement);
+            // let the grid know which columns and what data to use
+            const gridOptions = {
+                columnDefs: ObtenerColumnas(),
+                pagination: true,
+                paginationAutoPageSize: true,
+                rowData: datos,
+                onGridReady: function (params) {
+                    console.log(params);
+                    params.api.sizeColumnsToFit();
+                    window.addEventListener('resize',
+                        function () {
+                            setTimeout(function () {
+                                params.api.sizeColumnsToFit();
+                            });
+                        })
+                }
+            };
+            // lookup the container we want the Grid to use
+            const eGridDiv = document.querySelector('#myGrid');
+            // create the grid passing in the div to use together with the columns & data we want to use
+            new agGrid.Grid(eGridDiv, gridOptions);
+        }
+
+        ObtenerDatos();
+
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+}
+
+

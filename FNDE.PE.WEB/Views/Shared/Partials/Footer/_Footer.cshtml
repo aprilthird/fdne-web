@@ -1,0 +1,159 @@
+﻿
+<footer class="f-footer">
+    <div class="f-footer__container">
+        <div class="f-footer__logo-container">
+            <a href="#">
+                <div class="f-footer-logo f-footer-logo--light"></div>
+            </a>
+        </div>
+        <div class="f-footer__navbar">
+            <nav class="f-navbar f-navbar--light f-navbar--display-links">
+                <ul class="f-navbar__list">
+                    <li class="f-navbar__item">
+                        <a href="@Url.Action("Index", "Home")" class="f-navbar-link">HOME</a>
+                        <ul class="f-navbar__item-dropdown">
+                            <li class="f-navbar__item">
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="f-navbar__item">
+                        <a href="#" class="f-navbar-link">QUI&Eacute;NES SOMOS</a>
+                        <ul class="f-navbar__item-dropdown">
+                            <li class="f-navbar__item">
+                                <a href="@Url.Action("Historia", "Nosotros")" class="f-navbar-link">HISTORIA</a>
+                            </li>
+                            <li class="f-navbar__item">
+                                <a href="@Url.Action("Oficiales", "Nosotros")" class="f-navbar-link">OFICIALES</a>
+                            </li>
+                            <li class="f-navbar__item">
+                                <a href="@Url.Action("Organizacion", "Nosotros")" class="f-navbar-link">ORGANIZACI&Oacute;N</a>
+                            </li>
+                            <li class="f-navbar__item">
+                                <a href="@Url.Action("MisionVision", "Nosotros")" class="f-navbar-link">NOSOTROS</a>
+                            </li>
+                            <li class="f-navbar__item">
+                                <a href="@Url.Action("PautasTemporada", "Nosotros")" class="f-navbar-link">PAUTAS</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="f-navbar__item">
+                        <a href="#" class="f-navbar-link">DISCIPLINAS</a>
+                        <ul class="f-navbar__item-dropdown">
+                            <li class="f-navbar__item">
+                                <a href="@Url.Action("Discipline", "Disciplinas", new { name = "Adiestramiento" })" class="f-navbar-link">ADIESTRAMIENTO</a>
+                            </li>
+                            <li class="f-navbar__item">
+                                <a href="@Url.Action("Discipline", "Disciplinas", new { name = "Enduro" })" class="f-navbar-link">ENDURO</a>
+                            </li>
+                            <li class="f-navbar__item">
+                                <a href="@Url.Action("Discipline", "Disciplinas", new { name = "ConcursoCompletoDeEquitación" })" class="f-navbar-link">CONCURSO COMPLETO <br />DE EQUITACI&Oacute;N</a>
+                            </li>
+                            <li class="f-navbar__item">
+                                <a href="@Url.Action("Discipline", "Disciplinas", new { name = "Salto" })" class="f-navbar-link">SALTO</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="f-navbar__item">
+                        <a href="#" class="f-navbar-link">CONCURSOS</a>
+                        <ul class="f-navbar__item-dropdown">
+                            <li class="f-navbar__item">
+                                <a href="@Url.Action("FEI", "Concursos")" class="f-navbar-link">FEI</a>
+                            </li>
+                            <li class="f-navbar__item">
+                                <a href="@Url.Action("Rankings", "Concursos")" class="f-navbar-link">RANKING</a>
+                            </li>
+                            <li class="f-navbar__item">
+                                <a href="@Url.Action("Resultados", "Concursos")" class="f-navbar-link">RESULTADOS</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="f-navbar__item">
+                        <a href="@Url.Action("Listado", "Eventos")" class="f-navbar-link">EVENTOS</a>                       
+                    </li>
+                    <li class="f-navbar__item">
+                        <a href="@Url.Action("Listado", "Galeria")" class="f-navbar-link">GALER&Iacute;A</a>
+                        <ul class="f-navbar__item-dropdown">
+                            <li class="f-navbar__item">
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="f-navbar__item">
+                        <a href="#" class="f-navbar-link">AFILIADOS</a>
+                        <ul class="f-navbar__item-dropdown">
+
+                            <li class="f-navbar__item">
+                                <a href="@Url.Action("ListadoCaballos", "Afiliados")" class="f-navbar-link">CABALLOS</a>
+                            </li>
+                            <li class="f-navbar__item">
+                                <a href="@Url.Action("ListadoClubes", "Afiliados")" class="f-navbar-link">CLUBES</a>
+                            </li>
+                            <li class="f-navbar__item">
+                                <a href="@Url.Action("ListadoCoaches", "Afiliados")" class="f-navbar-link">COACHING SYSTEM</a>
+                            </li>
+                            <li class="f-navbar__item">
+                                <a href="@Url.Action("ListadoJinetes", "Afiliados")" class="f-navbar-link">JINETES</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="f-navbar__item">
+                        <a href="#" class="f-navbar-link">NOVEDADES</a>
+                        <ul class="f-navbar__item-dropdown">
+                            <li class="f-navbar__item">
+                                <a href="@Url.Action("Listado", "Noticias")" class="f-navbar-link">NOTICIAS</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <hr class="f-navbar__underline" />
+                <hr class="f-navbar__line" />
+            </nav>
+        </div>
+        <div class="f-footer__links">
+            <div class="f-footer__links-extras">
+                <nav class="f-navbar">
+                    <ul class="f-navbar__list">
+                        <li class="f-navbar__item">
+                            <a href="@Url.Action("Contacto", "Contacto")" class="f-navbar-link">Cont&aacute;ctanos</a>
+                        </li>
+                        <li class="f-navbar__item">
+                            <a href="@Url.Action("Index", "TerminosCondiciones")" class="f-navbar-link">T&eacute;rminos y Condiciones</a>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+            <div class="f-footer__links-social">
+                <div class="f-social-text">
+                    S&iacute;guenos en
+                </div>
+                <nav class="f-navbar">
+                    <ul class="f-navbar__list">
+                        <li class="f-navbar__item">
+                            <a href="#" class="f-navbar-link">
+                                <img class="f-social-icon" src="~/Content/src/img/icon-facebook-light.svg" alt="fb"/>
+                            </a>
+                        </li>
+                        <li class="f-navbar__item">
+                            <a href="https://www.instagram.com/fed_ecuestre_peru/" class="f-navbar-link">
+                                <img class="f-social-icon" src="~/Content/src/img/icon-instagram-light.svg" alt="ig"/>
+                            </a>
+                        </li>
+                        <li class="f-navbar__item">
+                            <a href="https://twitter.com/PeruFep" class="f-navbar-link">
+                                <img class="f-social-icon" src="~/Content/src/img/icon-twitter-light.svg" alt="tw"/>
+                            </a>
+                        </li>
+                        <li class="f-navbar__item">
+                            <a href="https://www.youtube.com/channel/UC33cLnDmVf0jxpofuw7HMIg" class="f-navbar-link">
+                                <img class="f-social-icon" src="~/Content/src/img/icon-youtube-light.svg" alt="yt"/>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="f-footer__copyright">
+            Federaci&oacute;n Deportiva Nacional Ecuestre
+        </div>
+    </div>
+</footer>

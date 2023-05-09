@@ -1,0 +1,32 @@
+﻿
+<div class="modal fade show" id="edit_modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-primary" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Editar Temporada</h4>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form id="edit_form" class="form form-horizontal" role="form">
+                <div class="modal-body">
+                    <div id="edit_alert" class="alert alert-danger alert-dismissible fade d-none" role="alert">
+                        <span id="edit_alert_text"></span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    @Html.Partial("_Fields")
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal"> Cerrar</button>
+                    <button class="btn btn-primary ladda-button" data-style="expand-right" type="submit">
+                        <span class="ladda-label">
+                            <i class="fa fa-save"></i>&nbsp;Guardar
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

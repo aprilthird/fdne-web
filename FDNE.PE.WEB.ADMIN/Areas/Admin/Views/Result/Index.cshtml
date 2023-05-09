@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "Resultados";
+    ViewBag.SubTitle = "Listado de Eventos Pasados o que Transcurren";
+    ViewBag.Breadcrumbs = new[] {
+        new BreadcrumbViewData { Name = ViewBag.Title }
+    };
+}
+
+<div>
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="card-header">
+                <i class="fa fa-list"></i> @ViewBag.SubTitle
+            </div>
+            <div class="card-body">
+                <div class="row mb-4">
+                    <div class="col-md-2">
+                        <label class="label">Disciplina</label>
+                        <select id="discipline_filter" class="select2 select2-disciplines">
+                            <option>Todas</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="label">Club</label>
+                        <select id="club_filter" class="select2 select2-clubes">
+                            <option>Todas</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+
+                        <label class="label">Inicio</label>
+                        <div class="input-group">
+                            <span class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                            </span>
+                            <input id="start_time_filter" class="form-control datepicker" placeholder="Inicio"/>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+
+                        <label class="label">Fin</label>
+                        <div class="input-group">
+                            <span class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                            </span>
+                            <input id="end_time_filter" class="form-control datepicker" placeholder="Fin"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="dataTables_wrapper dt-bootstrap4 no-footer">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="table table-hover table-striped table-bordered datatable dataTable no-footer" id="event_datatable" role="grid"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_RankingsModal")
+
+@section Scripts {
+    <script src="@Url.Content("~/Content/js/areas/admin/result/index.js")"></script>
+}

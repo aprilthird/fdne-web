@@ -1,0 +1,31 @@
+﻿@model FDNE.PE.WEB.ADMIN.Dtos.SeasonDto
+
+@Html.HiddenFor(m => m.Id)
+<fieldset class="form-group">
+    @Html.LabelFor(m => m.Year, new { @class = "label" })
+    @Html.TextBoxFor(m => m.Year, new { @class = "form-control", placeholder = "Año", required = "required", autocomplete = "off", type = "number" })
+</fieldset>
+<div class="row">
+    <div class="form-group col-md-6">
+        @Html.LabelFor(m => m.StartDate, new { @class = "label" })
+        <div class="input-group">
+            <span class="input-group-prepend">
+                <span class="input-group-text">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </span>
+            @Html.TextBoxFor(m => m.StartDate, new { @class = "form-control datepicker", placeholder = "Inicio", required = "required", autocomplete = "off" })
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        @Html.LabelFor(m => m.EndDate, new { @class = "label" })
+        <div class="input-group">
+            <span class="input-group-prepend">
+                <span class="input-group-text">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </span>
+            @Html.TextBoxFor(m => m.EndDate, new { @class = "form-control datepicker", placeholder = "Fin", required = "required", autocomplete = "off" })
+        </div>
+    </div>
+</div>

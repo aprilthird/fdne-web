@@ -1,0 +1,78 @@
+﻿
+
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FDNE - @ViewBag.Title</title>
+    <meta name="description" content="Sitio Web Oficial de la Federación Deportiva Nacional Ecuestre (FDNE)">
+    <meta name="author" content="FDNE">
+    <meta name="keywords" content="fdne,fep,fnde,federacion,deportiva,ecuestre,nacional,peru,peruana,web" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    @*<link rel="manifest" href="site.webmanifest">*@
+    <link href="@Url.Content("~/favicon.ico")" rel="shortcut icon" />
+    <link href="@Url.Content("~/Content/img/logo-fep.png")" rel="apple-touch-icon" />
+    <meta name="theme-color" content="#fafafa">
+
+    <link href="https://fonts.googleapis.com/css?family=K2D" rel="stylesheet">
+    <link href="@Url.Content("~/Content/src/vendors/hamburgers/hamburgers.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/old/css/lib/waves/waves.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/lib/pace/themes/red/pace-theme-minimal.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/src/vendors/slim-select/css/slimselect.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/dist/css/main.css")" rel="stylesheet" />
+
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+    @Html.Partial("Partials/TopBarMenu/_TopBarMenu")
+    @RenderBody()
+    @Html.Partial("Partials/Footer/Old/_Footer")
+
+    <script src="@Url.Content("~/Content/src/js/utils/selector.js")"></script>
+    <script src="@Url.Content("~/Content/src/js/components/navbar.js")"></script>
+    <script src="@Url.Content("~/Content/old/js/lib/waves/waves.js")"></script>
+    <script src="@Url.Content("~/Content/src/vendors/slim-select/js/slimselect.min.js")"></script>
+    <script src="@Url.Content("~/Content/src/js/utils/helpers.js")"></script>
+    <script>
+        // TODO: refactor as a component
+        var btn = $1(".hamburger");
+        btn.addEventListener("click", function () {
+            if (this.classList.contains("is-active")) {
+                this.classList.remove("is-active");
+                var navbar = $1(".f-menu__navbar");
+                navbar.classList.remove("f-menu__navbar--active");
+            }
+            else {
+                this.classList.add("is-active");
+                var navbar = $1(".f-menu__navbar");
+                navbar.classList.add("f-menu__navbar--active");
+            }
+        });
+        btn.addEventListener("focusout", function () {
+            if (this.classList.contains("is-active")) {
+                this.classList.remove("is-active");
+                var navbar = $1(".f-menu__navbar");
+                navbar.classList.remove("f-menu__navbar--active");
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        Waves.attach('.flat-buttons', ['waves-button']);
+        Waves.attach('.float-buttons', ['waves-button', 'waves-float']);
+        Waves.attach('.float-button-light', ['waves-button', 'waves-float', 'waves-light']);
+    </script>
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>
+        _app.constants.url.root = '@Url.Content("~")';
+        window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+        ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')</script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

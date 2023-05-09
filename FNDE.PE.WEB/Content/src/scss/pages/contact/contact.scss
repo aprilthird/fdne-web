@@ -1,0 +1,17 @@
+﻿@import "../../abstracts/variables";
+@import "../../abstracts/mixins";
+@import "../../layout/variables";
+
+.f-contac {
+    .f-section__flex {
+        margin-top: 0;
+    }
+
+    .f-section__card {
+        padding: 30px;
+    }
+
+    .f-section__column {
+        @include flexbox();
+    }
+}

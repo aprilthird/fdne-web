@@ -1,0 +1,41 @@
+﻿@import "../../../abstracts/_variables";
+@import "../../../abstracts/mixins";
+@import "../../../layout/variables";
+
+
+.main-carousel {
+    width: 100%;
+}
+
+.flickity-slider {
+    height: 350px !important;
+}
+
+.flickity-page-dots {
+    display: none;
+}
+
+.flickity-prev-next-button {
+    background-color: $f--primary-color !important;
+    color: white !important;
+    opacity: 1 !important;
+    height: 100% !important;
+    border-radius: 0 !important;
+    width: 55px !important;
+    margin: 0 !important;
+}
+
+.flickity-prev-next-button.previous {
+    left: 0 !important;
+}
+
+.flickity-prev-next-button.next {
+    right: 0 !important;
+}
+
+.flickity-button-icon {
+   @include mobile {
+       height: 15px !important;
+       top: 45% !important;
+   }
+}

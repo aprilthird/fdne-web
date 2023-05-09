@@ -1,0 +1,44 @@
+﻿@model FDNE.PE.WEB.ADMIN.Dtos.OfficersDto
+
+@Html.HiddenFor(m => m.Id)
+<fieldset class="form-group">
+    @Html.LabelFor(m => m.Name, new { @class = "label" })
+    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Nombre", required = "required", autocomplete = "off" })
+</fieldset>
+<fieldset class="form-group">
+    @Html.LabelFor(m => m.DisciplinaName, new { @class = "label" })
+    @{
+        var selectListDisiplina = new List<SelectListItem>
+{
+new SelectListItem { Value = "1", Text = "Salto"},
+new SelectListItem { Value = "0", Text = "Adiestramiento"}
+};
+    }
+    @Html.DropDownListFor(m => m.DisciplinaName, selectListDisiplina, new { @class = "form-control select2-single select2-disiplina", required = "required" })
+
+</fieldset>
+<fieldset class="form-group">
+    @Html.LabelFor(m => m.CategoryName, new { @class = "label" })
+    @{
+        var selectListCategoria = new List<SelectListItem>
+{
+new SelectListItem { Value = "JUECES INTERNACIONALES", Text = "JUECES INTERNACIONALES"},
+new SelectListItem { Value = "JUECES NACIONALES", Text = "JUECES NACIONALES"},
+new SelectListItem { Value = "CANDIDATOS A JUEZ NACIONAL", Text = "CANDIDATOS A JUEZ NACIONAL"},
+new SelectListItem { Value = "STEWARD FEI ADIESTRAMIENTO", Text = "STEWARD FEI ADIESTRAMIENTO"},
+new SelectListItem { Value = "STEWARD FDNE ADIESTRAMIENTO", Text = "STEWARD FDNE ADIESTRAMIENTO"},
+new SelectListItem { Value = "STEWARD FDNE CONCURSO COMPLETO", Text = "STEWARD FDNE CONCURSO COMPLETO"},
+new SelectListItem { Value = "STEWARD FEI SALTO", Text = "STEWARD FEI SALTO"},
+new SelectListItem { Value = "CANDIDATOS A STEWARD NACIONAL", Text = "CANDIDATOS A STEWARD NACIONAL"},
+new SelectListItem { Value = "STEWARD FDNE", Text = "STEWARD FDNE"},
+new SelectListItem { Value = "DISEÑADORES FEI", Text = "DISEÑADORES FEI"},
+new SelectListItem { Value = "DISEÑADORES NACIONALES", Text = "DISEÑADORES NACIONALES"},
+new SelectListItem { Value = "COACH FEI NIVEL 2", Text = "COACH FEI NIVEL 2"},
+new SelectListItem { Value = "DISEÑADOR NACIONAL DE CONCURSO COMPLETO", Text = "DISEÑADOR NACIONAL DE CONCURSO COMPLETO"},
+new SelectListItem { Value = "VETERINARIOS FEI", Text = "VETERINARIOS FEI"},
+new SelectListItem { Value = "VETERINARIOS TRATANTES PERMITIDOS POR LA FEI", Text = "VETERINARIOS TRATANTES PERMITIDOS POR LA FEI"}
+};
+    }
+    @Html.DropDownListFor(m => m.CategoryName, selectListCategoria, new { @class = "form-control select2-single select2-categoria", required = "required" })
+
+</fieldset>

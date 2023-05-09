@@ -1,0 +1,62 @@
+﻿@model FNDE.PE.WEB.PORTAL.ViewModels.ContactViewModels.ContactoViewModel
+
+@{
+    ViewBag.Title = "Contacto";
+    Layout = "~/Views/Shared/_LayoutBackground.cshtml";
+}
+
+<style>
+    body {
+        background: linear-gradient(90deg, #131313 50%, white 50%);
+    }
+
+    .f-section--white {
+        background-color: white;
+    }
+</style>
+
+<main class="f-contac">
+    <section class="f-section f-section__content f-section-background f-section--dark">
+        <div class="f-section-background__image">
+            <img src="~/Content/src/img/slide2-1024.png" />
+        </div>
+        <div class="f-section-background__title f-container">
+            <h1>CONTACTO</h1>
+        </div>
+    </section>
+    <section class="f-container__contact f-section__flex f-section__flex--card f-section__column-mobile f-contac__container f-contacto">
+        <div class="f-section__title-white f-section--white f-section__card f-section__column">
+            <p>
+                Puede utilizar este formato para enviarnos un mensaje desde nuestra web y a la brevedad nos pondremos en contacto con usted. ¡Muchas gracias!
+            </p>
+            <input class="f-input" placeholder="Asunto*" />
+            <input class="f-input" placeholder="Nombre*" />
+            <input class="f-input" placeholder="E-mail*" />
+            <textarea class="f-input" rows="10" cols="30"></textarea>
+            <div>
+                <button class="f-btn f-bg--primary" onclick="location.href='Agradecimiento';">ENVIAR</button>
+            </div>
+        </div>
+        <div class="f-section__title-white f-section__card f-section__column f-bg--secondary">
+            <p class="no-margin f-bold">
+                @Model.Address
+            <br>
+                Federaci&oacute;n Deportiva Nacional Ecuestre
+            </p>
+            <input type="hidden" id="latitudeval" name="latitudeval" value="@Model.Latitude" />
+            <input type="hidden" id="longitudeval" name="longitudeval" value="@Model.Longitude" />
+            <div class="f-image">
+                <div id="map-container" style="display:block; width: 100%; height: 300px;"></div>
+
+            </div>
+            @*<fieldset>
+                <div class="map-container" style="display:block; width: 100%; height: 300px;"></div>
+            </fieldset>*@
+        </div>
+    </section>
+</main>
+
+@section Scripts {
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANDaglIu4riXQQqVSEnLVF8qOJqLQNIm0&callback=FederationContact.mapCallback.init"></script>
+    <script src="@Url.Content("~/Content/src/js/pages/contact/index.js")"></script>
+}

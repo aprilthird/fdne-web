@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Noticias";
+    ViewBag.SubTitle = "Listado de Noticias";
+    ViewBag.Breadcrumbs = new[] {
+        new BreadcrumbViewData { Name = ViewBag.Title }
+    };
+}
+
+@section Styles {
+    <link href="@Url.Content("~/Content/vendors/summernote/summernote.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/vendors/summernote/summernote-bs4.min.js")" rel="stylesheet" />
+}
+
+<div>
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="card-header">
+                <i class="icon-list icons font-2xl"></i> @ViewBag.SubTitle
+                <div class="card-header-actions">
+                    <div class="card-header-action">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#add_modal">
+                            <i class="fa fa-plus"></i>
+                            <span>Nuevo</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="dataTables_wrapper dt-bootstrap4 no-footer">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="table table-hover table-striped table-bordered datatable dataTable no-footer" id="news_datatable" role="grid"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_CreateModal")
+@Html.Partial("_EditModal")
+
+@section Scripts {
+    <script src="@Url.Content("~/Content/vendors/summernote/summernote.min.js")"></script>
+    <script src="@Url.Content("~/Content/js/areas/content/news/index.js")"></script>
+}

@@ -1,0 +1,122 @@
+﻿@import "../../layout/variables";
+@import "../../../abstracts/variables";
+@import "../../../abstracts/mixins";
+
+@import "../../vendors/flickity/extend/slider.scss";
+
+.f-ranking-positions {
+    @include flexbox();
+    @include flexbox-justify-content(space-between);
+    @include flexbox-direction(column);
+    height: 100%;
+    width: auto;
+
+    &:after {
+        content: 'flickity';
+        display: none;
+
+        @include desktop {
+            content: '';
+            display: block;
+        }
+    }
+
+    @include desktop {
+        @include flexbox-direction(row);
+    }
+
+    .flickity-prev-next-button {
+        background-color: transparent !important;
+        color: white !important;
+        opacity: 1 !important;
+        border-radius: 0 !important;
+        width: 55px !important;
+        margin: 0 !important;
+        display: none;
+
+        @include desktop {
+            display: block;
+        }
+    }
+
+    &__item {
+        height: 100%;
+        box-sizing: border-box;
+        width: 100%;
+        padding-left: 55px;
+        padding-right: 55px;
+        @include flexbox();
+        @include flexbox-align-items(center);
+
+        .f-section__card {
+            height: 100%;
+            box-sizing: border-box;
+            @include flexbox-flex(0 0 100%);
+
+            @include desktop {
+                height: auto;
+                @include flexbox-flex(0 0 auto);
+            }
+        }
+
+        background-color: transparent;
+
+        $root: &;
+
+
+        @include desktop {
+            &:nth-child(1) {
+                @include flexbox-align-self(flex-start);
+            }
+
+            &:nth-child(2) {
+                @include flexbox-align-self(center);
+                margin-top: 20px;
+            }
+
+            &:nth-child(3) {
+                @include flexbox-align-self(flex-end);
+                margin-top: 60px;
+            }
+        }
+
+        &:hover {
+            #{$root}-title {
+                h5 {
+                    color: $f--primary-color !important;
+                }
+            }
+
+            #{$root}-card {
+                box-shadow: 0 0 0 3px $f--primary-color !important;
+            }
+        }
+
+        &-title {
+            transition: all 0.5s ease;
+            color: white;
+        }
+
+        &-card {
+            position: relative;
+            box-sizing: border-box;
+            transition: all 0.5s ease;
+
+            & > img {
+                box-sizing: inherit;
+                width: 100%;
+                height: 100%;
+            }
+
+            & > div {
+                background-color: rgba($f--secondary-color, 0.7);
+                position: absolute;
+                left: 0;
+                height: 40%;
+                width: 100%;
+                bottom: 0;
+                font-size: 0.75em;
+            }
+        }
+    }
+}

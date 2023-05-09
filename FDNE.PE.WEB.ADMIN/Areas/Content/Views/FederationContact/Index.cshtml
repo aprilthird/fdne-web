@@ -1,0 +1,57 @@
+﻿@model FDNE.PE.WEB.ADMIN.Dtos.FederationContactDto
+
+@{
+    ViewBag.Title = "Contacto";
+    ViewBag.SubTitle = "Formulario de Edición";
+    ViewBag.Breadcrumbs = new[] {
+        new BreadcrumbViewData { Name = ViewBag.Title }
+    };
+}
+
+@section Styles {
+    <link href="@Url.Content("~/Content/vendors/summernote/summernote.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/vendors/summernote/summernote-bs4.min.js")" rel="stylesheet" />
+}
+
+<div>
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="card-header">
+                <i class="icon-pencil icons font-2xl"></i> @ViewBag.SubTitle
+            </div>
+            <form id="form" class="form-horizontal" method="post">
+                <div class="card-body">
+                    <fieldset class="form-group">
+                        @Html.LabelFor(m => m.Address, new { @class = "label" })
+                        @Html.TextAreaFor(m => m.Address, new { @class = "form-control", placeholder = "Dirección", required = "required", autocomplete = "off", @readonly = "readonly" })
+                    </fieldset>
+
+                    <div class="row">
+                        <fieldset class="form-group col-md-6">
+                            @Html.LabelFor(m => m.Longitude, new { @class = "label" })
+                            @Html.TextBoxFor(m => m.Longitude, new { @class = "form-control", placeholder = "Longitud", required = "required", autocomplete = "off", @readonly = "readonly" })
+                        </fieldset>
+                        <fieldset class="form-group col-md-6">
+                            @Html.LabelFor(m => m.Latitude, new { @class = "label" })
+                            @Html.TextBoxFor(m => m.Latitude, new { @class = "form-control", placeholder = "Latitud", required = "required", autocomplete = "off", @readonly = "readonly" })
+                        </fieldset>
+                    </div>
+                    <fieldset class="form-group ">
+                        <div class="map-container" style="display:block; width: 100%; height: 300px;"></div>
+                    </fieldset>
+                    </div>
+                                <div class="card-footer text-right">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fa fa-save"></i>&emsp;Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</form>
+@section Scripts {
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANDaglIu4riXQQqVSEnLVF8qOJqLQNIm0&callback=FederationContact.mapCallback.init"></script>
+    <script src="@Url.Content("~/Content/js/areas/content/federation-contact/index.js")"></script>
+}

@@ -1,0 +1,68 @@
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+/* TODO: check this color */
+@media (min-width: 1025px) {
+  .f-contac .f-container__contact {
+    max-width: 1180px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 25px !important;
+    padding-right: 25px !important; } }
+
+.f-contac .f-section__flex {
+  margin: 0; }
+  @media (min-width: 1025px) {
+    .f-contac .f-section__flex {
+      -ms-flex-direction: row-reverse;
+      -moz-flex-direction: row-reverse;
+      flex-direction: row-reverse;
+      -webkit-flex-direction: row-reverse; } }
+
+.f-contac .f-section__card {
+  padding: 25px;
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex; }
+
+.f-contac input {
+  margin-bottom: 10px; }
+
+.f-contac p, .f-contac textarea {
+  margin-bottom: 20px; }
+
+.f-contac .f-image {
+  margin-top: 20px;
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  overflow: hidden; }
+  @media (min-width: 1025px) {
+    .f-contac .f-image {
+      width: 400px;
+      height: 400px; } }
+  .f-contac .f-image img {
+    object-fit: cover; }
+
+.f-contac .no-margin {
+  margin: 0; }

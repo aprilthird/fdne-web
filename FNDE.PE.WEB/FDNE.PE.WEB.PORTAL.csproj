@@ -1,0 +1,1451 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A8EAEA5C-D98A-4EEE-BB11-B838C55DA29F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FNDE.PE.WEB.PORTAL</RootNamespace>
+    <AssemblyName>FNDE.PE.WEB.PORTAL</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.94.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.94.2\lib\net46\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.0.3.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.0.3\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="FastMember, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FastMember.1.3.0\lib\net45\FastMember.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.8.1\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.8.1\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.8.1\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.8.1\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.8.1\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.8.1\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.5\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.4.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.4.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.4.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.1\lib\net45\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.0.1\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.2\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Member\MemberAreaRegistration.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AfiliadosController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ConcursosController.cs" />
+    <Compile Include="Controllers\ContactoController.cs" />
+    <Compile Include="Controllers\DisciplinasController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\EventosController.cs" />
+    <Compile Include="Controllers\GaleriaController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NosotrosController.cs" />
+    <Compile Include="Controllers\NoticiasController.cs" />
+    <Compile Include="Controllers\TerminosCondicionesController.cs" />
+    <Compile Include="Extensions\IdentityExtensions.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\AboutUsViewModels\GuideLinesViewModel.cs" />
+    <Compile Include="ViewModels\AboutUsViewModels\HistoryViewModel.cs" />
+    <Compile Include="ViewModels\AboutUsViewModels\MisionVisionViewModel.cs" />
+    <Compile Include="ViewModels\AboutUsViewModels\OfficersViewModel.cs" />
+    <Compile Include="ViewModels\AboutUsViewModels\OrganizationViewModel.cs" />
+    <Compile Include="ViewModels\AccountViewModels.cs" />
+    <Compile Include="ViewModels\AfiliadosViewModels\ClubViewModel.cs" />
+    <Compile Include="ViewModels\AfiliadosViewModels\CoachingViewModel.cs" />
+    <Compile Include="ViewModels\ContactViewModels\ContactoViewModel.cs" />
+    <Compile Include="ViewModels\ContestViewModels\FederationFEIViewModel.cs" />
+    <Compile Include="ViewModels\DisciplinaViewModels\DisciplineViewModel.cs" />
+    <Compile Include="ViewModels\EventViewModels\EventoViewModel.cs" />
+    <Compile Include="ViewModels\GalleryViewModels\PictureViewModel.cs" />
+    <Compile Include="ViewModels\HomeViewModels\HomeViewModel.cs" />
+    <Compile Include="ViewModels\ManageViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\NewsViewModels\NewsDetailViewModel.cs" />
+    <Compile Include="ViewModels\NewsViewModels\NewsViewModel.cs" />
+    <Compile Include="ViewModels\ResultViewModels\RequestResult.cs" />
+    <Compile Include="ViewModels\ResultViewModels\ResponseResult.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\dist\css\main.css" />
+    <Content Include="Content\dist\css\pages\about-us\history.css" />
+    <Content Include="Content\dist\css\pages\about-us\mision-vision.css" />
+    <Content Include="Content\dist\css\pages\about-us\oficiales.css" />
+    <Content Include="Content\dist\css\pages\about-us\organization.css" />
+    <Content Include="Content\dist\css\pages\about-us\pautas.css" />
+    <Content Include="Content\dist\css\pages\affiliates\afiliados.css" />
+    <Content Include="Content\dist\css\pages\affiliates\detail.css" />
+    <Content Include="Content\dist\css\pages\affiliates\jockey.css" />
+    <Content Include="Content\dist\css\pages\affiliates\lidea.css" />
+    <Content Include="Content\dist\css\pages\affiliates\listadoCoaches.css" />
+    <Content Include="Content\dist\css\pages\affiliates\listClubes.css" />
+    <Content Include="Content\dist\css\pages\affiliates\new-afiliation.css" />
+    <Content Include="Content\dist\css\pages\contact\contact.css" />
+    <Content Include="Content\dist\css\pages\contac\contact.css" />
+    <Content Include="Content\dist\css\pages\contests\fei.css" />
+    <Content Include="Content\dist\css\pages\contests\ranking.css" />
+    <Content Include="Content\dist\css\pages\contests\resultados.css" />
+    <Content Include="Content\dist\css\pages\disciplines\trainig.css" />
+    <Content Include="Content\dist\css\pages\events\list.css" />
+    <Content Include="Content\dist\css\pages\finta.css" />
+    <Content Include="Content\dist\css\pages\gallery\list.css" />
+    <Content Include="Content\dist\css\pages\home\home.css" />
+    <Content Include="Content\dist\css\pages\home\test.css" />
+    <Content Include="Content\dist\css\pages\news\details.css" />
+    <Content Include="Content\dist\css\pages\news\jinetesDetalle.css" />
+    <Content Include="Content\dist\css\pages\news\jinetesMundo.css" />
+    <Content Include="Content\dist\css\pages\news\list.css" />
+    <Content Include="Content\dist\css\pages\terms\terms.css" />
+    <Content Include="Content\dist\css\slider3d.css" />
+    <Content Include="Content\dist\css\test.css" />
+    <Content Include="Content\dist\css\test2.css" />
+    <Content Include="Content\lib\cookieconsent2\cookieconsent.min.css" />
+    <Content Include="Content\lib\cookieconsent2\cookieconsent.min.js" />
+    <Content Include="Content\src\img\club-sample.jpg" />
+    <Content Include="Content\src\js\pages\contact\index.js" />
+    <Content Include="Content\lib\aos\aos.css" />
+    <Content Include="Content\lib\aos\aos.js" />
+    <Content Include="Content\lib\bootstrap\dist\css\bootstrap-grid.css" />
+    <Content Include="Content\lib\bootstrap\dist\css\bootstrap-grid.min.css" />
+    <Content Include="Content\lib\bootstrap\dist\css\bootstrap-reboot.css" />
+    <Content Include="Content\lib\bootstrap\dist\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\lib\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="Content\lib\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="Content\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+    <Content Include="Content\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\lib\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="Content\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="Content\lib\bootstrap\js\dist\alert.js" />
+    <Content Include="Content\lib\bootstrap\js\dist\button.js" />
+    <Content Include="Content\lib\bootstrap\js\dist\carousel.js" />
+    <Content Include="Content\lib\bootstrap\js\dist\collapse.js" />
+    <Content Include="Content\lib\bootstrap\js\dist\dropdown.js" />
+    <Content Include="Content\lib\bootstrap\js\dist\index.js" />
+    <Content Include="Content\lib\bootstrap\js\dist\modal.js" />
+    <Content Include="Content\lib\bootstrap\js\dist\popover.js" />
+    <Content Include="Content\lib\bootstrap\js\dist\scrollspy.js" />
+    <Content Include="Content\lib\bootstrap\js\dist\tab.js" />
+    <Content Include="Content\lib\bootstrap\js\dist\toast.js" />
+    <Content Include="Content\lib\bootstrap\js\dist\tooltip.js" />
+    <Content Include="Content\lib\bootstrap\js\dist\util.js" />
+    <Content Include="Content\lib\bootstrap\js\src\alert.js" />
+    <Content Include="Content\lib\bootstrap\js\src\button.js" />
+    <Content Include="Content\lib\bootstrap\js\src\carousel.js" />
+    <Content Include="Content\lib\bootstrap\js\src\collapse.js" />
+    <Content Include="Content\lib\bootstrap\js\src\dropdown.js" />
+    <Content Include="Content\lib\bootstrap\js\src\index.js" />
+    <Content Include="Content\lib\bootstrap\js\src\modal.js" />
+    <Content Include="Content\lib\bootstrap\js\src\popover.js" />
+    <Content Include="Content\lib\bootstrap\js\src\scrollspy.js" />
+    <Content Include="Content\lib\bootstrap\js\src\tab.js" />
+    <Content Include="Content\lib\bootstrap\js\src\toast.js" />
+    <Content Include="Content\lib\bootstrap\js\src\tooltip.js" />
+    <Content Include="Content\lib\bootstrap\js\src\util.js" />
+    <Content Include="Content\lib\jquery-validate\additional-methods.js" />
+    <Content Include="Content\lib\jquery-validate\additional-methods.min.js" />
+    <Content Include="Content\lib\jquery-validate\jquery.validate.js" />
+    <Content Include="Content\lib\jquery-validate\jquery.validate.min.js" />
+    <Content Include="Content\lib\jquery-validate\localization\messages_es_PE.js" />
+    <Content Include="Content\lib\jquery\core.js" />
+    <Content Include="Content\lib\jquery\jquery.js" />
+    <Content Include="Content\lib\jquery\jquery.min.js" />
+    <Content Include="Content\lib\jquery\jquery.slim.js" />
+    <Content Include="Content\lib\jquery\jquery.slim.min.js" />
+    <Content Include="Content\lib\modernizr\modernizr.js" />
+    <Content Include="Content\lib\modernizr\modernizr.min.js" />
+    <Content Include="Content\lib\pace\pace.js" />
+    <Content Include="Content\lib\pace\pace.min.js" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-barber-shop.css" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-barber-shop.min.css" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-big-counter.css" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-big-counter.min.css" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-bounce.css" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-bounce.min.css" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-center-atom.css" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-center-atom.min.css" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-center-circle.css" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-center-circle.min.css" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-center-radar.css" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-center-radar.min.css" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-center-simple.css" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-center-simple.min.css" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-corner-indicator.css" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-corner-indicator.min.css" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-fill-left.css" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-fill-left.min.css" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-flash.css" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-flash.min.css" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-flat-top.css" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-flat-top.min.css" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-loading-bar.css" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-loading-bar.min.css" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-mac-osx.css" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-mac-osx.min.css" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-minimal.css" />
+    <Content Include="Content\lib\pace\themes\black\pace-theme-minimal.min.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-barber-shop.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-barber-shop.min.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-big-counter.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-big-counter.min.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-bounce.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-bounce.min.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-center-atom.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-center-atom.min.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-center-circle.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-center-circle.min.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-center-radar.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-center-radar.min.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-center-simple.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-center-simple.min.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-corner-indicator.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-corner-indicator.min.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-fill-left.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-fill-left.min.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-flash.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-flash.min.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-flat-top.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-flat-top.min.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-loading-bar.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-loading-bar.min.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-mac-osx.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-mac-osx.min.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-minimal.css" />
+    <Content Include="Content\lib\pace\themes\blue\pace-theme-minimal.min.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-barber-shop.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-barber-shop.min.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-big-counter.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-big-counter.min.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-bounce.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-bounce.min.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-center-atom.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-center-atom.min.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-center-circle.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-center-circle.min.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-center-radar.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-center-radar.min.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-center-simple.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-center-simple.min.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-corner-indicator.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-corner-indicator.min.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-fill-left.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-fill-left.min.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-flash.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-flash.min.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-flat-top.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-flat-top.min.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-loading-bar.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-loading-bar.min.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-mac-osx.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-mac-osx.min.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-minimal.css" />
+    <Content Include="Content\lib\pace\themes\green\pace-theme-minimal.min.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-barber-shop.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-barber-shop.min.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-big-counter.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-big-counter.min.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-bounce.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-bounce.min.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-center-atom.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-center-atom.min.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-center-circle.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-center-circle.min.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-center-radar.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-center-radar.min.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-center-simple.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-center-simple.min.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-corner-indicator.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-corner-indicator.min.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-fill-left.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-fill-left.min.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-flash.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-flash.min.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-flat-top.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-flat-top.min.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-loading-bar.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-loading-bar.min.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-mac-osx.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-mac-osx.min.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-minimal.css" />
+    <Content Include="Content\lib\pace\themes\orange\pace-theme-minimal.min.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-barber-shop.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-barber-shop.min.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-big-counter.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-big-counter.min.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-bounce.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-bounce.min.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-center-atom.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-center-atom.min.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-center-circle.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-center-circle.min.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-center-radar.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-center-radar.min.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-center-simple.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-center-simple.min.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-corner-indicator.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-corner-indicator.min.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-fill-left.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-fill-left.min.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-flash.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-flash.min.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-flat-top.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-flat-top.min.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-loading-bar.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-loading-bar.min.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-mac-osx.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-mac-osx.min.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-minimal.css" />
+    <Content Include="Content\lib\pace\themes\pink\pace-theme-minimal.min.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-barber-shop.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-barber-shop.min.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-big-counter.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-big-counter.min.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-bounce.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-bounce.min.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-center-atom.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-center-atom.min.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-center-circle.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-center-circle.min.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-center-radar.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-center-radar.min.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-center-simple.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-center-simple.min.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-corner-indicator.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-corner-indicator.min.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-fill-left.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-fill-left.min.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-flash.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-flash.min.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-flat-top.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-flat-top.min.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-loading-bar.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-loading-bar.min.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-mac-osx.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-mac-osx.min.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-minimal.css" />
+    <Content Include="Content\lib\pace\themes\purple\pace-theme-minimal.min.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-barber-shop.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-barber-shop.min.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-big-counter.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-big-counter.min.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-bounce.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-bounce.min.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-center-atom.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-center-atom.min.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-center-circle.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-center-circle.min.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-center-radar.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-center-radar.min.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-center-simple.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-center-simple.min.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-corner-indicator.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-corner-indicator.min.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-fill-left.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-fill-left.min.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-flash.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-flash.min.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-flat-top.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-flat-top.min.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-loading-bar.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-loading-bar.min.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-mac-osx.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-mac-osx.min.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-minimal.css" />
+    <Content Include="Content\lib\pace\themes\red\pace-theme-minimal.min.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-barber-shop.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-barber-shop.min.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-big-counter.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-big-counter.min.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-bounce.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-bounce.min.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-center-atom.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-center-atom.min.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-center-circle.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-center-circle.min.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-center-radar.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-center-radar.min.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-center-simple.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-center-simple.min.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-corner-indicator.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-corner-indicator.min.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-fill-left.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-fill-left.min.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-flash.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-flash.min.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-flat-top.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-flat-top.min.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-loading-bar.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-loading-bar.min.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-mac-osx.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-mac-osx.min.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-minimal.css" />
+    <Content Include="Content\lib\pace\themes\silver\pace-theme-minimal.min.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-barber-shop.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-barber-shop.min.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-big-counter.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-big-counter.min.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-bounce.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-bounce.min.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-center-atom.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-center-atom.min.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-center-circle.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-center-circle.min.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-center-radar.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-center-radar.min.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-center-simple.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-center-simple.min.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-corner-indicator.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-corner-indicator.min.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-fill-left.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-fill-left.min.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-flash.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-flash.min.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-flat-top.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-flat-top.min.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-loading-bar.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-loading-bar.min.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-mac-osx.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-mac-osx.min.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-minimal.css" />
+    <Content Include="Content\lib\pace\themes\white\pace-theme-minimal.min.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-barber-shop.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-barber-shop.min.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-big-counter.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-big-counter.min.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-bounce.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-bounce.min.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-center-atom.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-center-atom.min.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-center-circle.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-center-circle.min.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-center-radar.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-center-radar.min.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-center-simple.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-center-simple.min.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-corner-indicator.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-corner-indicator.min.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-fill-left.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-fill-left.min.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-flash.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-flash.min.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-flat-top.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-flat-top.min.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-loading-bar.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-loading-bar.min.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-mac-osx.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-mac-osx.min.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-minimal.css" />
+    <Content Include="Content\lib\pace\themes\yellow\pace-theme-minimal.min.css" />
+    <Content Include="Content\lib\popper.js\esm\popper-utils.js" />
+    <Content Include="Content\lib\popper.js\esm\popper-utils.min.js" />
+    <Content Include="Content\lib\popper.js\esm\popper.js" />
+    <Content Include="Content\lib\popper.js\esm\popper.min.js" />
+    <Content Include="Content\lib\popper.js\popper-utils.js" />
+    <Content Include="Content\lib\popper.js\popper-utils.min.js" />
+    <Content Include="Content\lib\popper.js\popper.js" />
+    <Content Include="Content\lib\popper.js\popper.min.js" />
+    <Content Include="Content\lib\popper.js\umd\popper-utils.js" />
+    <Content Include="Content\lib\popper.js\umd\popper-utils.min.js" />
+    <Content Include="Content\lib\popper.js\umd\popper.js" />
+    <Content Include="Content\lib\popper.js\umd\popper.min.js" />
+    <Content Include="Content\lib\rellax\rellax.js" />
+    <Content Include="Content\lib\rellax\rellax.min.js" />
+    <Content Include="Content\lib\scrollify\jquery.scrollify.js" />
+    <Content Include="Content\lib\scrollify\jquery.scrollify.min.js" />
+    <Content Include="Content\lib\Swiper\css\swiper.css" />
+    <Content Include="Content\lib\Swiper\css\swiper.min.css" />
+    <Content Include="Content\lib\Swiper\js\swiper.js" />
+    <Content Include="Content\lib\Swiper\js\swiper.min.js" />
+    <Content Include="Content\old\css\body.css" />
+    <Content Include="Content\old\css\carousel.css" />
+    <Content Include="Content\old\css\discipline.css" />
+    <Content Include="Content\old\css\elnnav.css" />
+    <Content Include="Content\old\css\heading.css" />
+    <Content Include="Content\old\css\home.css" />
+    <Content Include="Content\old\css\lib\bootstrap\bootstrap-grid.css" />
+    <Content Include="Content\old\css\lib\bootstrap\bootstrap-grid.min.css" />
+    <Content Include="Content\old\css\lib\bootstrap\bootstrap.css" />
+    <Content Include="Content\old\css\lib\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\old\css\lib\cookieconsent\cookieconsent.min.css" />
+    <Content Include="Content\old\css\lib\hamburgers\hamburgers.css" />
+    <Content Include="Content\old\css\lib\hamburgers\hamburgers.min.css" />
+    <Content Include="Content\old\css\lib\waves\waves.min.css" />
+    <Content Include="Content\old\css\main.css" />
+    <Content Include="Content\old\css\menu-mobile.css" />
+    <Content Include="Content\old\css\multimedia.css" />
+    <Content Include="Content\old\css\ranking-new.css" />
+    <Content Include="Content\old\css\responsive-theme.css" />
+    <Content Include="Content\old\css\shame.css" />
+    <Content Include="Content\old\css\site.css" />
+    <Content Include="Content\old\css\test.css" />
+    <Content Include="Content\old\img\header1_2480.png" />
+    <Content Include="Content\old\img\firstplace.png" />
+    <Content Include="Content\old\img\header1_2480w.png" />
+    <Content Include="Content\old\img\header_2480w.png" />
+    <Content Include="Content\old\img\logo.png" />
+    <Content Include="Content\old\img\logo_black.png" />
+    <Content Include="Content\old\img\logo_white.png" />
+    <Content Include="Content\old\img\main.jpg" />
+    <Content Include="Content\old\img\main2.jpg" />
+    <Content Include="Content\old\img\main3.jpg" />
+    <Content Include="Content\old\img\oie_transparent.png" />
+    <Content Include="Content\old\img\placeholder.png" />
+    <Content Include="Content\old\css\index.css" />
+    <Content Include="Content\old\css\lib\swiper\swiper.min.css" />
+    <Content Include="Content\old\img\rank1-1024.png" />
+    <Content Include="Content\old\img\rank2-1024.png" />
+    <Content Include="Content\old\img\rank3-1024.png" />
+    <Content Include="Content\old\img\secondplace.png" />
+    <Content Include="Content\old\img\slide1-1024.png" />
+    <Content Include="Content\old\img\slide2-1024.png" />
+    <Content Include="Content\old\img\slide3-1024.png" />
+    <Content Include="Content\old\img\slide4-1024.png" />
+    <Content Include="Content\old\img\thirdplace.png" />
+    <Content Include="Content\old\js\carousel.js" />
+    <Content Include="Content\old\js\discipline.js" />
+    <Content Include="Content\old\js\gallery.js" />
+    <Content Include="Content\old\js\lib\bootstrap\bootstrap.js" />
+    <Content Include="Content\old\js\lib\bootstrap\bootstrap.min.js" />
+    <Content Include="Content\old\js\lib\cookieconsent\cookieconsent.js" />
+    <Content Include="Content\old\js\lib\jquery\jquery.js" />
+    <Content Include="Content\old\js\lib\jquery\jquery.min.js" />
+    <Content Include="Content\old\js\lib\popper\popper.js" />
+    <Content Include="Content\old\js\lib\popper\popper.min.js" />
+    <Content Include="Content\old\js\lib\swiper\swiper.min.js" />
+    <Content Include="Content\src\vendors\waves\waves.js" />
+    <Content Include="Content\old\js\menu-linker.js" />
+    <Content Include="Content\old\js\navbar.js" />
+    <Content Include="Content\old\js\news.js" />
+    <Content Include="Content\old\js\pictures.js" />
+    <Content Include="Content\old\js\slider-3d.js" />
+    <Content Include="Content\old\js\standout.js" />
+    <Content Include="Content\old\js\swiper-plugin.js" />
+    <Content Include="Content\old\js\thenav.js" />
+    <Content Include="Content\old\js\utils.js" />
+    <Content Include="Content\old\less\main.css" />
+    <Content Include="Content\old\lib\aos\aos.css" />
+    <Content Include="Content\old\lib\aos\aos.js" />
+    <Content Include="Content\old\lib\bootstrap\dist\css\bootstrap-grid.css" />
+    <Content Include="Content\old\lib\bootstrap\dist\css\bootstrap-grid.min.css" />
+    <Content Include="Content\old\lib\bootstrap\dist\css\bootstrap-reboot.css" />
+    <Content Include="Content\old\lib\bootstrap\dist\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\old\lib\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="Content\old\lib\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="Content\old\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+    <Content Include="Content\old\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\old\lib\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="Content\old\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="Content\old\lib\bootstrap\js\dist\alert.js" />
+    <Content Include="Content\old\lib\bootstrap\js\dist\button.js" />
+    <Content Include="Content\old\lib\bootstrap\js\dist\carousel.js" />
+    <Content Include="Content\old\lib\bootstrap\js\dist\collapse.js" />
+    <Content Include="Content\old\lib\bootstrap\js\dist\dropdown.js" />
+    <Content Include="Content\old\lib\bootstrap\js\dist\index.js" />
+    <Content Include="Content\old\lib\bootstrap\js\dist\modal.js" />
+    <Content Include="Content\old\lib\bootstrap\js\dist\popover.js" />
+    <Content Include="Content\old\lib\bootstrap\js\dist\scrollspy.js" />
+    <Content Include="Content\old\lib\bootstrap\js\dist\tab.js" />
+    <Content Include="Content\old\lib\bootstrap\js\dist\toast.js" />
+    <Content Include="Content\old\lib\bootstrap\js\dist\tooltip.js" />
+    <Content Include="Content\old\lib\bootstrap\js\dist\util.js" />
+    <Content Include="Content\old\lib\bootstrap\js\src\alert.js" />
+    <Content Include="Content\old\lib\bootstrap\js\src\button.js" />
+    <Content Include="Content\old\lib\bootstrap\js\src\carousel.js" />
+    <Content Include="Content\old\lib\bootstrap\js\src\collapse.js" />
+    <Content Include="Content\old\lib\bootstrap\js\src\dropdown.js" />
+    <Content Include="Content\old\lib\bootstrap\js\src\index.js" />
+    <Content Include="Content\old\lib\bootstrap\js\src\modal.js" />
+    <Content Include="Content\old\lib\bootstrap\js\src\popover.js" />
+    <Content Include="Content\old\lib\bootstrap\js\src\scrollspy.js" />
+    <Content Include="Content\old\lib\bootstrap\js\src\tab.js" />
+    <Content Include="Content\old\lib\bootstrap\js\src\toast.js" />
+    <Content Include="Content\old\lib\bootstrap\js\src\tooltip.js" />
+    <Content Include="Content\old\lib\bootstrap\js\src\util.js" />
+    <Content Include="Content\old\lib\cookieconsent2\cookieconsent.min.css" />
+    <Content Include="Content\old\lib\cookieconsent2\cookieconsent.min.js" />
+    <Content Include="Content\old\lib\fullPage.js\fullpage.css" />
+    <Content Include="Content\old\lib\fullPage.js\fullpage.extensions.min.js" />
+    <Content Include="Content\old\lib\fullPage.js\fullpage.js" />
+    <Content Include="Content\old\lib\fullPage.js\fullpage.min.css" />
+    <Content Include="Content\old\lib\fullPage.js\fullpage.min.js" />
+    <Content Include="Content\old\lib\fullPage.js\vendors\easings.js" />
+    <Content Include="Content\old\lib\fullPage.js\vendors\easings.min.js" />
+    <Content Include="Content\old\lib\fullPage.js\vendors\scrolloverflow.js" />
+    <Content Include="Content\old\lib\fullPage.js\vendors\scrolloverflow.min.js" />
+    <Content Include="Content\old\lib\jquery-validate\additional-methods.js" />
+    <Content Include="Content\old\lib\jquery-validate\additional-methods.min.js" />
+    <Content Include="Content\old\lib\jquery-validate\jquery.validate.js" />
+    <Content Include="Content\old\lib\jquery-validate\jquery.validate.min.js" />
+    <Content Include="Content\old\lib\jquery-validate\localization\messages_es_PE.js" />
+    <Content Include="Content\old\lib\jquery\core.js" />
+    <Content Include="Content\old\lib\jquery\jquery.js" />
+    <Content Include="Content\old\lib\jquery\jquery.min.js" />
+    <Content Include="Content\old\lib\jquery\jquery.slim.js" />
+    <Content Include="Content\old\lib\jquery\jquery.slim.min.js" />
+    <Content Include="Content\old\lib\modernizr\modernizr.js" />
+    <Content Include="Content\old\lib\modernizr\modernizr.min.js" />
+    <Content Include="Content\old\lib\popper.js\esm\popper-utils.js" />
+    <Content Include="Content\old\lib\popper.js\esm\popper-utils.min.js" />
+    <Content Include="Content\old\lib\popper.js\esm\popper.js" />
+    <Content Include="Content\old\lib\popper.js\esm\popper.min.js" />
+    <Content Include="Content\old\lib\popper.js\popper-utils.js" />
+    <Content Include="Content\old\lib\popper.js\popper-utils.min.js" />
+    <Content Include="Content\old\lib\popper.js\popper.js" />
+    <Content Include="Content\old\lib\popper.js\popper.min.js" />
+    <Content Include="Content\old\lib\popper.js\umd\popper-utils.js" />
+    <Content Include="Content\old\lib\popper.js\umd\popper-utils.min.js" />
+    <Content Include="Content\old\lib\popper.js\umd\popper.js" />
+    <Content Include="Content\old\lib\popper.js\umd\popper.min.js" />
+    <Content Include="Content\old\lib\scrollify\jquery.scrollify.js" />
+    <Content Include="Content\old\lib\scrollify\jquery.scrollify.min.js" />
+    <Content Include="Content\old\lib\Swiper\css\swiper.css" />
+    <Content Include="Content\old\lib\Swiper\css\swiper.min.css" />
+    <Content Include="Content\old\lib\Swiper\js\swiper.js" />
+    <Content Include="Content\old\lib\Swiper\js\swiper.min.js" />
+    <Content Include="Content\old\Site.css" />
+    <Content Include="Content\old\videos\loop.ogv" />
+    <Content Include="Content\old\videos\loop1440.mp4" />
+    <Content Include="Content\old\videos\loop1440.webm" />
+    <Content Include="Content\old\videos\loop1600.ogg" />
+    <Content Include="Content\old\videos\loop1600.webm" />
+    <Content Include="Content\old\videos\loop2.mp4" />
+    <Content Include="Content\old\videos\loop480.mp4" />
+    <Content Include="Content\src\img\icon-arrow-down-dark.svg" />
+    <Content Include="Content\src\img\icon-arrow-down-light.svg" />
+    <Content Include="Content\src\img\icon-arrow-left-light.svg" />
+    <Content Include="Content\src\img\icon-arrow-up-dark.svg" />
+    <Content Include="Content\src\img\icon-facebook-dark.svg" />
+    <Content Include="Content\src\img\icon-facebook-light.svg" />
+    <Content Include="Content\src\img\icon-instagram-dark.svg" />
+    <Content Include="Content\src\img\icon-instagram-light.svg" />
+    <Content Include="Content\src\img\icon-search.svg" />
+    <Content Include="Content\src\img\icon-twitter-dark.svg" />
+    <Content Include="Content\src\img\icon-twitter-light.svg" />
+    <Content Include="Content\src\img\icon-youtube-dark.svg" />
+    <Content Include="Content\src\img\icon-youtube-light.svg" />
+    <Content Include="Content\src\img\login.jpg" />
+    <Content Include="Content\src\img\logo-dark.svg" />
+    <Content Include="Content\src\img\logo-dark1.svg" />
+    <Content Include="Content\src\img\logo-fep.png" />
+    <Content Include="Content\src\img\logo-light.svg" />
+    <Content Include="Content\src\img\logo-light1.svg" />
+    <Content Include="Content\src\img\logo-report.png" />
+    <Content Include="Content\src\img\logo.png" />
+    <Content Include="Content\src\img\Logo2.svg" />
+    <Content Include="Content\src\img\map-image.png" />
+    <Content Include="Content\src\img\slide1-1024.png" />
+    <Content Include="Content\src\img\slide2-1024.png" />
+    <Content Include="Content\src\img\slide3-1024.png" />
+    <Content Include="Content\src\img\slide4-1024.png" />
+    <Content Include="Content\src\img\thin-texture-title-black.svg" />
+    <Content Include="Content\src\img\thin-texture-title-gray.svg" />
+    <Content Include="Content\src\img\thin-texture-title-red.svg" />
+    <Content Include="Content\src\img\thin-texture-title-white.svg" />
+    <Content Include="Content\src\img\trama-dark.svg" />
+    <Content Include="Content\src\img\trama-gray.svg" />
+    <Content Include="Content\src\img\trama-light.svg" />
+    <Content Include="Content\src\img\Trama-white.svg" />
+    <Content Include="Content\src\img\views\mobile\afiliation.jpg" />
+    <Content Include="Content\src\img\views\mobile\afiliates-horses.jpg" />
+    <Content Include="Content\src\img\views\mobile\coaching.jpg" />
+    <Content Include="Content\src\img\views\mobile\events.jpg" />
+    <Content Include="Content\src\img\views\mobile\gallery.jpg" />
+    <Content Include="Content\src\img\views\mobile\history.jpg" />
+    <Content Include="Content\src\img\views\pc\afiliation.jpg" />
+    <Content Include="Content\src\img\views\pc\events.jpg" />
+    <Content Include="Content\src\img\views\pc\coaching.jpg" />
+    <Content Include="Content\src\img\views\pc\history.jpg" />
+    <Content Include="Content\src\img\views\pc\gallery.jpg" />
+    <Content Include="Content\src\img\views\pc\afiliates-horses.jpg" />
+    <Content Include="Content\src\js\components\navbar.js" />
+    <Content Include="Content\src\js\components\slider3djs.js" />
+    <Content Include="Content\src\js\pages\contests\ranking.js" />
+    <Content Include="Content\src\js\utils\helpers.js" />
+    <Content Include="Content\src\js\utils\selector.js" />
+    <Content Include="Content\src\vendors\cookieconsent\cookieconsent.min.css" />
+    <Content Include="Content\src\vendors\cookieconsent\cookieconsent.min.js" />
+    <Content Include="Content\src\vendors\flickity\flickity.css" />
+    <Content Include="Content\src\vendors\flickity\flickity.min.css" />
+    <Content Include="Content\src\vendors\flickity\flickity.pkgd.js" />
+    <Content Include="Content\src\vendors\flickity\flickity.pkgd.min.js" />
+    <Content Include="Content\src\vendors\fullPage.js\fullpage.css" />
+    <Content Include="Content\src\vendors\fullPage.js\fullpage.extensions.min.js" />
+    <Content Include="Content\src\vendors\fullPage.js\fullpage.js" />
+    <Content Include="Content\src\vendors\fullPage.js\fullpage.min.css" />
+    <Content Include="Content\src\vendors\fullPage.js\fullpage.min.js" />
+    <Content Include="Content\src\vendors\fullPage.js\vendors\easings.js" />
+    <Content Include="Content\src\vendors\fullPage.js\vendors\easings.min.js" />
+    <Content Include="Content\src\vendors\fullPage.js\vendors\scrolloverflow.js" />
+    <Content Include="Content\src\vendors\fullPage.js\vendors\scrolloverflow.min.js" />
+    <Content Include="Content\src\vendors\hamburgers\hamburgers.css" />
+    <Content Include="Content\src\vendors\hamburgers\hamburgers.min.css" />
+    <Content Include="Content\src\vendors\slim-select\css\slimselect.css" />
+    <Content Include="Content\src\vendors\slim-select\css\slimselect.min.css" />
+    <Content Include="Content\src\vendors\slim-select\js\slimselect.js" />
+    <Content Include="Content\src\vendors\slim-select\js\slimselect.min.js" />
+    <Content Include="Content\src\vendors\stackedCards\css\stackedCards.css" />
+    <Content Include="Content\src\vendors\stackedCards\js\stackedCards3.js" />
+    <Content Include="Content\src\vendors\swiper\css\swiper.css" />
+    <Content Include="Content\src\vendors\swiper\css\swiper.min.css" />
+    <Content Include="Content\src\vendors\swiper\js\swiper.js" />
+    <Content Include="Content\src\vendors\swiper\js\swiper.min.js" />
+    <Content Include="Content\src\vendors\tingle.js\tingle.css" />
+    <Content Include="Content\src\vendors\tingle.js\tingle.js" />
+    <Content Include="Content\src\vendors\tingle.js\tingle.min.css" />
+    <Content Include="Content\src\vendors\tingle.js\tingle.min.js" />
+    <Content Include="Content\src\video\loop\loop.ogv" />
+    <Content Include="Content\src\video\loop\loop1440.mp4" />
+    <Content Include="Content\src\video\loop\loop1440.webm" />
+    <Content Include="Content\src\video\loop\loop1600.ogg" />
+    <Content Include="Content\src\video\loop\loop1600.webm" />
+    <Content Include="Content\src\video\loop\loop2.mp4" />
+    <Content Include="Content\src\video\loop\loop480.mp4" />
+    <Content Include="Content\src\video\test\small.3gp" />
+    <Content Include="Content\src\video\test\small.mp4" />
+    <Content Include="Content\src\video\test\small.ogv" />
+    <Content Include="Content\src\video\test\small.webm" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Member\Views\web.config" />
+    <Content Include="Content\old\less\base.less" />
+    <Content Include="Content\old\less\discipline.less" />
+    <Content Include="Content\old\less\photo-gallery-slider.less" />
+    <Content Include="Content\old\less\rankings.less" />
+    <Content Include="Content\old\less\styles.less" />
+    <Content Include="Content\old\less\variables.less" />
+    <Content Include="gulpfile.js" />
+    <Content Include="libman.json" />
+    <Content Include="Content\old\lib\fullPage.js\fullpage.min.css.map" />
+    <Content Include="Content\old\lib\fullPage.js\fullpage.min.js.map" />
+    <Content Include="Content\old\lib\fullPage.js\vendors\easings.min.js.map" />
+    <Content Include="Content\old\lib\fullPage.js\vendors\scrolloverflow.min.js.map" />
+    <Content Include="Content\old\lib\Swiper\js\swiper.min.js.map" />
+    <Content Include="Content\old\lib\LICENSE" />
+    <Content Include="Content\old\lib\package.json" />
+    <Content Include="Content\old\lib\README.md" />
+    <Content Include="Content\old\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+    <Content Include="Content\old\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\old\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\old\lib\bootstrap\LICENSE" />
+    <Content Include="Content\old\lib\bootstrap\package.json" />
+    <Content Include="Content\old\lib\bootstrap\README.md" />
+    <Content Include="Content\old\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\old\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <Content Include="Content\old\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <Content Include="Content\old\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+    <Content Include="Content\old\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Content\old\lib\bootstrap\dist\js\bootstrap.js.map" />
+    <Content Include="Content\old\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+    <Content Include="Content\old\lib\bootstrap\js\dist\alert.js.map" />
+    <Content Include="Content\old\lib\bootstrap\js\dist\button.js.map" />
+    <Content Include="Content\old\lib\bootstrap\js\dist\carousel.js.map" />
+    <Content Include="Content\old\lib\bootstrap\js\dist\collapse.js.map" />
+    <Content Include="Content\old\lib\bootstrap\js\dist\dropdown.js.map" />
+    <Content Include="Content\old\lib\bootstrap\js\dist\index.js.map" />
+    <Content Include="Content\old\lib\bootstrap\js\dist\modal.js.map" />
+    <Content Include="Content\old\lib\bootstrap\js\dist\popover.js.map" />
+    <Content Include="Content\old\lib\bootstrap\js\dist\scrollspy.js.map" />
+    <Content Include="Content\old\lib\bootstrap\js\dist\tab.js.map" />
+    <Content Include="Content\old\lib\bootstrap\js\dist\toast.js.map" />
+    <Content Include="Content\old\lib\bootstrap\js\dist\tooltip.js.map" />
+    <Content Include="Content\old\lib\bootstrap\js\dist\util.js.map" />
+    <Content Include="Content\old\lib\bootstrap\scss\_alert.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_badge.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_breadcrumb.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_button-group.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_buttons.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_card.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_carousel.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_close.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_code.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_custom-forms.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_dropdown.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_forms.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_functions.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_grid.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_images.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_input-group.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_jumbotron.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_list-group.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_media.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_mixins.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_modal.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_nav.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_navbar.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_pagination.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_popover.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_print.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_progress.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_reboot.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\bootstrap-grid.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_root.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_spinners.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_tables.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_toasts.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_tooltip.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_transitions.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_type.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_utilities.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\_variables.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\bootstrap-reboot.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\bootstrap.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_alert.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_background-variant.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_badge.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_border-radius.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_box-shadow.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_breakpoints.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_buttons.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_caret.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_clearfix.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_float.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_forms.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_gradients.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_grid-framework.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_grid.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_hover.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_image.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_list-group.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_lists.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_nav-divider.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_pagination.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_reset-text.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_resize.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_screen-reader.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_size.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_table-row.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_text-emphasis.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_text-hide.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_text-truncate.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_transition.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\mixins\_visibility.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\utilities\_align.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\utilities\_background.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\utilities\_borders.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\utilities\_clearfix.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\utilities\_display.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\utilities\_embed.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\utilities\_flex.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\utilities\_float.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\utilities\_overflow.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\utilities\_position.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\utilities\_screenreaders.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\utilities\_shadows.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\utilities\_sizing.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\utilities\_spacing.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\utilities\_text.scss" />
+    <Content Include="Content\old\lib\bootstrap\scss\utilities\_visibility.scss" />
+    <Content Include="Content\old\lib\jquery\jquery.min.map" />
+    <Content Include="Content\old\lib\jquery\jquery.slim.min.map" />
+    <Content Include="Content\old\lib\popper.js\esm\popper-utils.js.map" />
+    <Content Include="Content\old\lib\popper.js\esm\popper-utils.min.js.map" />
+    <Content Include="Content\old\lib\popper.js\esm\popper.js.map" />
+    <Content Include="Content\old\lib\popper.js\esm\popper.min.js.map" />
+    <Content Include="Content\old\lib\popper.js\popper-utils.js.map" />
+    <Content Include="Content\old\lib\popper.js\popper-utils.min.js.map" />
+    <Content Include="Content\old\lib\popper.js\popper.js.map" />
+    <Content Include="Content\old\lib\popper.js\popper.min.js.map" />
+    <Content Include="Content\old\lib\popper.js\umd\popper-utils.js.map" />
+    <Content Include="Content\old\lib\popper.js\umd\popper-utils.min.js.map" />
+    <Content Include="Content\old\lib\popper.js\umd\popper.js.map" />
+    <Content Include="Content\old\lib\popper.js\umd\popper.min.js.map" />
+    <Content Include="Content\old\lib\scrollify\jquery.scrollify.min.js.map" />
+    <Content Include="Content\old\img\header.webp" />
+    <Content Include="Content\old\img\header_1024w.webp" />
+    <Content Include="Content\old\img\header_1480w.webp" />
+    <Content Include="Content\old\img\header_2480w.webp" />
+    <Content Include="Content\old\img\header_3480w.webp" />
+    <Content Include="Content\old\img\header_4480w.webp" />
+    <Content Include="Content\old\img\header_512w.webp" />
+    <Content Include="Content\old\img\rank1-1024.webp" />
+    <Content Include="Content\old\img\rank1-512.webp" />
+    <Content Include="Content\old\img\rank2-1024.webp" />
+    <Content Include="Content\old\img\rank2-512.webp" />
+    <Content Include="Content\old\img\rank3-1024.webp" />
+    <Content Include="Content\old\img\rank3-512.webp" />
+    <Content Include="Content\old\img\slide1-1024.webp" />
+    <Content Include="Content\old\img\slide1-2048.webp" />
+    <Content Include="Content\old\img\slide1-512.webp" />
+    <Content Include="Content\old\img\slide2-1024.webp" />
+    <Content Include="Content\old\img\slide2-2048.webp" />
+    <Content Include="Content\old\img\slide2-512.webp" />
+    <Content Include="Content\old\img\slide3-1024.webp" />
+    <Content Include="Content\old\img\slide3-2048.webp" />
+    <Content Include="Content\old\img\slide3-512.webp" />
+    <Content Include="Content\old\img\slide4-1024.webp" />
+    <Content Include="Content\old\img\slide4-2048.webp" />
+    <Content Include="Content\old\img\slide4-512.webp" />
+    <Content Include="Content\src\scss\abstracts\mixins\_alignment.scss" />
+    <Content Include="Content\src\scss\abstracts\mixins\_animations.scss" />
+    <Content Include="Content\src\scss\abstracts\mixins\_borderradius.scss" />
+    <Content Include="Content\src\scss\abstracts\mixins\_cssgrid.scss" />
+    <Content Include="Content\src\scss\abstracts\mixins\_flexbox.scss" />
+    <Content Include="Content\src\scss\abstracts\mixins\_general.scss" />
+    <Content Include="Content\src\scss\abstracts\mixins\_gradients.scss" />
+    <Content Include="Content\src\scss\abstracts\mixins\_hacks.scss" />
+    <Content Include="Content\src\scss\abstracts\mixins\_icons.scss" />
+    <Content Include="Content\src\scss\abstracts\mixins\_mq.scss" />
+    <Content Include="Content\src\scss\abstracts\variables\_breakpoints.scss" />
+    <Content Include="Content\src\scss\abstracts\variables\_colors.scss" />
+    <Content Include="Content\src\scss\abstracts\variables\_fonts.scss" />
+    <Content Include="Content\src\scss\abstracts\variables\_general.scss" />
+    <Content Include="Content\src\scss\abstracts\_functions.scss" />
+    <Content Include="Content\src\scss\abstracts\_mixins.scss" />
+    <Content Include="Content\src\scss\abstracts\_variables.scss" />
+    <Content Include="Content\src\scss\base\_animations.scss" />
+    <Content Include="Content\src\scss\base\_colors.scss" />
+    <Content Include="Content\src\scss\base\_include.scss" />
+    <Content Include="Content\src\scss\base\_normalize.scss" />
+    <Content Include="Content\src\scss\base\_reset.scss" />
+    <Content Include="Content\src\scss\base\_typography.scss" />
+    <Content Include="Content\src\scss\components\base\buttons\_buttons.scss" />
+    <Content Include="Content\src\scss\components\base\menu\_menu.scss" />
+    <Content Include="Content\src\scss\components\base\navbar\_navbar.scss" />
+    <Content Include="Content\src\scss\components\base\tables\_tables.scss" />
+    <Content Include="Content\src\scss\layout\_container.scss" />
+    <Content Include="Content\src\scss\layout\_footer.scss" />
+    <Content Include="Content\src\scss\layout\_header.scss" />
+    <Content Include="Content\src\scss\layout\_section.scss" />
+    <Content Include="Content\src\scss\layout\_variables.scss" />
+    <Content Include="Content\src\scss\main.scss" />
+    <Content Include="Content\src\scss\pages\home\home.scss" />
+    <Content Include="Content\src\scss\vendors\fullpage\extend\_slide.scss" />
+    <Content Include="Content\src\vendors\fullPage.js\fullpage.min.css.map" />
+    <Content Include="Content\src\vendors\fullPage.js\fullpage.min.js.map" />
+    <Content Include="Content\src\vendors\fullPage.js\vendors\easings.min.js.map" />
+    <Content Include="Content\src\vendors\fullPage.js\vendors\scrolloverflow.min.js.map" />
+    <Content Include="Content\src\vendors\swiper\js\swiper.min.js.map" />
+    <Content Include="Content\src\video\test\small.flv" />
+    <Content Include="Content\src\scss\pages\home\test.scss" />
+    <Content Include="package.json" />
+    <Content Include="Content\src\scss\components\base\cards\_ranking.scss" />
+    <Content Include="Content\src\scss\components\base\cards\_event.scss" />
+    <Content Include="Content\src\scss\pages\contests\ranking.scss" />
+    <Content Include="Content\src\scss\pages\news\list.scss" />
+    <Content Include="Content\src\scss\vendors\flickity\extend\_slider.scss" />
+    <Content Include="Content\src\scss\pages\contests\fei.scss" />
+    <Content Include="Content\src\scss\components\base\selects\_selects.scss" />
+    <Content Include="Content\src\scss\components\base\inputs\_inputs.scss" />
+    <Content Include="Content\src\scss\pages\news\details.scss" />
+    <Content Include="Content\src\scss\pages\disciplines\_details.scss" />
+    <Content Include="Content\src\scss\pages\about-us\mision-vision.scss" />
+    <Content Include="Content\src\scss\pages\about-us\organization.scss" />
+    <Content Include="Content\src\scss\pages\about-us\history.scss" />
+    <Content Include="Content\src\scss\abstracts\mixins\_text.scss" />
+    <Content Include="Content\src\scss\pages\contac\contact.scss" />
+    <Content Include="Content\src\scss\pages\affiliates\detail.scss" />
+    <Content Include="Content\src\scss\pages\affiliates\jockey.scss" />
+    <Content Include="Content\src\scss\pages\finta.scss" />
+    <Content Include="Content\src\scss\pages\news\jinetesMundo.scss" />
+    <Content Include="Content\src\scss\components\custom\home\_3dslider.scss" />
+    <Content Include="Content\src\scss\pages\events\list.scss" />
+    <Content Include="Content\src\scss\pages\contact\contact.scss" />
+    <Content Include="Content\lib\fullPage.js\fullpage.min.css.map" />
+    <Content Include="Content\lib\fullPage.js\fullpage.min.js.map" />
+    <Content Include="Content\lib\fullPage.js\vendors\easings.min.js.map" />
+    <Content Include="Content\lib\fullPage.js\vendors\scrolloverflow.min.js.map" />
+    <Content Include="Content\lib\Swiper\js\swiper.min.js.map" />
+    <Content Include="Content\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+    <Content Include="Content\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\lib\bootstrap\LICENSE" />
+    <Content Include="Content\lib\bootstrap\package.json" />
+    <Content Include="Content\lib\bootstrap\README.md" />
+    <Content Include="Content\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <Content Include="Content\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <Content Include="Content\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+    <Content Include="Content\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Content\lib\bootstrap\dist\js\bootstrap.js.map" />
+    <Content Include="Content\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+    <Content Include="Content\lib\bootstrap\js\dist\alert.js.map" />
+    <Content Include="Content\lib\bootstrap\js\dist\button.js.map" />
+    <Content Include="Content\lib\bootstrap\js\dist\carousel.js.map" />
+    <Content Include="Content\lib\bootstrap\js\dist\collapse.js.map" />
+    <Content Include="Content\lib\bootstrap\js\dist\dropdown.js.map" />
+    <Content Include="Content\lib\bootstrap\js\dist\index.js.map" />
+    <Content Include="Content\lib\bootstrap\js\dist\modal.js.map" />
+    <Content Include="Content\lib\bootstrap\js\dist\popover.js.map" />
+    <Content Include="Content\lib\bootstrap\js\dist\scrollspy.js.map" />
+    <Content Include="Content\lib\bootstrap\js\dist\tab.js.map" />
+    <Content Include="Content\lib\bootstrap\js\dist\toast.js.map" />
+    <Content Include="Content\lib\bootstrap\js\dist\tooltip.js.map" />
+    <Content Include="Content\lib\bootstrap\js\dist\util.js.map" />
+    <Content Include="Content\lib\bootstrap\scss\_alert.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_badge.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_breadcrumb.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_button-group.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_buttons.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_card.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_carousel.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_close.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_code.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_custom-forms.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_dropdown.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_forms.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_functions.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_grid.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_images.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_input-group.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_jumbotron.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_list-group.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_media.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_mixins.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_modal.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_nav.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_navbar.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_pagination.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_popover.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_print.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_progress.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_reboot.scss" />
+    <Content Include="Content\lib\bootstrap\scss\bootstrap-grid.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_root.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_spinners.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_tables.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_toasts.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_tooltip.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_transitions.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_type.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_utilities.scss" />
+    <Content Include="Content\lib\bootstrap\scss\_variables.scss" />
+    <Content Include="Content\lib\bootstrap\scss\bootstrap-reboot.scss" />
+    <Content Include="Content\lib\bootstrap\scss\bootstrap.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_alert.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_background-variant.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_badge.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_border-radius.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_box-shadow.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_breakpoints.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_buttons.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_caret.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_clearfix.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_float.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_forms.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_gradients.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_grid-framework.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_grid.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_hover.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_image.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_list-group.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_lists.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_nav-divider.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_pagination.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_reset-text.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_resize.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_screen-reader.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_size.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_table-row.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_text-emphasis.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_text-hide.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_text-truncate.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_transition.scss" />
+    <Content Include="Content\lib\bootstrap\scss\mixins\_visibility.scss" />
+    <Content Include="Content\lib\bootstrap\scss\utilities\_align.scss" />
+    <Content Include="Content\lib\bootstrap\scss\utilities\_background.scss" />
+    <Content Include="Content\lib\bootstrap\scss\utilities\_borders.scss" />
+    <Content Include="Content\lib\bootstrap\scss\utilities\_clearfix.scss" />
+    <Content Include="Content\lib\bootstrap\scss\utilities\_display.scss" />
+    <Content Include="Content\lib\bootstrap\scss\utilities\_embed.scss" />
+    <Content Include="Content\lib\bootstrap\scss\utilities\_flex.scss" />
+    <Content Include="Content\lib\bootstrap\scss\utilities\_float.scss" />
+    <Content Include="Content\lib\bootstrap\scss\utilities\_overflow.scss" />
+    <Content Include="Content\lib\bootstrap\scss\utilities\_position.scss" />
+    <Content Include="Content\lib\bootstrap\scss\utilities\_screenreaders.scss" />
+    <Content Include="Content\lib\bootstrap\scss\utilities\_shadows.scss" />
+    <Content Include="Content\lib\bootstrap\scss\utilities\_sizing.scss" />
+    <Content Include="Content\lib\bootstrap\scss\utilities\_spacing.scss" />
+    <Content Include="Content\lib\bootstrap\scss\utilities\_text.scss" />
+    <Content Include="Content\lib\bootstrap\scss\utilities\_visibility.scss" />
+    <Content Include="Content\lib\jquery\jquery.min.map" />
+    <Content Include="Content\lib\jquery\jquery.slim.min.map" />
+    <Content Include="Content\lib\popper.js\esm\popper-utils.js.map" />
+    <Content Include="Content\lib\popper.js\esm\popper-utils.min.js.map" />
+    <Content Include="Content\lib\popper.js\esm\popper.js.map" />
+    <Content Include="Content\lib\popper.js\esm\popper.min.js.map" />
+    <Content Include="Content\lib\popper.js\popper-utils.js.map" />
+    <Content Include="Content\lib\popper.js\popper-utils.min.js.map" />
+    <Content Include="Content\lib\popper.js\popper.js.map" />
+    <Content Include="Content\lib\popper.js\popper.min.js.map" />
+    <Content Include="Content\lib\popper.js\umd\popper-utils.js.map" />
+    <Content Include="Content\lib\popper.js\umd\popper-utils.min.js.map" />
+    <Content Include="Content\lib\popper.js\umd\popper.js.map" />
+    <Content Include="Content\lib\popper.js\umd\popper.min.js.map" />
+    <Content Include="Content\lib\scrollify\jquery.scrollify.min.js.map" />
+    <Content Include="Content\src\scss\pages\disciplines\trainig.scss" />
+    <Content Include="Content\src\scss\components\custom\modal\_event-modal.scss" />
+    <Content Include="Content\src\scss\components\custom\modal\_modal.scss" />
+    <Content Include="Content\src\scss\components\custom\wizard-form\_wizard-form.scss" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Nosotros\MisionVision.cshtml" />
+    <Content Include="Views\Nosotros\Organizacion.cshtml" />
+    <Content Include="Views\Nosotros\Historia.cshtml" />
+    <Content Include="Views\Disciplinas\Salto.cshtml" />
+    <Content Include="Views\Disciplinas\Adiestramiento.cshtml" />
+    <Content Include="Views\Disciplinas\Enduro.cshtml" />
+    <Content Include="Views\Disciplinas\PruebaCompleta.cshtml" />
+    <Content Include="Views\Noticias\Listado.cshtml" />
+    <Content Include="Views\Noticias\Detalle.cshtml" />
+    <Content Include="Views\Noticias\JinetesMundo.cshtml" />
+    <Content Include="Views\Concursos\Resultados.cshtml" />
+    <Content Include="Views\Concursos\Rankings.cshtml" />
+    <Content Include="Views\Concursos\FEI.cshtml" />
+    <Content Include="Views\Eventos\Listado.cshtml" />
+    <Content Include="Views\Eventos\Detalle.cshtml" />
+    <Content Include="Views\Galeria\Listado.cshtml" />
+    <Content Include="Views\Galeria\Detalle.cshtml" />
+    <Content Include="Views\Afiliados\ListadoClubes.cshtml" />
+    <Content Include="Views\Afiliados\DetalleClub.cshtml" />
+    <Content Include="Views\Afiliados\ListadoJinetes.cshtml" />
+    <Content Include="Views\Afiliados\ListadoCoaches.cshtml" />
+    <Content Include="Views\Afiliados\LIDEA.cshtml" />
+    <Content Include="Views\Afiliados\Afiliacion.cshtml" />
+    <Content Include="Views\Contacto\Contacto.cshtml" />
+    <Content Include="Views\Contacto\Agradecimiento.cshtml" />
+    <Content Include="Views\TerminosCondiciones\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
+    <Content Include="Views\Shared\_Layout-impl.cshtml" />
+    <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\Shared\Partials\TopBarMenu\_TopBarMenu.cshtml" />
+    <Content Include="Views\Home\Layout.cshtml" />
+    <Content Include="Views\Shared\_LayoutBackground.cshtml" />
+    <Content Include="Views\Shared\_LayoutHome.cshtml" />
+    <Content Include="Views\Shared\Partials\Footer\Old\_Footer.cshtml" />
+    <Content Include="Views\Shared\Partials\TopBarMenu\Old\_TopBarMenu.cshtml" />
+    <Content Include="Views\Shared\Partials\BackgroundImage\_BackgroundHeader.cshtml" />
+    <Content Include="Views\Shared\Partials\Footer\_Footer.cshtml" />
+    <Content Include="Views\Shared\_LayoutFinta.cshtml" />
+    <Content Include="Views\Afiliados\ListadoCaballos.cshtml" />
+    <Content Include="Views\Afiliados\RegistrarAfiliacion.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Member\Controllers\" />
+    <Folder Include="Areas\Member\Models\" />
+    <Folder Include="Areas\Member\Views\Shared\" />
+    <Folder Include="Content\dist\fonts\" />
+    <Folder Include="Content\dist\img\" />
+    <Folder Include="Content\dist\js\" />
+    <Folder Include="Content\dist\video\" />
+    <Folder Include="Content\js\areas\content\" />
+    <Folder Include="Content\src\fonts\" />
+    <Folder Include="Content\src\js\pages\events\" />
+    <Folder Include="Content\src\js\vendors\" />
+    <Folder Include="Content\src\scss\components\base\accordion\" />
+    <Folder Include="Content\src\scss\components\base\badges\" />
+    <Folder Include="Content\src\scss\components\custom\gallery\" />
+    <Folder Include="Content\src\scss\components\custom\news\" />
+    <Folder Include="Content\src\scss\themes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\src\scss\pages\terms\terms.scss" />
+    <Content Include="Content\src\scss\pages\gallery\list.scss" />
+    <Content Include="Content\src\scss\pages\contests\resultados.scss" />
+    <Content Include="Content\src\scss\pages\galery\list.scss" />
+    <Content Include="Content\src\scss\pages\news\jinetesDetalle.scss" />
+    <Content Include="Content\src\scss\pages\affiliates\afiliados.scss" />
+    <Content Include="Content\src\scss\pages\affiliates\lidea.scss" />
+    <Content Include="Content\src\scss\pages\affiliates\listadoCoaches.scss" />
+    <Content Include="Content\src\scss\pages\affiliates\listClubes.scss" />
+    <Content Include="Content\src\scss\pages\affiliates\new-afiliation.scss" />
+    <Content Include="Content\src\scss\components\base\forms\_forms.scss" />
+    <Content Include="Content\src\scss\pages\about-us\pautas.scss" />
+    <Content Include="Content\src\scss\pages\about-us\oficiales.scss" />
+    <Content Include="Content\src\scss\pages\error.scss" />
+    <Content Include="Content\src\scss\components\custom\modal\_ranking-modal.scss" />
+    <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\fdnep - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\fdnep - Web Deploy.pubxml" />
+    <Content Include="Views\Afiliados\Agradecimiento.cshtml" />
+    <Content Include="Views\Nosotros\PautasTemporada.cshtml" />
+    <Content Include="Views\Nosotros\Oficiales.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Views\Disciplinas\Discipline.cshtml" />
+    <Content Include="Views\Eventos\_PartialEvents.cshtml" />
+    <Content Include="Views\Shared\InternalServerError.cshtml" />
+    <Content Include="Views\Shared\PageNotFound.cshtml" />
+    <Content Include="Views\Noticias\JineteDetalle.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FDNE.PE.CORE\FDNE.PE.CORE.csproj">
+      <Project>{b378c727-5377-403a-b38e-ac52d6a2a91d}</Project>
+      <Name>FDNE.PE.CORE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FDNE.PE.DATA\FDNE.PE.DATA.csproj">
+      <Project>{b8f12add-4bde-418a-8a7c-773b77252cea}</Project>
+      <Name>FDNE.PE.DATA</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51684</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51684/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

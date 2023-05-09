@@ -1,0 +1,11 @@
+body {
+  background-color: #4cff00; }
+
+.header {
+  background-color: #c38121; }
+  .header-title {
+    text-align: center;
+    font-size: 4rem; }
+  .header-sub-title {
+    text-align: center;
+    font-size: 2rem; }
